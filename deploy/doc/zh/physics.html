@@ -1,0 +1,777 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>物理 &mdash; Blend4Web 17.10 用户手册</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="关于这些文档"
+              href="about.html"/>
+    <link rel="top" title="Blend4Web 17.10 用户手册" href="index.html"/>
+        <link rel="next" title="对应用程序开发人员" href="developers.html"/>
+        <link rel="prev" title="音频" href="audio.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Blend4Web. 用户手册
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">引擎功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Blender的用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">安装和更新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">工作流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">项目管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">场景预览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">网络播放器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">场景设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">物体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">网格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">法线编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">材质库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">节点材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">逻辑编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">照明、 阴影和背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">后期处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">纹理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">粒子系统,流体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">粒子系统.实例化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">室外效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">色彩管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">音频</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">物理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-for-use">使用准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#static-physics-type">静态物理类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-physics-type">动态物理类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints">约束</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wheeled-vehicles">轮式的车辆</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chassis-settings">底盘设置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#floating-objects">浮动物体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#floating-object-settings">浮动物体设置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#floating-vehicles-aka-watercrafts">浮动交通工具或叫船舶</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#watercraft-settings">船舶设置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#characters">角色</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#character-settings">角色设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-character">基本角色</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controlling-characters-with-api">使用API​​控制角色</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#character-states">角色状态</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action-binding">动作绑定</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#navigation-meshes">导航网格</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-navigation-meshes">创建导航网格</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-navigation-meshes">使用导航网格</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#use-in-applications">在应用程序中的使用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">对应用程序开发人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">对于引擎开发者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">团队工作。使用 Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">存在的问题及解决方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">发布说明</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blend4Web. 用户手册</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>物理</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="physics">
+<span id="id1"></span><h1><a class="toc-backref" href="#id5">物理</a><a class="headerlink" href="#physics" title="永久链接至标题">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#physics" id="id5">物理</a><ul>
+<li><a class="reference internal" href="#preparing-for-use" id="id6">使用准备</a></li>
+<li><a class="reference internal" href="#static-physics-type" id="id7">静态物理类型</a></li>
+<li><a class="reference internal" href="#dynamic-physics-type" id="id8">动态物理类型</a></li>
+<li><a class="reference internal" href="#constraints" id="id9">约束</a></li>
+<li><a class="reference internal" href="#wheeled-vehicles" id="id10">轮式的车辆</a><ul>
+<li><a class="reference internal" href="#chassis-settings" id="id11">底盘设置</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#floating-objects" id="id12">浮动物体</a><ul>
+<li><a class="reference internal" href="#floating-object-settings" id="id13">浮动物体设置</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#floating-vehicles-aka-watercrafts" id="id14">浮动交通工具或叫船舶</a><ul>
+<li><a class="reference internal" href="#watercraft-settings" id="id15">船舶设置</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#characters" id="id16">角色</a><ul>
+<li><a class="reference internal" href="#character-settings" id="id17">角色设置</a></li>
+<li><a class="reference internal" href="#basic-character" id="id18">基本角色</a></li>
+<li><a class="reference internal" href="#controlling-characters-with-api" id="id19">使用API​​控制角色</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navigation-meshes" id="id20">导航网格</a><ul>
+<li><a class="reference internal" href="#creating-navigation-meshes" id="id21">创建导航网格</a></li>
+<li><a class="reference internal" href="#using-navigation-meshes" id="id22">使用导航网格</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#use-in-applications" id="id23">在应用程序中的使用</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="preparing-for-use">
+<h2><a class="toc-backref" href="#id6">使用准备</a><a class="headerlink" href="#preparing-for-use" title="永久链接至标题">¶</a></h2>
+<p>为了在场景中启用物理，请使用在Blender场景选项卡下 <code class="docutils literal"><span class="pre">Physics</span></code> 面板的 <code class="docutils literal"><span class="pre">Enable</span> <span class="pre">Physics</span></code> 复选框。</p>
+<a class="reference internal image-reference" href="_images/scene_interface_phys_enable.png"><img alt="_images/scene_interface_phys_enable.png" class="align-center" src="_images/scene_interface_phys_enable.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="static-physics-type">
+<span id="static-physics"></span><h2><a class="toc-backref" href="#id7">静态物理类型</a><a class="headerlink" href="#static-physics-type" title="永久链接至标题">¶</a></h2>
+<p>可以用来限制其他物体的运动，例如与地形、墙壁碰撞等。在物理学中的此类物体的 <code class="docutils literal"><span class="pre">Static</span></code> 值 （默认设置） 设置应选择  <code class="docutils literal"><span class="pre">Physics</span> <span class="pre">Type</span></code> 选项。</p>
+<a class="reference internal image-reference" href="_images/physics_panel_static.png"><img alt="_images/physics_panel_static.png" class="align-center" src="_images/physics_panel_static.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>一个网格可以分配到一个或多个物理材质。根据  <code class="docutils literal"><span class="pre">Material</span></code> 面板的 <code class="docutils literal"><span class="pre">Special:</span> <span class="pre">Collision</span></code> 选项卡必须被激活。</p>
+<a class="reference internal image-reference" href="_images/material_panel_physics.png"><img alt="_images/material_panel_physics.png" class="align-center" src="_images/material_panel_physics.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Ghost</span></code> 选项排除物理相互作用的材质，但仍将通知应用它的接触。示例 - 检测角色坐在垂直梯子上。</p>
+<a class="reference internal image-reference" href="_images/water_tower.png"><img alt="_images/water_tower.png" class="align-center" src="_images/water_tower.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Collision</span> <span class="pre">ID</span></code> 的字段用于检测与指定的材质碰撞，可以留空。 <code class="docutils literal"><span class="pre">Collision</span> <span class="pre">ID</span></code>  用法的一个示例，检测地形表面的角色位于-草，沙子，木制涂层等等。</p>
+<p><code class="docutils literal"><span class="pre">Margin</span></code> 字段允许自定义在哪里网格的碰撞区域的宽度。此选项提高了物理碰撞模拟稳定性。</p>
+<p>还有，在此面板中有一些材质物理设置。支持以下设置:  <code class="docutils literal"><span class="pre">Friction</span></code>, <code class="docutils literal"><span class="pre">Elasticity</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">Collision</span> <span class="pre">Group</span></code> 字段对应于材质属于的物理组。<code class="docutils literal"><span class="pre">Collision</span> <span class="pre">Mask</span></code> 字段定义这种材质将与之交互的所有物理组。</p>
+</div>
+<div class="section" id="dynamic-physics-type">
+<span id="dynamic-physics"></span><h2><a class="toc-backref" href="#id8">动态物理类型</a><a class="headerlink" href="#dynamic-physics-type" title="永久链接至标题">¶</a></h2>
+<p>专为刚体运动仿真。</p>
+<a class="reference internal image-reference" href="_images/physics_dynamic.png"><img alt="_images/physics_dynamic.png" class="align-center" src="_images/physics_dynamic.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Object</span> <span class="pre">Physics</span></code> 复选框必须在物体 <code class="docutils literal"><span class="pre">Physics</span></code> 面板下启用。<code class="docutils literal"><span class="pre">Collision</span> <span class="pre">ID</span></code> 字段用于检测与特定的物体的碰撞 （例如，用于检测FPS 角色和不同项目接近程度），可以留空。</p>
+<p>在这样一个物体的 <code class="docutils literal"><span class="pre">刚体</span></code> （旋转）或 <code class="docutils literal"><span class="pre">Dynamic</span></code> （不旋转）的值的物理设置可以在  <code class="docutils literal"><span class="pre">Physics</span> <span class="pre">Type</span></code> 选项选择。在  <code class="docutils literal"><span class="pre">Collision</span> <span class="pre">Bounds</span></code>  设置碰撞体类型可以选择 - 支持的类型有：<code class="docutils literal"><span class="pre">Box</span></code>，<code class="docutils literal"><span class="pre">Capsule</span></code>，<code class="docutils literal"><span class="pre">Sphere</span></code>，<code class="docutils literal"><span class="pre">Cylinder</span></code>，<code class="docutils literal"><span class="pre">Cone</span></code> 。同时，下面的物理参数可以设置：<code class="docutils literal"><span class="pre">Mass</span></code>，<code class="docutils literal"><span class="pre">Damping</span></code>  - 为 <code class="docutils literal"><span class="pre">Translation</span></code> 和 <code class="docutils literal"><span class="pre">Rotation</span></code>。</p>
+<p><code class="docutils literal"><span class="pre">Collision</span> <span class="pre">Group</span></code> 字段对应于物体所属的物理组。</p>
+<p><code class="docutils literal"><span class="pre">Collision</span> <span class="pre">Mask</span></code> 字段定义此物体将与之交互的所有物理组。</p>
+<a class="reference internal image-reference" href="_images/physics_panel_dynamic.png"><img alt="_images/physics_panel_dynamic.png" class="align-center" src="_images/physics_panel_dynamic.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>这类物体的材质支持 <code class="docutils literal"><span class="pre">Friction</span></code> 和 <code class="docutils literal"><span class="pre">Elasticity</span></code> 。当多个材质广泛应用于一个单独的网格时，物理参数取自其中的第一项。</p>
+<p>因为相机物体 <code class="docutils literal"><span class="pre">Physics</span> <span class="pre">Type</span></code> = <code class="docutils literal"><span class="pre">Dynamic</span></code> 参数必须使用，并且必须启用 <code class="docutils literal"><span class="pre">Object</span> <span class="pre">Physics</span></code> 复选框。</p>
+</div>
+<div class="section" id="constraints">
+<span id="physics-constraints"></span><h2><a class="toc-backref" href="#id9">约束</a><a class="headerlink" href="#constraints" title="永久链接至标题">¶</a></h2>
+<p>物理约束用来限制物体的自由度。</p>
+<a class="reference internal image-reference" href="_images/physics_constraints.png"><img alt="_images/physics_constraints.png" class="align-center" src="_images/physics_constraints.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>向物体添加物理约束 (<code class="docutils literal"><span class="pre">Rigid</span> <span class="pre">Body</span> <span class="pre">Joint</span></code>) 可以在 <code class="docutils literal"><span class="pre">Object</span> <span class="pre">Constraints</span></code> 面板上执行 。受支持的类型 (<code class="docutils literal"><span class="pre">Pivot</span> <span class="pre">Type</span></code>) 是: <code class="docutils literal"><span class="pre">Ball</span></code>, <code class="docutils literal"><span class="pre">Hinge</span></code>, <code class="docutils literal"><span class="pre">Cone</span> <span class="pre">Twist</span></code>, <code class="docutils literal"><span class="pre">Generic</span> <span class="pre">6</span> <span class="pre">DoF</span></code>. 物理约束可以添加到两个相互作用的物体之一，而另一个物体作为 <code class="docutils literal"><span class="pre">Target</span></code> 。这两个物体可以有静态和/或动态的物理类型。在约束 （除外 <code class="docutils literal"><span class="pre">Ball</span></code>) ，可以设置的平移和旋转的限制。</p>
+<a class="reference internal image-reference" href="_images/physics_constraints_panel.png"><img alt="_images/physics_constraints_panel.png" class="align-center" src="_images/physics_constraints_panel.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="wheeled-vehicles">
+<span id="id2"></span><h2><a class="toc-backref" href="#id10">轮式的车辆</a><a class="headerlink" href="#wheeled-vehicles" title="永久链接至标题">¶</a></h2>
+<p>车辆的模型必须包含 6 单独的物体 - 机箱、 4 个轮子和一个方向盘。机箱的网格中心应该对应于质量的中心。车轮对和方向盘的中心网格应位于旋转轴。方向盘应该面向在本地空间的坐标 -X-旋转轴，Y-向右和 Z-向上。该物体可以具有任何名称。</p>
+<a class="reference internal image-reference" href="_images/physics_vehicle_wheeled.png"><img alt="_images/physics_vehicle_wheeled.png" class="align-center" src="_images/physics_vehicle_wheeled.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>所有的6个物体 ︰ 选择  <code class="docutils literal"><span class="pre">Part</span></code>，在 <code class="docutils literal"><span class="pre">Vehicle</span> <span class="pre">Name</span></code> 字段中指定相同的 id，选择正确的物体类型- <code class="docutils literal"><span class="pre">Chassis</span></code>, <code class="docutils literal"><span class="pre">Steering</span> <span class="pre">Wheel</span></code>, <code class="docutils literal"><span class="pre">Back</span> <span class="pre">Right</span> <span class="pre">Wheel</span></code> 等等。 <code class="docutils literal"><span class="pre">Suspension</span> <span class="pre">Rest</span> <span class="pre">Length</span></code> 设置对车轮可用。</p>
+<p>有必要指定机箱的真实质量 （因为默认值是仅 1 公斤）。做这件事先到物理设置，选择物理类型 <code class="docutils literal"><span class="pre">Rigid</span> <span class="pre">Body</span></code> 的 <code class="docutils literal"><span class="pre">Physics</span> <span class="pre">Type</span></code> 选项并指定  <code class="docutils literal"><span class="pre">Mass</span></code>  所需的值 （例如，1000 公斤） 字段。</p>
+<div class="section" id="chassis-settings">
+<h3><a class="toc-backref" href="#id11">底盘设置</a><a class="headerlink" href="#chassis-settings" title="永久链接至标题">¶</a></h3>
+<dl class="docutils">
+<dt><em>Force Max</em></dt>
+<dd><p class="first last">车辆最大驱动力。</p>
+</dd>
+<dt><em>Brake Max</em></dt>
+<dd><p class="first last">最大制动系数。</p>
+</dd>
+<dt><em>Suspension Compression</em></dt>
+<dd><p class="first last">阻尼系数为悬浮舒展。</p>
+</dd>
+<dt><em>Suspension Stiffness</em></dt>
+<dd><p class="first last">悬架刚度系数。</p>
+</dd>
+<dt><em>Suspension Damping</em></dt>
+<dd><p class="first last">悬架阻尼系数。</p>
+</dd>
+<dt><em>Wheel Friction</em></dt>
+<dd><p class="first last">车轮和表面之间的摩擦系数。现实车辆它应该是 0.8 左右。但是，显著提高它能够实现更好的控制 （1000 和更多）。</p>
+</dd>
+<dt><em>Roll Influence</em></dt>
+<dd><p class="first last">减少车轮的扭矩降低车辆倾覆概率 (0-无力矩、 1-真正的物理行为)。</p>
+</dd>
+<dt><em>Max Suspension Travel Cm</em></dt>
+<dd><p class="first last">以厘米为单位的最大悬挂行程。</p>
+</dd>
+</dl>
+<p>对 <code class="docutils literal"><span class="pre">Steering</span> <span class="pre">Wheel</span></code> 必须指定的是方向盘的最大角度 (<code class="docutils literal"><span class="pre">Steering</span> <span class="pre">Max</span></code>) 以及方向盘和轮胎转动之间的比值 (<code class="docutils literal"><span class="pre">Steering</span> <span class="pre">Ratio</span></code>). 最大方向盘转角设置值为圈。一圈等于360度。因此，如果 <code class="docutils literal"><span class="pre">Steering</span> <span class="pre">Max</span></code> 等于一以及 <code class="docutils literal"><span class="pre">Steering</span> <span class="pre">Ratio</span></code> 等于10的话，方向盘转360度前轮转36度。</p>
+<p>在这个时候你可以导出并加载场景到引擎。我们建议您创建一个物理材质的路面。要在查看器中选择控制的物体按 <code class="docutils literal"><span class="pre">Q</span></code>  并选择机箱。使用 <code class="docutils literal"><span class="pre">W</span></code>, <code class="docutils literal"><span class="pre">A</span></code>, <code class="docutils literal"><span class="pre">S</span></code>, <code class="docutils literal"><span class="pre">D</span></code> 用作控件。</p>
+<p>此外，我们可以调整 <code class="docutils literal"><span class="pre">Damping</span></code> of <code class="docutils literal"><span class="pre">Translation</span></code> and <code class="docutils literal"><span class="pre">Rotation</span></code> 。这将影响汽车惯性与速度。</p>
+<p>道路路面材质的摩擦和弹性不会影响车辆的行为。</p>
+</div>
+</div>
+<div class="section" id="floating-objects">
+<span id="id3"></span><h2><a class="toc-backref" href="#id12">浮动物体</a><a class="headerlink" href="#floating-objects" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="_images/physics_floater.png"><img alt="_images/physics_floater.png" class="align-center" src="_images/physics_floater.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>为了使要浮在水面上 （用 <code class="docutils literal"><span class="pre">Water</span></code> 材质物体） 的物体，就必须使 <code class="docutils literal"><span class="pre">Floater</span></code> 面板启用。有两种类型的浮动物体:  <code class="docutils literal"><span class="pre">Main</span> <span class="pre">Body</span></code> - 动物体本身和  <code class="docutils literal"><span class="pre">Bob</span></code> - 辅助bob-物体让漂浮执行。浮动物体可以有无限的多个 <code class="docutils literal"><span class="pre">Bob</span></code> 物体。可以是网格或 <code class="docutils literal"><span class="pre">Empty</span></code> 物体。</p>
+<p>相同的浮动物体包含的一部分的所有物体必须 <code class="docutils literal"><span class="pre">Floater</span> <span class="pre">Name</span></code> 字段中都具有相同的名称。</p>
+<div class="section" id="floating-object-settings">
+<h3><a class="toc-backref" href="#id13">浮动物体设置</a><a class="headerlink" href="#floating-object-settings" title="永久链接至标题">¶</a></h3>
+<dl class="docutils">
+<dt><em>Floating Factor</em></dt>
+<dd><p class="first last">浮力系数。</p>
+</dd>
+<dt><em>Water Linear Damping</em></dt>
+<dd><p class="first last">物体在水面上时线速度阻尼 （或水下）。当物体不是在水中时，则使用物理设置。</p>
+</dd>
+<dt><em>Water Rotation Damping</em></dt>
+<dd><p class="first last">物体在水面上时的旋转阻尼 （或水下）。当物体不是在水中时，则使用物理设置。</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="floating-vehicles-aka-watercrafts">
+<span id="watercrafts"></span><h2><a class="toc-backref" href="#id14">浮动交通工具或叫船舶</a><a class="headerlink" href="#floating-vehicles-aka-watercrafts" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="_images/physics_boat.png"><img alt="_images/physics_boat.png" class="align-center" src="_images/physics_boat.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>船舶使用 <code class="docutils literal"><span class="pre">Vehicle</span></code> 设置的一些参数和  <code class="docutils literal"><span class="pre">Floater</span></code> 设置的所有设置。它是必要的主要物体上 <code class="docutils literal"><span class="pre">Part</span></code> 类型的  <code class="docutils literal"><span class="pre">Hull</span></code> 设置 。类似于浮动物体船只需要辅助  <code class="docutils literal"><span class="pre">Bob</span></code> 物体。</p>
+<div class="section" id="watercraft-settings">
+<h3><a class="toc-backref" href="#id15">船舶设置</a><a class="headerlink" href="#watercraft-settings" title="永久链接至标题">¶</a></h3>
+<dl class="docutils">
+<dt><em>Force Max</em></dt>
+<dd><p class="first last">车辆最大驱动力。</p>
+</dd>
+<dt><em>Brake Max</em></dt>
+<dd><p class="first last">最大制动系数。</p>
+</dd>
+<dt><em>Floating Factor</em></dt>
+<dd><p class="first last">浮力系数。</p>
+</dd>
+<dt><em>Water Linear Damping</em></dt>
+<dd><p class="first last">物体在水面上时线速度阻尼 （或水下）。当物体不是在水中时，则使用物理设置。</p>
+</dd>
+<dt><em>Water Rotation Damping</em></dt>
+<dd><p class="first last">物体在水面上时的旋转阻尼 （或水下）。当物体不是在水中时，则使用物理设置。</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="characters">
+<span id="id4"></span><h2><a class="toc-backref" href="#id16">角色</a><a class="headerlink" href="#characters" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="_images/physics_character_object_example.png"><img alt="_images/physics_character_object_example.png" class="align-center" src="_images/physics_character_object_example.png" style="width: 100%;" /></a>
+<p>这个功能可以通过点击 <code class="docutils literal"><span class="pre">Physics</span></code> 面板上的同名标签的标题 <code class="docutils literal"><span class="pre">Character</span></code> 复选框被激活。</p>
+<p>从引擎的角度来看，角色本身是一类适当的物理物体，该物体可以与其他物理物体发生碰撞或受到物理力如重力和浮力的影响。</p>
+<p>角色物体可以使用多种API方法，由他们的名字 <cite>character</cite> 关键字容易控制。所有这些方法驻留在 <a class="reference external" href="https://www.blend4web.com/api_doc/module-physics.html">physics</a> API模块。</p>
+<div class="section" id="character-settings">
+<h3><a class="toc-backref" href="#id17">角色设置</a><a class="headerlink" href="#character-settings" title="永久链接至标题">¶</a></h3>
+<a class="reference internal image-reference" href="_images/physics_character_settings.png"><img alt="_images/physics_character_settings.png" class="align-center" src="_images/physics_character_settings.png" style="width: 100%;" /></a>
+<p>所有设置列出在这里在激活 <code class="docutils literal"><span class="pre">Character</span></code> 选项卡后可用。</p>
+<dl class="docutils">
+<dt><em>Walk Speed</em></dt>
+<dd><p class="first">此参数设定一个角色行走的速度（以米每秒为单位）。这个参数的可能的最低值是零，而最高为10。</p>
+<p class="last">它的默认值是4。</p>
+</dd>
+<dt><em>Run Speed</em></dt>
+<dd><p class="first">这是奔跑角色（以米每秒为单位测得的）的速度。其值可以从零到20变化。</p>
+<p class="last">此参数默认设置为8。</p>
+</dd>
+<dt><em>Step Height</em></dt>
+<dd><p class="first">这是一个该角色可以超越（米）的障碍最大高度。这个参数的值可以从零到1变化。</p>
+<p class="last">此参数的默认值是0.250。</p>
+</dd>
+<dt><em>Jump Strength</em></dt>
+<dd><p class="first">此参数设置人物跳跃的力量。其最小值是零，而其最大值为50。</p>
+<p class="last">默认设置为5。</p>
+</dd>
+<dt><em>Waterline</em></dt>
+<dd><p class="first">这个参数设置的角色物体的水线。水线从物体（不是物体的网格）的物理形状的中心测量的。如果物体被浸入水在该线以下的，它会漂浮。其值可以改变从-2到2。</p>
+<p class="last">默认情况设置为零 。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="basic-character">
+<h3><a class="toc-backref" href="#id18">基本角色</a><a class="headerlink" href="#basic-character" title="永久链接至标题">¶</a></h3>
+<p>Blend4Web引擎有快速建立用户控制的第一人称角色的选项。这样的角色将只有非常基本的功能，但也可以没有任何编程的情况下设置。</p>
+<p>要建立一个基本角色，请按照下列步骤操作：</p>
+<ol class="arabic simple">
+<li><p class="first">选择您想要作为一个角色使用一个物体。</p>
+</li>
+<li><p class="first">启用选定物体的物理和物理设置类型到 <code class="docutils literal"><span class="pre">Dynamic</span></code> 或 <code class="docutils literal"><span class="pre">Rigid</span> <span class="pre">Body</span></code>.</p>
+</li>
+<li><p class="first">启用该物体的角色选项。</p>
+</li>
+<li><p class="first">创建一个新的相机或选择一个现有的和其类型设置为 <code class="docutils literal"><span class="pre">Eye</span></code> 。</p>
+</li>
+</ol>
+<p>现在，带有摄像头的基本角色将出现在您的场景。</p>
+<p>该角色可大致和常规 <code class="docutils literal"><span class="pre">Eye</span></code> 式照相机相同的方式作为进行控制：</p>
+<ul class="simple">
+<li><p class="first">WASD键移动角色。</p>
+</li>
+<li><p class="first">摄像头角度由方向键控制或移动鼠标按住左按钮。</p>
+</li>
+<li><p class="first">按C键切换飞行模式（默认启用）。</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">只有一个基本角色可存在于场景中。如果场景中有多个角色，该引擎将使用他们的第一个基本角色，而忽略其他。</p>
+</div>
+</div>
+<div class="section" id="controlling-characters-with-api">
+<h3><a class="toc-backref" href="#id19">使用API​​控制角色</a><a class="headerlink" href="#controlling-characters-with-api" title="永久链接至标题">¶</a></h3>
+<p>上述基本角色只能提供通用功能。如果您需要更多的角色行为控制，您应该使用 <a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html">fps</a>  模块的以下方法。</p>
+<p>其中最重要的是 <a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.enable_fps_controls">enable_fps_controls()</a> 方法，就像它名称一样，方法用于初始化场景中的角色。它可以如下使用：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">m_fps</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fps&quot;</span><span class="p">);</span>
+
+<span class="nx">m_fps</span><span class="p">.</span><span class="nx">enable_fps_controls</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>应该在应用程序开始时使用此方法（在  <strong>load_cb</strong> 函数中）来启用角色控制。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">此方法可能与前述的启用基本角色  <a class="reference external" href="https://www.blend4web.com/api_doc/module-app.html#.enable_camera_controls">enable_camera_controls()</a>  方法冲突。这两种方法不能同时使用。</p>
+</div>
+<p>该方法还具有以下可选参数：</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">character</span></code> 设置角色物体。可以通过调用  <a class="reference external" href="https://www.blend4web.com/api_doc/module-scenes.html#.get_first_character">get_first_character()</a>  方法检索到角色的链接。如果场景中存在多个角色，则应该使用它。</p>
+<p><code class="docutils literal"><span class="pre">element</span></code>  指定HTML元素添加侦听器的方法。</p>
+<p><code class="docutils literal"><span class="pre">motion_cb</span></code> 指定当角色改变方向时调用的回调函数。</p>
+<p><code class="docutils literal"><span class="pre">gamepad_id</span></code> 指定插入系统的游戏手柄的ID。</p>
+<p><code class="docutils literal"><span class="pre">forward_sens</span></code>, <code class="docutils literal"><span class="pre">backward_sens</span></code>, <code class="docutils literal"><span class="pre">right_sens</span></code>, <code class="docutils literal"><span class="pre">left_sens</span></code>, <code class="docutils literal"><span class="pre">jump_sens</span></code>, <code class="docutils literal"><span class="pre">fly_sens</span></code> - 这些参数用来设置一列传感器的类型来指定角色行为如在不同的方向走，跳跃等等。</p>
+<p><code class="docutils literal"><span class="pre">rotation_cb</span></code> 指定当一个角色或者相机旋转时调用的回调函数。</p>
+<p><code class="docutils literal"><span class="pre">lock_camera</span></code> - 将此参数设置为 <code class="docutils literal"><span class="pre">true</span></code>  将会将场景摄像头父物体设置为角色。</p>
+</div></blockquote>
+<p>其他重要的方法是 <a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.set_cam_sensitivity">set_cam_sensitivity()</a> 和 <a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.set_cam_smooth_factor">set_cam_smooth_factor()</a>.  第一个设置相机的灵敏度（由数字值在零到100之间定义）。第二种方法定义了相机移动的平滑度（由0到1.0之间的值定义）。</p>
+<div class="section" id="character-states">
+<h4>角色状态<a class="headerlink" href="#character-states" title="永久链接至标题">¶</a></h4>
+<p>角色状态是表示角色当前行为的常数值（它当前是否走动或执行任何其他操作）。场景中的每个角色总是也仅能拥有一个状态。</p>
+<p>可用角色状态：</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.CS_CLIMB">CS_CLIMB</a> - 一个角色正在爬。</p>
+<p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.CS_FLY">CS_FLY</a> - 一个角色正在飞行。</p>
+<p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.CS_RUN">CS_RUN</a> - 一个角色正在跑。</p>
+<p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.CS_STAY">CS_STAY</a> - 一个角色不动。</p>
+<p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.CS_WALK">CS_WALK</a> - 一个角色在走路。</p>
+</div></blockquote>
+<p>可以使用  <a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.get_character_state">get_character_state()</a> 方法检索特定角色的当前状态，而特定状态可以通过  <a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.switch_state">switch_state()</a> 方法分配给角色。以下示例显示了如何使用这两种方法：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">m_fps</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fps&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">current_state</span> <span class="o">=</span> <span class="nx">m_fps</span><span class="p">.</span><span class="nx">get_character_state</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">current_state</span> <span class="o">==</span> <span class="nx">m_fps</span><span class="p">.</span><span class="nx">CS_FLY</span><span class="p">)</span>
+    <span class="nx">m_fps</span><span class="p">.</span><span class="nx">switch_state</span><span class="p">(</span><span class="nx">m_fps</span><span class="p">.</span><span class="nx">CS_WALK</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="action-binding">
+<h4>动作绑定<a class="headerlink" href="#action-binding" title="永久链接至标题">¶</a></h4>
+<p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html">fps</a> 模块还提供了将各种动作绑定到角色事件的手段。以下是  <a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.bind_action">bind_action()</a> 方法的使用：</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">m_fps</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fps&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">m_ctl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;controls&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">action_cb</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Q key pressed.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">m_fps</span><span class="p">.</span><span class="nx">bind_action</span><span class="p">(</span><span class="nx">m_fps</span><span class="p">.</span><span class="nx">AT_PRESSED</span><span class="p">,</span> <span class="p">[</span><span class="nx">m_ctl</span><span class="p">.</span><span class="nx">KEY_Q</span><span class="p">],</span> <span class="nx">action_cb</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>该方法具有以下参数：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">第一个参数是动作的类型：</p>
+<p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.AT_CONTINUOUS">AT_CONTINUOUS</a> - 一种输入类型，用于检测连续的用户操作，例如鼠标移动，键盘按键，手柄按钮倾斜等。</p>
+<p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.AT_PRESSED">AT_PRESSED</a> -  此输入类型检测离散的用户操作，例如按下按钮。</p>
+<p><a class="reference external" href="https://www.blend4web.com/api_doc/module-fps.html#.AT_RELEASED">AT_RELEASED</a> -  检测按钮（鼠标，游戏手柄或键盘）被释放的输入类型。</p>
+</li>
+<li><p class="first">第二个参数定义了一组传感器类型（如键盘键，游戏键按钮或鼠标动作）。</p>
+</li>
+<li><p class="first"><strong>action_cb</strong> 是一个回调函数，将在每次用户执行第一个参数定义的动作时被调用。</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="navigation-meshes">
+<h2><a class="toc-backref" href="#id20">导航网格</a><a class="headerlink" href="#navigation-meshes" title="永久链接至标题">¶</a></h2>
+<p>导航网格 (通常缩写 <em>navmeshes</em>) 是用来消除需要额外计算比如碰撞等使寻路更加简便的网格物体。</p>
+<a class="reference internal image-reference" href="_images/physics_pathfinding_example.png"><img alt="_images/physics_pathfinding_example.png" class="align-center" src="_images/physics_pathfinding_example.png" style="width: 100%;" /></a>
+<p>在此示例中 （取自代码片段），导航网格用于生成通过迷宫的路径。</p>
+<div class="section" id="creating-navigation-meshes">
+<h3><a class="toc-backref" href="#id21">创建导航网格</a><a class="headerlink" href="#creating-navigation-meshes" title="永久链接至标题">¶</a></h3>
+<p>若要将物体生成 navmesh，打开 <code class="docutils literal"><span class="pre">Physics</span></code> 面板的 <code class="docutils literal"><span class="pre">Object</span> <span class="pre">Physics</span></code> 参数 ，从 <code class="docutils literal"><span class="pre">Physics</span> <span class="pre">Type</span></code> 列表中选择 <code class="docutils literal"><span class="pre">Navigation</span> <span class="pre">Mesh</span></code> 。</p>
+<a class="reference internal image-reference" href="_images/physics_navmesh.png"><img alt="_images/physics_navmesh.png" class="align-center" src="_images/physics_navmesh.png" style="width: 100%;" /></a>
+<p>导航网格也可以使用特定的工具手动创建或生成自动。</p>
+<a class="reference internal image-reference" href="_images/physics_navmesh_generator.png"><img alt="_images/physics_navmesh_generator.png" class="align-center" src="_images/physics_navmesh_generator.png" style="width: 100%;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">此工具是原产于Blender并不是 Blend4Web 引擎的一部分。</p>
+</div>
+<p>此导航网格生成接口可以发现专用面板下的 <code class="docutils literal"><span class="pre">Scene</span></code> 选项卡上，但此功能是为了实时应用程序，它仅音引擎类型设置为  <code class="docutils literal"><span class="pre">Blend4Web</span></code> 或  <code class="docutils literal"><span class="pre">Blender</span> <span class="pre">Game</span></code> 才显示（Blender内部、 Cycles 或任何其他渲染引擎不会有显示）。</p>
+<p>在此面板上的主要工具是  <code class="docutils literal"><span class="pre">Build</span> <span class="pre">Navigation</span> <span class="pre">Mesh</span></code> 按钮。正如标题所暗示的它用来建设基于当前选定对象的导航网格。Navmesh 是作为一个单独的物体放置在所选的物体上面，因此保留该物体创建的。</p>
+<p>除了此按钮  <code class="docutils literal"><span class="pre">Navigation</span> <span class="pre">Mesh</span></code> 面板为用户提供了几组参数将生成 navmesh 进行微调。</p>
+<p><code class="docutils literal"><span class="pre">Rasterization</span></code> （栅格化）组的参数︰</p>
+<dl class="docutils">
+<dt><em>Cell Size</em></dt>
+<dd><p class="first last">栅格化单元格大小。更大的值会导致更大的 navmesh 多边形。最高的可能值是 1.0。默认值为 0.3。</p>
+</dd>
+<dt><em>Cell Height</em></dt>
+<dd><p class="first last">栅格单元格高度 （navmesh 和生成它的对象之间的距离）。默认值为 0.2。</p>
+</dd>
+</dl>
+<p><code class="docutils literal"><span class="pre">Agent</span></code> 组的参数︰</p>
+<dl class="docutils">
+<dt><em>Height</em></dt>
+<dd><p class="first last">最小高度，代理还能走路。默认值为 2.0。</p>
+</dd>
+<dt><em>Radius</em></dt>
+<dd><p class="first last">代理的半径。默认值为 0.6。</p>
+</dd>
+<dt><em>Max Slope</em></dt>
+<dd><p class="first last">代理能够行走的坡度的最大角度。以度为单位。默认值为 45。</p>
+</dd>
+<dt><em>Max Climb</em></dt>
+<dd><p class="first last">网格单元格之间的最大高度，代理可以爬上。默认值为 0.9。</p>
+</dd>
+</dl>
+<p><code class="docutils literal"><span class="pre">Region</span></code> 组的参数︰</p>
+<dl class="docutils">
+<dt><em>Min Region Size</em></dt>
+<dd><p class="first last">一个区域的最小大小 （较小的区域将被删除）。默认值为 8.0 级。</p>
+</dd>
+<dt><em>Merged Region Size</em></dt>
+<dd><p class="first last">一个区域的最小大小 （较小的地区，将合并）。默认值为 20.0。</p>
+</dd>
+<dt><em>Partitioning</em></dt>
+<dd><p class="first">用于分区导航网格的方法。受支持的方法是︰</p>
+<p><code class="docutils literal"><span class="pre">Monotone</span></code> 是最快的方法。使用它可以生成细细长长的多边形。</p>
+<p><code class="docutils literal"><span class="pre">Layers</span></code> —  速度较慢，但仍然相当快的方法，可产生更好的三角剖分比单调（Monotone ）分区。</p>
+<p class="last"><code class="docutils literal"><span class="pre">Watershed</span></code> — 经典重铸生成最好的剖分分区方法。此选项是默认选中的。</p>
+</dd>
+</dl>
+<p><code class="docutils literal"><span class="pre">Polygonization</span></code> 组的参数︰</p>
+<dl class="docutils">
+<dt><em>Max Edge Length</em></dt>
+<dd><p class="first last">边缘轮廓最大长度。默认值为 12.0。</p>
+</dd>
+<dt><em>Max Edge Error</em></dt>
+<dd><p class="first last">从轮廓到单元格的距离最大误差。默认值为 1.3。</p>
+</dd>
+<dt><em>Verts Per Poly</em></dt>
+<dd><p class="first last">每个多边形顶点的最大数目。默认值为 6。</p>
+</dd>
+</dl>
+<p><code class="docutils literal"><span class="pre">Detail</span> <span class="pre">Mesh</span></code> 组的参数︰</p>
+<dl class="docutils">
+<dt><em>Sample Distance</em></dt>
+<dd><p class="first last">详细信息网格采样间距。默认值是 6.0。</p>
+</dd>
+<dt><em>Max Sample Error</em></dt>
+<dd><p class="first last">最大误差的网格简化算法。默认值为 1.00。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="using-navigation-meshes">
+<h3><a class="toc-backref" href="#id22">使用导航网格</a><a class="headerlink" href="#using-navigation-meshes" title="永久链接至标题">¶</a></h3>
+<p>Navmesh 创建后，它然后可用于在应用程序中计算两个点之间的运动轨迹。这可以从  <a class="reference external" href="https://www.blend4web.com/api_doc/module-physics.html">physics</a>  模块的两种方法得到 <a class="reference external" href="https://www.blend4web.com/api_doc/module-physics.html#.navmesh_get_island">navmesh_get_island()</a> 和 <a class="reference external" href="https://www.blend4web.com/api_doc/module-physics.html#.navmesh_find_path">navmesh_find_path()</a>. 前者用来检索链接到当前的岛 （最接近独立网段的 navmesh），而后者返回以数组形式的实际路径中的坐标。</p>
+<p>使用导航网格的寻路的例子可以在 <a class="reference internal" href="developers.html#code-snippets"><span>代码摘要</span></a> (相对应的摘要名字叫 <code class="docutils literal"><span class="pre">Pathfinding</span></code>).</p>
+</div>
+</div>
+<div class="section" id="use-in-applications">
+<span id="using-physics"></span><h2><a class="toc-backref" href="#id23">在应用程序中的使用</a><a class="headerlink" href="#use-in-applications" title="永久链接至标题">¶</a></h2>
+<p>物理系统是在 <strong>uranium.js</strong> 模块中实现，并分别从引擎的主要代码加载。<strong>Uranium.js</strong> 模块本身是 <a class="reference external" href="http://bulletphysics.org/">Bullet</a> 物理引擎的修改版，移植在浏览器中工作。为了激活物理系统，这就需要将 <strong>uranium.js</strong> 和 <strong>uranium.js.mem</strong> 文件跟应用程序的源代码放在同一个目录。</p>
+<p>另一个方法是通过使用下面的 API 方法显式指定 <strong>uranium.js</strong> 模块的加载路径 ︰</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">m_config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;physics_uranium_path&quot;</span><span class="p">,</span> <span class="s2">&quot;.../uranium.js&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">当开发应用程序 <a class="reference internal" href="project_manager.html#project-management"><span>使用了SDK</span></a>, 自动检测到物理引擎的路径。</p>
+</div>
+<p>如果您的应用程序不使用物理，我们建议您在Blender场景选项卡中 <code class="docutils literal"><span class="pre">Physics</span></code> 面板下关闭 <code class="docutils literal"><span class="pre">Enable</span> <span class="pre">Physics</span></code> 的标志。它也是可以通过调用下面的方法初始化引擎前强行禁用加载 <strong>uranium.js</strong> 模块 ︰</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">m_config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;physics_enabled&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Physics subsystem is implemented in the “uranium” module and is loaded independently from the main engine code. The “uranium” module is a modification of the <a class="reference external" href="https://en.wikipedia.org/wiki/Bullet_(software)">Bullet physics engine</a> ported to work in web browsers.</p>
+<p>Blend4Web physics engine comes in two variations: the one compiled using WebAssembly (<code class="docutils literal"><span class="pre">uranium_wasm.js</span></code> and  <code class="docutils literal"><span class="pre">uranium_wasm.wasm</span></code> files) is used by default, while the other version, compiled with <code class="docutils literal"><span class="pre">asm.js</span></code> (<code class="docutils literal"><span class="pre">uranium.js</span></code> and  <code class="docutils literal"><span class="pre">uranium.js.mem</span></code>) can be used as a fallback. The WebAssembly version is smaller in size, can be initialized quicker and using it might improve the stability and performance of the application. However, at the moment not every browser supports WebAssembly, so, if this technology is not available, the asm.js version of the physics engine is used instead.</p>
+<p>By default, physics engine is plugged in if the scene contains objects with physics enabled. You can manually disable physics by setting the <code class="docutils literal"><span class="pre">Enable</span> <span class="pre">Physics</span></code> option on the <code class="docutils literal"><span class="pre">Scene</span> <span class="pre">-&gt;</span> <span class="pre">Physics</span></code> panel to <code class="docutils literal"><span class="pre">OFF</span></code>. You can also uncheck the <code class="docutils literal"><span class="pre">Use</span> <span class="pre">Physics</span></code> flag on the <a class="reference internal" href="project_manager.html#project-config"><span>project configuration page</span></a> in the <a class="reference internal" href="project_manager.html#project-manager"><span>Project Manager</span></a> to exclude physics engine files from the build version of your project.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Physics is not supported in <code class="docutils literal"><span class="pre">WebPlayer</span> <span class="pre">HTML</span></code> type projects and in the scenes exported into HTML.</p>
+</div>
+<p>Several flags for configuring physics engine are available in the <a class="reference external" href="https://www.blend4web.com/api_doc/module-app.html#.init">init()</a> method that is used to initialize the application:</p>
+<blockquote>
+<div><p><strong>physics_enabled</strong> - load physics engine to use physics in the application. Set to <code class="docutils literal"><span class="pre">true</span></code> by default.</p>
+<p><strong>physics_uranium_path</strong> - the relative path to the folder containing the physics engine files (the <code class="docutils literal"><span class="pre">uranium_wasm.js</span></code>, <code class="docutils literal"><span class="pre">uranium_wasm.wasm</span></code>, <code class="docutils literal"><span class="pre">uranium.js</span></code> and <code class="docutils literal"><span class="pre">uranium.js.mem</span></code> files). Use this parameter if you need to place physics engine files in a custom location.</p>
+<p><strong>physics_use_wasm</strong> - if this paraemter is set to <code class="docutils literal"><span class="pre">true</span></code>, WebAssembly version is used. If it is set to <code class="docutils literal"><span class="pre">false</span></code>, the asm.js version is used instead. Default value is <code class="docutils literal"><span class="pre">true</span></code>.</p>
+<p><strong>physics_use_workers</strong> - calculate physics in a separate thread using a worker (if this parameter is set to <code class="docutils literal"><span class="pre">true</span></code>), or in the main thread (if it is set to <code class="docutils literal"><span class="pre">false</span></code>). Default value is <code class="docutils literal"><span class="pre">true</span></code>.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="developers.html" class="btn btn-neutral float-right" title="对应用程序开发人员" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="audio.html" class="btn btn-neutral" title="音频" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014-2017, Triumph.
+      最后更新于 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

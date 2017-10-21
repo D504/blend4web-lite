@@ -1,0 +1,1181 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>节点材质 &mdash; Blend4Web 17.10 用户手册</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="关于这些文档"
+              href="about.html"/>
+    <link rel="top" title="Blend4Web 17.10 用户手册" href="index.html"/>
+        <link rel="next" title="逻辑编辑器" href="logic_editor.html"/>
+        <link rel="prev" title="材质库" href="material_library.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Blend4Web. 用户手册
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">引擎功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Blender的用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">安装和更新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">工作流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">项目管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">场景预览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">网络播放器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">场景设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">物体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">网格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">法线编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">材质库</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">节点材质</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#standard-nodes">标准节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#engine-specific-nodes">游戏引擎特定节点</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clamp-b4w-clamp">钳制（B4W_CLAMP）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#input-parameters">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-parameters">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#glow-output-b4w-glow-output">夜光输出（B4W_GLOW_OUTPUT）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">输入参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#levels-of-quality-b4w-levels-of-quality">质量层级（B4W_LEVELS_OF_QUALITY）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">输入参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parallax-b4w-parallax">视差（B4W_PARALLAX）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reflect-b4w-reflect">反射 (B4W_REFLECT)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#refraction-b4w-refraction">折射（B4W_REFRACTION）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#replace-b4w-replace">替换（B4W_REPLACE）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#smoothstep-b4w-smoothstep">平滑步进（B4W_SMOOTHSTEP）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#time-b4w-time">时间（B4W_TIME）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#translucency-b4w-translucency">半透明（B4W_TRANSLUCENCY）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#vector-view-b4w-vector-view">矢量视图（B4W_VECTOR_VIEW）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id20">输入参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">输出参数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linear-to-srgb-and-srgb-to-linear-deprecated">线性到 SRGB和SRGB线性（已取消）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cycles-nodes">Cycles 节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">限制</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">逻辑编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">照明、 阴影和背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">后期处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">纹理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">粒子系统,流体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">粒子系统.实例化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">室外效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">色彩管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">对应用程序开发人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">对于引擎开发者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">团队工作。使用 Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">存在的问题及解决方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">发布说明</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blend4Web. 用户手册</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>节点材质</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="node-materials">
+<span id="index-0"></span><span id="id1"></span><h1><a class="toc-backref" href="#id23">节点材质</a><a class="headerlink" href="#node-materials" title="永久链接至标题">¶</a></h1>
+<div class="contents topic" id="table-of-content">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#node-materials" id="id23">节点材质</a><ul>
+<li><a class="reference internal" href="#standard-nodes" id="id24">标准节点</a></li>
+<li><a class="reference internal" href="#engine-specific-nodes" id="id25">游戏引擎特定节点</a><ul>
+<li><a class="reference internal" href="#clamp-b4w-clamp" id="id26">钳制（B4W_CLAMP）</a></li>
+<li><a class="reference internal" href="#glow-output-b4w-glow-output" id="id27">夜光输出（B4W_GLOW_OUTPUT）</a></li>
+<li><a class="reference internal" href="#levels-of-quality-b4w-levels-of-quality" id="id28">质量层级（B4W_LEVELS_OF_QUALITY）</a></li>
+<li><a class="reference internal" href="#parallax-b4w-parallax" id="id29">视差（B4W_PARALLAX）</a></li>
+<li><a class="reference internal" href="#reflect-b4w-reflect" id="id30">反射 (B4W_REFLECT)</a></li>
+<li><a class="reference internal" href="#refraction-b4w-refraction" id="id31">折射（B4W_REFRACTION）</a></li>
+<li><a class="reference internal" href="#replace-b4w-replace" id="id32">替换（B4W_REPLACE）</a></li>
+<li><a class="reference internal" href="#smoothstep-b4w-smoothstep" id="id33">平滑步进（B4W_SMOOTHSTEP）</a></li>
+<li><a class="reference internal" href="#time-b4w-time" id="id34">时间（B4W_TIME）</a></li>
+<li><a class="reference internal" href="#translucency-b4w-translucency" id="id35">半透明（B4W_TRANSLUCENCY）</a></li>
+<li><a class="reference internal" href="#vector-view-b4w-vector-view" id="id36">矢量视图（B4W_VECTOR_VIEW）</a></li>
+<li><a class="reference internal" href="#linear-to-srgb-and-srgb-to-linear-deprecated" id="id37">线性到 SRGB和SRGB线性（已取消）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cycles-nodes" id="id38">Cycles 节点</a></li>
+<li><a class="reference internal" href="#limitations" id="id39">限制</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>着色器节点通过将现有的着色器进行基本变换和批处理，显著地扩展了Blender的标准材质的潜力。</p>
+<a class="reference internal image-reference" href="_images/node_materials_title.png"><img alt="_images/node_materials_title.png" class="align-center" src="_images/node_materials_title.png" style="width: 100%;" /></a>
+<div class="section" id="standard-nodes">
+<span id="generic-node-materials"></span><h2><a class="toc-backref" href="#id24">标准节点</a><a class="headerlink" href="#standard-nodes" title="永久链接至标题">¶</a></h2>
+<p id="index-1">Blend4Web支持所有标准的Blender节点，但他们中的一些工作的不够快，因此不建议在实时应用程序中使用。创建非常复杂的材质，尤其是使用大量的 <code class="docutils literal"><span class="pre">Geometry</span></code> 和 <code class="docutils literal"><span class="pre">Texture</span></code> 节点，也不推荐。</p>
+<p>引擎能部分支持某些Cycles节点。本内容的更详尽描述在  <a class="reference internal" href="#cycles-nodes"><span>相应章节</span></a>.</p>
+<p id="node-performance">标准节点的性能和支持度在表中说明。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="27%" />
+<col width="30%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">节点名称</p>
+</th>
+<th class="head"><p class="first last">功能</p>
+</th>
+<th class="head"><p class="first last">支持</p>
+</th>
+<th class="head"><p class="first last">性能</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last">摄像机数据</p>
+</td>
+<td><p class="first last">用于从活动的摄像头获取的数据</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-odd"><td>ColorRamp</td>
+<td><p class="first last">用来产生梯度</p>
+</td>
+<td><p class="first last"><code class="docutils literal"><span class="pre">B-Spline</span></code>，<code class="docutils literal"><span class="pre">Cardinal</span></code> 和 <code class="docutils literal"><span class="pre">Ease</span></code> 插值模式不支持</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">HSV合并</p>
+</td>
+<td><p class="first last">从给定的色相，明度和饱和度合成颜色</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">RGB合并</p>
+</td>
+<td><p class="first last">从给定的红色，绿色和蓝色通道值组合彩色</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">扩展材质</p>
+</td>
+<td><p class="first last">用于将材质添加到节点程序。具有比基本 <code class="docutils literal"><span class="pre">Material</span></code> 节点更多的输入和输出通道</p>
+</td>
+<td><p class="first last"><code class="docutils literal"><span class="pre">Ambient</span></code> 和 <code class="docutils literal"><span class="pre">SpecTra</span></code> 输入不支持。 <code class="docutils literal"><span class="pre">AO</span></code> 输出不支持。</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">伽玛</p>
+</td>
+<td><p class="first last">用于设置给定的彩色的伽马</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">几何体</p>
+</td>
+<td><p class="first last">用于获取有关物体的几何信息</p>
+</td>
+<td><p class="first last"><code class="docutils literal"><span class="pre">顶点色Alpha</span></code> 输出不支持</p>
+</td>
+<td><p class="first last">不推荐大量使用这些节点</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">色调/饱和度</p>
+</td>
+<td><p class="first last">用于控制一个给定颜色的色相和饱和度</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">底</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">反转</p>
+</td>
+<td><p class="first last">反转给定的颜色</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">灯光数据</p>
+</td>
+<td><p class="first last">用于从特定光源获取信息</p>
+</td>
+<td><p class="first last"><code class="docutils literal"><span class="pre">Shadow</span></code> 输出不支持</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">贴图映射</p>
+</td>
+<td><p class="first last">用于转换纹理坐标</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">材质</p>
+</td>
+<td><p class="first last">用于一个标准的材质添加到节点程序</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">数学</p>
+</td>
+<td><p class="first last">用于与给定的值进行数学运算</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">混合RGB</p>
+</td>
+<td><p class="first last">混合两个给定的颜色</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last"><code class="docutils literal"><span class="pre">Burn</span></code>，<code class="docutils literal"><span class="pre">Dodge</span></code>，<code class="docutils literal"><span class="pre">Value</span></code>，<code class="docutils literal"><span class="pre">Saturation</span></code>，<code class="docutils literal"><span class="pre">Hue</span></code> 和 <code class="docutils literal"><span class="pre">Color</span></code> 模式性能低，其余模式性能高。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">法线</p>
+</td>
+<td><p class="first last">用于生成法线矢量</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">法线贴图 <a class="footnote-reference" href="#f1" id="id2">[1]</a></p>
+</td>
+<td><p class="first last">用来插入法线贴图</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">输出</p>
+</td>
+<td><p class="first last">输出节点程序的结果</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">粒子信息</p>
+</td>
+<td><p class="first last">用于获取有关粒子系统信息</p>
+</td>
+<td><p class="first last">在 <code class="docutils literal"><span class="pre">Emitter</span></code> 型粒子系统的材质</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-even"><td>RGB</td>
+<td><p class="first last">生成一个RGB颜色</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">RGB 曲线节点</p>
+</td>
+<td><p class="first last">设置一个曲线以修改一个给定的色</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">RGB到BW</p>
+</td>
+<td><p class="first last">给定的RGB颜色去饱和</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">HSV拆分</p>
+</td>
+<td><p class="first last">拆分给定的颜色为色调，饱和度和值</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">独立RGB</p>
+</td>
+<td><p class="first last">分离给定颜色为红，绿和兰通道</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">挤压值</p>
+</td>
+<td><p class="first last">挤压给定值</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">纹理（Texture）</p>
+</td>
+<td><p class="first last">设置纹理</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">不推荐大量使用这些节点</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">数值</p>
+</td>
+<td><p class="first last">生成一个数值</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">矢量曲线</p>
+</td>
+<td><p class="first last">设置一个曲线以修改一个给定的矢量</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">矢量数学</p>
+</td>
+<td><p class="first last">用于与给定的两个向量进行数学运算</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">高</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">矢量变换 <a class="footnote-reference" href="#f2" id="id3">[2]</a></p>
+</td>
+<td><p class="first last">在世界，相机和物体坐标空间中转换矢量，点或法线。</p>
+</td>
+<td><p class="first last">全部</p>
+</td>
+<td><p class="first last">平均</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><p class="first last">这个节点的法线贴图使用的 <code class="docutils literal"><span class="pre">Color</span> <span class="pre">Space</span></code> 参数需要设置为 <code class="docutils literal"><span class="pre">Non-Color</span></code>. 如果没设置会引起各种不可预见的效果（尽管不会将引起弄崩溃）</p>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="f2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td><p class="first last">如果至少一个内部参数 <code class="docutils literal"><span class="pre">Space</span> <span class="pre">to</span> <span class="pre">convert</span> <span class="pre">from...</span></code> 或 <code class="docutils literal"><span class="pre">Space</span> <span class="pre">to</span> <span class="pre">convert</span> <span class="pre">to...</span></code> 设置为 <code class="docutils literal"><span class="pre">Object</span></code>, 那么所有使用这个材质的物体都会被考虑为  <a class="reference internal" href="objects.html#static-dynamic-objects"><span>动态</span></a>.</p>
+</td></tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>请牢记材质中的一些特定节点有着数量上的限制使得节点材质具有一定的局限性，有关材质中的特定节点的数目。这些限制在 <a class="reference internal" href="#node-material-limits"><span>这里</span></a> 作了介绍。</p>
+</div>
+<div class="section" id="engine-specific-nodes">
+<span id="custom-node-materials"></span><h2><a class="toc-backref" href="#id25">游戏引擎特定节点</a><a class="headerlink" href="#engine-specific-nodes" title="永久链接至标题">¶</a></h2>
+<p id="index-2">引擎特定的节点扩展标准节点以支持额外的功能。这些节点采用特殊命名的名称和输入格式创建为节点组（<code class="docutils literal"><span class="pre">节点组</span></code> 或 <code class="docutils literal"><span class="pre">节点树</span></code>）。为方便起见，被打开时，所有的特殊节点已经添加到Blend文件。</p>
+<img alt="_images/node_materials_nodes.png" class="align-center" src="_images/node_materials_nodes.png" />
+<div class="section" id="clamp-b4w-clamp">
+<span id="node-clamp"></span><h3><a class="toc-backref" href="#id26">钳制（B4W_CLAMP）</a><a class="headerlink" href="#clamp-b4w-clamp" title="永久链接至标题">¶</a></h3>
+<p>节点限制输出值。其结果是所有的输出矢量分量取从0到1中间的值。</p>
+<a class="reference internal image-reference" href="_images/node_materials_clamp.png"><img alt="_images/node_materials_clamp.png" class="align-center" src="_images/node_materials_clamp.png" style="width: 100%;" /></a>
+<div class="section" id="input-parameters">
+<h4>输入参数<a class="headerlink" href="#input-parameters" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>图像</em></dt>
+<dd><p class="first last">关联向量</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="output-parameters">
+<h4>输出参数<a class="headerlink" href="#output-parameters" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>图像</em></dt>
+<dd><p class="first last">钳制向量</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="glow-output-b4w-glow-output">
+<span id="glow-output"></span><h3><a class="toc-backref" href="#id27">夜光输出（B4W_GLOW_OUTPUT）</a><a class="headerlink" href="#glow-output-b4w-glow-output" title="永久链接至标题">¶</a></h3>
+<p>应用  <a class="reference internal" href="postprocessing_effects.html#glow"><span>发光效果</span></a> 到节点材质。除了 <em>B4W_GLOW_OUTPUT</em> 节点，该节点材质应具有 <em>输出</em> 节点。</p>
+<a class="reference internal image-reference" href="_images/node_materials_glow_output.png"><img alt="_images/node_materials_glow_output.png" class="align-center" src="_images/node_materials_glow_output.png" style="width: 100%;" /></a>
+<div class="section" id="id4">
+<h4>输入参数<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>发光颜色</em></dt>
+<dd><p class="first last">发光颜色</p>
+</dd>
+<dt><em>系数</em></dt>
+<dd><p class="first">发光的比例。 <em>系数</em>  <span class="math">\(\in [0, 1]\)</span>.</p>
+<ul class="last simple">
+<li><p class="first"><em>系数 = 0</em>  - 没有发光。</p>
+</li>
+<li><p class="first"><em>Factor</em> <span class="math">\(\in (0, 1]\)</span> - 有一个发光，与 <em>发光颜色</em> 同色。</p>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="levels-of-quality-b4w-levels-of-quality">
+<span id="node-quality"></span><h3><a class="toc-backref" href="#id28">质量层级（B4W_LEVELS_OF_QUALITY）</a><a class="headerlink" href="#levels-of-quality-b4w-levels-of-quality" title="永久链接至标题">¶</a></h3>
+<p>设置根据当前的图像质量设置输出颜色。可用于，例如，与如果应用程序在移动装置上运行用更简单材质的更换复杂材质。</p>
+<a class="reference internal image-reference" href="_images/node_materials_levels_of_quality.png"><img alt="_images/node_materials_levels_of_quality.png" class="align-center" src="_images/node_materials_levels_of_quality.png" style="width: 100%;" /></a>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<p class="last"><a class="reference internal" href="developers.html#quality-settings"><span>品质配置</span></a></p>
+</div>
+<div class="section" id="id5">
+<h4>输入参数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>高质量</em></dt>
+<dd><p class="first last">节点链接这个参数到 <code class="docutils literal"><span class="pre">Color</span></code> 参数高，最高的质量使用的情况。</p>
+</dd>
+<dt><em>低</em></dt>
+<dd><p class="first last">节点链接这个参数到 <code class="docutils literal"><span class="pre">Color</span></code> 参数低质量的使用情况。</p>
+</dd>
+<dt><em>系数</em></dt>
+<dd><p class="first last">此值指定什么质量设置（<code class="docutils literal"><span class="pre">HIGH</span></code> 或 <code class="docutils literal"><span class="pre">LOW</span></code>）将在Blender视口中可见。可以从0变化到1，如果该值低于0.5时，<code class="docutils literal"><span class="pre">HIGH</span></code> 设置将是可见的，如果它是0.5或更高时，<code class="docutils literal"><span class="pre">LOW</span></code> 设置将是可见的。</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="parallax-b4w-parallax">
+<span id="node-parallax"></span><h3><a class="toc-backref" href="#id29">视差（B4W_PARALLAX）</a><a class="headerlink" href="#parallax-b4w-parallax" title="永久链接至标题">¶</a></h3>
+<p>该节点使用高度贴图实现纹理坐标偏移。</p>
+<a class="reference internal image-reference" href="_images/node_materials_parallax.png"><img alt="_images/node_materials_parallax.png" class="align-center" src="_images/node_materials_parallax.png" style="width: 100%;" /></a>
+<div class="section" id="id6">
+<h4>输入参数<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>UV</em></dt>
+<dd><p class="first last">源纹理坐标。</p>
+</dd>
+<dt><em>高度贴图</em></dt>
+<dd><p class="first last">RGBA纹理压缩到alpha通道的高度图。</p>
+</dd>
+<dt><em>缩放</em></dt>
+<dd><p class="first last">纹理坐标偏移的因子。</p>
+</dd>
+<dt><em>步进</em></dt>
+<dd><p class="first last">迭代产生纹理的步数坐标偏移。这个值越大最后的质量越好。</p>
+</dd>
+<dt><em>LOD距离</em></dt>
+<dd><p class="first last">从相距距离最远开始，效果能被观察到。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id7">
+<h4>输出参数<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>UV</em></dt>
+<dd><p class="first last">结果是纹理坐标用着输入纹理节点。</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="reflect-b4w-reflect">
+<span id="node-reflect"></span><h3><a class="toc-backref" href="#id30">反射 (B4W_REFLECT)</a><a class="headerlink" href="#reflect-b4w-reflect" title="永久链接至标题">¶</a></h3>
+<p>计算入射矢量和法线矢量之间的反射方向。可用方块贴图应用到物体。</p>
+<a class="reference internal image-reference" href="_images/node_materials_reflect.png"><img alt="_images/node_materials_reflect.png" class="align-center" src="_images/node_materials_reflect.png" style="width: 100%;" /></a>
+<div class="section" id="id8">
+<h4>输入参数<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>矢量</em></dt>
+<dd><p class="first last">入射向量。应连接至 <code class="docutils literal"><span class="pre">Geometry</span></code> 节点的 <code class="docutils literal"><span class="pre">View</span></code> 插座。</p>
+</dd>
+<dt><em>矢量</em></dt>
+<dd><p class="first last">法向量。需要进行归一化以达到所期望的结果。应连接至 <code class="docutils literal"><span class="pre">Geometry</span></code> 节点的 <code class="docutils literal"><span class="pre">Normal</span></code> 插座。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id9">
+<h4>输出参数<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>矢量</em></dt>
+<dd><p class="first last">反射向量。应该连接到包含立方贴图的 <code class="docutils literal"><span class="pre">Texture</span></code> 节点的 <code class="docutils literal"><span class="pre">Vector</span></code> 插座。</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="refraction-b4w-refraction">
+<span id="node-refraction"></span><h3><a class="toc-backref" href="#id31">折射（B4W_REFRACTION）</a><a class="headerlink" href="#refraction-b4w-refraction" title="永久链接至标题">¶</a></h3>
+<p>一个物体产生折射效果。这种效果仅在Blend4Web引擎，而不是在Blender的视口。</p>
+<a class="reference internal image-reference" href="_images/node_materials_refraction.png"><img alt="_images/node_materials_refraction.png" class="align-center" src="_images/node_materials_refraction.png" style="width: 100%;" /></a>
+<div class="section" id="id10">
+<h4>输入参数<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>法线</em></dt>
+<dd><p class="first last">添加扰动法线贴图。</p>
+</dd>
+<dt><em>折射凹凸</em></dt>
+<dd><p class="first">扰动强度值。</p>
+<p class="last">默认值是0</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id11">
+<h4>输出参数<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>Color</em></dt>
+<dd><p class="first last">对物体后面的材质产生扰动。</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">需要在 <code class="docutils literal"><span class="pre">Render</span> <span class="pre">&gt;</span> <span class="pre">Reflections</span> <span class="pre">and</span> <span class="pre">Refractions</span></code> 面板设置 <code class="docutils literal"><span class="pre">Refractions</span></code> 选项值为 <code class="docutils literal"><span class="pre">AUTO</span></code> 或 <code class="docutils literal"><span class="pre">ON</span></code> 。物体的透明度类型必须设置为 <code class="docutils literal"><span class="pre">Alpha</span> <span class="pre">Blend</span></code>.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<p class="last"><a class="reference internal" href="materials.html#alpha-blend"><span>透明</span></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="replace-b4w-replace">
+<span id="node-replace"></span><h3><a class="toc-backref" href="#id32">替换（B4W_REPLACE）</a><a class="headerlink" href="#replace-b4w-replace" title="永久链接至标题">¶</a></h3>
+<p>节点替换取决于工作环境（即Blender视口或Blend4Web）的输入。在Blender工作时，<code class="docutils literal"><span class="pre">Color1</span></code> 输入被连接到 <code class="docutils literal"><span class="pre">Color</span></code> 输出和 <code class="docutils literal"><span class="pre">Color2</span></code> 输入被忽略。相反在引擎中输入被替换时（这时 <code class="docutils literal"><span class="pre">Color1</span></code> 被忽略，<code class="docutils literal"><span class="pre">Color2</span></code> 被连接到输出）。节点意欲在视口中显示的一个节点的结构和其他 - 在引擎中。</p>
+<a class="reference internal image-reference" href="_images/node_materials_replace.png"><img alt="_images/node_materials_replace.png" class="align-center" src="_images/node_materials_replace.png" style="width: 100%;" /></a>
+<p>作为一项规则是用于法线贴图。 Blender的节点材质不支持坐标的切线空间。因此，唯一可能的在视口中来显示法线贴图正确的方法是在 <code class="docutils literal"><span class="pre">Material</span></code> 节点内的使用。</p>
+<div class="section" id="id12">
+<h4>输入参数<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>Color1</em></dt>
+<dd><p class="first last">节点的设置，这将是在Blender视口中可见。</p>
+</dd>
+<dt><em>Color2</em></dt>
+<dd><p class="first last">节点设置，就可以在Blend4Web引擎可见。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id13">
+<h4>输出参数<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>Color</em></dt>
+<dd><p class="first last">应连接到 <code class="docutils literal"><span class="pre">Material</span></code> 或 <code class="docutils literal"><span class="pre">扩展Material</span></code> 节点的 <code class="docutils literal"><span class="pre">Color</span></code> 插座。</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="smoothstep-b4w-smoothstep">
+<span id="node-smoothstep"></span><h3><a class="toc-backref" href="#id33">平滑步进（B4W_SMOOTHSTEP）</a><a class="headerlink" href="#smoothstep-b4w-smoothstep" title="永久链接至标题">¶</a></h3>
+<p>进行基于第一值的两个输入值之间的平滑内插。</p>
+<a class="reference internal image-reference" href="_images/node_materials_smoothstep.png"><img alt="_images/node_materials_smoothstep.png" class="align-center" src="_images/node_materials_smoothstep.png" style="width: 100%;" /></a>
+<div class="section" id="id14">
+<h4>输入参数<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>值</em></dt>
+<dd><p class="first last">决定插值的平滑度的值。</p>
+</dd>
+<dt><em>Edge0</em></dt>
+<dd><p class="first last">首个插值。</p>
+</dd>
+<dt><em>Edge1</em></dt>
+<dd><p class="first last">第二插值。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id15">
+<h4>输出参数<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>值</em></dt>
+<dd><p class="first last">插值。</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">对于正确的插值，输入 <code class="docutils literal"><span class="pre">Value</span></code> 必须在 <code class="docutils literal"><span class="pre">Edge0</span></code> 和 <code class="docutils literal"><span class="pre">Edge1</span></code> 之间。</p>
+</div>
+</div>
+</div>
+<div class="section" id="time-b4w-time">
+<span id="node-time"></span><h3><a class="toc-backref" href="#id34">时间（B4W_TIME）</a><a class="headerlink" href="#time-b4w-time" title="永久链接至标题">¶</a></h3>
+<p>提供时间表，从引擎起动计数（以秒计）。可用于在节点的材质，如UV坐标动画任何参数，混合的因子，透明度等。</p>
+<img alt="_images/node_time.png" class="align-center" src="_images/node_time.png" />
+<div class="section" id="id16">
+<h4>输入参数<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>无</p>
+</div>
+<div class="section" id="id17">
+<h4>输出参数<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>值</em></dt>
+<dd><p class="first last">从引擎起动开始经过的时间（秒）。</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<p class="last"><a class="reference internal" href="animation.html#node-anim"><span>值和 RGB 节点的动画</span></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="translucency-b4w-translucency">
+<span id="node-translucency"></span><h3><a class="toc-backref" href="#id35">半透明（B4W_TRANSLUCENCY）</a><a class="headerlink" href="#translucency-b4w-translucency" title="永久链接至标题">¶</a></h3>
+<p>节点实现了一个半透明效果（只对于光源）的薄的物体，如布，树叶，纸张等的效果，由两部分组成：1）物体侧的增亮这是相对的光源和2）光点就在光源处的外观。</p>
+<a class="reference internal image-reference" href="_images/node_materials_translucency.png"><img alt="_images/node_materials_translucency.png" class="align-center" src="_images/node_materials_translucency.png" style="width: 100%;" /></a>
+<div class="section" id="id18">
+<h4>输入参数<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>Color</em></dt>
+<dd><p class="first last">它定义了材质异质性单通道纹理 - 白色表示最大的半透明效果，而黑色代表不存在。白色默认情况下使用。</p>
+</dd>
+<dt><em>背面因子</em></dt>
+<dd><p class="first">为这是相对的光源侧的材质颜色校正系数。它描述了半透明区域的颜色丰富性的效果。</p>
+<ul class="simple">
+<li><p class="first"><em>背面系数&lt;1</em>  - 增亮</p>
+</li>
+<li><p class="first"><em>背面系数= 1</em>  - 无修正</p>
+</li>
+<li><p class="first"><em>背面系数&gt; 1</em>  - 变黑</p>
+</li>
+</ul>
+<p class="last">默认值是0</p>
+</dd>
+<dt><em>光点硬度</em></dt>
+<dd><p class="first last">光点模糊的系数。这个值越大就越小，当场和更清晰的现货边缘。缺省值为1000。</p>
+</dd>
+<dt><em>斑点强度</em></dt>
+<dd><p class="first last">光斑强度。这个值越亮越大，光点。默认值是1。</p>
+</dd>
+<dt><em>光斑漫射系数</em></dt>
+<dd><p class="first">光斑的颜色材质漫反射颜色影响。</p>
+<ul class="simple">
+<li><p class="first"><em>光斑漫射系数 = 0</em>  - 光斑有漫反射颜色</p>
+</li>
+<li><p class="first"><em>光斑漫射系数 = 1</em>  - 光斑颜色为白色</p>
+</li>
+</ul>
+<p class="last">默认值是0</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id19">
+<h4>输出参数<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>半透明</em></dt>
+<dd><p class="first last">输出应被连接到 <code class="docutils literal"><span class="pre">扩展Material</span></code> 节点的 <code class="docutils literal"><span class="pre">Translucency</span></code> 输入。</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">如果  <a class="reference internal" href="normal_editor.html#normals-editor"><span>网格法线被编辑了</span></a> ，这个节点不会正常工作。</p>
+</div>
+</div>
+</div>
+<div class="section" id="vector-view-b4w-vector-view">
+<span id="node-vector-view"></span><h3><a class="toc-backref" href="#id36">矢量视图（B4W_VECTOR_VIEW）</a><a class="headerlink" href="#vector-view-b4w-vector-view" title="永久链接至标题">¶</a></h3>
+<p>该节点将一个向量坐标转换到相机的空间。转换是必要的，因为引擎定义矢量坐标系在世界空间。如果正常矢量是由该节点转变它应该只对影响，不用于连接到 <code class="docutils literal"><span class="pre">Material</span></code> 或 <code class="docutils literal"><span class="pre">扩展Material</span></code> 节点的输出。</p>
+<a class="reference internal image-reference" href="_images/node_materials_vector_view.png"><img alt="_images/node_materials_vector_view.png" class="align-center" src="_images/node_materials_vector_view.png" style="width: 100%;" /></a>
+<div class="section" id="id20">
+<h4>输入参数<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>矢量</em></dt>
+<dd><p class="first last">向量的坐标在世界空间。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id21">
+<h4>输出参数<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<dl class="docutils">
+<dt><em>矢量</em></dt>
+<dd><p class="first last">矢量坐标在摄像机空间。</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="linear-to-srgb-and-srgb-to-linear-deprecated">
+<span id="node-gamma"></span><h3><a class="toc-backref" href="#id37">线性到 SRGB和SRGB线性（已取消）</a><a class="headerlink" href="#linear-to-srgb-and-srgb-to-linear-deprecated" title="永久链接至标题">¶</a></h3>
+<p>从sRGB到线性空间转换颜色反之亦然。 从版本15.04这个功能已经被宣布弃用。在较新的版本，具有2.200的数值内置 <code class="docutils literal"><span class="pre">Gamma</span></code> 节点应使用将颜色从sRGB转换为线性空间，并用0.455的值相同的节点将颜色从线性空间转换为sRGB。</p>
+<img alt="_images/node_materials_gamma.png" class="align-center" src="_images/node_materials_gamma.png" />
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<p class="last"><a class="reference internal" href="colors.html#gamma-node-materials"><span>伽马在节点材质中</span></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="cycles-nodes">
+<span id="id22"></span><h2><a class="toc-backref" href="#id38">Cycles 节点</a><a class="headerlink" href="#cycles-nodes" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>Cycles节点的支持是不建议在生产中使用环境的实验性功能。</p>
+<p class="last">此外应指出的是，在 Blend4Web 中使用Cycles节点会产生相似的图像，但不是完全跟使用Cycles渲染器本身创建的图像一样。</p>
+</div>
+<p>引擎支持以下 <code class="docutils literal"><span class="pre">Cycles</span></code> 节点︰</p>
+<ul class="simple">
+<li><p class="first"><code class="docutils literal"><span class="pre">材质输出</span></code> (只支持 <code class="docutils literal"><span class="pre">Surface</span></code> 和  <code class="docutils literal"><span class="pre">Displacement</span></code> 输入）;</p>
+</li>
+<li><code class="docutils literal"><span class="pre">BSDF</span> <span class="pre">Diffuse</span></code>;</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">BSDF</span> <span class="pre">Glossy</span></code> (只支持 <code class="docutils literal"><span class="pre">GGX</span></code> 分布;  <code class="docutils literal"><span class="pre">Roughness</span></code> 参数不影响反射);</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">透明BSDF</span></code>;</p>
+</li>
+<li><code class="docutils literal"><span class="pre">Mix</span> <span class="pre">Shader</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">Fresnel</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">Layer</span> <span class="pre">Weight</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">Image</span> <span class="pre">Texture</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">Environment</span> <span class="pre">Texture</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">Object</span> <span class="pre">Info</span></code>;</li>
+<li><code class="docutils literal"><span class="pre">Bump</span></code>.</li>
+</ul>
+<p>部分支持以下节点︰</p>
+<ul class="simple">
+<li><p class="first"><code class="docutils literal"><span class="pre">Texture</span> <span class="pre">Coordinates</span></code> (<code class="docutils literal"><span class="pre">From</span> <span class="pre">Dupli</span></code> 参数不支持);</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">UV</span> <span class="pre">Map</span></code> (<code class="docutils literal"><span class="pre">From</span> <span class="pre">Dupli</span></code> 参数不支持);</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Geometry</span></code> (  <code class="docutils literal"><span class="pre">Pointness</span></code> 和 <code class="docutils literal"><span class="pre">Parametric</span></code> 参数不支持).</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Emission</span></code> (不会影响场景中的打灯效果).</p>
+</li>
+</ul>
+<p><code class="docutils literal"><span class="pre">Cycles</span></code> 节点也支持  <code class="docutils literal"><span class="pre">世界</span></code> 物体。但是，现在节点材质不会影响到环境的颜色。</p>
+<p>其他 <code class="docutils literal"><span class="pre">Cycles</span></code> 节点在大多数情况下在不会在Blend4Web中跟他们在Blender中一样良好工作。他们不会工作也可能引起材质的不正常显示和工作。但是，使用这些节点不会在应用程序工作流中导致不稳定。</p>
+</div>
+<div class="section" id="limitations">
+<span id="node-material-limits"></span><h2><a class="toc-backref" href="#id39">限制</a><a class="headerlink" href="#limitations" title="永久链接至标题">¶</a></h2>
+<p>节点材质可能很复杂，但它们的复杂性受您使用的硬件功能的限制。大部分时间可能不太明显，但是如果你做了一个非常复杂的材质，你可能会超过纹理数量限制和向量变量（顶点着色器用来把数据交给片段着色器）你的系统允许在一个着色器中使用的量。即使你不这样做，你的应用程序的一些用户可能没有像你一样强大的设备，所以他们会遇到你不会遇到的问题。</p>
+<p>如果你想要知道如何你的场景会表现在低端的设备上，但是你又刚好没有这样的设备，这里有个非常有用的选项，称为 <code class="docutils literal"><span class="pre">最小功能模式</span></code>. 它是原产于 <a class="reference internal" href="viewer.html#viewer"><span>场景预览器</span></a> 可以在  <a class="reference internal" href="viewer.html#viewer-tools-and-debug"><span>工具 &amp; 处理错误</span></a> 面板中找到。</p>
+<p>您的设备所支持的变向量和纹理数量可以在 WebGL 报告 web 页访问  <a class="reference internal" href="addon.html#getting-started-launching-viewer"><span>SDK索引</span></a> 页上查看.</p>
+<p>下面两个表列出了各种材质节点及其所在的纹理和变向量有多少是引擎将分配给他们的。</p>
+<p><strong>变向量</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="52%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first last"><strong>节点 / 影响</strong></p>
+</td>
+<td><p class="first last"><strong>分配变向量</strong></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">始终保留</p>
+</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><code class="docutils literal"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Texture</span></code> 节点(如果 <code class="docutils literal"><span class="pre">法线</span></code> 输出被使用)</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><code class="docutils literal"><span class="pre">Blend4Web</span> <span class="pre">-&gt;</span> <span class="pre">Parallax</span></code> 节点</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><code class="docutils literal"><span class="pre">Vector</span> <span class="pre">-&gt;</span> <span class="pre">Normal</span> <span class="pre">Map</span></code> 节点</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><code class="docutils literal"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Material</span></code> 节点 (如果 <code class="docutils literal"><span class="pre">Shading</span> <span class="pre">-&gt;</span> <span class="pre">Tangent</span> <span class="pre">Shading</span></code> 选项在材质上启用)</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><code class="docutils literal"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Geometry</span></code> 节点 (如果 <code class="docutils literal"><span class="pre">UV</span></code> 输出被启用)</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><code class="docutils literal"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">UV</span> <span class="pre">Map</span></code> cycles 节点</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><code class="docutils literal"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Texture</span> <span class="pre">Coordinate</span></code> cycles 节点 (如果 <code class="docutils literal"><span class="pre">UV</span></code> 输出被使用)</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><code class="docutils literal"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Geometry</span></code> 节点 (如果 <code class="docutils literal"><span class="pre">Vertex</span> <span class="pre">Color</span></code> 输出被使用)</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">在带有 <code class="docutils literal"><span class="pre">Alpha</span> <span class="pre">混合</span></code> 材质的物体上有阴影</p>
+</td>
+<td><p class="first">1 - 4</p>
+<p class="last">（取决于阴影级联或阴影脚轮的数目）</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><code class="docutils literal"><span class="pre">不透明</span></code> 材质物体上的阴影</p>
+<p>材质的折射效果</p>
+<p class="last">平面反射在物体上启用</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><p class="first last">材质的折射效果</p>
+</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>纹理</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="52%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first last"><strong>节点 / 影响</strong></p>
+</td>
+<td><p class="first last"><strong>已分配纹理</strong></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><code class="docutils literal"><span class="pre">Blend4Web</span> <span class="pre">-&gt;</span> <span class="pre">Parallax</span></code> 节点</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><code class="docutils literal"><span class="pre">Input</span> <span class="pre">-&gt;</span> <span class="pre">Texture</span></code> 节点</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><p class="first last"><code class="docutils literal"><span class="pre">Texture</span> <span class="pre">-&gt;</span> <span class="pre">Environment</span> <span class="pre">Texture</span></code> cycles 节点</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><p class="first"><code class="docutils literal"><span class="pre">Vector</span> <span class="pre">-&gt;</span> <span class="pre">Vector</span> <span class="pre">Curves</span></code> 节点</p>
+<p><code class="docutils literal"><span class="pre">Color</span> <span class="pre">-&gt;</span> <span class="pre">RGB</span> <span class="pre">Curves</span></code> 节点</p>
+<p class="last"><code class="docutils literal"><span class="pre">Converter</span> <span class="pre">-&gt;</span> <span class="pre">Color</span> <span class="pre">Ramp</span></code> 节点</p>
+</td>
+<td><p class="first">1</p>
+<p class="last">（材质中节点的数目并不重要）</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last">在带有 <code class="docutils literal"><span class="pre">Alpha</span> <span class="pre">混合</span></code> 材质的物体上有阴影</p>
+</td>
+<td><p class="first">1 - 4</p>
+<p class="last">（取决于阴影脚轮的数量和/或影栅）</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><code class="docutils literal"><span class="pre">不透明</span></code> 材质物体上的阴影</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><p class="first last">材质的折射效果</p>
+</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td><p class="first last"><code class="docutils literal"><span class="pre">World</span> <span class="pre">-&gt;</span> <span class="pre">Environment</span> <span class="pre">Lighting</span> <span class="pre">-&gt;</span> <span class="pre">SkyTexture</span></code> 为世界启用</p>
+</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><p class="first last">在物体上反射效果</p>
+</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="logic_editor.html" class="btn btn-neutral float-right" title="逻辑编辑器" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="material_library.html" class="btn btn-neutral" title="材质库" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014-2017, Triumph.
+      最后更新于 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

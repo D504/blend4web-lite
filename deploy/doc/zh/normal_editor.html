@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>法线编辑器 &mdash; Blend4Web 17.10 用户手册</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="关于这些文档"
+              href="about.html"/>
+    <link rel="top" title="Blend4Web 17.10 用户手册" href="index.html"/>
+        <link rel="next" title="相机" href="camera.html"/>
+        <link rel="prev" title="网格" href="meshes.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Blend4Web. 用户手册
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">引擎功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Blender的用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">安装和更新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">工作流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">项目管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">场景预览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">网络播放器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">场景设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">物体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">网格</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">法线编辑器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-features-of-the-normal-editor">法线编辑器主要功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interface">界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#activate">启用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-normals">显示法线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rotate">旋转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scale">缩放</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#absolute-and-offset-modes">绝对和偏移模式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#absolute-mode">绝对模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offset-mode">偏置模式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#split-normals">分割法线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#average">平均</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restore">恢复</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-cursor-axis-and-face">3D游标，轴和面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#copy-paste">Copy（复制）/Paste（粘贴）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#copy-from-mesh">从网格复制</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">材质库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">节点材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">逻辑编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">照明、 阴影和背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">后期处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">纹理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">粒子系统,流体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">粒子系统.实例化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">室外效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">色彩管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">对应用程序开发人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">对于引擎开发者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">团队工作。使用 Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">存在的问题及解决方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">发布说明</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blend4Web. 用户手册</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>法线编辑器</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="normals-editor"></span><div class="section" id="normal-editor">
+<span id="index-0"></span><h1><a class="toc-backref" href="#id1">法线编辑器</a><a class="headerlink" href="#normal-editor" title="永久链接至标题">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#normal-editor" id="id1">法线编辑器</a><ul>
+<li><a class="reference internal" href="#main-features-of-the-normal-editor" id="id2">法线编辑器主要功能</a></li>
+<li><a class="reference internal" href="#interface" id="id3">界面</a></li>
+<li><a class="reference internal" href="#activate" id="id4">启用</a></li>
+<li><a class="reference internal" href="#show-normals" id="id5">显示法线</a></li>
+<li><a class="reference internal" href="#rotate" id="id6">旋转</a></li>
+<li><a class="reference internal" href="#scale" id="id7">缩放</a></li>
+<li><a class="reference internal" href="#absolute-and-offset-modes" id="id8">绝对和偏移模式</a></li>
+<li><a class="reference internal" href="#split-normals" id="id9">分割法线</a></li>
+<li><a class="reference internal" href="#average" id="id10">平均</a></li>
+<li><a class="reference internal" href="#restore" id="id11">恢复</a></li>
+<li><a class="reference internal" href="#d-cursor-axis-and-face" id="id12">3D游标，轴和面</a></li>
+<li><a class="reference internal" href="#copy-paste" id="id13">Copy（复制）/Paste（粘贴）</a></li>
+<li><a class="reference internal" href="#copy-from-mesh" id="id14">从网格复制</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>编辑法线来更改模型的著色而不更改其几何形状，是相当简单而有效的方法。</p>
+<p>在某些情况下，使用法线编辑器，你可以做到这类似于使用  <a class="reference internal" href="textures.html#normal-map"><span>法线贴图</span></a> 的效果。同等的，编辑法线是首选，因为它是更有效的计算和消耗更少的显存。</p>
+<p>法线编辑器工作流示例：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/normal_editor_example.png"><img alt="_images/normal_editor_example.png" class="align-center" src="_images/normal_editor_example.png" style="width: 100%;" /></a>
+</div></blockquote>
+<p>左边-添加默认几何材质的树，右边-同一棵树但编辑过法线。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/simple_geometry.png"><img alt="_images/simple_geometry.png" class="align-center" src="_images/simple_geometry.png" style="width: 100%;" /></a>
+</div></blockquote>
+<p>左边-普通着色的门，中间-带法线编辑的门，右边-带线框的门的几何形状。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/grass.png"><img alt="_images/grass.png" class="align-center" src="_images/grass.png" style="width: 100%;" /></a>
+</div></blockquote>
+<p>左边-默认材质的草，右边-同样的草并编辑过法线。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/glasses.png"><img alt="_images/glasses.png" class="align-center" src="_images/glasses.png" style="width: 100%;" /></a>
+</div></blockquote>
+<p>左边-默认材质的眼镜，右边-编辑过法线的眼镜。</p>
+<div class="section" id="main-features-of-the-normal-editor">
+<h2><a class="toc-backref" href="#id2">法线编辑器主要功能</a><a class="headerlink" href="#main-features-of-the-normal-editor" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p class="first">Blender内的 datablock数据块（2.74版后可用）被用作于存储法线;</p>
+</li>
+<li><p class="first">法线编辑和由此产生的材质在 Edit Mode（编辑模式）下显示;</p>
+</li>
+<li><p class="first">所有更改应用全都立即自动保存;</p>
+</li>
+<li><p class="first">可在 Viewport视图窗口 通过Shift+Ctrl+R热键可直接旋转顶点法线，就像任何其他Blender里的旋转;</p>
+</li>
+<li><p class="first">编辑的法线会自动导出</p>
+</li>
+</ol>
+</div>
+<div class="section" id="interface">
+<h2><a class="toc-backref" href="#id3">界面</a><a class="headerlink" href="#interface" title="永久链接至标题">¶</a></h2>
+<p>法线编辑器位于工具面板  <code class="docutils literal"><span class="pre">Blend4Web</span> <span class="pre">&gt;</span> <span class="pre">Normal</span> <span class="pre">Editor</span></code>  上。开始编辑工作前 <code class="docutils literal"><span class="pre">Shading:</span> <span class="pre">Smooth</span></code> 模式应该启用和 <code class="docutils literal"><span class="pre">Activate</span></code> 按钮应该点击，或 <code class="docutils literal"><span class="pre">自动Smooth</span></code> 标志应在网格设置中启用。</p>
+<a class="reference internal image-reference" href="_images/normal_editor_interface.png"><img alt="_images/normal_editor_interface.png" class="align-center" src="_images/normal_editor_interface.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="activate">
+<h2><a class="toc-backref" href="#id4">启用</a><a class="headerlink" href="#activate" title="永久链接至标题">¶</a></h2>
+<p>该 <code class="docutils literal"><span class="pre">Activate</span></code> 按钮打开顶点法线编辑模式。</p>
+<p>编辑法线需要在编辑模式下Activate启用按钮。启用后，物体的材质和导出将使用编辑过的法线。换句话说，要在Blend4Web视图里查看根据材质的编辑后法线，此按钮必须处于启用状态。</p>
+</div>
+<div class="section" id="show-normals">
+<h2><a class="toc-backref" href="#id5">显示法线</a><a class="headerlink" href="#show-normals" title="永久链接至标题">¶</a></h2>
+<p>此按钮实际上重复原始Blender按钮。在窗口里打开显​​示法线，而 Size（尺寸） 栏允许您设置它们的长度。</p>
+<p>您只要按下法线编辑器里的Show Normals按钮或Blender右侧面板中的Mesh Display（网格显示）里的法线显示。您也可以经由设置Size栏来调整合适的法线长度。</p>
+<a class="reference internal image-reference" href="_images/show_normals.gif"><img alt="_images/show_normals.gif" class="align-center" src="_images/show_normals.gif" style="width: 100%;" /></a>
+</div>
+<div class="section" id="rotate">
+<h2><a class="toc-backref" href="#id6">旋转</a><a class="headerlink" href="#rotate" title="永久链接至标题">¶</a></h2>
+<p>使用这些工具，您可以更改法线的方向。Rotate（旋转）的功能也可通过 Shift+Ctrl+R热键，允许类似于Blender的顶点法线旋转。</p>
+<a class="reference internal image-reference" href="_images/rotate.gif"><img alt="_images/rotate.gif" class="align-center" src="_images/rotate.gif" style="width: 100%;" /></a>
+<p>选择您想要编辑的一个或多个顶点，然后使用圆形视觉操纵器指定他们的法线方向数值。</p>
+<p>Rotate 按钮提供了更简便的方法来操纵法线。旋转在屏幕空间执行。然而，正如任何在Blender的其他旋转，您可在旋转过程中隔离所需的轴 (通过键入 X、 Y 或 Z)。</p>
+</div>
+<div class="section" id="scale">
+<h2><a class="toc-backref" href="#id7">缩放</a><a class="headerlink" href="#scale" title="永久链接至标题">¶</a></h2>
+<p>此函数可以用来改变法线的缩放，并可从工具面板和通过按 <code class="docutils literal"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">S</span></code> 快捷键。法线的长度可以用数字键设置，<code class="docutils literal"><span class="pre">X</span></code>, <code class="docutils literal"><span class="pre">Y</span></code> 和 <code class="docutils literal"><span class="pre">Z</span></code> 键用于设置沿着法线的哪个坐标轴进行缩放。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">请记住，任何法线的可见长度不会改变，总是由  <code class="docutils literal"><span class="pre">大小</span></code>  参数定义。</p>
+</div>
+</div>
+<div class="section" id="absolute-and-offset-modes">
+<h2><a class="toc-backref" href="#id8">绝对和偏移模式</a><a class="headerlink" href="#absolute-and-offset-modes" title="永久链接至标题">¶</a></h2>
+<p>法线编辑器可以在两种不同的模式进行操作：绝对模式和补偿模式。当前选择的模式可以按已上述的``Rotate``按钮下放置在两个按钮中的一个进行切换。默认情况下，使用``Absolute``模式。</p>
+<div class="section" id="absolute-mode">
+<h3>绝对模式<a class="headerlink" href="#absolute-mode" title="永久链接至标题">¶</a></h3>
+<a class="reference internal image-reference" href="_images/normal_editor_absolute.png"><img alt="_images/normal_editor_absolute.png" class="align-center" src="_images/normal_editor_absolute.png" style="width: 100%;" /></a>
+<p>这是法线编辑器的默认模式。在这种模式下，一法线矢量的坐标是绝对的，也可以 使用 <code class="docutils literal"><span class="pre">X</span></code>，<code class="docutils literal"><span class="pre">Y</span></code> 和 <code class="docutils literal"><span class="pre">Z</span></code> 字段或位于它们的旁边的视觉范围进行设置。</p>
+</div>
+<div class="section" id="offset-mode">
+<h3>偏置模式<a class="headerlink" href="#offset-mode" title="永久链接至标题">¶</a></h3>
+<a class="reference internal image-reference" href="_images/normal_editor_offset.png"><img alt="_images/normal_editor_offset.png" class="align-center" src="_images/normal_editor_offset.png" style="width: 100%;" /></a>
+<p>在这种模式下，一个用户定义的值被添加到法线矢量。</p>
+<p>在 <code class="docutils literal"><span class="pre">X</span></code>，<code class="docutils literal"><span class="pre">Y</span></code> 和 <code class="docutils literal"><span class="pre">Z</span></code> 字段可用于设置向量的相应分量，而 <code class="docutils literal"><span class="pre">Sub</span></code> 和 <code class="docutils literal"><span class="pre">Add</span></code> 按钮定义是否该矢量应该从法线矢量中减去或加至它。</p>
+</div>
+</div>
+<div class="section" id="split-normals">
+<h2><a class="toc-backref" href="#id9">分割法线</a><a class="headerlink" href="#split-normals" title="永久链接至标题">¶</a></h2>
+<p>Split Normals（分割法线）模式允许分别编辑每一面的顶点法线。Index索引栏允许您在分开的法线间切换。</p>
+<a class="reference internal image-reference" href="_images/split_normals.gif"><img alt="_images/split_normals.gif" class="align-center" src="_images/split_normals.gif" style="width: 100%;" /></a>
+<p>打开Split Normals模式、 选择顶点并更改其法线方向。首先，索引为零的法线将被修改。接着，可以通过切换索引到下一个顶点法线并编辑它，下一步亦是如此。</p>
+</div>
+<div class="section" id="average">
+<h2><a class="toc-backref" href="#id10">平均</a><a class="headerlink" href="#average" title="永久链接至标题">¶</a></h2>
+<p>在 <code class="docutils literal"><span class="pre">Average</span></code> 按钮平均值其中被修改的顶点法线的方向。</p>
+<a class="reference internal image-reference" href="_images/average.gif"><img alt="_images/average.gif" class="align-center" src="_images/average.gif" style="width: 100%;" /></a>
+<p>结合几个分割顶点法线，为了获得这些法线的平均方向，您只需要选择所需的顶点，然后按 <code class="docutils literal"><span class="pre">Average</span> <span class="pre">Split</span></code> 按钮。</p>
+</div>
+<div class="section" id="restore">
+<h2><a class="toc-backref" href="#id11">恢复</a><a class="headerlink" href="#restore" title="永久链接至标题">¶</a></h2>
+<p>Restore（还原）按钮将还原所选顶点法线的原始方向。</p>
+<a class="reference internal image-reference" href="_images/restore.gif"><img alt="_images/restore.gif" class="align-center" src="_images/restore.gif" style="width: 100%;" /></a>
+<p>为了还原到其原始(根据面的法线计算)的法线的方向，您需要选择所需的顶点，然后单击 Restore 按钮。</p>
+</div>
+<div class="section" id="d-cursor-axis-and-face">
+<h2><a class="toc-backref" href="#id12">3D游标，轴和面</a><a class="headerlink" href="#d-cursor-axis-and-face" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">3D</span> <span class="pre">游标</span></code> 按钮可将所选顶点的法线远离3D游标或向其移动（如果 <code class="docutils literal"><span class="pre">顶点法线光标</span></code> 面板中的 <code class="docutils literal"><span class="pre">Towards</span></code>  参数已启用）。  <code class="docutils literal"><span class="pre">轴</span></code> 按钮将沿着坐标轴引导顶点的法线（该轴可以在同一个 <code class="docutils literal"><span class="pre">顶点法线光标</span></code> 面板中选择）。  <code class="docutils literal"><span class="pre">面</span></code> 按钮将所选面的法线平行于该面的法线。</p>
+<a class="reference internal image-reference" href="_images/3dcursor.gif"><img alt="_images/3dcursor.gif" class="align-center" src="_images/3dcursor.gif" style="width: 100%;" /></a>
+<p>为了使用 <code class="docutils literal"><span class="pre">3D</span> <span class="pre">游标</span></code> 功能，选择所需的顶点，并将3D光标放置在所需位置。然后单击 <code class="docutils literal"><span class="pre">3D</span> <span class="pre">游标</span></code> 按钮，所有所选的顶点将其方向转离光标，就像从一个点发射出来一样。然后，您可以检查 <code class="docutils literal"><span class="pre">顶点法线光标</span></code> 面板中的  <code class="docutils literal"><span class="pre">Towards</span></code> 选项，这将使法线朝向光标方向。</p>
+<p><code class="docutils literal"><span class="pre">轴</span></code> 功能非常容易使用：只需选择顶点并按下按钮，该功能将沿着  <code class="docutils literal"><span class="pre">顶点法线光标</span></code> 面板中设置的坐标轴引导其法线（Z轴被默认选定）或远离它，如果您禁用同一面板上的  <code class="docutils literal"><span class="pre">Towards</span></code> 参数。</p>
+<p>为了使法线平行于面法线，只需选择所需的面（或多个面），然后单击 <code class="docutils literal"><span class="pre">面</span></code> 按钮。形成面的顶点的法线将平行于面法线。此功能一次只能与一个选定的面一起使用。</p>
+<p><code class="docutils literal"><span class="pre">3D游标</span></code>, <code class="docutils literal"><span class="pre">轴</span></code> 和 <code class="docutils literal"><span class="pre">面</span></code> 操作符也具有 <code class="docutils literal"><span class="pre">因子</span></code> 参数，用于将初始位置与结果位置的法线混合。此参数的默认值为1（使用结果位置）。</p>
+</div>
+<div class="section" id="copy-paste">
+<h2><a class="toc-backref" href="#id13">Copy（复制）/Paste（粘贴）</a><a class="headerlink" href="#copy-paste" title="永久链接至标题">¶</a></h2>
+<p>拷贝一个到另从一个顶点的法线方向。</p>
+<a class="reference internal image-reference" href="_images/copypaste.gif"><img alt="_images/copypaste.gif" class="align-center" src="_images/copypaste.gif" style="width: 100%;" /></a>
+<p>选择您想要复制的来源顶点后单击Copy按钮。接着选择您想要复制的顶点单击Paste按钮。您可从所选的顶点复制信息到许多不同的顶点上。此按钮在Split Mode不启用，亦无法复制分割顶点的数据。</p>
+</div>
+<div class="section" id="copy-from-mesh">
+<h2><a class="toc-backref" href="#id14">从网格复制</a><a class="headerlink" href="#copy-from-mesh" title="永久链接至标题">¶</a></h2>
+<p>这个功能允许您从一个物体复制法线到另一个上。有两种模式: Matched Vertices（相符顶点） 和 Nearest Vertices（最近顶点）。</p>
+<p>Matched Vertices模式只许在两个物体拥有相同的座标系时复制;其余的顶点将被忽略。Nearest Vertices模式是从来源物体顶点最靠近处复制法线。</p>
+<a class="reference internal image-reference" href="_images/copy_from_mesh.gif"><img alt="_images/copy_from_mesh.gif" class="align-center" src="_images/copy_from_mesh.gif" style="width: 100%;" /></a>
+<p>此功能需在Blender物体模式中运作。首先，您需要选择复制的来源物体，接着是复制的对象。它也需要选择目标物体的顶点法线并复制到其中。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="camera.html" class="btn btn-neutral float-right" title="相机" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="meshes.html" class="btn btn-neutral" title="网格" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014-2017, Triumph.
+      最后更新于 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

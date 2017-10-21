@@ -1,0 +1,569 @@
+
+团队工作。使用 Git
+******************
+
+
+目录
+^^^^
+
+* 团队工作。使用 Git
+
+  * 概述
+
+  * 典型的工作流
+
+  * 单独设置
+
+  * 检查状态
+
+  * 在提交前
+
+    * 检查 （文本文件） 的变化
+
+    * 回滚文件
+
+    * 不需要的文件
+
+  * 准备提交
+
+    * 添加文件
+
+    * 删除文件
+
+  * 提交
+
+  * 存储库之间同步
+
+    * 从远程到本地
+
+    * 从本地到远程
+
+  * 解决冲突
+
+    * 概述
+
+    * 可采取的步骤
+
+    * 二进制文件
+
+    * 文本文件
+
+    * 纠正提交
+
+  * 标签
+
+  * 其他有用的命令
+
+
+概述
+====
+
+为了组织团队工作可以使用 Git 版本控制系统。使用 Git 与其他的方式进行协
+作相比有大量的好处 ︰
+
+* 保存更改历史，方便的回滚到以前版本
+
+* 同步用户间的修改，自动合并修改
+
+* 可以用于大型的二进制文件
+
+Git 是一个分布式的系统，每个开发人员或设计师有他自己的本地存储库 （存
+储）。可以在本地存储库之间同步，通过中央的 （"共享"） 存储，放在于一个
+专用的机器 （服务器）。对服务器的访问可以通过 SSH 协议进行。
+
+尽管有很多图形用户界面为 Git 初学者准备，但这里解释如何使用标准控制台
+的 "git" 如何工作。
+
+
+典型的工作流
+============
+
+1. 可以在本地仓库创建、 添加或删除文件。
+
+2. 当一段确定的工作完结后需要将修改 修复 （提交） 和/或 同步到你同
+   事那 。
+
+3. 文件已准备好提交，即已更改的审计、 新的和已删除的文件和也全部为
+   更改 重置了。
+
+4. 执行提交。
+
+5. 本地更改上载到共享存储并提供给同事。
+
+一组有限的 Git 命令，建议作为创作应用程序和它们的图形资源，展示如下。
+
+非常有必要在执行命令前切换代码库，例如 ︰
+
+   > cd ~/blend4web
+
+
+单独设置
+========
+
+新用户可以使用这个命令设置他的姓名和电子邮件 ︰
+
+   > git config --global user.name "Ivan Petrov"
+   > git config --global user.email ipetrov@blend4web.com
+
+设置数据将用于更新日志。
+
+
+检查状态
+========
+
+建议在执行的所有操作之前,、 在进步和之后都检查存储库状态。
+
+使用此命令可以检查状态 ︰
+
+   > git status
+
+如果所有提交了都执行并且没有新的文件 "git status" 命令的结果 ︰
+
+   # On branch master
+   # Your branch is ahead of 'origin/master' by 2 commits.
+   #
+   nothing to commit (working directory clean)
+
+如果有变化可能的  "git status" 结果。例如:
+"apps_dev/firstperson/firstperson.js" 和
+"doc_src/git_short_manual.rst"  文件更和创建了新文件 "123.txt" ：
+
+   # On branch master
+   # Changes not staged for commit:
+   #   (use "git add <file>..." to update what will be committed)
+   #   (use "git checkout -- <file>..." to discard changes in working directory)
+   #
+   #   modified:   apps_dev/firstperson/firstperson.js
+   #   modified:   doc_src/git_short_manual.rst
+   #
+   # Untracked files:
+   #   (use "git add <file>..." to include in what will be committed)
+   #
+   #   123.txt
+   no changes added to commit (use "git add" and/or "git commit -a")
+
+
+在提交前
+========
+
+
+检查 （文本文件） 的变化
+------------------------
+
+如果是文本文件的情况下，建议在执行提交之前查看介绍了的变化。
+
+检查在整个目录中的更改内容 ︰
+
+   > git diff
+
+或者特定的文件 ︰
+
+   > git diff apps_dev/firstperson/firstperson.js
+
+一个文本文件的 "git diff" 命令可能的结果 ︰
+
+   diff --git a/apps_dev/firstperson/firstperson.js b/apps_dev/firstperson/firstperson.js
+   index 4381c99..44b3b15 100644
+   --- a/apps_dev/firstperson/firstperson.js
+   +++ b/apps_dev/firstperson/firstperson.js
+   @@ -557,8 +557,9 @@ function enable_camera_control_mode() {
+                var cam_view_down = CAMERA_MOVE_UPDOWN * (Math.sin(_passed_time) - 1);
+
+                b4w.camera.translate_view(obj, 0, cam_view_down, cam_view_angle);
+   -        } else
+   +        } else {
+                b4w.camera.translate_view(obj, 0, 0, 0);
+   +        }
+        }
+
+
+回滚文件
+--------
+
+如果文件被更改或删除，但需要恢复 （到最新的提交状态），请使用命令 ︰
+
+   > git checkout doc_src/git_short_manual.rst
+   > git checkout 123.txt
+
+引起的变更将会被取消 - 这就是为什么应谨慎执行此命令。
+
+
+不需要的文件
+------------
+
+如果文件列在 "未跟踪文件"  （"git 状态"），但它不需要版本控制，它应删
+除或移到工作目录之外。
+
+
+准备提交
+========
+
+
+添加文件
+--------
+
+如果你对所做的更改满意，添加所需的改变 和/或 新文件到提交。
+
+   > git add apps_dev/firstperson/firstperson.js
+   > git add 123.txt
+
+再次检查状态 ︰
+
+   > git status
+
+"git status" 命令后用 "git add" 添加一些文件的可能的结果 ︰
+
+   # On branch master
+   # Changes to be committed:
+   #   (use "git reset HEAD <file>..." to unstage)
+   #
+   #   new file:   123.txt
+   #   modified:   apps_dev/firstperson/firstperson.js
+   #
+   # Changes not staged for commit:
+   #   (use "git add <file>..." to update what will be committed)
+   #   (use "git checkout -- <file>..." to discard changes in working directory)
+   #
+   #   modified:   doc_src/git_short_manual.rst
+   #
+
+你可以看到  "apps_dev/firstperson/firstperson.js" 和 "123.txt" 文件添
+加到提交  "doc_src/git_short_manual.rst"  文件不添加。为了使事情更容易
+，建议使用 "git checkout" 添加此类文件的提交或取消其更改。
+
+
+删除文件
+--------
+
+在执行了 "git status" 命令后，一些文件可以被标记为删除，例如 ︰
+
+   # On branch master
+   # Your branch is ahead of 'origin/master' by 2 commits.
+   #
+   # Changes not staged for commit:
+   #   (use "git add/rm <file>..." to update what will be committed)
+   #   (use "git checkout -- <file>..." to discard changes in working directory)
+   #
+   #   deleted:    123.txt
+   #
+   no changes added to commit (use "git add" and/or "git commit -a")
+
+在此情况下，如果删除该文件应该被记录下来 （即输入提交），执行  "git
+rm" 命令，例如 ︰
+
+   > git rm 123.txt
+
+如果该文件被意外删除，需要恢复它，使用 "git checkout" 命令。
+
+
+提交
+====
+
+执行提交命令 ︰
+
+   > git commit
+
+文本编辑器窗口会显示 (例如，**nano** 或 **vim**)，必须在其中输入英文的
+提交评论。
+
+     GNU nano 2.2.6                                    File: .git/COMMIT_EDITMSG
+
+   My commit message
+   # Please enter the commit message for your changes. Lines starting
+   # with '#' will be ignored, and an empty message aborts the commit.
+   # On branch master
+   # Changes to be committed:
+   #   (use "git reset HEAD <file>..." to unstage)
+   #
+   #       new file:   123.txt
+   #       modified:   apps_dev/firstperson/firstperson.js
+   #
+   # Changes not staged for commit:
+   #   (use "git add <file>..." to update what will be committed)
+   #   (use "git checkout -- <file>..." to discard changes in working directory)
+   #
+   #       modified:   doc_src/git_short_manual.rst
+   #
+
+   ^G Get Help               ^O WriteOut               ^R Read File              ^Y Prev Page
+   ^X Exit                   ^J Justify                ^W Where Is               ^V Next Page
+
+保存更改并退出编辑器 (在 **nano** 是 Ctrl + O，然后 Ctrl + X; 在
+**vim**  ZZ，或按 ESC: wq)。
+
+在提交后它建议重新检查状态。如果 "git status" 命令将返回 "无可提交的东
+西，工作文件夹干净".
+
+
+存储库之间同步
+==============
+
+
+从远程到本地
+------------
+
+所有提交执行后，需要从远程 （"共享"） 资源库中加载所做的更改到本地库
+︰
+
+   > git pull
+
+如果远程资源库中的任何更改 "git pull"  命令的结果 ︰
+
+   Already up-to-date.
+
+如果远程资源库中包含的更改、同步的结果是成功的话，"git pull" 命令的结
+果︰
+
+   remote: Counting objects: 151, done.
+   remote: Compressing objects: 100% (101/101), done.
+   remote: Total 102 (delta 74), reused 0 (delta 0)
+   Receiving objects: 100% (102/102), 69.77 MiB | 4.87 MiB/s, done.
+   Resolving deltas: 100% (74/74), completed with 32 local objects.
+   From lixer:blend4web
+      dbf3877..9f9700c  master     -> origin/master
+   Updating dbf3877..9f9700c
+   Fast-forward
+    apps_dev/firstperson/firstperson.js                |  338 +--
+    .../location_agriculture.blend                     |  Bin 25601626 -> 25598644 bytes
+    ...
+    src/controls.js                                    |   38 +-
+    src/data.js                                        |    5 +
+    src/physics.js                                     |  185 +-
+    19 files changed, 1452 insertions(+), 2767 deletions(-)
+    create mode 100644    deploy/assets/location_agriculture/textures/rotonda_02_diff.png
+
+如果你希望查找你同事所做的更改，使用下面的命令 ︰
+
+   > git diff dbf3877..9f9700c
+
+此命令的参数 - 在案例  dbf3877..9f9700c  -显示哪些提交之间确切地进行了
+更改。此参数可以方便地在控制台的  "git pull"  结果中选择再用鼠标点击
+（中间的按钮）粘贴到需要的地方。
+
+还可以查看更新日志 ︰
+
+   > git log
+
+"git pull" 命令并不总是能同步成功。当有冲突时 "git pull" 的结果 ︰
+
+   remote: Counting objects: 11, done.
+   remote: Compressing objects: 100% (6/6), done.
+   remote: Total 6 (delta 5), reused 0 (delta 0)
+   Unpacking objects: 100% (6/6), done.
+   From lixer:blend4web
+      ff715c2..dbf316a  master     -> origin/master
+   warning: Cannot merge binary files: blender/landscape_objects/Fallen_tree.blend (...)
+
+   Auto-merging blender/landscape_objects/Fallen_tree.blend
+   CONFLICT (content): Merge conflict in blender/landscape_objects/Fallen_tree.blend
+   Automatic merge failed; fix conflicts and then commit the result.
+
+在冲突时所采取的步骤如下 ︰
+
+
+从本地到远程
+------------
+
+在那之后所做的更改，应从本地资源库上载到远程库 （"共享"）， 一个能为同
+事提供所做的更改的库。
+
+   > git push
+
+如果远程资源库中已经包含了所有的本地更改的 "git push" 命令的结果 ︰
+
+   Everything up-to-date
+
+如果同步成功后  "git push" 命令的结果 ︰
+
+   Counting objects: 25, done.
+   Delta compression using up to 8 threads.
+   Compressing objects: 100% (14/14), done.
+   Writing objects: 100% (14/14), 1.23 KiB, done.
+   Total 14 (delta 11), reused 0 (delta 0)
+   To gfxteam@lixer:blend4web.git
+      9f9700c..fa1d6ac  master -> master
+
+如果同步不成功是因为 "git pull" 命令没有首先执行时，"git push" 的结果
+︰
+
+   To gfxteam@lixer:blend4web.git
+    ! [rejected]        master -> master (non-fast-forward)
+   error: failed to push some refs to 'gfxteam@lixer:blend4web.git'
+   To prevent you from losing history, non-fast-forward updates were rejected
+   Merge the remote changes (e.g. 'git pull') before pushing again.  See the
+   'Note about fast-forwards' section of 'git push --help' for details.
+
+你应该执行 "git pull" 命令。
+
+其他开发人员可以使用 "git pull" 命令收到上传到中央存储库中的更改。
+
+
+解决冲突
+========
+
+
+概述
+----
+
+如果这两个条件都满足，就会发生同步冲突
+
+1. 同一文件同时在本地和远程资源库中更改，并
+
+2. 所做的更改的自动合并没有发生因为所做的更改在文件的同一个地方。
+
+典型案例 ︰
+
+1. 二进制文件 （纹理，blend文件） 已被两个开发人员独立修改
+
+2. 引起的修改在同一文本文件的同一行
+
+3. 一位开发已修改该文件，而另一位又移动它，等等。
+
+虽然同步冲突是正常，单如果太过频繁发生会导致工作缓慢。在开始共享二进制
+文件，处理有关，执行更多的同步时建议要通知你的同事。需要将工作分开分发
+给开发人员能够减少这种共享的文件数目之间的工作。要做到这一点可以特别地
+将场景的资源从独自的各个blend文件链接到一个主文件中。
+
+
+可采取的步骤
+------------
+
+存储库处于冲突状态时，不建议执行任何文件操作 （修改、 删除） 。
+
+第一件事是要执行 "git status" 命令。
+
+   # On branch master
+   # Your branch and 'origin/master' have diverged,
+   # and have 7 and 1 different commit each, respectively.
+   #
+   # Unmerged paths:
+   #   (use "git add/rm <file>..." as appropriate to mark resolution)
+   #
+   #   both modified:      blender/landscape_objects/Fallen_tree.blend
+   #
+   no changes added to commit (use "git add" and/or "git commit -a")
+
+冲突的文件的列表可以在``Unmerged paths``  一节中找到。
+
+以下步骤的顺序在二进制文件和文本文件之间是不同的。
+
+
+二进制文件
+----------
+
+在这个阶段，冲突的二进制文件是和尝试同步本地资源库之前处于相同的状态。
+文件是完全功能的 （例如他们可以被图形编辑器打开）。
+
+有冲突的二进制文件的情况下，需要整理 （与同事或自己） 哪个文件应该留下
+，哪个要丢弃。选择可以使用 "git checkout" 命令执行。
+
+选择该文件的本地版本 (**- -我们的**). 要确保本地可以打开它。
+
+   > git checkout --ours blender/landscape_objects/Fallen_tree.blend
+
+选择该文件的远程版本 (**- -他们的**).确保远程可以打开它。
+
+   > git checkout --theirs blender/landscape_objects/Fallen_tree.blend
+
+再次选择该文件的本地版本 (**- -我们的**).
+
+   > git checkout --ours blender/landscape_objects/Fallen_tree.blend
+
+最终你必须坚持正确的文件版本。万一这样对你的工作可能有风险，可以在存储
+库之外保存废弃的工作文件。
+
+
+文本文件
+--------
+
+在这一阶段 Git 特别指出了冲突文本格式的文件本地和远程的变化。此类文本
+的文件并不可行作为一项规则
+
+示例。一个开发人员在应用程序文件中更改场景名称从 "蓝蜥蜴" 到 "绿蜥蜴"
+并将更改上传到中央存储库中。另一个开发人员在同一行更改 "蓝蜥蜴" 为 "红
+蜥蜴"，执行提交和执行 "git pull" 命令。最后来提交修改的开发人员将负责
+解决冲突。他的版本的应用程序文件会有下面这根线 ︰
+
+   <<<<<<< HEAD
+                   "name": "Red Lizard",
+   =======
+                   "name": "Green Lizard",
+   >>>>>>> 81bf4e2d5610d500ad4d2a2605ee7e61f759f201
+
+在文本文件冲突的情况下，可以采取下列步骤。有更改和没更改的编辑源代码的
+文件的两部分。另一方面，很容易重新导出已导出的场景文本文件(后缀名为
+**.json**).
+
+
+纠正提交
+--------
+
+选择所需的文件或编辑所做的更改后，请将它们添加为提交 ︰
+
+   > git add blender/landscape_objects/Fallen_tree.blend
+   > git status
+
+添加冲突文件提交后，"git status" 命令可能的结果 ︰
+
+   # On branch master
+   # Your branch and 'origin/master' have diverged,
+   # and have 7 and 1 different commit each, respectively.
+   #
+   nothing to commit (working directory clean)
+
+执行提交。建议留下默认注释 ︰
+
+   > git commit
+   > git status
+
+   # On branch master
+   # Your branch is ahead of 'origin/master' by 8 commits.
+   #
+   nothing to commit (working directory clean)
+
+解决冲突后，从远程资源库中的更改成功应用到本地资源库。现在-包括刚解决
+的冲突的本地存储库中的更改可以上载到远程资源库中，使用  "git push" 命
+令。
+
+
+标签
+====
+
+标签用于指向一个确切的提交，例如，指定到一个稳定的产品版本。
+
+查看标记的列表 ︰
+
+   > git tag
+
+从 2013 年 6 月 3 日创建一个标记为发行，指向同一个稳定的产品版本提交
+︰
+
+   > git tag R130603 67bb597f7ed1643ed0220d57e894f28662e614e5
+
+检查提交标签信息 ︰
+
+   > git show --shortstat R130603
+
+回滚到该标记...
+
+   > git checkout R130603
+
+...并回车：
+
+   > git checkout master
+
+从远程资源库中同步标签 ︰
+
+   > git push --tags
+
+删除标记 （如果错误地创建） ︰
+
+   > git tag -d R130603
+
+
+其他有用的命令
+==============
+
+检查2012 年 1 月日志，显示文件名称但不合并提交︰
+
+   > git log --after={2012-01-01} --before={2012-01-31} --name-only --no-merges

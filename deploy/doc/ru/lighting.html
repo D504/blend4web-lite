@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Освещение, тени и фон &mdash; Руководство пользователя Blend4Web 17.10</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="Об этих документах"
+              href="about.html"/>
+    <link rel="top" title="Руководство пользователя Blend4Web 17.10" href="index.html"/>
+        <link rel="next" title="Спецэффекты" href="postprocessing_effects.html"/>
+        <link rel="prev" title="Редактор логики" href="logic_editor.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Blend4Web. Руководство пользователя
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">Общие сведения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">Возможности движка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Интерфейс Blender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Установка и обновление</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Рабочий процесс</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">Управление проектами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Просмотрщик сцен</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">Веб-плеер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">Аддон</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">Параметры сцены</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Объекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">Меши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">Редактор нормалей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Камера</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">Материалы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">Библиотека материалов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">Нодовые материалы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">Редактор логики</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Освещение, тени и фон</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#shading-types">Типы затенения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lighting-with-light-sources">Освещение от источников света</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#light-source-types">Типы источников света</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#light-source-setup">Настройка источников света</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-lighting-ambient">Освещение от окружающей среды</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#activation">Активация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Настройка</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-map-method">Использование карты окружения</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#shadows">Тени</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Активация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Настройка</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generic-shadows">Стандартная модель</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shadow-cascades">Каскады теней</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#background">Цвет фона</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">Спецэффекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">Текстуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">Система частиц. Флюиды</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">Система частиц. Инстансинг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">Анимация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">Природные эффекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Работа с цветом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Звук</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">Физика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">Разработчикам приложений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">Разработчикам движка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">Работа в команде с использованием Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">Проблемы и решения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Замечания к релизам</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blend4Web. Руководство пользователя</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Освещение, тени и фон</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="lighting"></span><div class="section" id="lighting-shadows-and-background">
+<span id="index-0"></span><h1><a class="toc-backref" href="#id4">Освещение, тени и фон</a><a class="headerlink" href="#lighting-shadows-and-background" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Содержание</p>
+<ul class="simple">
+<li><a class="reference internal" href="#lighting-shadows-and-background" id="id4">Освещение, тени и фон</a><ul>
+<li><a class="reference internal" href="#shading-types" id="id5">Типы затенения</a></li>
+<li><a class="reference internal" href="#lighting-with-light-sources" id="id6">Освещение от источников света</a><ul>
+<li><a class="reference internal" href="#light-source-types" id="id7">Типы источников света</a></li>
+<li><a class="reference internal" href="#light-source-setup" id="id8">Настройка источников света</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#environment-lighting-ambient" id="id9">Освещение от окружающей среды</a><ul>
+<li><a class="reference internal" href="#activation" id="id10">Активация</a></li>
+<li><a class="reference internal" href="#setup" id="id11">Настройка</a></li>
+<li><a class="reference internal" href="#environment-map-method" id="id12">Использование карты окружения</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shadows" id="id13">Тени</a><ul>
+<li><a class="reference internal" href="#id2" id="id14">Активация</a></li>
+<li><a class="reference internal" href="#id3" id="id15">Настройка</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#background" id="id16">Цвет фона</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="shading-types">
+<span id="index-1"></span><h2><a class="toc-backref" href="#id5">Типы затенения</a><a class="headerlink" href="#shading-types" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Результат расчета освещения (затенения) зависит от направления векторов нормалей. Поддерживаются стандартные типы затенения, использующиеся в Blender, <code class="docutils literal"><span class="pre">Shading:</span> <span class="pre">Flat</span></code> (используются нормали граней) и <code class="docutils literal"><span class="pre">Shading:</span> <span class="pre">Smooth</span></code> (используются интерполированные нормали вершин), а также их комбинации.</p>
+<a class="reference internal image-reference" href="_images/flat_smooth_shading.png"><img alt="_images/flat_smooth_shading.png" class="align-center" src="_images/flat_smooth_shading.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Если желаемый результат недостижим стандартными средствами, можно воспользоваться <a class="reference internal" href="normal_editor.html#normals-editor"><span>редактором нормалей</span></a>.</p>
+<p>Результат применения различных типов затенения и использования редактора нормалей:</p>
+<a class="reference internal image-reference" href="_images/different_shadings_comparison.png"><img alt="_images/different_shadings_comparison.png" class="align-center" src="_images/different_shadings_comparison.png" style="width: 100%;" /></a>
+<ol class="arabic simple">
+<li>Flat Shading</li>
+<li>Smooth Shading</li>
+<li><p class="first">Smooth Shading + фаска</p>
+</li>
+<li><p class="first">Smooth Shading + фаска + редактирование нормалей</p>
+</li>
+</ol>
+</div>
+<div class="section" id="lighting-with-light-sources">
+<span id="index-2"></span><h2><a class="toc-backref" href="#id6">Освещение от источников света</a><a class="headerlink" href="#lighting-with-light-sources" title="Ссылка на этот заголовок">¶</a></h2>
+<p>На сцене может быть несколько (но не менее одного) источников света разного типа.</p>
+<div class="section" id="light-source-types">
+<h3><a class="toc-backref" href="#id7">Типы источников света</a><a class="headerlink" href="#light-source-types" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Поддерживаются источники света следующих типов:</p>
+<dl class="docutils">
+<dt><em>Point</em></dt>
+<dd><p class="first last">Точечный. Свет распространяется из одной точки равномерно во все стороны, с постепенным затуханием.</p>
+</dd>
+<dt><em>Sun</em></dt>
+<dd><p class="first last">&#8220;Солнце&#8221;. Свет распространяется из бесконечной плоскости прямолинейно в одном направлении, без затухания.</p>
+</dd>
+<dt><em>Spot</em></dt>
+<dd><p class="first last">Прожектор. Свет распространяется из одной точки, с ограничением угла распространения, с постепенным затуханием.</p>
+</dd>
+<dt><em>Hemi</em></dt>
+<dd><p class="first last">Полусфера. Свет распространяется из бесконечной полусферы, без затухания.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="light-source-setup">
+<h3><a class="toc-backref" href="#id8">Настройка источников света</a><a class="headerlink" href="#light-source-setup" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Производится во вкладке <code class="docutils literal"><span class="pre">Object</span> <span class="pre">Data</span></code> при выборе объекта-лампы.</p>
+<a class="reference internal image-reference" href="_images/lighting_setup.png"><img alt="_images/lighting_setup.png" class="align-center" src="_images/lighting_setup.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt><em>Цвет</em></dt>
+<dd><p class="first last">Цветовая характеристика света. Значение по умолчанию (1.0, 1.0, 1.0) (белый).</p>
+</dd>
+<dt><em>Energy</em></dt>
+<dd><p class="first last">Интенсивность излучения. Значение по умолчанию 1.0.</p>
+</dd>
+<dt><em>Falloff</em></dt>
+<dd><p class="first last">Тип затухания. Значение экспортируется, но в движке всегда используется <code class="docutils literal"><span class="pre">Inverse</span> <span class="pre">Square</span></code> (обратный квадратичный). Применяется для источников света типа <code class="docutils literal"><span class="pre">Point</span></code> и <code class="docutils literal"><span class="pre">Spot</span></code>. Значение по умолчанию <code class="docutils literal"><span class="pre">Inverse</span> <span class="pre">Square</span></code>.</p>
+</dd>
+<dt><em>Distance</em></dt>
+<dd><p class="first last">Параметр затухания. Применяется для источников света типа <code class="docutils literal"><span class="pre">Point</span></code> и <code class="docutils literal"><span class="pre">Spot</span></code>. Значение по умолчанию 30.0.</p>
+</dd>
+<dt><em>Specular</em></dt>
+<dd><p class="first last">Создание отблеска на объектах. По умолчанию включено.</p>
+</dd>
+<dt><em>Diffuse</em></dt>
+<dd><p class="first last">Применение рассеянного освещения к объектам. По умолчанию включено.</p>
+</dd>
+<dt><em>Spot Shape &gt; Size</em></dt>
+<dd><p class="first last">Угол конуса в градусах. Применяется для источников света типа <code class="docutils literal"><span class="pre">Spot</span></code>. Значение по умолчанию 45º.</p>
+</dd>
+<dt><em>Spot Shape &gt; Blend</em></dt>
+<dd><p class="first last">Параметр смягчения края светового пятна. Применяется для источников света типа <code class="docutils literal"><span class="pre">Spot</span></code>. Значение по умолчанию 0.15.</p>
+</dd>
+<dt><em>Dynamic Intensity</em></dt>
+<dd><p class="first last">Источник света используется для расчета изменения времени суток. Применяется для источников света типа &#8220;Солнце&#8221;. По умолчанию отключено.</p>
+</dd>
+<dt><em>Shadow &gt; Shadow</em></dt>
+<dd><p class="first last">Источник света используется для расчета падающих теней. Применяется в случае наличия нескольких источников света. По умолчанию отключено.</p>
+</dd>
+<dt><em>Shadow &gt; Clip Start</em></dt>
+<dd><p class="first last">Расстояние между источником света и ближней плоскостью отсечения. Используется при генерации теней. Значение по умолчанию - 1.001.</p>
+</dd>
+<dt><em>Shadow &gt; Clip End</em></dt>
+<dd><p class="first last">Расстояние между источником света и дальней плоскостью отсечения. Используется при генерации теней Значение по умолчанию - 30.002.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="environment-lighting-ambient">
+<span id="environment-lighting"></span><h2><a class="toc-backref" href="#id9">Освещение от окружающей среды</a><a class="headerlink" href="#environment-lighting-ambient" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Движок поддерживает 3 метода симуляции рассеянного освещения от окружающих объектов.</p>
+<ol class="arabic simple">
+<li><p class="first">&#8220;Плоское&#8221; освещение белым цветом.</p>
+</li>
+<li><p class="first">Полусферическая модель освещения, в которой задается цвет горизонта и цвет зенита, в результате чего объекты заливаются градиентом между этими цветами в зависимости от направления нормалей.</p>
+</li>
+<li><p class="first">Освещение с помощью <a class="reference internal" href="textures.html#environment-map"><span>карты окружения</span></a> - т.н. методика image-based lighting.</p>
+</li>
+</ol>
+<p>Обратите внимание, что освещение от окружающей среды рассчитывается по упрощённой модели, в которой объекты не затеняют друг друга.</p>
+<div class="section" id="activation">
+<h3><a class="toc-backref" href="#id10">Активация</a><a class="headerlink" href="#activation" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Включить опцию <code class="docutils literal"><span class="pre">Environment</span> <span class="pre">Lighting</span></code> во вкладке <code class="docutils literal"><span class="pre">World</span></code>.</p>
+<a class="reference internal image-reference" href="_images/lighting_environment.png"><img alt="_images/lighting_environment.png" class="align-center" src="_images/lighting_environment.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="setup">
+<h3><a class="toc-backref" href="#id11">Настройка</a><a class="headerlink" href="#setup" title="Ссылка на этот заголовок">¶</a></h3>
+<dl class="docutils">
+<dt><em>World &gt; Environment Lighting &gt; Energy</em></dt>
+<dd><p class="first last">Интенсивность освещения от окружающей среды. Значение по умолчанию 1.0.</p>
+</dd>
+<dt><em>World &gt; Environment Lighting &gt; Environment Color</em></dt>
+<dd><p class="first last">Выбор метода симуляции рассеянного освещения: <code class="docutils literal"><span class="pre">White</span></code> - &#8220;плоское&#8221; освещение белым цветом, <code class="docutils literal"><span class="pre">Sky</span> <span class="pre">Color</span></code> - полусферическая модель , <code class="docutils literal"><span class="pre">Sky</span> <span class="pre">Texture</span></code> - освещение с помощью <a class="reference internal" href="textures.html#environment-map"><span>карты окружения</span></a>. Значение по умолчанию <code class="docutils literal"><span class="pre">White</span></code>.</p>
+</dd>
+<dt><em>World &gt; Horizon Color</em> и <em>World &gt; Zenith Color</em></dt>
+<dd><p class="first last">Если выбрана полусферическая модель рассеянного освещения <code class="docutils literal"><span class="pre">Sky</span> <span class="pre">Color</span></code>, цвет горизонта и цвет зенита задаются цветоподборщиками <code class="docutils literal"><span class="pre">World</span> <span class="pre">&gt;</span> <span class="pre">Horizon</span> <span class="pre">Color</span></code> (цвет горизонта) и <code class="docutils literal"><span class="pre">World</span> <span class="pre">&gt;</span> <span class="pre">Zenith</span> <span class="pre">Color</span></code> (цвет зенита). При выборе цвета рекомендуется активировать опцию <code class="docutils literal"><span class="pre">World</span> <span class="pre">&gt;</span> <span class="pre">Blend</span> <span class="pre">Sky</span></code>.</p>
+</dd>
+<dt><em>World &gt; Use Nodes (Cycles)</em></dt>
+<dd><p class="first last">Если эта опция включена, ноды <code class="docutils literal"><span class="pre">Cycles</span></code> могут использоваться для настройки окружающей среды. По умолчанию отключено.</p>
+</dd>
+<dt><em>World &gt; Reflect World</em></dt>
+<dd><p class="first last">Если эта опция включена, окружающая среда будет отображаться при рендеринге отражений (т.е., будет отражаться в зеркальных поверхностях). По умолчанию отключено.</p>
+</dd>
+<dt><em>World &gt; Render Only Reflection</em></dt>
+<dd><p class="first last">Если эта опция включена, окружающая среда будет визуализироваться для отражений, но не для самой сцены. По умолчанию отключено.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="environment-map-method">
+<h3><a class="toc-backref" href="#id12">Использование карты окружения</a><a class="headerlink" href="#environment-map-method" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Для того, чтобы использовать карту окружения в целях реализации освещения от окружающей среды, необходимо:</p>
+<ol class="arabic simple">
+<li><p class="first">Включить опцию <code class="docutils literal"><span class="pre">Environment</span> <span class="pre">Lighting</span></code> во вкладке <code class="docutils literal"><span class="pre">World</span></code>.</p>
+</li>
+<li><p class="first">Выбрать метод <code class="docutils literal"><span class="pre">Environment</span> <span class="pre">Lighting</span> <span class="pre">&gt;</span> <span class="pre">Sky</span> <span class="pre">Texture</span></code>.</p>
+</li>
+<li><p class="first">Перейти из вкладки <code class="docutils literal"><span class="pre">World</span></code> во вкладку <code class="docutils literal"><span class="pre">Texture</span></code>.</p>
+</li>
+<li><p class="first">Создать <a class="reference internal" href="textures.html#environment-map"><span>карту окружения</span></a>, загрузить в нее соответствующее изображение.</p>
+</li>
+<li><p class="first">Для карты окружения на панели <code class="docutils literal"><span class="pre">Export</span> <span class="pre">Options</span></code> для значения <code class="docutils literal"><span class="pre">Sky</span> <span class="pre">Texture</span> <span class="pre">Usage</span></code> выбрать <code class="docutils literal"><span class="pre">ENVIRONMENT_LIGHTING</span></code> или <code class="docutils literal"><span class="pre">BOTH</span></code> (опция <code class="docutils literal"><span class="pre">BOTH</span></code> активирует также использование этой текстуры в качестве <a class="reference internal" href="textures.html#skydome-texture"><span>текстуры неба</span></a>).</p>
+</li>
+</ol>
+<a class="reference internal image-reference" href="_images/lighting_environment_texture.png"><img alt="_images/lighting_environment_texture.png" class="align-center" src="_images/lighting_environment_texture.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="shadows">
+<span id="id1"></span><h2><a class="toc-backref" href="#id13">Тени</a><a class="headerlink" href="#shadows" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Тени - один из важнейших элементов при рендеринге конечного изображения. Они предоставляют зрителю не только информацию о силуэте объектов, но и об их высоте и взаимном расположении, положении источника света и т.д.</p>
+<p>Платформой Blend4Web реализуются такие техники, как каскадные карты теней (CSM) и смягченные тени (PCF).</p>
+<p>Генерировать тени могут не более четырёх (или трёх, если включен SSAO) источников света одновременно. Если источников света больше (и у всех включён параметр Shadow), будут видны тени только от четырёх из них.</p>
+<a class="reference internal image-reference" href="_images/lighting_multiple_shadows.png"><img alt="_images/lighting_multiple_shadows.png" class="align-center" src="_images/lighting_multiple_shadows.png" style="width: 100%;" /></a>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id14">Активация</a><a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h3>
+<ol class="arabic simple">
+<li><p class="first">На объектах, <strong>отбрасывающих</strong> тени, включить опцию <code class="docutils literal"><span class="pre">Shadows:</span> <span class="pre">Cast</span></code> во вкладке <code class="docutils literal"><span class="pre">Object</span></code>.</p>
+</li>
+<li><p class="first">На объектах, <strong>получающих</strong> тени, включить опцию <code class="docutils literal"><span class="pre">Shadows:</span> <span class="pre">Receive</span></code> во вкладке <code class="docutils literal"><span class="pre">Object</span></code>.</p>
+</li>
+<li><p class="first">Убедиться, что включена опция <code class="docutils literal"><span class="pre">Shadows</span></code> <code class="docutils literal"><span class="pre">AUTO</span></code> или <code class="docutils literal"><span class="pre">ON</span></code> во вкладке <code class="docutils literal"><span class="pre">Render</span></code>.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p>Объекты, имеющие <a class="reference internal" href="materials.html#alpha-blend"><span>прозрачные материалы с градиентом</span></a>, не отбрасывают теней.</p>
+<a class="last reference internal image-reference" href="_images/alpha_shadows.png"><img alt="_images/alpha_shadows.png" class="align-center" src="_images/alpha_shadows.png" style="width: 100%;" /></a>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id15">Настройка</a><a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<dl class="docutils">
+<dt><em>Направление</em></dt>
+<dd><p class="first last">В случае наличия нескольких источников света рекомендуется указать, какой именно источник света будет использоваться для расчета падающих теней, включив опцию <code class="docutils literal"><span class="pre">Shadow</span> <span class="pre">&gt;</span> <span class="pre">Shadow</span></code> во вкладке <code class="docutils literal"><span class="pre">Object</span> <span class="pre">Data</span></code> при выборе объекта-лампы.</p>
+</dd>
+<dt><em>Цвет</em></dt>
+<dd><p class="first last">Цвет тени определяется настройками <a class="reference internal" href="#environment-lighting"><span>освещения от окружающей среды</span></a>.</p>
+</dd>
+</dl>
+<p>Во вкладке <code class="docutils literal"><span class="pre">Render</span></code> на панели <code class="docutils literal"><span class="pre">Shadows</span></code> находятся дополнительные настройки:</p>
+<a class="reference internal image-reference" href="_images/lighting_shadow_settings.png"><img alt="_images/lighting_shadow_settings.png" class="align-center" src="_images/lighting_shadow_settings.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Render Shadows</em></dt>
+<dd><p class="first last">Включает и выключает рендеринг теней. Возможные значения: <code class="docutils literal"><span class="pre">ON</span></code>, <code class="docutils literal"><span class="pre">OFF</span></code> и <code class="docutils literal"><span class="pre">AUTO</span></code>. Значение по умолчанию - <code class="docutils literal"><span class="pre">AUTO</span></code>.</p>
+</dd>
+<dt><em>Soft Shadows</em></dt>
+<dd><p class="first last">Включает размытие карт теней. По умолчанию включено.</p>
+</dd>
+<dt><em>Resolution</em></dt>
+<dd><p class="first last">Разрешение используемой карты теней. Значение по умолчанию: 2048 x 2048px.</p>
+</dd>
+<dt><em>Blur Samples</em></dt>
+<dd><p class="first last">Количество сэмплов, используемых для размытия карты теней. Возможные значения - 4x, 8x и 16x (значение по умолчанию).</p>
+</dd>
+<dt><em>Self-Shadow Polygon Offset</em></dt>
+<dd><p class="first last">Коэффициент смещения полигона в зависимости от ориентации к источнику света. Значение по умолчанию: 1.</p>
+</dd>
+<dt><em>Self-Shadow Normal Offset</em></dt>
+<dd><p class="first last">Коэффициент смещения полигона по нормали. Значение по умолчанию: 0.010.</p>
+</dd>
+</dl>
+<p>Последние две настройки служат для борьбы с артефактами самозатенения. Они проявляются на объектах, одновременно отбрасывающих и принимающих тени. Параметр <code class="docutils literal"><span class="pre">Self-Shadow</span> <span class="pre">Polygon</span> <span class="pre">Offset</span></code> лучше справляется с артефактами во внутренних областях полигонов, а <code class="docutils literal"><span class="pre">Self-Shadow</span> <span class="pre">Normal</span> <span class="pre">Offset</span></code> - в приграничных. Оба параметра приводят к искажению теней, поэтому рекомендуется держать их как можно меньшими.</p>
+<a class="reference internal image-reference" href="_images/self_shadow_artifacts.png"><img alt="_images/self_shadow_artifacts.png" class="align-center" src="_images/self_shadow_artifacts.png" style="width: 100%;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Тени для точечных (<code class="docutils literal"><span class="pre">Point</span></code>) источников света генерируются так же, как и для направленных (<code class="docutils literal"><span class="pre">Spot</span></code>), и падают только в одном направлении, определяемом параметром <code class="docutils literal"><span class="pre">Rotation</span></code>.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt><em>Enable CSM</em></dt>
+<dd><p class="first last">Включение каскадной модели теней; открывает доступ к расширенным настройкам. Отключено по умолчанию. Не работает, если опция <code class="docutils literal"><span class="pre">Shadow</span></code> включена более чем для одного источника света. Для источников света типа <code class="docutils literal"><span class="pre">Point</span></code> и <code class="docutils literal"><span class="pre">Spot</span></code> поддерживается только один каскад теней.</p>
+</dd>
+</dl>
+<p>Эта опция позволяет выбрать один из следующих вариантов наложения теней:</p>
+<ul class="simple">
+<li><p class="first">Стандартная модель, использующая одну оптимизированную карту теней, охватывающую всю сцену (<code class="docutils literal"><span class="pre">Enable</span> <span class="pre">CSM</span></code> отключена).</p>
+</li>
+<li><p class="first">Каскады теней (<code class="docutils literal"><span class="pre">Enable</span> <span class="pre">CSM</span></code> включена).</p>
+</li>
+</ul>
+<dl class="docutils">
+<dt><em>Blur Radius</em></dt>
+<dd><p class="first last">Коэффициент размытия теней, позволяющий настроить cмягченные тени. Значение по умолчанию: 3. Коэффициент 0 даст жесткие тени.</p>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/blur_radius.png"><img alt="_images/blur_radius.png" class="align-center" src="_images/blur_radius.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Смягченные тени могут повысить качество и реалистичность изображения. Они скрывают неизбежную при использовании основанных на изображениях техник зубчатость краев, особенно сильно проявляющуюся для карт теней низкого разрешения. Использование смягченных теней часто позволяет снизить разрешение без существенной потери качества.</p>
+<div class="section" id="generic-shadows">
+<h4>Стандартная модель<a class="headerlink" href="#generic-shadows" title="Ссылка на этот заголовок">¶</a></h4>
+<p>Этот вариант больше подходит для маленьких сцен, состоящих из небольшого числа объектов. Благодаря оптимизации на таких сценах можно добиться более высокого качества теней по сравнению с каскадной моделью. Данный вариант проще и быстрее настроить, а использование всего лишь одной карты теней положительно сказывается на производительности.</p>
+</div>
+<div class="section" id="shadow-cascades">
+<h4>Каскады теней<a class="headerlink" href="#shadow-cascades" title="Ссылка на этот заголовок">¶</a></h4>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Данные настройки поддерживаются только для источников освещения типа <code class="docutils literal"><span class="pre">Sun</span></code>. Для других источников каскады автоматически отключаются.</p>
+</div>
+<p>Для обеспечения приемлемого качества теней и одновременно покрытия значительных пространств необходимо использовать несколько стадий генерации теней (каскадов). При этом вблизи наблюдателя располагается каскад с наилучшим качеством, вдали от наблюдателя — с наихудшим. Этот вариант больше подходит для сцен среднего и большого размера, например, игровых уровней.</p>
+<p>При включении предоставляет расширенные настройки:</p>
+<img alt="_images/lighting_cascades.png" class="align-center" src="_images/lighting_cascades.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt><em>CSM Number</em></dt>
+<dd><p class="first last">Количество каскадов теней. Поддерживается от 1 до 4 каскадов. Значение по умолчанию: 1.</p>
+</dd>
+<dt><em>CSM First Cascade Border</em></dt>
+<dd><p class="first last">Размер первого каскада. Значение по умолчанию: 10.0.</p>
+</dd>
+<dt><em>CSM Last Cascade Border</em></dt>
+<dd><p class="first last">Размер последнего каскада. Значение по умолчанию: 100.0.</p>
+</dd>
+</dl>
+<p>Размеры промежуточных каскадов интерполируются на основе последних двух параметров.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">При настройке следует помнить, что, увеличивая размер каскада, мы получаем на нем менее качественные тени. С другой стороны, уменьшение параметра <code class="docutils literal"><span class="pre">CSM</span> <span class="pre">First</span> <span class="pre">Cascade</span> <span class="pre">Border</span></code> приблизит к камере и сделает более заметными последующие менее детальные каскады. Уменьшение параметра <code class="docutils literal"><span class="pre">CSM</span> <span class="pre">Last</span> <span class="pre">Cascade</span> <span class="pre">Border</span></code> приведет к исчезновению теней на более близком расстоянии от камеры. Однако, при использовании мягких теней качество в целом улучшится благодаря размытию на границах.</p>
+</div>
+<a class="reference internal image-reference" href="_images/csm_cascade_distance.png"><img alt="_images/csm_cascade_distance.png" class="align-center" src="_images/csm_cascade_distance.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="docutils">
+<dt><em>CSM First Cascade Blur Radius</em></dt>
+<dd><p class="first last">Коэффициент размытия на первом каскаде. Значение по умолчанию: 3. Коэффициент 0 даст жесткие тени.</p>
+</dd>
+<dt><em>CSM Last Cascade Blur Radius</em></dt>
+<dd><p class="first last">Коэффициент размытия на последнем каскаде. Значение по умолчанию: 1.5. Коэффициент 0 даст жесткие тени.</p>
+</dd>
+</dl>
+<p>Радиус размытия каждого промежуточного каскада интерполируется на основе этих параметров.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Смягченные тени рекомендуется настраивать сначала на первом каскаде опцией <code class="docutils literal"><span class="pre">CSM</span> <span class="pre">First</span> <span class="pre">Cascade</span> <span class="pre">Blur</span> <span class="pre">Radius</span></code>, а далее на всех остальных с помощью <code class="docutils literal"><span class="pre">CSM</span> <span class="pre">Last</span> <span class="pre">Cascade</span> <span class="pre">Blur</span> <span class="pre">Radius</span></code>. Часто на последнем каскаде может потребоваться размытие меньшее, нежели на первом. Это нужно для того, чтобы тени на последнем каскаде не стали слишком блеклыми из-за низкой детализации, к тому же это уменьшит нежелательные артефакты самозатенения.</p>
+</div>
+<dl class="docutils">
+<dt><em>Fade-out Last Cascade</em></dt>
+<dd><p class="first last">Плавное исчезновение последнего каскада. По умолчанию включено.</p>
+</dd>
+<dt><em>Blend Between Cascades</em></dt>
+<dd><p class="first last">Сглаживание границ между каскадами. По умолчанию включено.</p>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/blend_between_cascades.png"><img alt="_images/blend_between_cascades.png" class="align-center" src="_images/blend_between_cascades.png" style="width: 100%;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="background">
+<span id="index-3"></span><h2><a class="toc-backref" href="#id16">Цвет фона</a><a class="headerlink" href="#background" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Цвет фона можно задать несколькими способами:</p>
+<ol class="arabic simple">
+<li><p class="first">Установить параметры <code class="docutils literal"><span class="pre">Horizon</span> <span class="pre">Color</span></code> и <code class="docutils literal"><span class="pre">Zenith</span> <span class="pre">Color</span></code> на вкладке <code class="docutils literal"><span class="pre">World</span></code> в Blender, предварительно выставив опцию <code class="docutils literal"><span class="pre">World</span> <span class="pre">&gt;</span> <span class="pre">Render</span> <span class="pre">Sky</span></code>.</p>
+</li>
+<li><p class="first">Поместить сцену внутрь модели (например, куба или сферы) с направленными внутрь нормалями, с материалом и опциональной текстурой.</p>
+</li>
+<li><p class="first">Разместить перед камерой поверхность с материалом и опциональной текстурой, присоединить ее к камере связью родитель-потомок. При необходимости настроить расстояние до поверхности, переднюю и заднюю плоскости отсечения камеры.</p>
+</li>
+</ol>
+<a class="reference internal image-reference" href="_images/parented_background.png"><img alt="_images/parented_background.png" class="align-center" src="_images/parented_background.png" style="width: 100%;" /></a>
+<ol class="arabic" start="4">
+<li><p class="first">Использовать <a class="reference internal" href="textures.html#skydome-texture"><span>текстуру неба</span></a>.</p>
+</li>
+<li><p class="first">Настроить динамически генерируемую <a class="reference internal" href="outdoor_rendering.html#atmosphere"><span>атмосферу</span></a>.</p>
+</li>
+<li><p class="first">Установить параметр движка <code class="docutils literal"><span class="pre">background_color</span></code>, используя программный метод <code class="docutils literal"><span class="pre">config.set()</span></code>, предварительно отключив опцию <code class="docutils literal"><span class="pre">World</span> <span class="pre">&gt;</span> <span class="pre">Render</span> <span class="pre">Sky</span></code> на вкладке <code class="docutils literal"><span class="pre">World</span></code> в Blender. Установленное значение используется в качестве аргумента метода WebGL <code class="docutils literal"><span class="pre">clearColor()</span></code>. Для получения корректных результатов рекомендуется отключить прозрачность контекста WebGL (параметр <code class="docutils literal"><span class="pre">alpha</span></code>). Такая конфигурация используется по умолчанию в стандартном веб-плеере движка.</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">m_cfg</span> <span class="o">=</span> <span class="nx">b4w</span><span class="p">.</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">m_main</span> <span class="o">=</span> <span class="nx">b4w</span><span class="p">.</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">);</span>
+
+<span class="c1">// gray</span>
+<span class="nx">m_cfg</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;background_color&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Float32Array</span><span class="p">([</span><span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]));</span>
+<span class="nx">m_cfg</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="nx">m_main</span><span class="p">.</span><span class="nx">init</span><span class="p">(...);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">В качестве фона можно использовать любой HTML контент, находящийся позади элемента <code class="docutils literal"><span class="pre">canvas</span></code>, который используется для рендеринга. Для это необходимо активировать прозрачность контекста WebGL (параметр <code class="docutils literal"><span class="pre">alpha</span></code>), предварительно отключив опцию <code class="docutils literal"><span class="pre">World</span> <span class="pre">&gt;</span> <span class="pre">Render</span> <span class="pre">Sky</span></code> на вкладке <code class="docutils literal"><span class="pre">World</span></code> в Blender. Для получения корректных результатов рекомендуется выставить полностью прозрачный черный цвет фона. Такая конфигурация используется по умолчанию в стандартном <a class="reference internal" href="viewer.html#viewer"><span>просмотрщике сцен</span></a> SDK движка.</p>
+<blockquote>
+<div><div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">m_cfg</span> <span class="o">=</span> <span class="nx">b4w</span><span class="p">.</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">m_main</span> <span class="o">=</span> <span class="nx">b4w</span><span class="p">.</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;main&quot;</span><span class="p">);</span>
+
+<span class="nx">m_cfg</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;background_color&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Float32Array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]));</span>
+<span class="nx">m_cfg</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+<span class="nx">m_main</span><span class="p">.</span><span class="nx">init</span><span class="p">(...);</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">См.также</p>
+<p class="last"><a class="reference internal" href="colors.html#alpha-compositing"><span>Альфа-композитинг</span></a></p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="postprocessing_effects.html" class="btn btn-neutral float-right" title="Спецэффекты" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="logic_editor.html" class="btn btn-neutral" title="Редактор логики" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, Триумф.
+      Обновлено: 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

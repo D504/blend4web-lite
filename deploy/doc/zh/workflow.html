@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>工作流程 &mdash; Blend4Web 17.10 用户手册</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="关于这些文档"
+              href="about.html"/>
+    <link rel="top" title="Blend4Web 17.10 用户手册" href="index.html"/>
+        <link rel="next" title="项目管理" href="project_manager.html"/>
+        <link rel="prev" title="安装和更新" href="setup.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Blend4Web. 用户手册
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">引擎功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Blender的用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">安装和更新</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">工作流程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-new-project">创建一个新项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-scenes">创建场景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-a-scene-to-use-in-blend4web">准备一个在Blend4Web中使用的场景</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-scenes-in-the-viewer">在浏览器显示场景</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-scenes">导出场景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#application-development">应用程序开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-building">构建项目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-deploying">项目部署</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">项目管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">场景预览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">网络播放器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">场景设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">物体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">网格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">法线编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">材质库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">节点材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">逻辑编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">照明、 阴影和背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">后期处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">纹理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">粒子系统,流体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">粒子系统.实例化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">室外效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">色彩管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">对应用程序开发人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">对于引擎开发者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">团队工作。使用 Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">存在的问题及解决方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">发布说明</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blend4Web. 用户手册</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>工作流程</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow">
+<span id="working-process-stages"></span><h1><a class="toc-backref" href="#id1">工作流程</a><a class="headerlink" href="#workflow" title="永久链接至标题">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#workflow" id="id1">工作流程</a><ul>
+<li><a class="reference internal" href="#creating-a-new-project" id="id2">创建一个新项目</a></li>
+<li><a class="reference internal" href="#creating-scenes" id="id3">创建场景</a></li>
+<li><a class="reference internal" href="#preparing-a-scene-to-use-in-blend4web" id="id4">准备一个在Blend4Web中使用的场景</a><ul>
+<li><a class="reference internal" href="#displaying-scenes-in-the-viewer" id="id5">在浏览器显示场景</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exporting-scenes" id="id6">导出场景</a></li>
+<li><a class="reference internal" href="#application-development" id="id7">应用程序开发</a></li>
+<li><a class="reference internal" href="#project-building" id="id8">构建项目</a></li>
+<li><a class="reference internal" href="#project-deploying" id="id9">项目部署</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>开发任何产品是一个创造性的过程，需要许多拥有不同技能和经验的参与者。然而不论事情是多么的复杂，是它总是能够从资产创造和源代码编写等工作中分离出许多生产阶段。</p>
+<p>任何使用 Blend4Web 引擎的工作首先都要启动Blender。</p>
+<p>在Blender的主窗口的顶部面板条上，从渲染引擎列表中选择 <code class="docutils literal"><span class="pre">Blend4Web</span></code>，你会看到程序界面有一定变化。一些参数会消失，并且新的参数会替换他们。其中最重要的这些新的参数位于 <code class="docutils literal"><span class="pre">属性</span></code> 窗口中 （通常放置在主窗口的右侧），渲染面板上。</p>
+<a class="reference internal image-reference" href="_images/workflow_development_tools.png"><img alt="_images/workflow_development_tools.png" class="align-center" src="_images/workflow_development_tools.png" style="width: 100%;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>如果 <code class="docutils literal"><span class="pre">开发工具</span></code> 选项卡显示开发服务器是关闭的消息，这意味着开发服务器不工作。可以用在相同的面板上的启动服务器按钮启用。服务器还可以配置为在启动时运行，通过设置 <code class="docutils literal"><span class="pre">Run</span> <span class="pre">On</span> <span class="pre">Startup</span></code>  选项  (<code class="docutils literal"><span class="pre">用户首选项</span> <span class="pre">→</span> <span class="pre">插件</span> <span class="pre">→</span> <span class="pre">Blend4Web</span></code>).</p>
+<p class="last">如果您尝试运行开发服务器出现任何问题，请参考 <a class="reference internal" href="problems_and_solutions.html#problems-and-solutions"><span>问题及解决</span></a> 章节.</p>
+</div>
+<p><code class="docutils literal"><span class="pre">SDK</span> <span class="pre">Index</span></code> 按钮打开  <a class="reference internal" href="addon.html#getting-started-launching-viewer"><span>索引页</span></a>  可以通过这个地址 <a class="reference external" href="http://localhost:6687">http://localhost:6687</a> 查看.</p>
+<p><code class="docutils literal"><span class="pre">快速预览</span></code> 按钮打开  <a class="reference internal" href="viewer.html#viewer"><span>场景观察器</span></a>  加载目前在Blender中打开的场景。这是一个用来规划和调试你的场景的有用功能。</p>
+<p><code class="docutils literal"><span class="pre">项目管理器</span></code> 按钮打开  <a class="reference internal" href="project_manager.html#project-management"><span>项目管理器</span></a>  — 用于处理 Blend4Web 项目的功能强大、 易于使用的工具。使用项目管理器是最简单的方法来开始使用 Blend4Web.</p>
+<p>当使用Blend4Web工作流程如下：</p>
+<ol class="arabic simple">
+<li><p class="first">创建一个新项目</p>
+</li>
+<li><p class="first">创建场景</p>
+</li>
+<li><p class="first">准备一个在Blend4Web中使用的场景</p>
+</li>
+<li><p class="first">导出场景。</p>
+</li>
+<li><p class="first">应用程序开发</p>
+</li>
+<li><p class="first">构建项目</p>
+</li>
+<li><p class="first">项目部署。</p>
+</li>
+</ol>
+<div class="section" id="creating-a-new-project">
+<h2><a class="toc-backref" href="#id2">创建一个新项目</a><a class="headerlink" href="#creating-a-new-project" title="永久链接至标题">¶</a></h2>
+<p>要在一个项目上工作，首先就是要创建它。</p>
+<p>创建一个新项目最简单的方法是使用  <a class="reference internal" href="project_manager.html#project-manager"><span>项目管理器</span></a>.  要做到这一点启动项目管理器（从Blender或者首页都可以），在项目管理器的主窗口顶部按新建项目按钮。</p>
+<p>另一种方法是使用  <em>project.py</em>  命令行脚本，这个更通用。这个脚本的工作描述 <a class="reference internal" href="project_manager.html#creating-a-project"><span>在这里</span></a>.</p>
+</div>
+<div class="section" id="creating-scenes">
+<h2><a class="toc-backref" href="#id3">创建场景</a><a class="headerlink" href="#creating-scenes" title="永久链接至标题">¶</a></h2>
+<p>场景都包含在blend文件。项目管理器可以在创建新项目时自动创建一个基本的blend场景文件。额外的blend文件可以被创建并附加到一个项目。</p>
+<p>Blend4Web的场景都跟Blender里创建场景都是以同样的方式，只有轻微的差异。处理一个场景的工作过程可以分为几个阶段：</p>
+<ol class="arabic simple">
+<li><p class="first">建模场景中的物体</p>
+</li>
+<li><p class="first"><a class="reference internal" href="materials.html#materials"><span>设置材质</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="animation.html#animation"><span>给物体动画</span></a></p>
+</li>
+<li><p class="first"><a class="reference internal" href="logic_editor.html#logic-editor"><span>创建场景逻辑</span></a> （这部分是Blend4Web引擎独有的，并不适用于普通Blender场景）</p>
+</li>
+</ol>
+<p>应该注意的是，并不是每一个项目都需要所有这些阶段。更简单的场景可能除了默认的功能不会有任何动画甚至任何的材质。</p>
+<p>各个阶段的顺序也不是严格的，可以一定程度的互换（例如，你不可能在创建物体钱进行动画，但你可以预先为它创建一个材质）。</p>
+<p>除了一般的阶段如建模，贴图，动画等，场景应该在做好在引擎中的准备。</p>
+<p>一般建议：</p>
+<ol class="arabic simple">
+<li><p class="first">我们强烈建议将Blend文件保存在 <code class="docutils literal"><span class="pre">projects/project_name/blender</span></code> 目录中。程序中不需要加载的辅助文件  （例如，引用）等，也该在这个文件夹下。</p>
+</li>
+<li><p class="first">图像和媒体文件应该是在外部和位于  <code class="docutils literal"><span class="pre">projects/project_name/assets</span></code> 目录。</p>
+</li>
+<li><p class="first">你将导出的文件应包含实际所需 （对象、 材料、 材质、 动画等） 的应用程序中的资源。</p>
+</li>
+<li><p class="first">场景组件应该有不同的识别名称。他们不应该叫 &#8220;Cube.001&#8221;, &#8220;Material&#8221; 或者 &#8220;Armature&#8221;.</p>
+</li>
+<li><p class="first">我们建议您从其他文件 （库）来链接组件。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="preparing-a-scene-to-use-in-blend4web">
+<h2><a class="toc-backref" href="#id4">准备一个在Blend4Web中使用的场景</a><a class="headerlink" href="#preparing-a-scene-to-use-in-blend4web" title="永久链接至标题">¶</a></h2>
+<p>除了一般的阶段如建模，贴图，动画等，场景应该在做好在引擎中的准备。</p>
+<div class="section" id="displaying-scenes-in-the-viewer">
+<span id="assets-json"></span><span id="index-0"></span><h3><a class="toc-backref" href="#id5">在浏览器显示场景</a><a class="headerlink" href="#displaying-scenes-in-the-viewer" title="永久链接至标题">¶</a></h3>
+<p>当使用 <a class="reference internal" href="addon.html#local-development-server"><span>本地开发服务器</span></a> 有可能使用预览当前场景的 <code class="docutils literal"><span class="pre">Fast</span> <span class="pre">Preview</span></code> 按钮，位于Blender的 <code class="docutils literal"><span class="pre">Render</span> <span class="pre">-&gt;Development</span> <span class="pre">Server</span></code> 面板。在这种情况下，场景将里面的一些临时存储被导出并在预览查看器应用程序加载。</p>
+<p>另一种方法是使用 <a class="reference internal" href="addon.html#run-in-viewer"><span>运行在预览查看器</span></a> 导出选项。在这种情况下，场景将导出后立即显示在预览查看器应用程序。</p>
+</div>
+</div>
+<div class="section" id="exporting-scenes">
+<span id="export-scene"></span><span id="index-1"></span><h2><a class="toc-backref" href="#id6">导出场景</a><a class="headerlink" href="#exporting-scenes" title="永久链接至标题">¶</a></h2>
+<p>导出过程将场景从Blender格式转换为 Blend4Web 所使用的格式之一。</p>
+<a class="reference internal image-reference" href="_images/workflow_export_scheme.png"><img alt="_images/workflow_export_scheme.png" class="align-center" src="_images/workflow_export_scheme.png" style="width: 100%;" /></a>
+<p>有两种格式 ︰ JSON 和 HTML。</p>
+<p>HTML格式用于简单的单机应用中，所有的资源都打包成可以很容易地部署到一个网页的一个HTML文件。</p>
+<p>JSON格式，可用于创建各种项目，但它也提供了许多额外的功能使得它可以创建需要编程的复杂项目。格式的不同和导出选项在 <a class="reference internal" href="addon.html#export-formats"><span>Export Formats</span></a> 一章描述。</p>
+<p>若要导出场景，请从 <code class="docutils literal"><span class="pre">文件</span> <span class="pre">&gt;</span> <span class="pre">导出</span></code> 菜单选择 <code class="docutils literal"><span class="pre">Blend4Web</span> <span class="pre">(.json)</span></code> 或 <code class="docutils literal"><span class="pre">Blend4Web</span> <span class="pre">(.html)</span></code>  ，或者在操作符搜索菜单（按 <code class="docutils literal"><span class="pre">空格键</span></code> 的时候出现）输入``b4w export``</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">如果场景使用Blender功能尚不由 Blend4Web 引擎支持，可能会在导出过程中发生错误。在导出错误中列出  <a class="reference internal" href="addon.html#export-errors"><span>此表</span></a>.</p>
+</div>
+<p>导出选项中详细描述在 <a class="reference internal" href="addon.html#export-opts"><span>相应章节</span></a>.</p>
+</div>
+<div class="section" id="application-development">
+<h2><a class="toc-backref" href="#id7">应用程序开发</a><a class="headerlink" href="#application-development" title="永久链接至标题">¶</a></h2>
+<p>本节仅适用于除网络播放器的HTML和网络播放器JSON的其他项目类型。</p>
+<p>在此阶段的应用已经被创建。逻辑场景加载和用户交互使用JavaScript编写。应用程序开发人员笔记中给出了 <a class="reference internal" href="developers.html#developers"><span>相应章节</span></a>.</p>
+</div>
+<div class="section" id="project-building">
+<h2><a class="toc-backref" href="#id8">构建项目</a><a class="headerlink" href="#project-building" title="永久链接至标题">¶</a></h2>
+<p>一个项目的开发完成之后，应当构建以便它以后可以在SDK之外使用。</p>
+<p>项目构建可以通过点击在  <a class="reference internal" href="project_manager.html#project-manager"><span>项目管理器</span></a> 中的 <code class="docutils literal"><span class="pre">build</span> <span class="pre">project</span></code> 链接执行。</p>
+<p>构建项目之前，您可能希望将用在项目中的媒体资源  <a class="reference internal" href="developers.html#converter"><span>转换</span></a> ，可以最大限度地缩减大小。</p>
+</div>
+<div class="section" id="project-deploying">
+<h2><a class="toc-backref" href="#id9">项目部署</a><a class="headerlink" href="#project-deploying" title="永久链接至标题">¶</a></h2>
+<p>项目开发完成后，该项目可被部署，这样它可以在Blend4Web SDK之外使用。项目部署通过点击 <a class="reference internal" href="project_manager.html#project-manager"><span>项目管理器</span></a> 主窗口的项目类右边栏中的  <code class="docutils literal"><span class="pre">Operations</span></code> 命令列表里的  <code class="docutils literal"><span class="pre">deploy</span> <span class="pre">project</span></code> 链接来执行。</p>
+<p>点击这个链接会使得项目管理器执行所有必须的操作和部署项目。</p>
+<p>部署的项目都有一个包含所有项目文件归档的形式。这个档案可以保存在硬盘的任何位置，只需通过你使用的浏览器的标准保存文件对话框。</p>
+<p>一个完整的项目可以放置在Web服务器上。</p>
+<p>要做到这一点，从项目管理器下载存档然后提取项目文件，并将其上传到Web服务器（同时保留内部文件结构）可以通过FTP，SSH或服务器支持的任何其他文件传输协议的方式。这样做后，你只需要把这个项目放在一个网页中使用，例如一个 <code class="docutils literal"><span class="pre">iframe</span></code> 容器。</p>
+<p>部署项目到Web服务器的描述在 <a class="reference internal" href="project_manager.html#project-manager"><span>项目管理器</span></a> 章的 <a class="reference internal" href="project_manager.html#project-deploy"><span>相应节</span></a>  中。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="project_manager.html" class="btn btn-neutral float-right" title="项目管理" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup.html" class="btn btn-neutral" title="安装和更新" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014-2017, Triumph.
+      最后更新于 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

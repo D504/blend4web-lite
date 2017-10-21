@@ -1,0 +1,758 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scene Settings &mdash; Blend4Web 17.10 User Manual</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+    <link rel="top" title="Blend4Web 17.10 User Manual" href="index.html"/>
+        <link rel="next" title="Objects" href="objects.html"/>
+        <link rel="prev" title="Add-on" href="addon.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Blend4Web. User Manual
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">Engine Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Blender User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Installing and Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Scene Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">Web Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">Add-on</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Scene Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#render-panel">Render Panel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#development-tools">Development Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shading">Shading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shadows">Shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reflections-and-refractions">Reflections and Refractions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-outlining">Object Outlining</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#glow-materials">Glow Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#anti-aliasing">Anti-Aliasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#anisotropic-filtering">Anisotropic Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bloom">Bloom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#motion-blur">Motion Blur</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ambient-occlusion-ssao">Ambient Occlusion (SSAO)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#god-rays">God Rays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color-correction">Color Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeline">Timeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-grass">Dynamic Grass</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scene-panel">Scene Panel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scene-scene">Scene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#units">Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#audio">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logic-editor">Logic Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nla">NLA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meta-tags">Meta Tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physics">Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-clustering-lod">Object Clustering &amp; LOD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-selection">Object Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#anchors">Anchors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-options">Export Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#world-panel">World Panel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preview">Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#world">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-lighting">Environment Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mist">Mist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#procedural-sky">Procedural Sky</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animation">Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#world-export-options">Export Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">Normal Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">Material Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">Node Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">Logic Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">Lighting, Shadows and Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">Postprocessing Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">Particle System. Fluids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">Particle System. Instancing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">Outdoor Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Color Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">For Application Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">For Engine Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">Team Work. Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">Problems and Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blend4Web. User Manual</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Scene Settings</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scene-settings">
+<span id="index-0"></span><span id="id1"></span><h1><a class="toc-backref" href="#id4">Scene Settings</a><a class="headerlink" href="#scene-settings" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-content">
+<p class="topic-title first">Table of Content</p>
+<ul class="simple">
+<li><a class="reference internal" href="#scene-settings" id="id4">Scene Settings</a><ul>
+<li><a class="reference internal" href="#render-panel" id="id5">Render Panel</a><ul>
+<li><a class="reference internal" href="#development-tools" id="id6">Development Tools</a></li>
+<li><a class="reference internal" href="#shading" id="id7">Shading</a></li>
+<li><a class="reference internal" href="#shadows" id="id8">Shadows</a></li>
+<li><a class="reference internal" href="#reflections-and-refractions" id="id9">Reflections and Refractions</a></li>
+<li><a class="reference internal" href="#object-outlining" id="id10">Object Outlining</a></li>
+<li><a class="reference internal" href="#glow-materials" id="id11">Glow Materials</a></li>
+<li><a class="reference internal" href="#anti-aliasing" id="id12">Anti-Aliasing</a></li>
+<li><a class="reference internal" href="#anisotropic-filtering" id="id13">Anisotropic Filtering</a></li>
+<li><a class="reference internal" href="#bloom" id="id14">Bloom</a></li>
+<li><a class="reference internal" href="#motion-blur" id="id15">Motion Blur</a></li>
+<li><a class="reference internal" href="#ambient-occlusion-ssao" id="id16">Ambient Occlusion (SSAO)</a></li>
+<li><a class="reference internal" href="#god-rays" id="id17">God Rays</a></li>
+<li><a class="reference internal" href="#color-correction" id="id18">Color Correction</a></li>
+<li><a class="reference internal" href="#timeline" id="id19">Timeline</a></li>
+<li><a class="reference internal" href="#dynamic-grass" id="id20">Dynamic Grass</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scene-panel" id="id21">Scene Panel</a><ul>
+<li><a class="reference internal" href="#scene-scene" id="id22">Scene</a></li>
+<li><a class="reference internal" href="#units" id="id23">Units</a></li>
+<li><a class="reference internal" href="#audio" id="id24">Audio</a></li>
+<li><a class="reference internal" href="#logic-editor" id="id25">Logic Editor</a></li>
+<li><a class="reference internal" href="#nla" id="id26">NLA</a></li>
+<li><a class="reference internal" href="#meta-tags" id="id27">Meta Tags</a></li>
+<li><a class="reference internal" href="#physics" id="id28">Physics</a></li>
+<li><a class="reference internal" href="#object-clustering-lod" id="id29">Object Clustering &amp; LOD</a></li>
+<li><a class="reference internal" href="#object-selection" id="id30">Object Selection</a></li>
+<li><a class="reference internal" href="#anchors" id="id31">Anchors</a></li>
+<li><a class="reference internal" href="#export-options" id="id32">Export Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#world-panel" id="id33">World Panel</a><ul>
+<li><a class="reference internal" href="#preview" id="id34">Preview</a></li>
+<li><a class="reference internal" href="#world" id="id35">World</a></li>
+<li><a class="reference internal" href="#environment-lighting" id="id36">Environment Lighting</a></li>
+<li><a class="reference internal" href="#mist" id="id37">Mist</a></li>
+<li><a class="reference internal" href="#procedural-sky" id="id38">Procedural Sky</a></li>
+<li><a class="reference internal" href="#animation" id="id39">Animation</a></li>
+<li><a class="reference internal" href="#world-export-options" id="id40">Export Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>All the parameters that define the look and behavior of the whole scene (and not just a single object) are found on the three panels: the <code class="docutils literal"><span class="pre">Render</span></code> panel, the <code class="docutils literal"><span class="pre">Scene</span></code> panel and the <code class="docutils literal"><span class="pre">World</span></code> panel.</p>
+<div class="section" id="render-panel">
+<span id="render-settings"></span><h2><a class="toc-backref" href="#id5">Render Panel</a><a class="headerlink" href="#render-panel" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/render1.png"><img alt="_images/render1.png" class="align-center" src="_images/render1.png" style="width: 100%;" /></a>
+<p>All scene parameters that concern the image rendering are found on this panel.</p>
+<div class="section" id="development-tools">
+<span id="render-development-server"></span><h3><a class="toc-backref" href="#id6">Development Tools</a><a class="headerlink" href="#development-tools" title="Permalink to this headline">¶</a></h3>
+<p>Development Server settings. Described thoroughly in <a class="reference internal" href="addon.html#local-development-server"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_development_server.png"><img alt="_images/render_development_server.png" class="align-center" src="_images/render_development_server.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="shading">
+<span id="render-shading"></span><h3><a class="toc-backref" href="#id7">Shading</a><a class="headerlink" href="#shading" title="Permalink to this headline">¶</a></h3>
+<p>This panel contains various shading options.</p>
+<a class="reference internal image-reference" href="_images/render_shading.png"><img alt="_images/render_shading.png" class="align-center" src="_images/render_shading.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Set Recommended Options</em></dt>
+<dd><p class="first">This button is used to achieve maximum consistency between the look of a 3D scene in Blender viewport and in web browser. Pressing this button:</p>
+<ul class="last simple">
+<li>enables <strong>World Space Shading</strong>,</li>
+<li>switches material mode to <strong>GLSL</strong>,</li>
+<li>switches viewport shading mode to <strong>Material</strong> and</li>
+<li>sets the main camera fit to <strong>Vertical</strong>.</li>
+</ul>
+</dd>
+<dt><em>World Space Shading</em></dt>
+<dd>This option turns on and off <strong>World Space Shading</strong> (world space interpretation of lighting data will be used for object shading). Disabled by default.</dd>
+</dl>
+</div>
+<div class="section" id="shadows">
+<span id="render-shadows"></span><h3><a class="toc-backref" href="#id8">Shadows</a><a class="headerlink" href="#shadows" title="Permalink to this headline">¶</a></h3>
+<p>Shadows settings. Described thoroughly in <a class="reference internal" href="lighting.html#shadows"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_shadows.png"><img alt="_images/render_shadows.png" class="align-center" src="_images/render_shadows.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="reflections-and-refractions">
+<span id="render-reflections"></span><h3><a class="toc-backref" href="#id9">Reflections and Refractions</a><a class="headerlink" href="#reflections-and-refractions" title="Permalink to this headline">¶</a></h3>
+<p>Reflection and refraction effect settings.</p>
+<a class="reference internal image-reference" href="_images/render_reflections_and_refractions.png"><img alt="_images/render_reflections_and_refractions.png" class="align-center" src="_images/render_reflections_and_refractions.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Reflection</em></dt>
+<dd>Reflection effect settings. Can be set to <code class="docutils literal"><span class="pre">ON</span></code>, <code class="docutils literal"><span class="pre">OFF</span></code> or <code class="docutils literal"><span class="pre">AUTO</span></code>. Set to <code class="docutils literal"><span class="pre">ON</span></code> by default.</dd>
+<dt><em>Refraction</em></dt>
+<dd>Refraction effect settings. Can be set to <code class="docutils literal"><span class="pre">ON</span></code>, <code class="docutils literal"><span class="pre">OFF</span></code> or <code class="docutils literal"><span class="pre">AUTO</span></code>. Set to <code class="docutils literal"><span class="pre">AUTO</span></code> by default.</dd>
+<dt><em>Quality</em></dt>
+<dd>Quality settings for the reflection effect. Can be set to <code class="docutils literal"><span class="pre">HIGH</span></code> (the highest reflection quality), <code class="docutils literal"><span class="pre">MEDIUM</span></code> (medium quality) or to <code class="docutils literal"><span class="pre">LOW</span></code> (the lowest quality). Set to <code class="docutils literal"><span class="pre">MEDIUM</span></code> by default.</dd>
+</dl>
+</div>
+<div class="section" id="object-outlining">
+<span id="render-object-outlining"></span><h3><a class="toc-backref" href="#id10">Object Outlining</a><a class="headerlink" href="#object-outlining" title="Permalink to this headline">¶</a></h3>
+<p>Outlining effect settings. Described thoroughly in <a class="reference internal" href="postprocessing_effects.html#outline"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_object_outlining.png"><img alt="_images/render_object_outlining.png" class="align-center" src="_images/render_object_outlining.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="glow-materials">
+<span id="render-glow-materials"></span><h3><a class="toc-backref" href="#id11">Glow Materials</a><a class="headerlink" href="#glow-materials" title="Permalink to this headline">¶</a></h3>
+<p>Glow Material effect settings. Described thoroughly in <a class="reference internal" href="postprocessing_effects.html#glow"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_glow_materials.png"><img alt="_images/render_glow_materials.png" class="align-center" src="_images/render_glow_materials.png" style="width: 100%;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For dynamically loaded objects, <code class="docutils literal"><span class="pre">AUTO</span></code> setting is interpreted as <code class="docutils literal"><span class="pre">OFF</span></code>, if no materials with glow are present in the scene. If you are using dynamic loading, you should set this parameter to <code class="docutils literal"><span class="pre">ON</span></code>.</p>
+</div>
+</div>
+<div class="section" id="anti-aliasing">
+<span id="render-anti-aliasing"></span><h3><a class="toc-backref" href="#id12">Anti-Aliasing</a><a class="headerlink" href="#anti-aliasing" title="Permalink to this headline">¶</a></h3>
+<p>Anti-Aliasing settings. Described thoroughly in <a class="reference internal" href="postprocessing_effects.html#antialiasing"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_anti_aliasing.png"><img alt="_images/render_anti_aliasing.png" class="align-center" src="_images/render_anti_aliasing.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="anisotropic-filtering">
+<span id="render-anisotropic-filtering"></span><h3><a class="toc-backref" href="#id13">Anisotropic Filtering</a><a class="headerlink" href="#anisotropic-filtering" title="Permalink to this headline">¶</a></h3>
+<p>This parameter can be used to enable or disable anisotropic filtering and also to set the number of texture samples used for it. By default, anisotropic filtering is disabled.</p>
+<a class="reference internal image-reference" href="_images/render_anisotropic_filtering.png"><img alt="_images/render_anisotropic_filtering.png" class="align-center" src="_images/render_anisotropic_filtering.png" style="width: 100%;" /></a>
+<p>Available values: <code class="docutils literal"><span class="pre">16x</span></code>, <code class="docutils literal"><span class="pre">8x</span></code>, <code class="docutils literal"><span class="pre">4x</span></code>, <code class="docutils literal"><span class="pre">2x</span></code> and <code class="docutils literal"><span class="pre">OFF</span></code> (default value).</p>
+</div>
+<div class="section" id="bloom">
+<span id="render-bloom"></span><h3><a class="toc-backref" href="#id14">Bloom</a><a class="headerlink" href="#bloom" title="Permalink to this headline">¶</a></h3>
+<p>Bloom effect settings. Described thoroughly in <a class="reference internal" href="postprocessing_effects.html#bloom"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_bloom.png"><img alt="_images/render_bloom.png" class="align-center" src="_images/render_bloom.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="motion-blur">
+<span id="render-motion-blur"></span><h3><a class="toc-backref" href="#id15">Motion Blur</a><a class="headerlink" href="#motion-blur" title="Permalink to this headline">¶</a></h3>
+<p>Motion blur settings. Described thoroughly <a class="reference internal" href="postprocessing_effects.html#motion-blur"><span>in its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_motion_blur.png"><img alt="_images/render_motion_blur.png" class="align-center" src="_images/render_motion_blur.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="ambient-occlusion-ssao">
+<span id="render-ssao"></span><h3><a class="toc-backref" href="#id16">Ambient Occlusion (SSAO)</a><a class="headerlink" href="#ambient-occlusion-ssao" title="Permalink to this headline">¶</a></h3>
+<p>Screen-space ambient occlusion (SSAO) settings. Described thoroughly in <a class="reference internal" href="postprocessing_effects.html#ssao"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_ambient_occlusion.png"><img alt="_images/render_ambient_occlusion.png" class="align-center" src="_images/render_ambient_occlusion.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="god-rays">
+<span id="render-god-rays"></span><h3><a class="toc-backref" href="#id17">God Rays</a><a class="headerlink" href="#god-rays" title="Permalink to this headline">¶</a></h3>
+<p>God Rays effect settings. Described thoroughly in <a class="reference internal" href="postprocessing_effects.html#god-rays"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_god_rays.png"><img alt="_images/render_god_rays.png" class="align-center" src="_images/render_god_rays.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="color-correction">
+<span id="render-color-correction"></span><h3><a class="toc-backref" href="#id18">Color Correction</a><a class="headerlink" href="#color-correction" title="Permalink to this headline">¶</a></h3>
+<p>Color correction settings. Described thoroughly in <a class="reference internal" href="colors.html#color-correction"><span>its own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/render_color_correction.png"><img alt="_images/render_color_correction.png" class="align-center" src="_images/render_color_correction.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="timeline">
+<span id="render-timeline"></span><h3><a class="toc-backref" href="#id19">Timeline</a><a class="headerlink" href="#timeline" title="Permalink to this headline">¶</a></h3>
+<p>Timeline settings.</p>
+<a class="reference internal image-reference" href="_images/render_timeline.png"><img alt="_images/render_timeline.png" class="align-center" src="_images/render_timeline.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Start Frame</em></dt>
+<dd>The first frame of the timeline. Set to 1 by default.</dd>
+<dt><em>End Frame</em></dt>
+<dd>The last frame of the timeline. Set to 250 by default.</dd>
+<dt><em>Frame Rate</em></dt>
+<dd>Number of the frames per second. Set to 24 by default. This parameter only affect the animation playback speed (not the scene itself).</dd>
+</dl>
+</div>
+<div class="section" id="dynamic-grass">
+<span id="render-dynamic-grass"></span><h3><a class="toc-backref" href="#id20">Dynamic Grass</a><a class="headerlink" href="#dynamic-grass" title="Permalink to this headline">¶</a></h3>
+<p>Enables and disables <a class="reference internal" href="particles_instancing.html#particles-grass"><span>dynamic grass</span></a> effect.</p>
+<a class="reference internal image-reference" href="_images/render_dynamic_grass.png"><img alt="_images/render_dynamic_grass.png" class="align-center" src="_images/render_dynamic_grass.png" style="width: 100%;" /></a>
+<p>Possible values: <code class="docutils literal"><span class="pre">ON</span></code>, <code class="docutils literal"><span class="pre">OFF</span></code> and <code class="docutils literal"><span class="pre">AUTO</span></code>. Set to <code class="docutils literal"><span class="pre">AUTO</span></code> by default.</p>
+</div>
+</div>
+<div class="section" id="scene-panel">
+<span id="scene"></span><h2><a class="toc-backref" href="#id21">Scene Panel</a><a class="headerlink" href="#scene-panel" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/scene.png"><img alt="_images/scene.png" class="align-center" src="_images/scene.png" style="width: 100%;" /></a>
+<p>The settings that concern scene behavior, including audio, physics and animation settings, are found on this panel.</p>
+<div class="section" id="scene-scene">
+<span id="id2"></span><h3><a class="toc-backref" href="#id22">Scene</a><a class="headerlink" href="#scene-scene" title="Permalink to this headline">¶</a></h3>
+<p>Scene settings.</p>
+<a class="reference internal image-reference" href="_images/scene_scene.png"><img alt="_images/scene_scene.png" class="align-center" src="_images/scene_scene.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Camera</em></dt>
+<dd>A camera that is used to render the scene.</dd>
+</dl>
+</div>
+<div class="section" id="units">
+<span id="scene-units"></span><h3><a class="toc-backref" href="#id23">Units</a><a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h3>
+<p>Sets the measurement units used in the scene.</p>
+<a class="reference internal image-reference" href="_images/scene_units.png"><img alt="_images/scene_units.png" class="align-center" src="_images/scene_units.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="audio">
+<span id="scene-audio"></span><h3><a class="toc-backref" href="#id24">Audio</a><a class="headerlink" href="#audio" title="Permalink to this headline">¶</a></h3>
+<p>Audio settings.</p>
+<a class="reference internal image-reference" href="_images/scene_audio.png"><img alt="_images/scene_audio.png" class="align-center" src="_images/scene_audio.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Volume</em></dt>
+<dd>The master volume of the sound in the application. This value can vary between 0 and 100. Default value is 1.0.</dd>
+<dt><em>Distance Model</em></dt>
+<dd><p class="first">The distance model used for calculating distance attenuation. Following models are supported by the engine:</p>
+<p><code class="docutils literal"><span class="pre">None</span></code> - no distance model is used, the sound has constant volume regardless of the distance.</p>
+<p><code class="docutils literal"><span class="pre">Exponent</span> <span class="pre">Clamped</span></code> - a clamped exponential distance model.</p>
+<p><code class="docutils literal"><span class="pre">Linear</span> <span class="pre">Clamped</span></code> - a clamped linear distance model.</p>
+<p><code class="docutils literal"><span class="pre">Inverse</span> <span class="pre">Clamped</span></code> - a clamped inverse distance model.</p>
+<p>The following models are partially supported (work the same way the corresponding <em>Clamped</em>-type models):</p>
+<p><code class="docutils literal"><span class="pre">Exponent</span></code></p>
+<p><code class="docutils literal"><span class="pre">Linear</span></code></p>
+<p><code class="docutils literal"><span class="pre">Inverse</span></code></p>
+<p class="last">This parameter is set to <code class="docutils literal"><span class="pre">Inverse</span> <span class="pre">Clamped</span></code> by default.</p>
+</dd>
+<dt><em>Speed</em></dt>
+<dd>This parameter sets the speed of sound used for Doppler effect calculation. Its value is measured in meters per second and is set to 343.3 by default.</dd>
+<dt><em>Doppler</em></dt>
+<dd>This sets the pitch factor for Doppler effect calculation. Its default value if 1.0.</dd>
+<dt><em>Dynamic Compressor</em></dt>
+<dd>Compress audio signal&#8217;s dynamic range. This feature can be used to make the sound more rich and even. Disabled by default.</dd>
+<dt><em>Threshold</em></dt>
+<dd>If the amplitude of the audio signal exceeds the value specified by this parameter, the compressor will reduce its level. Set to -24 dB by default.</dd>
+<dt><em>Knee</em></dt>
+<dd>The interval below the threshold where the response curve switches to the decreasing mode. Set to 30 by default.</dd>
+<dt><em>Ratio</em></dt>
+<dd>Amount of gain reduction. Set to 12 by default.</dd>
+<dt><em>Attack</em></dt>
+<dd>Time (in seconds) that takes the compressor to reduce gain by 10 dB. Set to 0.003 by default.</dd>
+<dt><em>Release</em></dt>
+<dd>Time (in seconds) that takes the compressor to increase gain by 10 dB. Set to 0.25 by default.</dd>
+</dl>
+</div>
+<div class="section" id="logic-editor">
+<span id="scene-logic-editor"></span><h3><a class="toc-backref" href="#id25">Logic Editor</a><a class="headerlink" href="#logic-editor" title="Permalink to this headline">¶</a></h3>
+<p>Settings for the use of the logic node trees (created in the <a class="reference internal" href="logic_editor.html#logic-editor"><span>logic editor</span></a>) in the scene. Disabled by default.</p>
+<a class="reference internal image-reference" href="_images/scene_logic_editor.png"><img alt="_images/scene_logic_editor.png" class="align-center" src="_images/scene_logic_editor.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Active Node Tree</em></dt>
+<dd>Node tree that is used in the scene&#8217;s playback.</dd>
+</dl>
+</div>
+<div class="section" id="nla">
+<span id="scene-nla"></span><h3><a class="toc-backref" href="#id26">NLA</a><a class="headerlink" href="#nla" title="Permalink to this headline">¶</a></h3>
+<p>Non-Linear Animation playback settings. Disabled by default.</p>
+<a class="reference internal image-reference" href="_images/scene_nla.png"><img alt="_images/scene_nla.png" class="align-center" src="_images/scene_nla.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Cyclic NLA</em></dt>
+<dd>If this parameter is enabled, NLA animation will be repeated after it is finished.</dd>
+</dl>
+</div>
+<div class="section" id="meta-tags">
+<span id="scene-meta-tags"></span><h3><a class="toc-backref" href="#id27">Meta Tags</a><a class="headerlink" href="#meta-tags" title="Permalink to this headline">¶</a></h3>
+<p>Application&#8217;s meta tags. Can be set up in the same way as <a class="reference internal" href="objects.html#objects-meta-tags"><span>object meta tags</span></a>.</p>
+<a class="reference internal image-reference" href="_images/scene_meta_tags.png"><img alt="_images/scene_meta_tags.png" class="align-center" src="_images/scene_meta_tags.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Title</em></dt>
+<dd>The title of the application.</dd>
+<dt><em>Description</em></dt>
+<dd><p class="first">The description of the application. Can be a simple text or a link to a text file (if the <code class="docutils literal"><span class="pre">Description</span> <span class="pre">Source</span></code> parameter is set to the <code class="docutils literal"><span class="pre">File</span></code> value).</p>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using a text file as description source, said file can be imported to Blender using a built-in <a class="reference internal" href="interface.html#ui-text-editor"><span>Text Editor</span></a>.</p>
+</div>
+</dd>
+<dt><em>Description Source</em></dt>
+<dd>The source of the application&#8217;s description. The description can be loaded from a file or specified directly in the <code class="docutils literal"><span class="pre">Description</span></code> field. This parameter can have one of the two values, <code class="docutils literal"><span class="pre">Text</span></code> and <code class="docutils literal"><span class="pre">File</span></code>, and it is set to <code class="docutils literal"><span class="pre">Text</span></code> by default.</dd>
+</dl>
+</div>
+<div class="section" id="physics">
+<span id="scene-physics"></span><h3><a class="toc-backref" href="#id28">Physics</a><a class="headerlink" href="#physics" title="Permalink to this headline">¶</a></h3>
+<p>Physics settings.</p>
+<a class="reference internal image-reference" href="_images/scene_physics.png"><img alt="_images/scene_physics.png" class="align-center" src="_images/scene_physics.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Enable Physics</em></dt>
+<dd>Allow using physics in the application. Enabled by default.</dd>
+</dl>
+</div>
+<div class="section" id="object-clustering-lod">
+<span id="scene-batching"></span><h3><a class="toc-backref" href="#id29">Object Clustering &amp; LOD</a><a class="headerlink" href="#object-clustering-lod" title="Permalink to this headline">¶</a></h3>
+<p>Settings for object clustering and Levels Of Detail.</p>
+<a class="reference internal image-reference" href="_images/scene_object_clustering.png"><img alt="_images/scene_object_clustering.png" class="align-center" src="_images/scene_object_clustering.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Cluster Size</em></dt>
+<dd>The size of the cluster used for batching (in meters). Can be used for optimization purposes. If this parameter is set to zero, the engine will try to combine all objects in the scene. Set to zero by default.</dd>
+<dt><em>LOD Cluster Size Multiplier</em></dt>
+<dd>This parameter is used to subdivide clusters (based on LOD distance specified individually for each object) into smaller ones to make transitions between different levels of detail less noticeable. The size of that smaller clusters is defined by object LOD distance multiplied by the value of this parameter. Higher values lead to bigger clusters which increases performance but makes transition between LODs more noticeable, while lower values make said transitions less noticeable at the cost of decreased performance. Can be used for optimization purposes. Set to 0.5 by default.</dd>
+<dt><em>LOD Smooth Transitions</em></dt>
+<dd><p class="first">Defines what objects will use smooth transitions while switching their LOD levels. Has the following options:</p>
+<ul class="simple">
+<li>OFF - smooth transitions are disabled (fastest).</li>
+<li>NON-OPAQUE - use smooth transitions for objects with <code class="docutils literal"><span class="pre">Add</span></code>, <code class="docutils literal"><span class="pre">Alpha</span> <span class="pre">Clip</span></code>, <code class="docutils literal"><span class="pre">Alpha</span> <span class="pre">Blend</span></code>, <code class="docutils literal"><span class="pre">Alpha</span> <span class="pre">Sort</span></code> and <code class="docutils literal"><span class="pre">Alpha</span> <span class="pre">Anti-Aliasing</span></code> <a class="reference internal" href="materials.html#alpha-blend"><span>materials</span></a>.</li>
+<li>ALL - smooth transitions will be used for all objects (slowest).</li>
+</ul>
+<p class="last">Choosing the &#8220;ALL&#8221; value can noticeably decrease application performance, so use it with caution. Default value is &#8220;NON-OPAQUE&#8221;.</p>
+</dd>
+</dl>
+<p><em>Max LOD Hysteresis Interval</em></p>
+<blockquote>
+<div>The length of the interval (in meters) used for switching LOD levels. The half of this value is added/subtracted from the distance threshold in order to make two different thresholds for switching to the lower and to the higher LOD level. This should reduce LOD &#8220;popping&#8221; effect. Set to 4.0 by default.</div></blockquote>
+</div>
+<div class="section" id="object-selection">
+<span id="scene-objects-selection"></span><h3><a class="toc-backref" href="#id30">Object Selection</a><a class="headerlink" href="#object-selection" title="Permalink to this headline">¶</a></h3>
+<p>Object selection settings. Objects can be selected both with the API function <a class="reference external" href="https://www.blend4web.com/api_doc/module-scenes.html#.pick_object">pick_object()</a> and with the <a class="reference internal" href="logic_editor.html#logic-editor"><span>logic nodes</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the <a class="reference internal" href="viewer.html#viewer"><span>scene viewer</span></a>, selection is enabled by default. You can turn it off in the <code class="docutils literal"><span class="pre">Tools</span> <span class="pre">&amp;</span> <span class="pre">Debug</span></code> panel.</p>
+</div>
+<a class="reference internal image-reference" href="_images/scene_objects_selection.png"><img alt="_images/scene_objects_selection.png" class="align-center" src="_images/scene_objects_selection.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Enable</em></dt>
+<dd>The parameter that defines if the object can or can&#8217;t be selected. It can have <code class="docutils literal"><span class="pre">ON</span></code>, <code class="docutils literal"><span class="pre">OFF</span></code> or <code class="docutils literal"><span class="pre">AUTO</span></code> value. Set to <code class="docutils literal"><span class="pre">AUTO</span></code> by default.</dd>
+</dl>
+</div>
+<div class="section" id="anchors">
+<span id="scene-anchors"></span><h3><a class="toc-backref" href="#id31">Anchors</a><a class="headerlink" href="#anchors" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="objects.html#objects-anchors"><span>Anchor</span></a> visibility detection settings.</p>
+<a class="reference internal image-reference" href="_images/scene_anchors.png"><img alt="_images/scene_anchors.png" class="align-center" src="_images/scene_anchors.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Detect Anchors Visibility</em></dt>
+<dd>Anchor visibility detection parameter. Can have <code class="docutils literal"><span class="pre">ON</span></code>, <code class="docutils literal"><span class="pre">OFF</span></code> or <code class="docutils literal"><span class="pre">AUTO</span></code> value. Set to <code class="docutils literal"><span class="pre">AUTO</span></code> by default.</dd>
+</dl>
+</div>
+<div class="section" id="export-options">
+<span id="scene-export-options"></span><h3><a class="toc-backref" href="#id32">Export Options</a><a class="headerlink" href="#export-options" title="Permalink to this headline">¶</a></h3>
+<p>Scene settings export parameters.</p>
+<a class="reference internal image-reference" href="_images/scene_export_options.png"><img alt="_images/scene_export_options.png" class="align-center" src="_images/scene_export_options.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Do Not Export</em></dt>
+<dd>If this parameter is enabled, scene settings will be ignored during export.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="world-panel">
+<span id="world-settings"></span><h2><a class="toc-backref" href="#id33">World Panel</a><a class="headerlink" href="#world-panel" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/world.png"><img alt="_images/world.png" class="align-center" src="_images/world.png" style="width: 100%;" /></a>
+<p>Environment settings such as settings for sky, mist and such are found on this panel.</p>
+<div class="section" id="preview">
+<span id="world-preview"></span><h3><a class="toc-backref" href="#id34">Preview</a><a class="headerlink" href="#preview" title="Permalink to this headline">¶</a></h3>
+<p>Environment preview.</p>
+<a class="reference internal image-reference" href="_images/world_preview.png"><img alt="_images/world_preview.png" class="align-center" src="_images/world_preview.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="world">
+<span id="world-world"></span><h3><a class="toc-backref" href="#id35">World</a><a class="headerlink" href="#world" title="Permalink to this headline">¶</a></h3>
+<p>Sky settings.</p>
+<a class="reference internal image-reference" href="_images/world_world.png"><img alt="_images/world_world.png" class="align-center" src="_images/world_world.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Render Sky</em></dt>
+<dd>If this parameter is enabled, the engine will render sky in the scene.</dd>
+<dt><em>Paper Sky</em></dt>
+<dd>If this parameter is enabled, sky gradient will always be drawn from the top of the screen to the bottom, regardless of the camera&#8217;s position and angles.</dd>
+<dt><em>Blend Sky</em></dt>
+<dd>Smooth transition between the horizon and zenith colors.</dd>
+<dt><em>Real Sky</em></dt>
+<dd>Sky rendering with the horizon affected by the camera angle.</dd>
+<dt><em>Horizon Color</em></dt>
+<dd>Sky color at the horizon.</dd>
+<dt><em>Zenith Color</em></dt>
+<dd>Sky color in the zenith.</dd>
+<dt><em>Reflect World</em></dt>
+<dd>Render the sky while rendering reflections.</dd>
+<dt><em>Render Only Reflection</em></dt>
+<dd>Render the sky <em>only</em> while rendering reflections.</dd>
+<dt><em>World Background</em></dt>
+<dd>Enables and disables <code class="docutils literal"><span class="pre">World</span> <span class="pre">Background</span></code> option (located under the <code class="docutils literal"><span class="pre">Display</span></code> tab of the <code class="docutils literal"><span class="pre">3D</span> <span class="pre">View</span></code> panel). When this option is activated, background colors are rendered in the viewport window the same way they would be in the engine itself.</dd>
+</dl>
+</div>
+<div class="section" id="environment-lighting">
+<span id="world-environment-lighting"></span><h3><a class="toc-backref" href="#id36">Environment Lighting</a><a class="headerlink" href="#environment-lighting" title="Permalink to this headline">¶</a></h3>
+<p>Environment lighting settings. Described thoroughly in <a class="reference internal" href="lighting.html#environment-lighting"><span>their own section</span></a>.</p>
+<a class="reference internal image-reference" href="_images/world_environment_lighting.png"><img alt="_images/world_environment_lighting.png" class="align-center" src="_images/world_environment_lighting.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="mist">
+<span id="world-mist"></span><h3><a class="toc-backref" href="#id37">Mist</a><a class="headerlink" href="#mist" title="Permalink to this headline">¶</a></h3>
+<p>Mist settings.</p>
+<a class="reference internal image-reference" href="_images/world_mist.png"><img alt="_images/world_mist.png" class="align-center" src="_images/world_mist.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Minimum</em></dt>
+<dd>Minimum intensity of the mist. Set to zero by default.</dd>
+<dt><em>Depth</em></dt>
+<dd>At this distance from the camera the mist effect reaches maximum intensity. Set to 25 by default.</dd>
+<dt><em>Start</em></dt>
+<dd>The mist effect starts to appear at this distance from the camera. Set to 5 by default.</dd>
+<dt><em>Height</em></dt>
+<dd>This parameter specifies how fast mist intensity decreases as the camera&#8217;s altitude increases. Set to 0 by default.</dd>
+<dt><em>Fall Out</em></dt>
+<dd>This parameter specifies the rule, according to which the density of the mist changes between the borders (specified by the <code class="docutils literal"><span class="pre">Start</span></code> and <code class="docutils literal"><span class="pre">Depth</span></code> parameters). Can have one of the following values: <code class="docutils literal"><span class="pre">Quadratic</span></code>, <code class="docutils literal"><span class="pre">Linear</span></code>,  <code class="docutils literal"><span class="pre">Inverse</span> <span class="pre">Quadratic</span></code>. Set to <code class="docutils literal"><span class="pre">Quadratic</span></code> by default.</dd>
+<dt><em>Use Custom Colors</em></dt>
+<dd>Can be used to set the color of the mist. Enabled by default. If this parameter is disabled, standard (0.5, 0.5, 0.5) color will be used.</dd>
+<dt><em>Fog Color</em></dt>
+<dd>The color of the mist. Can be changed, if the <code class="docutils literal"><span class="pre">Use</span> <span class="pre">custom</span> <span class="pre">colors</span></code> parameter is enabled. Light gray (0.5, 0.5, 0.5) color is used by default.</dd>
+</dl>
+</div>
+<div class="section" id="procedural-sky">
+<span id="world-procedural-sky"></span><h3><a class="toc-backref" href="#id38">Procedural Sky</a><a class="headerlink" href="#procedural-sky" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>Procedural sky settings. Described thoroughly in <a class="reference internal" href="outdoor_rendering.html#atmosphere"><span>their own section</span></a>.</div></blockquote>
+<a class="reference internal image-reference" href="_images/world_procedural_sky.png"><img alt="_images/world_procedural_sky.png" class="align-center" src="_images/world_procedural_sky.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="animation">
+<span id="world-animation"></span><h3><a class="toc-backref" href="#id39">Animation</a><a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h3>
+<p>Environment animation settings.</p>
+<a class="reference internal image-reference" href="_images/world_animation.png"><img alt="_images/world_animation.png" class="align-center" src="_images/world_animation.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Apply Default Animation</em></dt>
+<dd>If this parameter is enabled, the engine will start playback of the animation assigned to the environment upon loading.</dd>
+<dt><em>Behavior</em></dt>
+<dd><p class="first">Sets the behavior of the default animation. Available options are:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Loop</span></code> - the animation will be played repeatedly.</li>
+<li><code class="docutils literal"><span class="pre">Finish</span> <span class="pre">Stop</span></code> - the animation will be played once.</li>
+<li><code class="docutils literal"><span class="pre">Finish</span> <span class="pre">Reset</span></code> - the animation will be played once, and then switched back to the first frame.</li>
+</ul>
+<p class="last">This option is only available if the <code class="docutils literal"><span class="pre">Apply</span> <span class="pre">Default</span> <span class="pre">Animation</span></code> parameter is enabled.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="world-export-options">
+<span id="id3"></span><h3><a class="toc-backref" href="#id40">Export Options</a><a class="headerlink" href="#world-export-options" title="Permalink to this headline">¶</a></h3>
+<p>Environment parameters export settings.</p>
+<a class="reference internal image-reference" href="_images/world_export_options.png"><img alt="_images/world_export_options.png" class="align-center" src="_images/world_export_options.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><em>Do Not Export</em></dt>
+<dd>If this parameter is enabled, environment settings will be ignored during the export.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="objects.html" class="btn btn-neutral float-right" title="Objects" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="addon.html" class="btn btn-neutral" title="Add-on" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, Triumph.
+      Last updated on 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Содержание &mdash; Руководство пользователя Blend4Web 17.10</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="Об этих документах"
+              href="about.html"/>
+    <link rel="top" title="Руководство пользователя Blend4Web 17.10" href="#"/>
+        <link rel="next" title="Общие сведения" href="about.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="#" class="icon icon-home"> Blend4Web. Руководство пользователя
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Общие сведения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">Возможности движка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Интерфейс Blender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Установка и обновление</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Рабочий процесс</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">Управление проектами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Просмотрщик сцен</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">Веб-плеер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">Аддон</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">Параметры сцены</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Объекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">Меши</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">Редактор нормалей</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Камера</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">Материалы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">Библиотека материалов</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">Нодовые материалы</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">Редактор логики</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">Освещение, тени и фон</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">Спецэффекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">Текстуры</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">Система частиц. Флюиды</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">Система частиц. Инстансинг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">Анимация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">Природные эффекты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Работа с цветом</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Звук</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">Физика</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">Разработчикам приложений</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">Разработчикам движка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">Работа в команде с использованием Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">Проблемы и решения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Замечания к релизам</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Blend4Web. Руководство пользователя</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Содержание</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="table-of-contents">
+<h1>Содержание<a class="headerlink" href="#table-of-contents" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Общие сведения</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#what-s-blend4web">Что такое Blend4Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#about-engines">&#8220;Движок&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#graphics-engine-game-engine">Графический движок, трехмерный движок</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#what-s-webgl">Что такое WebGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#webgl-browsers-support">Поддержка WebGL в браузерах</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#advantages-of-webgl">Преимущества WebGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#what-s-blender">Что такое Blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#d-modeling">3D моделирование</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#browser-technologies">Браузерные технологии</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#interactive-graphics">Интерактивная графика</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#video-cards-and-drivers">Видео-карты и драйверы</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">Возможности движка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Интерфейс Blender</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#d-view">3D View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#timeline">Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#graph-editor">Graph Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#dope-sheet">Dope Sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#nla-editor">NLA Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#uv-image-editor">UV/Image Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#video-sequence-editor">Video Sequence Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#movie-clip-editor">Movie Clip Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#text-editor">Text Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#node-editor">Node Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#logic-editor">Logic Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#properties">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#outliner">Outliner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#user-preferences">User Preferences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#info">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#file-browser">File Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html#python-console">Python Console</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Установка и обновление</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#installation">Установка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#updating">Обновление</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Рабочий процесс</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#creating-a-new-project">Создание нового проекта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#creating-scenes">Создание сцен</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#preparing-a-scene-to-use-in-blend4web">Подготовка трёхмерных сцен в программе Blender.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#exporting-scenes">Экспорт сцен</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#application-development">Разработка приложения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#project-building">Сборка проекта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#project-deploying">Размещение проекта</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">Управление проектами</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_manager.html#project-manager">Менеджер проектов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_manager.html#advanced-project-management">Расширенное управление проектами</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">Просмотрщик сцен</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="viewer.html#navigation">Навигация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewer.html#the-side-panel">Боковая панель</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewer.html#indicators">Индикаторы</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">Веб-плеер</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="web_player.html#usage">Использование</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_player.html#navigation">Навигация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_player.html#control-panel">Панель управления</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_player.html#attributes">Атрибуты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_player.html#scene-name-as-title">Название сцены в заголовке</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web_player.html#scene-errors">Ошибки сцены</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">Аддон</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#local-development-server">Локальный сервер разработки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#running-viewer-and-demos">Запуск просмотрщика сцен и демо-приложений</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#export-formats">Форматы экспорта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#export-options">Опции экспорта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#index-2">Ошибки инициализации</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#compatibility-errors">Ошибки совместимости</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#critical-export-errors">Критические ошибки экспорта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#non-critical-export-errors">Некритические ошибки экспорта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#other-messages">Прочие сообщения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="addon.html#add-on-translations">Перевод аддона</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">Параметры сцены</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scene_settings.html#render-panel">Вкладка Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene_settings.html#scene-panel">Вкладка Scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scene_settings.html#world-panel">Вкладка World</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Объекты</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#types">Типы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#static-and-dynamic-objects">Статические и динамические объекты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#settings">Настройка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#object-constraints">Ограничители объектов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#anchor-settings">Настройки якорей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#object-transform-api">Управление перемещением объектов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#get-object-api">Выбор объектов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#object-selection">Выделение объектов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#copying-objects-instancing">Копирование объектов (инстансинг)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#quaternions">Кватернионы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#moving-via-tsr-vectors">Перемещение с помощью векторов TSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#line-rendering">Визуализация линий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#levels-of-detail">Уровни детализации (LOD)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">Меши</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="meshes.html#static-and-dynamic-meshes">Статические и динамические меши</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshes.html#settings">Настройка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshes.html#morphing">Морфинг</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">Редактор нормалей</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#main-features-of-the-normal-editor">Основные особенности редактора нормалей:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#interface">Интерфейс</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#activate">Activate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#show-normals">Show Normals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#rotate">Rotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#scale">Scale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#absolute-and-offset-modes">Режимы Absolute и Offset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#split-normals">Split Normals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#average">Average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#restore">Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#d-cursor-axis-and-face">3D Cursor, Axis и Face</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#copy-paste">Copy/Paste</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normal_editor.html#copy-from-mesh">Copy From Mesh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Камера</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#move-styles-and-general-settings">Режимы управления и общие настройки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#limiting-the-camera-movement">Ограничения движения камеры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#viewport-alignment">Привязка к камере</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#camera-controls-api">Управление через API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">Материалы</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#lighting-parameters">Параметры освещения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#transparency">Прозрачность</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#reflection">Зеркальное отражение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#rendering-properties">Опции рендеринга</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#viewport-properties">Настройки вьюпорта</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#engine-specific-parameters">Специальные параметры движка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#halo-materials">Материалы гало (Halo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#material-api">Методы API для работы с материалами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html#inherit-material">Наследование материалов</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">Библиотека материалов</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="material_library.html#library-structure">Структура библиотеки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="material_library.html#material-structure">Структура материала</a></li>
+<li class="toctree-l2"><a class="reference internal" href="material_library.html#adding-material-to-a-scene">Добавление материала в сцену</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">Нодовые материалы</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="node_materials.html#standard-nodes">Стандартные ноды</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_materials.html#engine-specific-nodes">Дополнительные ноды</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_materials.html#cycles-nodes">Ноды Сycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_materials.html#limitations">Ограничения</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">Редактор логики</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#basics">Основы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#control-flow">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#camera">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#object">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#operations">Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#sound">Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#network">Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#time">Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#layout">Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#debug">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic_editor.html#other-features">Other Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">Освещение, тени и фон</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lighting.html#shading-types">Типы затенения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lighting.html#lighting-with-light-sources">Освещение от источников света</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lighting.html#environment-lighting-ambient">Освещение от окружающей среды</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lighting.html#shadows">Тени</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lighting.html#background">Цвет фона</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">Спецэффекты</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_effects.html#motion-blur">Размытие при движении</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_effects.html#depth-of-field">Глубина резкости камеры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_effects.html#screen-space-ambient-occlusion">Взаимное затенение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_effects.html#god-rays">Сумеречные лучи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_effects.html#bloom">Эффект засветки ярких деталей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_effects.html#outlining">Подсветка контура (outlining)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_effects.html#glow">Свечение (glow)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_effects.html#anti-aliasing">Сглаживание</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vr_and_ar.html#virtual-reality">Virtual Reality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vr_and_ar.html#augmented-reality">Augmented Reality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">Текстуры</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#texture-types">Типы текстур</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#generic-settings">Общие настройки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#index-4">Диффузная текстура (diffuse map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#index-5">Карта бликов (specular map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#index-6">Карта нормалей (normal map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#height-map-parallax-mapping">Карта высот (height map). Parallax mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#index-8">Карта смешивания (stencil map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#video-textures">Видео-текстуры</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#index-9">Карта окружения (environment map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#mirror-map">Карта зеркального отражения (mirror map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#skydome">Текстура неба (skydome)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textures.html#special-texture-types">Особые типы текстур</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">Система частиц. Флюиды</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="particles.html#usage">Использование</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particles.html#setup">Настройка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particles.html#textures-in-particle-systems">Текстуры в системах частиц</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">Система частиц. Инстансинг</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="particles_instancing.html#particle-system-setup">Настройки системы частиц</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particles_instancing.html#grass">Травяной покров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particles_instancing.html#tree-leaves">Листва деревьев</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">Анимация</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#animation-control">Управление анимацией</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#object-animation">Объектная анимация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#skinning-and-skeletal-animation">Скиннинг и скелетная анимация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#vertex-animation">Вертексная анимация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#default-animation">Анимация по умолчанию</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#non-linear-animation">Нелинейная анимация</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#audio-source-parametrization">Параметризация источников звука</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html#animation-of-value-and-rgb-nodes">Анимация нод Value и RGB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">Природные эффекты</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="outdoor_rendering.html#water">Вода</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outdoor_rendering.html#atmosphere">Атмосфера</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outdoor_rendering.html#lens-flare">Блик (Lens Flare)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outdoor_rendering.html#wind">Ветер</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Работа с цветом</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="colors.html#gamma-overview">Общее описание</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colors.html#human-vision-and-monitors">Человеческое зрение и мониторы</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colors.html#gamma-formula">Гамма</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colors.html#gamma-in-node-materials">Коррекция в нодовых материалах</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colors.html#alpha-compositing">Альфа-композитинг</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colors.html#color-correction">Коррекция цвета</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Звук</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="audio.html#audio-source-settings">Настройка звуковых источников</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html#audio-mixer">Микшер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html#processing-and-decoding">Обработка и кодирование</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">Физика</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#preparing-for-use">Подготовка к использованию</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#static-physics-type">Статический тип физики</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#dynamic-physics-type">Динамический тип физики</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#constraints">Ограничители (Constraints)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#wheeled-vehicles">Колесные транспортные средства</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#floating-objects">Плавающие объекты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#floating-vehicles-aka-watercrafts">Плавающие транспортные средства</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#characters">Персонажи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#navigation-meshes">Навигационные меши</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html#use-in-applications">Особенности использования в приложениях</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">Разработчикам приложений</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#application-development">Разработка приложений</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#background-transparency">Прозрачный фон</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#resource-conversion">Конвертация ресурсов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#gzip-compression">Компрессия GZIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#code-examples">Примеры кода</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#loading-application-assets">Загрузка медиаресурсов приложения.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#event-driven-model">Событийная модель</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#sdk-file-structure">Файловая структура SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#loading-local-resources">Загрузка локальных ресурсов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#quality-profiles">Профили качества изображения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#non-standard-canvas-position-and-orientation">Нестандартное расположение и ориентация элемента Canvas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers.html#mobile-web-apps">Мобильные веб-приложения</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">Разработчикам движка</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developers_advanced.html#coding-style">Стиль оформления кода</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers_advanced.html#building-the-engine">Сборка движка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers_advanced.html#building-the-add-on">Сборка аддона</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers_advanced.html#dependencies">Зависимости</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers_advanced.html#naming-functions-and-variables">Названия функций и переменных</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers_advanced.html#debugging">Отладка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers_advanced.html#shader-compilation">Компиляция шейдеров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers_advanced.html#updating-add-on-translations">Обновление переводов аддона</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">Работа в команде с использованием Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#overview">Общие сведения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#typical-workflow">Типичный рабочий процесс</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#individual-settings">Индивидуальные настройки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#checking-the-status">Проверка статуса</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#before-the-commit">Перед коммитом</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#preparing-for-commit">Подготовка к коммиту</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#commit">Коммит</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#syncing-between-repositories">Синхронизация между репозиториями</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#resolving-conflicts">Разрешение конфликтов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#tags">Тэги</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_short_manual.html#other-useful-commands">Другие полезные команды</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">Проблемы и решения</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="problems_and_solutions.html#webgl-support">Поддержка WebGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problems_and_solutions.html#problems-upon-startup">Проблемы при запуске движка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problems_and_solutions.html#webgl-failed-to-initialize">Ошибка инициализации WebGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problems_and_solutions.html#more-in-depth-troubleshooting">Если ничего не помогло...</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problems_and_solutions.html#known-issues">Известные проблемы</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Замечания к релизам</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v17-10">v17.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v17-08">v17.08</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v17-06">v17.06</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v17-04">v17.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v17-02">v17.02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-12">v16.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-11">v16.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-10">v16.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-09">v16.09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-08">v16.08</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-07">v16.07</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-06">v16.06</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-05">v16.05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-04">v16.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-03">v16.03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-02">v16.02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v16-01">v16.01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-12">v15.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-11">v15.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-10">v15.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-09">v15.09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-08">v15.08</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-07">v15.07</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-06">v15.06</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-05">v15.05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-04">v15.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-03">v15.03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-02">v15.02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v15-01">v15.01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v14-12">v14.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v14-11">v14.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v14-10">v14.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#v14-09">v14.09</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Алфавитный указатель</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Поиск</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about.html" class="btn btn-neutral float-right" title="Общие сведения" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, Триумф.
+      Обновлено: 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

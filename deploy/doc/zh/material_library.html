@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>材质库 &mdash; Blend4Web 17.10 用户手册</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="关于这些文档"
+              href="about.html"/>
+    <link rel="top" title="Blend4Web 17.10 用户手册" href="index.html"/>
+        <link rel="next" title="节点材质" href="node_materials.html"/>
+        <link rel="prev" title="材质" href="materials.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Blend4Web. 用户手册
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine_features.html">引擎功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Blender的用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">安装和更新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">工作流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">项目管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">场景预览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">网络播放器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">场景设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">物体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">网格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">法线编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">材质</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">材质库</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#library-structure">库结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#material-structure">材质结构</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#material-core">核心材质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#an-example-of-using-a-material">使用材质的一个例子</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-material-to-a-scene">添加材质到一个场景</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-add-a-whole-material">如何添加整个材质</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-add-only-a-material-core">如何只添加核心材质</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">节点材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">逻辑编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">照明、 阴影和背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">后期处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">纹理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">粒子系统,流体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">粒子系统.实例化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">室外效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">色彩管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">对应用程序开发人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">对于引擎开发者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">团队工作。使用 Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">存在的问题及解决方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">发布说明</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blend4Web. 用户手册</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>材质库</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="material-library">
+<span id="id1"></span><h1><a class="toc-backref" href="#id4">材质库</a><a class="headerlink" href="#material-library" title="永久链接至标题">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">目录</p>
+<ul class="simple">
+<li><a class="reference internal" href="#material-library" id="id4">材质库</a><ul>
+<li><a class="reference internal" href="#library-structure" id="id5">库结构</a></li>
+<li><a class="reference internal" href="#material-structure" id="id6">材质结构</a><ul>
+<li><a class="reference internal" href="#material-core" id="id7">核心材质</a></li>
+<li><a class="reference internal" href="#an-example-of-using-a-material" id="id8">使用材质的一个例子</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-material-to-a-scene" id="id9">添加材质到一个场景</a><ul>
+<li><a class="reference internal" href="#how-to-add-a-whole-material" id="id10">如何添加整个材质</a></li>
+<li><a class="reference internal" href="#how-to-add-only-a-material-core" id="id11">如何只添加核心材质</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>材质库是用户可以在其中找到基本和最常用的材质，在他或她的项目中使用或创建他或她自己的基于这些材质的材质库。</p>
+<p>当创建一个新的项目，你可以插入材质库进去，然后直接从那里插入材质。</p>
+<a class="reference internal image-reference" href="_images/material_library_use.png"><img alt="_images/material_library_use.png" class="align-center" src="_images/material_library_use.png" style="width: 100%;" /></a>
+<p>要做到这一点，使用创建项目时使用  <a class="reference internal" href="project_manager.html#project-management"><span>Project Manager</span></a> 勾选上 <code class="docutils literal"><span class="pre">Use</span> <span class="pre">Material</span> <span class="pre">Library</span></code> ，然后，整个材质库将被自动复制到新的项目文件夹下面的 <code class="docutils literal"><span class="pre">/assets/material_library/</span></code> 文件夹中。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">也可以在已经存在的项目中使用材质库。你需要做的是将文件从 <code class="docutils literal"><span class="pre">/blender/material_library/</span></code> 文件夹复制到项目目录中的 <code class="docutils literal"><span class="pre">/assets/</span></code> 文件夹中。然后，您可以将包含所需材质的文件链接到场景文件，并在场景中使用这些材质。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">材质（或任何其他物体）可以 <em>链接</em> 或者  <em>附加</em> 到场景。这两种方法的区别描述如下  <a class="reference internal" href="#material-add"><span>here</span></a>.</p>
+</div>
+<div class="section" id="library-structure">
+<span id="id2"></span><h2><a class="toc-backref" href="#id5">库结构</a><a class="headerlink" href="#library-structure" title="永久链接至标题">¶</a></h2>
+<p>所有材质通过文件夹组织结构（由材质类别），并通过一个单独的文件（由材质）。每共blend文件包含一个基底材质和物体添加该材质，演示该材质可以与该材质相关联的物体上（例如，元宝为金材质）。</p>
+<a class="reference internal image-reference" href="_images/material_library_main.png"><img alt="_images/material_library_main.png" class="align-center" src="_images/material_library_main.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="material-structure">
+<span id="id3"></span><h2><a class="toc-backref" href="#id6">材质结构</a><a class="headerlink" href="#material-structure" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="_images/material_library_structure.png"><img alt="_images/material_library_structure.png" class="align-center" src="_images/material_library_structure.png" style="width: 100%;" /></a>
+<ol class="arabic">
+<li><p class="first">核心材质</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Material</span></code> 节点从核心接收任何有价值信息</p>
+</li>
+<li><p class="first">法线贴图可以加到任何一个材质核心</p>
+</li>
+<li><p class="first">纹理包含额外的遮罩信息给材质给予物体正确显示。大多数材质使用下面的遮罩：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p class="first">环境闭塞贴图</p>
+</li>
+<li><p class="first">污垢贴图</p>
+</li>
+<li><p class="first">磨损图</p>
+</li>
+<li><p class="first">绿锈贴图</p>
+</li>
+</ul>
+<p>这些遮罩不是在每个材质中使用，需要时，才为着色器显示一种特定的方式。</p>
+</div></blockquote>
+</li>
+<li><p class="first">在 <code class="docutils literal"><span class="pre">Mapping</span></code> 节点用来控制UV映射的参数。</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">RGB</span> <span class="pre">Curve</span></code> 节点可以在遮罩插入核心材质之前修正。</p>
+</li>
+<li><p class="first">具体的高光贴图在 <code class="docutils literal"><span class="pre">Material</span></code> 节点之后，用来实现不同程度的镜面模糊。</p>
+</li>
+<li><p class="first">烘焙的环境闭塞贴图是在输出节点之前加的着色器。</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">Output</span></code> 节点。</p>
+</li>
+</ol>
+<div class="section" id="material-core">
+<h3><a class="toc-backref" href="#id7">核心材质</a><a class="headerlink" href="#material-core" title="永久链接至标题">¶</a></h3>
+<p>这是包含节点结构形成一个着色器的主要节点组。本质上，这是材质本身的真实形式，与所有复杂节点交互包装成一组，方便使用。此节点组具有一定的输入和输出，以及具体的输入参数，来进行设置。</p>
+</div>
+<div class="section" id="an-example-of-using-a-material">
+<span id="material-example"></span><h3><a class="toc-backref" href="#id8">使用材质的一个例子</a><a class="headerlink" href="#an-example-of-using-a-material" title="永久链接至标题">¶</a></h3>
+<a class="reference internal image-reference" href="_images/material_library_example.png"><img alt="_images/material_library_example.png" class="align-center" src="_images/material_library_example.png" style="width: 100%;" /></a>
+<p>在这里，可以看到，设置塑料材质为一种特殊的演示物体的一个例子，而无需使用被插入核心材质中的纹理。</p>
+<a class="reference internal image-reference" href="_images/material_library_example_demo.png"><img alt="_images/material_library_example_demo.png" class="align-center" src="_images/material_library_example_demo.png" style="width: 100%;" /></a>
+<ol class="arabic simple">
+<li><p class="first">基色用一个简单的``RGB``颜色节点创建并插入到核心材质输入。</p>
+</li>
+<li><p class="first">材质实现不使用任何法线贴图，所以几何数据插入到 <code class="docutils literal"><span class="pre">Normal</span></code> 输入。</p>
+</li>
+<li><p class="first">该核心材质具有控制光泽的材质上的量的某些参数。在这种情况下，这个参数的值设置为最大。</p>
+</li>
+<li><p class="first">该材质还采用了烘焙的环境闭塞贴图。</p>
+</li>
+</ol>
+<p>现在，让我们来看看使用相同材质在不同物体的情况  - 一个塑料手柄。</p>
+<a class="reference internal image-reference" href="_images/material_library_example_gamepad.png"><img alt="_images/material_library_example_gamepad.png" class="align-center" src="_images/material_library_example_gamepad.png" style="width: 100%;" /></a>
+<ol class="arabic simple">
+<li><p class="first">物体的几何形状的顶点的颜色被用作这里的基本颜色。</p>
+</li>
+<li><p class="first">手柄的几何形状烘焙到了一张法线贴图上，并连接到核心材质的 <code class="docutils literal"><span class="pre">Normal</span></code> 输入。</p>
+</li>
+<li><p class="first">光泽的程度较低。</p>
+</li>
+<li><p class="first">替代演示物体的遮罩，专为游戏手柄模型烘焙的遮罩（环境光遮蔽和污垢）被使用。</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">应当指出的是，核心材质并没有改变以适应不同的几何形状。</p>
+</div>
+</div>
+</div>
+<div class="section" id="adding-material-to-a-scene">
+<span id="material-add"></span><h2><a class="toc-backref" href="#id9">添加材质到一个场景</a><a class="headerlink" href="#adding-material-to-a-scene" title="永久链接至标题">¶</a></h2>
+<div class="section" id="how-to-add-a-whole-material">
+<h3><a class="toc-backref" href="#id10">如何添加整个材质</a><a class="headerlink" href="#how-to-add-a-whole-material" title="永久链接至标题">¶</a></h3>
+<a class="reference internal image-reference" href="_images/material_library_append.png"><img alt="_images/material_library_append.png" class="align-center" src="_images/material_library_append.png" style="width: 100%;" /></a>
+<p>选择  <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Append/Link</span></code> 从菜单中选择，这取决于你想要做什么。如果你想保留修改物体的能力，它已被添加到场景后，使用 <code class="docutils literal"><span class="pre">Append</span></code> 。如果你不这样做，用 <code class="docutils literal"><span class="pre">Link</span></code> 。</p>
+<a class="reference internal image-reference" href="_images/material_library_select_blend_file.png"><img alt="_images/material_library_select_blend_file.png" class="align-center" src="_images/material_library_select_blend_file.png" style="width: 100%;" /></a>
+<p>然后从 <code class="docutils literal"><span class="pre">/blend4web/blender/material_library/</span></code> 目录中选择包含所需要的材质blend文件。</p>
+<a class="reference internal image-reference" href="_images/material_library_select_material.png"><img alt="_images/material_library_select_material.png" class="align-center" src="_images/material_library_select_material.png" style="width: 100%;" /></a>
+<p>从材质列表中选择需要的材质，然后按  <code class="docutils literal"><span class="pre">Append</span> <span class="pre">from</span> <span class="pre">Library</span></code> 或 <code class="docutils literal"><span class="pre">Link</span> <span class="pre">from</span> <span class="pre">Library</span></code>. 追加。现在，该材质已经被添加到场景，并可以在任何物体上使用。</p>
+</div>
+<div class="section" id="how-to-add-only-a-material-core">
+<h3><a class="toc-backref" href="#id11">如何只添加核心材质</a><a class="headerlink" href="#how-to-add-only-a-material-core" title="永久链接至标题">¶</a></h3>
+<p>如果你想只添加核心材质，其他一切都自己设置的话，不用选择材质，选择 <code class="docutils literal"><span class="pre">NodeTree</span></code> 同时连接/追加，然后选择从库中您需要的节点组，然后按 <code class="docutils literal"><span class="pre">Append</span> <span class="pre">from</span> <span class="pre">Library</span></code> 或者 <code class="docutils literal"><span class="pre">Link</span> <span class="pre">from</span> <span class="pre">Library</span></code> 。</p>
+<a class="reference internal image-reference" href="_images/material_library_add_core.png"><img alt="_images/material_library_add_core.png" class="align-center" src="_images/material_library_add_core.png" style="width: 100%;" /></a>
+<p>现在，这个节点组可在节点组列表中找到，您可以通过点击 <strong>Add=&gt;Group</strong> 在节点编辑器界面添加材质列表中找到。</p>
+<a class="reference internal image-reference" href="_images/material_library_add_group.png"><img alt="_images/material_library_add_group.png" class="align-center" src="_images/material_library_add_group.png" style="width: 100%;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">每一个材质不仅考虑遮罩和纹理，而且顶点颜色和UV贴图也有自己的要求。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="node_materials.html" class="btn btn-neutral float-right" title="节点材质" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="materials.html" class="btn btn-neutral" title="材质" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014-2017, Triumph.
+      最后更新于 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

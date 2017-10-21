@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Module: config | Blend4Web API Reference</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: config</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">API for the engine's global configuration.
+
+<p>Use the <a href="module-config.html#.set">set()</a>/<a href="module-config.html#.get">get()</a> 
+method to change/get the value of a property. Use the 
+<a href="module-config.html#.reset">reset()</a> method to reset all properties to their 
+default state. Any change in configuration must occur before engine 
+initialization. Keep in mind that some of the properties are affected by the 
+quality profile and the user's hardware/browser. In the former case use the 
+<a href="module-config.html#.P_CUSTOM">P_CUSTOM</a> profile in order to change such 
+properties.</p>
+
+<p>Normally, the users should not alter these parameters.</p>
+
+<h3>Configuration Parameters Available</h3>
+<dl>
+<dt>allow_cors
+<dd>Boolean, allow cross-origin resource sharing.
+<dt>allow_hidpi
+<dd>Boolean, allow HIDPI mode on supported devices (use the 
+<a href="module-config.html#.P_CUSTOM">P_CUSTOM</a> profile in order to change this parameter).
+<dt>alpha
+<dd>Boolean, enable WebGL canvas transparency.
+<dt>alpha_sort
+<dd>Boolean, enable z-sorting for transparent materials.
+<dt>alpha_sort_threshold
+<dd>Number, camera distance threshold for transparency z-sorting.
+<dt>anaglyph_use
+<dd><span style="color: red;"> Deprecated, use "stereo" instead.</span> 
+Boolean, enable anaglyph stereo rendering.
+<dt>animation_framerate
+<dd>Number, animation framerate.
+<dt>anisotropic_filtering
+<dd>Boolean, enable anisotropic filtering.
+<dt>antialiasing
+<dd>Boolean, enable postprocess-based anti-aliasing (use the 
+<a href="module-config.html#.P_CUSTOM">P_CUSTOM</a> profile in order to change this parameter).
+<dt>assets_dds_available
+<dd>Boolean, allow the engine to use compressed DDS textures.
+<dt>assets_gzip_available
+<dd>Boolean, enable loading gzipped versions of json/bin/dds/pvr files. It's worth 
+doing it if gzip compression is not set up on a server. A gzipped file must be 
+placed near the original one and its name must be the same as the name of the 
+original file + the ".gz" extension. For example: 
+<pre>
+ my_folder/
+     my_project.json
+     my_project.json.gz
+     my_project.bin
+     my_project.bin.gz
+</pre>
+<dt>assets_min50_available
+<dd>Boolean, allow the engine to use halved textures. The halved
+textures should be present near the source textures in order to be picked up.
+<dt>assets_path
+<dd>String, path to the assets directory (for 
+<a href="module-config.html#.get_assets_path">get_assets_path()</a> and 
+<a href="module-config.html#.get_std_assets_path">get_std_assets_path()</a>).
+<dt>assets_pvr_available
+<dd>Boolean, allow the engine to use compressed PVRTC textures.
+These textures should be present near the source textures in order to be picked up.
+<dt>audio
+<dd>Boolean, enable Web Audio.
+<dt>background_color
+<dd>Array, RGBA values to use as a background color for the WebGL
+canvas.
+<dt>bloom
+<dd>Boolean, enable bloom.
+<dt>built_in_module_name
+<dd>String, name of the module which stores exported data (HTML export only).
+<dt>canvas_resolution_factor
+<dd>Number, set the resolution factor for the canvas. Requires the following call
+to apply changes:
+<a href="module-container.html#.resize_to_container">container.resize_to_container(true)</a>.
+<dt>compositing
+<dd>Boolean, enable compositing.
+<dt>console_verbose
+<dd>Boolean, print more debug info in the browser console.
+<dt>debug_view
+<dd>Boolean, enable debug view mode.
+<dt>dof
+<dd>Boolean, enable the Depth of Field effect.
+<dt>do_not_load_resources
+<dd>Boolean, disable loading of assets (textures and sounds).
+<dt>enable_outlining
+<dd>Boolean, enable object outlining.
+<dt>enable_selectable
+<dd>Boolean, enable object selection.
+<dt>enable_texture_cache
+<dd>Boolean, cache all textures to prevent redundant resource requests and 
+speed up scene dynamic loading. Enabled by default. Note: this option affects 
+the dynamic loading functionality only, if it's your case and you have some 
+issues with GPU memory overloading consider disabling this option.
+<dt>glow_materials
+<dd>Boolean, enable glow materials.
+<dt>gl_debug
+<dd>Boolean, enable gl errors check. Very slow.
+<dt>god_rays
+<dd>Boolean, enable god rays.
+<dt>is_mobile_device
+<dd>Boolean, check mobile device. Read-only.
+<dt>lod_leap_smooth_threshold
+<dd>Number, the maximum amount of the camera movement (in meters) that 
+still can trigger a smooth transition during the LOD switching. Low values can
+be useful to prevent noticeable smooth transitions while teleporting. High 
+values can be useful to keep smooth transitions for fast moving cameras 
+(e.g. flight simulators).
+<dt>lod_smooth_transitions
+<dd>Boolean, enable smooth transitions between LOD levels.
+<dt>max_fps
+<dd>Number, maximum FPS limit.
+<dt>max_fps_physics
+<dd>Number, maximum physics FPS limit.
+<dt>media_auto_activation
+<dd>Boolean, activate media data context on mobile devices using a popup dialog.
+<dt>motion_blur
+<dd>Boolean, enable motion_blur.
+<dt>outlining_overview_mode
+<dd>Boolean, make all objects selectable, enable object outlining and
+outlining on selection.
+<dt>physics_calc_fps
+<dd>Boolean, return physics FPS in the <a href="module-main.html#~FPSCallback">FPSCallback</a>.
+<dt>physics_enabled
+<dd>Boolean, use the uranium.js physics engine.
+<dt>physics_uranium_path
+<dd>String, path to the directory of uranium.js file. If not specified, search in the
+directory with the engine's sources.
+<dt>physics_use_wasm
+<dd>Boolean, use WebAssembly for physics or not(default).
+<dt>physics_use_workers
+<dd>Boolean, simulate physics in workers (default) or not.
+<dt>precision
+<dd>String, preferred GLSL floating point precision (use the 
+<a href="module-config.html#.P_CUSTOM">P_CUSTOM</a> profile in order to change this parameter).
+<dt>prevent_caching
+<dd>Boolean, prevent assets caching by appending timestamp suffix to their
+URLs (default) or not.
+<dt>quality
+<dd>Number, preferred rendering quality profile (one of 
+<a href="module-config.html#.P_LOW">P_LOW</a>, <a href="module-config.html#.P_HIGH">P_HIGH</a>,
+<a href="module-config.html#.P_ULTRA">P_ULTRA</a>, <a href="module-config.html#.P_CUSTOM">P_CUSTOM</a> enums).
+<dt>reflections
+<dd>Boolean, enable reflections.
+<dt>reflection_quality
+<dd>String, quality of reflections. It can be "LOW", "MEDIUM" or "HIGH".
+<dt>refractions
+<dd>Boolean, enable refractions.
+<dt>sfx_mix_mode
+<dd>Boolean, enable the mixer mode in the SFX subsystem.
+<dt>shaders_path
+<dd>String, path to the shaders directory (developer version only).
+<dt>shadows
+<dd>Boolean, enable shadows.
+<dt>shadow_blur_samples
+<dd>String, number of shadow border blur samples. It can be "16x", "8x" or "4x".
+<dt>show_hud_debug_info
+<dd>Boolean, show HUD with debug information.
+<dt>smaa
+<dd><span style="color: red;">Deprecated.</span> Boolean, enable SMAA 
+anti-aliasing (use the <a href="module-config.html#.P_CUSTOM">P_CUSTOM</a> 
+profile in order to change this parameter).
+<dt>smaa_area_texture_path
+<dd><span style="color: red;">Deprecated.</span> String, path to the SMAA 
+"area" texture. If not specified, search in the directory with the engine's 
+sources.
+<dt>smaa_search_texture_path
+<dd><span style="color: red;">Deprecated.</span> String, path to the SMAA 
+"search" texture. If not specified, search in the directory with the engine's 
+sources.
+<dt>srgb_type
+<dd>String, the quality of the "Linear <-> sRGB" color conversions. Can be 
+one of the following: "SRGB_SIMPLE" - a bit faster, but less accurate, which 
+is especially noticeable for the dark tones; "SRGB_PROPER" - a bit slower, 
+but more precise.
+<dt>ssao
+<dd>Boolean, enable SSAO.
+<dt>stereo
+<dd>String, stereoscopic mode: "ANAGLYPH", "SIDEBYSIDE", "HMD" or "NONE".
+<dt>use_min50
+<dd>Boolean, enable min50 textures.
+</dl></div>
+        
+
+        
+            
+<div class="item_container">
+<div class="item_name">
+
+</div>
+<div class="item_description">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+</div>
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+    <h2>Summary</h2>
+    
+        <h3 class="subsection-title">Members</h3>
+        <ul>
+        
+            
+<li> <a href="#.P_AUTO">P_AUTO</a></li>
+
+        
+            
+<li> <a href="#.P_CUSTOM">P_CUSTOM</a></li>
+
+        
+            
+<li> <a href="#.P_HIGH">P_HIGH</a></li>
+
+        
+            
+<li> <a href="#.P_LOW">P_LOW</a></li>
+
+        
+            
+<li> <a href="#.P_ULTRA">P_ULTRA</a></li>
+
+        
+        </ul>
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        <ul>
+        
+            
+<li> <a href="#.apply_quality">apply_quality<span class="signature">(quality)</span><span class="type-signature"></span></a></li>
+
+        
+            
+<li> <a href="#.get">get<span class="signature">(prop)</span><span class="type-signature"> &rarr; {*}</span></a></li>
+
+        
+            
+<li> <a href="#.get_assets_path">get_assets_path<span class="signature">(name)</span><span class="type-signature"> &rarr; {string}</span></a></li>
+
+        
+            
+<li> <a href="#.get_std_assets_path">get_std_assets_path<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></a></li>
+
+        
+            
+<li> <a href="#.reset">reset<span class="signature">()</span><span class="type-signature"></span></a></li>
+
+        
+            
+<li> <a href="#.reset_limits">reset_limits<span class="signature">()</span><span class="type-signature"></span></a></li>
+
+        
+            
+<li> <a href="#.set">set<span class="signature">(prop, value)</span><span class="type-signature"></span></a></li>
+
+        
+        </ul>
+    
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <ul>
+        
+                
+<li> <a href="#~QualityProfile">QualityProfile</a></li>
+
+            
+        </ul>
+    
+    <h2>Detailed Description</h2>
+    
+        <h3 class="subsection-title">Members</h3>
+        
+            
+<div class="item_container">
+<div class="item_name">
+<h4 class="name" id=".P_AUTO">P_AUTO</h4>
+
+</div>
+
+<div class="item_description">
+
+<div class="description">
+    Auto quality profile: cannot be used directly, only for quality
+auto configurators.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="module-config.html#~QualityProfile">QualityProfile</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line240">line 240</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</div>
+</div>
+
+        
+            
+<div class="item_container">
+<div class="item_name">
+<h4 class="name" id=".P_CUSTOM">P_CUSTOM</h4>
+
+</div>
+
+<div class="item_description">
+
+<div class="description">
+    Custom quality profile: use engine defaults, allow customization.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="module-config.html#~QualityProfile">QualityProfile</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line234">line 234</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</div>
+</div>
+
+        
+            
+<div class="item_container">
+<div class="item_name">
+<h4 class="name" id=".P_HIGH">P_HIGH</h4>
+
+</div>
+
+<div class="item_description">
+
+<div class="description">
+    High quality profile: use all requested features.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="module-config.html#~QualityProfile">QualityProfile</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line222">line 222</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</div>
+</div>
+
+        
+            
+<div class="item_container">
+<div class="item_name">
+<h4 class="name" id=".P_LOW">P_LOW</h4>
+
+</div>
+
+<div class="item_description">
+
+<div class="description">
+    Low quality profile: maximize engine performance, minimize memory consumption.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="module-config.html#~QualityProfile">QualityProfile</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line216">line 216</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</div>
+</div>
+
+        
+            
+<div class="item_container">
+<div class="item_name">
+<h4 class="name" id=".P_ULTRA">P_ULTRA</h4>
+
+</div>
+
+<div class="item_description">
+
+<div class="description">
+    Ultra quality profile: use all requested features and maximize quality.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="module-config.html#~QualityProfile">QualityProfile</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line228">line 228</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</div>
+</div>
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+            
+<div class="item_container">
+<div class="item_name">
+
+    
+
+    <h4 class="name" id=".apply_quality">apply_quality<span class="signature">(quality)</span><span class="type-signature"></span></h4>
+
+    
+
+</div>
+<div class="item_description">
+
+<div class="description">
+    Set the engine's quality profile.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>quality</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="module-config.html#~QualityProfile">QualityProfile</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Quality profile</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line289">line 289</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+</div>
+</div>
+        
+            
+<div class="item_container">
+<div class="item_name">
+
+    
+
+    <h4 class="name" id=".get">get<span class="signature">(prop)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+</div>
+<div class="item_description">
+
+<div class="description">
+    Get the value of the config property of the engine.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Property name</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Value of property
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line255">line 255</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+</div>
+</div>
+        
+            
+<div class="item_container">
+<div class="item_name">
+
+    
+
+    <h4 class="name" id=".get_assets_path">get_assets_path<span class="signature">(name)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+</div>
+<div class="item_description">
+
+<div class="description">
+    Get the path to the project's assets directory.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Name of the project</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Path to assets
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line280">line 280</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://www.blend4web.com/doc/en/developers.html#loading-application-assets">https://www.blend4web.com/doc/en/developers.html#loading-application-assets</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+</div>
+</div>
+        
+            
+<div class="item_container">
+<div class="item_name">
+
+    
+
+    <h4 class="name" id=".get_std_assets_path">get_std_assets_path<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+</div>
+<div class="item_description">
+
+<div class="description">
+    Get the path to the standard assets directory inside the SDK.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Path to assets
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line274">line 274</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+</div>
+</div>
+        
+            
+<div class="item_container">
+<div class="item_name">
+
+    
+
+    <h4 class="name" id=".reset">reset<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+</div>
+<div class="item_description">
+
+<div class="description">
+    Reset all the engine's config properties to defaults.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line263">line 263</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+</div>
+</div>
+        
+            
+<div class="item_container">
+<div class="item_name">
+
+    
+
+    <h4 class="name" id=".reset_limits">reset_limits<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+</div>
+<div class="item_description">
+
+<div class="description">
+    Reset context limit properties to minimum.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line269">line 269</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+</div>
+</div>
+        
+            
+<div class="item_container">
+<div class="item_name">
+
+    
+
+    <h4 class="name" id=".set">set<span class="signature">(prop, value)</span><span class="type-signature"></span></h4>
+
+    
+
+</div>
+<div class="item_description">
+
+<div class="description">
+    Set the value of the config property of the engine.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>prop</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Property name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">New property value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line247">line 247</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+</div>
+</div>
+        
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<div class="item_container">
+<div class="item_name">
+<h4 class="name" id="~QualityProfile">QualityProfile</h4>
+
+</div>
+
+<div class="item_description">
+
+<div class="description">
+    Quality profile enum. One of <a href="module-config.html#.P_LOW">P_LOW</a>, <a href="module-config.html#.P_HIGH">P_HIGH</a>, <a href="module-config.html#.P_ULTRA">P_ULTRA</a>, <a href="module-config.html#.P_CUSTOM">P_CUSTOM</a>.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ext_config.js.html">ext/config.js</a>, <a href="ext_config.js.html#line211">line 211</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</div>
+</div>
+
+            
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-anchors.html">anchors</a></li><li><a href="module-animation.html">animation</a></li><li><a href="module-app.html">app</a></li><li><a href="module-armature.html">armature</a></li><li><a href="module-assets.html">assets</a></li><li><a href="module-camera.html">camera</a></li><li><a href="module-camera_anim.html">camera_anim</a></li><li><a href="module-config.html">config</a></li><li><a href="module-constraints.html">constraints</a></li><li><a href="module-container.html">container</a></li><li><a href="module-controls.html">controls</a></li><li><a href="module-data.html">data</a></li><li><a href="module-debug.html">debug</a></li><li><a href="module-fps.html">fps</a></li><li><a href="module-geometry.html">geometry</a></li><li><a href="module-gp_conf.html">gp_conf</a></li><li><a href="module-gyroscope.html">gyroscope</a></li><li><a href="module-hmd.html">hmd</a></li><li><a href="module-hmd_conf.html">hmd_conf</a></li><li><a href="module-hud.html">hud</a></li><li><a href="module-input.html">input</a></li><li><a href="module-lights.html">lights</a></li><li><a href="module-logic_nodes.html">logic_nodes</a></li><li><a href="module-main.html">main</a></li><li><a href="module-mat3.html">mat3</a></li><li><a href="module-mat4.html">mat4</a></li><li><a href="module-material.html">material</a></li><li><a href="module-math.html">math</a></li><li><a href="module-mixer.html">mixer</a></li><li><a href="module-mouse.html">mouse</a></li><li><a href="module-nla.html">nla</a></li><li><a href="module-npc_ai.html">npc_ai</a></li><li><a href="module-ns_compat.html">ns_compat</a></li><li><a href="module-objects.html">objects</a></li><li><a href="module-particles.html">particles</a></li><li><a href="module-physics.html">physics</a></li><li><a href="module-preloader.html">preloader</a></li><li><a href="module-quat.html">quat</a></li><li><a href="module-rgb.html">rgb</a></li><li><a href="module-rgba.html">rgba</a></li><li><a href="module-scenes.html">scenes</a></li><li><a href="module-screen.html">screen</a></li><li><a href="module-screenshooter.html">screenshooter</a></li><li><a href="module-sfx.html">sfx</a></li><li><a href="module-storage.html">storage</a></li><li><a href="module-textures.html">textures</a></li><li><a href="module-time.html">time</a></li><li><a href="module-transform.html">transform</a></li><li><a href="module-tsr.html">tsr</a></li><li><a href="module-util.html">util</a></li><li><a href="module-vec3.html">vec3</a></li><li><a href="module-vec4.html">vec4</a></li><li><a href="module-version.html">version</a></li></ul><h3>Namespaces</h3><ul><li><a href="b4w.html">b4w</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Blend4Web API Reference (generated by JSDoc 3.4.0 on Fri Oct 20 2017 18:46:31 GMT+0300 (MSK))
+    <a href="https://www.blend4web.com">www.blend4web.com</a>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

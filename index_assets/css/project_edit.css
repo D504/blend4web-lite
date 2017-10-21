@@ -1,0 +1,131 @@
+table {
+  width: 100%;
+}
+
+th {
+  padding: 16px 0;
+}
+
+td:first-child {
+  padding: 8px 16px;
+  text-align: left;
+  width: 20%;
+  vertical-align: top;
+}
+
+td:first-child div {
+  line-height: 1.5;
+  font-size: 14px;
+  font-family: "Open Sans Light", sans-serif;
+  cursor: pointer;
+}
+
+td:first-child div:hover {
+  text-decoration: underline;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: 640px;
+}
+
+.CodeMirror-wrap pre {
+  word-break: break-all;
+}
+
+#save_file {
+  opacity: 0.5;
+  cursor: default;
+}
+
+#save_file:hover {
+  text-decoration: none;
+}
+
+#save_file.active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#save_file.active:hover {
+  text-decoration: underline;
+}
+
+.edit_file.active {
+  font-weight: bold;
+}
+
+#new_file_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+  display: none;
+  padding: 16px;
+  margin-left: -200px;
+  margin-top: -100px;
+  z-index: 5;
+  padding: 24px 48px;
+  box-shadow: 0 0 20px #000;
+}
+
+#new_file_box h2 {
+  margin-bottom: 16px;
+}
+
+#new_file_box .btn {
+  width: 148px;
+}
+
+#new_file_box .btns_cont {
+  margin: 0;
+}
+
+.input_group {
+  display: block;
+  text-align: center;
+}
+
+.input_group .btn {
+  float: none;
+  display: inline-block;
+}
+
+.input_group:after {
+  clear: both;
+  display: table;
+  content: " ";
+}
+
+#new_file_box input {
+  border: 1px solid rgba(82, 118, 207, 0.2);
+  font-size: 16px;
+  color: #505050;
+  padding: 4px;
+  width: 100%;
+  line-height: 1;
+  outline: 1px solid rgba(82, 118, 207, 0.2);
+  font-family: "Open Sans Light", sans-serif;
+}
+
+#body_opacity {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(82, 118, 207, .6);
+  display: none;
+  overflow: hidden;
+  z-index: 4;
+}
+
+#file_name_error {
+  color: red;
+  margin: 0;
+  padding: 0;
+  height: 32px;
+  line-height: 32px;
+}

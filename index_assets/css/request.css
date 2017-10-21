@@ -1,0 +1,37 @@
+.console {
+  color: white;
+  background-color: black;
+  padding: 40px;
+  border: 3px solid rgba(78, 16, 175, 0.7);
+  font-size: 12pt;
+  height: 100%;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-family: monospace !important;
+}
+
+.request {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.btn {
+  float: left;
+  margin-right: 8px;
+}
+
+.btn:last-child {
+  margin-right: 0;
+}
+
+.btn_wrapper {
+  display: inline-block;
+}
+
+.btns_cont {
+  text-align: center;
+  height: 60px;
+  margin: 24px 0;
+}

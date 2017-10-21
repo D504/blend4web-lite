@@ -1,0 +1,299 @@
+
+粒子系统,流体
+*************
+
+
+目录
+^^^^
+
+* 粒子系统,流体
+
+  * 用法
+
+    * 必要的步骤
+
+    * 推荐其他设置
+
+  * 设置
+
+    * 基本设置
+
+    * 发射设置
+
+    * 方向设置
+
+    * 旋转设置
+
+    * 物理设置
+
+    * 渲染设置
+
+    * 支持设置力场的影响
+
+    * 引擎特定的设置
+
+  * 粒子系统中的纹理
+
+    * 粒子材质的纹理
+
+    * 粒子系统中的纹理
+
+粒子系统旨在可视化现象如由烟、 火、 水溅、 引起的其他无数小物体的运动
+。
+
+[图片]
+
+
+
+一个粒子系统要求有发射器-一个物体来定义粒子流的位置和传出的方向。
+
+
+用法
+====
+
+
+必要的步骤
+----------
+
+1. 添加网格发射器到场景。
+
+2. 在发射器上创建一个粒子材质，例如 "Halo" 类型上。此外支持必要的漫
+   射 纹理的 "Surface" 材质类型。
+
+3. 在发射器上添加一个粒子系统。
+
+4. 启动引擎播放。有两个选项可供选择：
+
+      * "cyclic emission" - 对粒子系统启用 "Emission > Cyclic
+        emission" 对发射器启用  "Animation > Apply Default Animation"
+        。
+
+      * "non-cyclic animation" -启用发射器的  "Animation > Apply
+        Default Animation" 选项。
+
+
+推荐其他设置
+------------
+
+1. 设置粒子材质 "Add" 透明度类型。
+
+2. 如果需要，禁用发射器渲染，使用 "Particles > Render > Emitter" 复
+   选 框。
+
+3. 如果一个场景的发射器需要用到额外材质。在这种情况下，在粒子设置的
+   "Particles > Render > Material" 菜单选择粒子材质。
+
+4. 如果使用了 "Surface" 材质类型它需要（通常与alpha通道）添加漫射纹
+   理 到该材质。在  "Mapping > Coordinates" 菜单中选择 "UV" 。确保发射
+   器 的网格有UV层。
+
+[图片]
+
+
+设置
+====
+
+粒子系统参数可以在 "Particles" 选项卡下进行设置。支持每个发射多个粒子
+系统。
+
+[图片]
+
+
+基本设置
+--------
+
+*名字*
+   粒子系统名称。默认名称是 "ParticleSystem" 。
+
+*设置*
+   参照粒子系统的设置数据块。该数据块的设置可以在不同粒子系统之间共享
+   。
+
+*类型*
+   粒子系统类型: "Emitter" 或 "Hair". "Hair" 粒子系统可以用于创建许多
+   副本的 （称为实例化） 的物体。默认值为 "Emitter".
+
+*随机种*
+   粒子系统产生的随机数的表格索引。缺省值是0。
+
+
+发射设置
+--------
+
+[图片]
+
+*Emission > Number*
+   粒子的数目。默认值为 1000。
+
+*Emission > Start*
+   粒子发射开始的第一帧。缺省值为1.0。
+
+*Emission > End*
+   粒子发射结束的最后一帧。默认值为200.0。
+
+*Emission > Lifetime*
+   粒子以帧为单位的寿命。默认值是50.0。
+
+*Emission > Lifetime > Random*
+   生存期随机因子。默认值为 0.0。
+
+*Emission > Emit From*
+   发射源类型。支持以下类型︰ "Verts" （从顶点发出），"Faces" （从多边
+   形发出）。默认值为 "Faces".
+
+*Emission > Cyclic emission*
+   该选项启用循环发射模式。它可以用于永久效果 （如烟，燃烧，水溅）。建
+   议设置的 "Emission > Start" 的值为零。默认为禁用。
+
+*Emission > Allow NLA*
+   激活此选项将允许粒子发射由NLA进行控制。默认情况下启用。
+
+*Emission > Random Delay*
+   该选项允许启用粒子随机发射时间。默认情况下禁用。
+
+
+方向设置
+--------
+
+*Velocity > Emitter Geometry > Normal*
+   沿着发射器的网格法线的发射影响因子。缺省值为1.0。
+
+*Velocity > Other > Random*
+   随机的发射方向的因子。默认值是0.0。
+
+
+旋转设置
+--------
+
+*Rotation > Angular Velocity > Mode*
+   模式为粒子广告牌的自转。 "Hair" 粒子系统支持所有类型的旋转，
+   "Emitter" 只支持 "Velocity" 。
+
+*Rotation > Angular Velocity > Factor*
+   粒子广告牌旋转速度的因子。默认值为 0.0。
+
+
+物理设置
+--------
+
+[图片]
+
+*Physics > Type*
+   物理计算类型: "No", "Newtonian", "Keyed", "Boids", "Fluid". 由引擎
+   忽略。总是用 "Newtonian" 。默认值为 "Newtonian" 。
+
+*Physics > Size*
+   粒子大小。默认值为 0.05。
+
+*Physics > Mass*
+   粒子质量。影响与力场 （风能） 的互动。默认值是 1.0。
+
+*Physics > Forces > Brownian*
+   导出但是不在引擎中使用。
+
+
+渲染设置
+--------
+
+[图片]
+
+*Render > Material*
+   选择粒子材质的菜单。用于发射器有多个材质的情况下的粒子材质。默认值
+   为 "Default Material" 。
+
+*Render > Emitter*
+   启用场景中发射器渲染。默认情况下启用。
+
+*Render > Type*
+   粒子渲染模式："None"，"Halo"，"Line"，"Path"，"Object"，"Group"，
+   "Billboard"。该引擎支持 "Object" 和 "Object" 和 "Group" 分别实例化
+   模式。其他模式将被忽略。推荐使用 "Billboard" 模式，广告牌方便的显示
+   。默认值是 "Halo" 。
+
+*Render > Billboard Align*
+   广告牌的方式取向："View"  - 按照相机，"XY plane"，"YZ plane"，"ZX
+   plane"  - 对准相应的平面（在世界坐标搅拌机系统）。默认值是 "View"。
+
+*Render > Tilt*
+   这组参数控制初始的广告牌飞机倾斜。它是由两个参数︰
+
+   *角度*
+      广告牌平面的旋转角度。它的值可以从-1 到 1。旋转 180 度的值为 1
+      （即颠倒广告牌）。设置为零，默认情况。
+
+   *随机*
+      倾斜的随机变化。它的值可以从零到 1 更改，默认情况设置为零 。
+
+*Render > Dissolve intervals > Fade-in* and *Fade-out*
+   开始和结束的时间间隔（以帧测量的）为逐渐增加和减小粒子的透明度。
+
+*Render > Coordinate System*
+   发射粒子的坐标系统："Local"  - 使用局部坐标发射物体的系统，"World"
+   - 使用世界坐标系。
+
+*Render > Soft Particles*
+   支持软粒子，它的广告牌与表面接触时能够消融。使用 "Particle
+   Softness" 滑块来调整这种效果。
+
+
+支持设置力场的影响
+------------------
+
+*Field Weights > Gravity*
+   重力影响因素（地球引力）。缺省值为1.0。
+
+*Field Weights > Wind*
+   风的影响因子。"Wind" 力场源需要存在 （可以  "Add > Force Field" 添
+   加使用）。一个粒子系统也受到风的方向和强度影响。默认值是 1.0。
+
+
+引擎特定的设置
+--------------
+
+*Export Options > Do not export*
+   不要导出。
+
+
+粒子系统中的纹理
+================
+
+粒子系统支持标准和节点的材质。支持的材质类型包括 "Surface" 和 "Halo"。
+此外支持 "Halo" 类型的材质，如 "Rings", "Lines" 和 "Star Tips"，所有其
+他设置。
+
+
+粒子材质的纹理
+--------------
+
+"Surface" 粒子材质它是  **要求** 有漫射纹理 （通常带 alpha 通道）。在
+"Mapping > Coordinates" 菜单中选择  "UV"  选项。 请确保发射器的网格有
+UV 层。
+
+对于 "Halo" 粒子的材质，这是 **可以** 使用 "Blend" 纹理一个 "Linear"
+梯度。在 "Mapping > Coordinates" 菜单中选择 "Strand / Particle" 选项。
+它要求对纹理启用  "Ramp"  。
+
+[图片]
+
+
+粒子系统中的纹理
+----------------
+
+纹理也可以用于设置粒子系统的行为。与纹理粒子材质不同的是这种纹理属于粒
+子系统数据块，不到材质数据块。若要创建纹理的粒子系统，它需要去  **从**
+"Textures" 选项卡的 "Particles" 选项卡，然后单击新建按钮。
+
+纹理唯一支持的类型是 "Blend" 带 "Linear" 梯度。纹理的 "Ramp" 应该启用
+。支持多达4个梯度控制点。
+
+"Influence"  面板上选择参数受纹理的影响。目前唯一支持的参数是 "Size".
+
+[图片]
+
+
+
+粒子材质使用渐变纹理和粒子系统的结果︰
+
+[图片]
+
+原始模型是从这里取得

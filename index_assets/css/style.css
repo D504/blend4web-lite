@@ -1,0 +1,43 @@
+table {
+  width: 100%;
+}
+
+table .doc th,
+table .doc td {
+  height: 50px;
+  width: 25%;
+}
+
+table .projects th,
+table .projects td {
+  height: 50px;
+}
+
+th, td {
+  height: 100px;
+  text-align: center;
+  border: 1px solid rgba(82, 118, 207, .2);
+}
+
+.row {
+  width: 1200px;
+  margin: 20px auto;
+}
+
+span.green {
+  color: green;
+  font-weight: bold;
+}
+
+span.red {
+  color: red;
+  font-weight: bold;
+}
+
+a {
+  font-size: 16px;
+}
+
+table:first-of-type > tbody td {
+  border-bottom: 0;
+}

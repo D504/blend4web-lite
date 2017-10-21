@@ -1,0 +1,570 @@
+
+Камера
+******
+
+
+Содержание
+^^^^^^^^^^
+
+* Камера
+
+  * Режимы управления и общие настройки
+
+  * Ограничения движения камеры
+
+    * Камера типа Target
+
+    * Камера типа Eye
+
+    * Камера типа Hover
+
+  * Привязка к камере
+
+  * Управление через API
+
+    * Задание режима управления
+
+    * Перемещение и поворот
+
+    * Задание лимитов
+
+    * Отсчет угловых координат
+
+
+Режимы управления и общие настройки
+===================================
+
+Настройки камеры выставляются в панели "Properties" на вкладке "Camera
+(Object Data)".
+
+   [рисунок]Настройки, доступные для камеры
+
+
+
+*Camera Move Style > Move Style*
+   Режим управления камерой:
+
+   * *Target*
+
+        По умолчанию камера находится в режиме вращения вокруг
+        некоторой точки (target). Положение точки вращения может быть
+        изменено (см. панорамирование).
+
+   * *Eye*
+
+        Режим взгляда позволяет осуществлять вращение и перемещение от
+        первого лица.
+
+   * *Hover*
+
+        В режиме нависания камера движется параллельно горизонтальной
+        опорной плоскости. Дополнительными лимитами можно задать
+        плавную траекторию движения камеры по направлению к опорной
+        точке.
+
+   * *Static*
+
+        В статическом режиме изменение положения камеры осуществляется
+        посредством анимации или через API.
+
+*Look At Cursor > Target Location*
+   Доступно в режиме "Target". Позиция точки, относительно которой
+   будет вращаться камера. Кнопка "Look At Cursor" позволяет
+   скопировать текущее положение курсора, а при нажатии на неё
+   активная камера поворачивается в направлении указанной точки.
+
+*Depth of Field*
+   Описано в разделе Глубина резкости камеры.
+
+Для камеры доступны настройки скорости движения:
+
+*Camera Move Style > Camera Velocities > Translation Velocity*
+   Актуально для режимов "Target", "Eye", "Hover". Задаёт скорость
+   перемещения камеры. Интервал значений: \left[0,\ \infty \right).
+   Значение по умолчанию: 1.
+
+*Camera Move Style > Camera Velocities > Rotation Velocity*
+   Актуально для режимов "Target", "Eye", "Hover". Задаёт скорость
+   вращения камеры. Интервал значений: \left[0,\ \infty \right).
+   Значение по умолчанию: 1.
+
+*Camera Move Style > Camera Velocities > Zoom Velocity*
+   Актуально для режимов "Target", "Hover". Задаёт скорость
+   приближения камеры к опорной точке. Интервал значений: \left[0,\
+   0.99\right]. Значение по умолчанию: 0.1.
+
+
+Ограничения движения камеры
+===========================
+
+Для камеры доступно несколько настроек, ограничивающих/изменяющих её
+движение тем или иным образом. Они объединены в группу "Camera
+Limits".
+
+   [рисунок]Настройки ограничения движения камеры
+
+Ограничители перемещения камеры могут отображаться непосредственно во
+вьюпорте Blender. Для этого нужно включить опцию "Display Limits in
+Viewport".
+
+
+
+
+Камера типа Target
+------------------
+
+[рисунок]
+
+*Camera Move Style > Camera Limits > Distance Limits*
+   Задание минимального и максимального расстояний от камеры до точки
+   вращения. Допустимые значения: *Min* \le *Max*. Значения по
+   умолчанию: *Min = 1*, *Max = 10*. По умолчанию отключено.
+
+*Camera Move Style > Camera Limits > Horizontal Rotation Limits*
+   Ограничение горизонтального (вокруг мировой оси Z в Blender'е)
+   вращения камеры относительно соответствующей точки. Вращение
+   происходит по дуге окружности определяемой значениями "Left Angle"
+   и "Right Angle". Дуга вращения соответствует движению из "Left
+   Angle" в "Right Angle" против часовой стрелки. Значения по
+   умолчанию: *Left Angle = -45°*, *Right Angle = 45°*. По умолчанию
+   отключено.
+
+*Camera Move Style > Camera Limits > Vertical Rotation Limits*
+   Ограничение горизонтального (вокруг мировой оси Z в Blender'е)
+   вращения камеры относительно соответствующей точки. Вращение
+   происходит по дуге окружности определяемой значениями "Left Angle"
+   и "Right Angle". Дуга вращения соответствует движению из "Left
+   Angle" в "Right Angle" против часовой стрелки. Значения по
+   умолчанию: *Left Angle = -45°*, *Right Angle = 45°*. По умолчанию
+   отключено.
+
+*Camera Move Style > Camera Limits > Pivot Translation Limits*
+   Ограничение перемещения точки привязки камеры. Значения по
+   умолчанию: *MinZ = 0*, *MaxZ = 10*. Не отображается во вьюпорте.
+
+*Camera Move Style > Camera Limits > Use Panning Mode*
+   Разрешить панорамное перемещение камеры.
+
+
+
+
+Камера типа Eye
+---------------
+
+[рисунок]
+
+*Blend4Web > Horizontal Rotation Limits*
+   Ограничение горизонтального (вокруг мировой оси Z в Blender'е)
+   вращения камеры относительно соответствующей точки. Вращение
+   происходит по дуге окружности определяемой значениями "Left Angle"
+   и "Right Angle". Дуга вращения соответствует движению из "Left
+   Angle" в "Right Angle" против часовой стрелки. Значения по
+   умолчанию: *Left Angle = -45°*, *Right Angle = 45°*. По умолчанию
+   отключено.
+
+*Camera Move Style > Camera Limits > Vertical Rotation Limits*
+   Ограничение горизонтального (вокруг мировой оси Z в Blender'е)
+   вращения камеры относительно соответствующей точки. Вращение
+   происходит по дуге окружности определяемой значениями "Left Angle"
+   и "Right Angle". Дуга вращения соответствует движению из "Left
+   Angle" в "Right Angle" против часовой стрелки. Значения по
+   умолчанию: *Left Angle = -45°*, *Right Angle = 45°*. По умолчанию
+   отключено.
+
+
+
+
+Камера типа Hover
+-----------------
+
+[рисунок]
+
+*Camera Move Style > Camera Limits > Horizontal Translation Limits*
+   Ограничение перемещения опорной точки вдоль оси X в мировых
+   координатах в Blender'е. Допустимые значения: *Min* \le *Max*.
+   Значения по умолчанию: *MinX = -10*, *MaxX = 10*. По умолчанию
+   отключено.
+
+*Camera Move Style > Camera Limits > Vertical Translation Limits*
+   Ограничение перемещения опорной точки вдоль оси Y в мировых
+   координатах в Blender'е. Допустимые значения: *Min* \le *Max*.
+   Значения по умолчанию: *MinY = -10*, *MaxY = 10*. По умолчанию
+   отключено.
+
+*Camera Move Style > Camera Limits > Use Zooming*
+   Позволяет пользователю приближать и удалять камеру относительно
+   опорной точки. При отключении этого параметра положение камеры
+   относительно опорной точки будет фиксированным. По умолчанию
+   отключено.
+
+*Camera Move Style > Camera Limits > Distance Limits*
+   Задание минимального и максимального расстояний от камеры до точки
+   пересечения (опорная точка) направления взгляда камеры с
+   горизонтальной опорной плоскостью (по умолчанию с плоскостью XOY
+   мировых координат в Blender'е). Допустимые значения: *Min* \le
+   *Max*. Значения по умолчанию: *Min = 1*, *Max = 10*. По умолчанию
+   отключено.
+
+*Camera Move Style > Camera Limits > Vertical Rotation Limits*
+   Ограничения угла подъема камеры (угла между направлением взгляда
+   камеры и горизонтальной плоскостью). Допустимые значения: *0°* \le
+   *Down* \le *Up* \le *90°*. Значения по умолчанию: *Down = 0°, Up =
+   90°*.
+
+*Camera Move Style > Camera Limits > Zero Level*
+   Расстояние от опорной плоскости камеры до центра координат. По
+   умолчанию равно нулю.
+
+При включении настройки "Blend4Web > Use Zooming" лимиты по расстоянию
+и углу подъема будут действовать одновременно, задавая траекторию
+движения камеры в вертикальной плоскости.
+
+Некорректное задание лимитов по расстоянию либо углу подъема приведет
+к отключению этой настройки.
+
+*Camera Move Style > Camera Limits > Use Horizontal Rotation*
+   Разрешить вращение камеры в плоскости XOY Blender'а относительно
+   опорной точки. По умолчанию включено.
+
+
+
+**Камера типа Static**
+
+[рисунок]
+
+Камера этого типа не имеет ограничителей, так как не контролируется
+пользователем.
+
+
+
+**Особенности задания ограничений**
+
+* Для EYE/TARGET камеры перемена мест значений *Left/Right* или
+  *Down/Up* приводит к движению по противоположной дуге окружности
+  вращения.
+
+* При ограничении горизонтального и вертикального вращения камеры
+  можно выбрать пространство координат:
+
+*Camera Space*
+   Все углы отсчитываются относительно начального положения и
+   ориентации камеры.
+
+*World Space*
+   Горизонтальные углы отсчитываются относительно направления оси Y в
+   пространстве мировых координат, вертикальные - относительно
+   плоскости XOY в мировом пространстве в Blender'е.
+
+Значение по умолчанию: "Camera Space".
+
+Ограничения по горизонтали на примере TARGET камеры:
+
+Ограничения по вертикали на примере TARGET камеры:
+
+
+Привязка к камере
+=================
+
+Если родителем объекта является камера, для него доступен набор
+параметров, известный как *Viewport Alignment*. Эти параметры
+находятся во вкладке "Relations" на панели "Object".
+
+[рисунок]
+
+С их помощью объект можно выровнять относительно камеры таким образом,
+что он всегда будет оставаться в одной и той же точке экрана, вне
+зависимости от движения или поворота камеры. Может применяться, в
+частности, для создания элементов интерфейса.
+
+   [рисунок]Все элементы интерфейса, представленные на этом
+   изображении, созданы с использованием настройки Viewport Alignment.
+
+*Viewport Alignment*
+   Этот параметр включает и выключает использование всех
+   нижеперечисленных параметров. По умолчанию деактивирован.
+
+*Alignment*
+   Этот параметр определяет, к какой точке экрана будет привязан
+   объект. Может иметь одно из следующих значений:
+
+   * "Top-Left" - привязывает объект к левому верхнему углу экрана
+
+   * "Top" - привязывает объект к верхней границе экрана
+
+   * "Top-Right" - привязывает объект к правому верхнему углу экрана
+
+   * "Left" - привязывает объект к левой стороне экрана
+
+   * "Center" - привязывает объект к центру экрана
+
+   * "Right" - привязывает объект к правой стороне экрана
+
+   * "Bottom-Left" - привязывает объект к левому нижнему углу экрана
+
+   * "Bottom" - привязывает объект к нижней границе экрана
+
+   * "Bottom-Right" - привязывает объект к правому нижнему углу
+     экрана
+
+   Значение по умолчанию: "Center".
+
+*Distance*
+   Расстояние между камерой и объектом, привязанным к ней. По
+   умолчанию равно 10.
+
+*Fit to Camera*
+   Нажатие на эту кнопку расположит объект относительно камеры так,
+   как он будет располагаться в движке. Может использоваться для
+   предварительного просмотра результатов привязки.
+
+
+Управление через API
+====================
+
+Подробная документация API модуля: ссылка.
+
+Положение и ориентация камеры в пространстве определяются конкретным
+режимом управления. В режимах "EYE", "TARGET" и "HOVER" модель
+поведения накладывает ряд ограничений, например, таких как
+выравнивание вертикальной оси камеры вдоль мировой оси Y и постоянная
+ориентация камеры на опорную точку. Для "STATIC" камеры таких
+ограничений нет, поэтому она лучше подходит в случаях, когда нужен
+более полный контроль, например, при процедурной анимации.
+
+Основные функции управления камерой находятся в модуле camera. Часть
+из них, относящаяся к конкретному режиму управления, начинается с
+соответствующих префиксов: "static_", "eye_", "target_" и "hover_".
+Остальные методы применимы для всех режимов.
+
+
+Задание режима управления
+-------------------------
+
+Для изменения режима и полного определения модели поведения камеры
+можно воспользоваться следующими методами: static_setup(),
+eye_setup(), target_setup() и hover_setup(). Они принимают объект,
+содержащий набор опциональных параметров, позволяющих задать положение
+камеры, поворот, наличие лимитов и т.д:
+
+   var camera = m_scenes.get_active_camera();
+   var POS = new Float32Array([1,1,1]);
+   var LOOK_AT = new Float32Array([0,0,0]);
+   var EYE_HORIZ_LIMITS = { left: Math.PI/4, right: -Math.PI/4 };
+   var EYE_VERT_LIMITS = { down: -Math.PI/4, up: Math.PI/4 };
+   var TARGET_DIST_LIMITS = { min: 1, max: 10 };
+   var HOVER_DIST_LIMITS = { min: 1, max: 10 };
+   var HOVER_ANGLE_LIMITS = { down: 0, up: -Math.PI/4 };
+   var HOVER_HORIZ_TRANS_LIMITS = { min: -5, max: 3 };
+   var HOVER_VERT_TRANS_LIMITS = { min: -1, max: 1 };
+
+   ...
+
+   // setup STATIC camera by defining the new position and the new look-at point
+   m_cam.static_setup(camera, { pos: POS, look_at: LOOK_AT });
+
+   // setup STATIC camera by defining the new look-at point and keeping the existing position
+   m_cam.static_setup(camera, { look_at: LOOK_AT });
+
+   // setup STATIC camera by defining the new position and keeping the existing orientation
+   m_cam.static_setup(camera, { pos: POS });
+
+   // setup EYE camera with horizontal rotation limits
+   m_cam.eye_setup(camera, { pos: POS, look_at: LOOK_AT,
+           horiz_rot_lim: EYE_HORIZ_LIMITS });
+
+   // setup EYE camera with vertical rotation limits
+   m_cam.eye_setup(camera, { pos: POS, look_at: LOOK_AT,
+           vert_rot_lim: EYE_VERT_LIMITS });
+
+   // setup TARGET camera with distance limits and panning mode
+   m_cam.target_setup(camera, { pos: POS, pivot: LOOK_AT,
+           dist_lim: TARGET_DIST_LIMITS, use_panning: true });
+
+   // setup HOVER camera on a fixed distance (without zooming) relatively to its pivot
+   m_cam.hover_setup(camera, { pos: POS, pivot: LOOK_AT });
+
+   // setup HOVER camera with zooming (distance + angle limits)
+   m_cam.hover_setup(camera, { pos: POS, pivot: LOOK_AT,
+           dist_lim: HOVER_DIST_LIMITS, hover_angle_lim: HOVER_ANGLE_LIMITS });
+
+   // setup HOVER camera with translation limits
+   m_cam.hover_setup(camera, { pos: POS, pivot: LOOK_AT,
+           horiz_trans_lim: HOVER_HORIZ_TRANS_LIMITS,
+           vert_trans_lim: HOVER_VERT_TRANS_LIMITS });
+
+   // setup HOVER camera with horizontal rotation enabled
+   m_cam.hover_setup(camera, { pos: POS, pivot: LOOK_AT, enable_horiz_rot: true });
+
+Особенность камеры типа "HOVER" заключается в том, что лимиты,
+ограничивающие расстояние и угол подъёма, задают определённую
+траекторию движения по направлению к опорной точке. Камера всегда
+будет находиться на данной траектории, поэтому её итоговая позиция
+может отличаться от той, что была передана в методе hover_setup() (по
+сути происходит её проекция на траекторию). Если необходимо, чтобы
+заданное положение камеры сразу находилось на некой траектории, то
+можно воспользоваться методом hover_setup_rel() для относительного
+задания лимитов.
+
+   var camera = m_scenes.get_active_camera();
+   var POS = new Float32Array([1,1,1]);
+   var PIVOT = new Float32Array([0,0,0]);
+
+   ...
+
+   // setup HOVER camera with maintaining the given camera position and
+   // ability to zoom-in and zoom-out equally
+   m_cam.hover_setup_rel(camera, { pos: POS, pivot: PIVOT, dist_interval: 2,
+           angle_interval: Math.PI/4 });
+
+Проверить текущий режим камеры можно, используя методы
+is_static_camera(), is_eye_camera(), is_target_camera(),
+is_hover_camera() или get_move_style():
+
+   var camera = m_scenes.get_active_camera();
+
+   ...
+
+   if (m_cam.is_static_camera(camera))
+       console.log("STATIC camera!");
+
+   if (m_cam.get_move_style(camera) == m_cam.MS_EYE_CONTROLS)
+       console.log("EYE camera!");
+
+Примечание: Если требуется изменить лишь некоторые аспекты поведения
+  камеры, то стоит воспользоваться отдельными методами, описанными
+  ниже.
+
+
+Перемещение и поворот
+---------------------
+
+Для поворота STATIC камеры следует использовать методы
+static_get_rotation() и static_set_rotation() - в них поворот
+описывается кватернионом:
+
+   var camera = m_scenes.get_active_camera();
+
+   ...
+
+   // rotation through a quaternion
+   var _quat_tmp = new Float32Array(4);
+   var old_quat = m_cam.static_get_rotation(camera, _quat_tmp);
+   var new_quat = m_quat.rotateX(old_quat, Math.PI/2, old_quat)
+   m_cam.static_set_rotation(camera, new_quat);
+
+Для EYE, TARGET и HOVER поворот осуществляется в сферических
+координатах с использованием методов eye_rotate(), target_rotate(),
+hover_rotate() и rotate_camera():
+
+   var camera = m_scenes.get_active_camera();
+
+   ...
+
+   // rotate by given delta angles
+   m_cam.eye_rotate(camera, Math.PI/6, Math.PI/2);
+
+   // set absolute rotation in world space
+   m_cam.eye_rotate(camera, Math.PI/6, Math.PI/2, true, true);
+
+Текущие сферические координаты камеры можно получить, используя метод
+get_camera_angles():
+
+   var camera = m_scenes.get_active_camera();
+   var _vec2_tmp = new Float32Array(2);
+
+   ...
+
+   // get camera orientation in spherical coordinates
+   var angles = m_cam.get_camera_angles(camera, _vec2_tmp);
+   phi = angles[0];
+   theta = angles[1];
+
+Доступ к позиции камеры предоставляют методы get_translation() и
+set_translation(). При этом для режимов TARGET и HOVER перемещение
+означает параллельный перенос всей модели, включающей позицию камеры и
+опорную точку.
+
+   var camera = m_scenes.get_active_camera();
+   var _vec3_tmp = new Float32Array(3);
+
+   ...
+
+   // get camera position
+   var pos = m_cam.get_translation(camera, _vec3_tmp);
+
+   // set new position
+   var new_pos = m_vec3.set(1, 0, 2, pos);
+   m_cam.set_translation(camera, new_pos);
+
+Дополнительные методы для перемещения камеры:
+
+* target_set_trans_pivot(), target_set_pivot_translation(),
+  hover_set_pivot_translation() - одновременное задание позиции и
+  опорной точки камеры;
+
+* target_get_distance(), target_set_distance() - смещение по
+  расстоянию до опорной точки;
+
+* static_set_look_at(), eye_set_look_at() - одновременное задание
+  позиции и точки взгляда камеры;
+
+Примечание: Т.к. камера является объектом сцены, то при
+  необходимости можно использовать и методы модуля transform. Однако,
+  результат может не всегда соответствовать ожиданиям из-за
+  вмешательства модели поведения камеры в каждом конкретном режиме.
+
+
+Задание лимитов
+---------------
+
+Лимиты камеры присутствуют в режимах EYE, TARGET и HOVER. Для
+назначения конкретного лимита следует воспользоваться соответствующим
+методом:
+
++------------------------------------------------+---------------------------------------------------+---------------------------------------------------+
+| EYE                                            | TARGET                                            | HOVER                                             |
++================================================+===================================================+===================================================+
+| eye_get_horizontal_limits()                    | target_get_distance_limits()                      | hover_get_distance_limits()                       |
+| eye_set_horizontal_limits()                    | target_set_distance_limits()                      | hover_set_distance_limits()                       |
+| eye_get_vertical_limits()                      | target_get_horizontal_limits()                    | hover_get_vertical_limits()                       |
+| eye_set_vertical_limits()                      | target_set_horizontal_limits()                    | hover_set_vertical_limits()                       |
+|                                                | target_get_vertical_limits()                      | hover_get_horiz_trans_limits()                    |
+|                                                | target_set_vertical_limits()                      | hover_set_horiz_trans_limits()                    |
+|                                                | target_get_pivot_limits target_set_pivot_limits   | hover_get_vert_trans_limits()                     |
+|                                                |                                                   | hover_set_vert_trans_limits()                     |
++------------------------------------------------+---------------------------------------------------+---------------------------------------------------+
+
+   var camera = m_scenes.get_active_camera();
+   var _limits_tmp = {};
+   var EYE_HORIZ_LIMITS = { left: Math.PI/4, right: -Math.PI/4 };
+
+   ...
+
+   // get limits
+   m_cam.eye_get_horizontal_limits(camera, _limits_tmp);
+
+   // set limits
+   m_cam.eye_set_horizontal_limits(camera, EYE_HORIZ_LIMITS);
+
+Наличие лимитов можно проверить методами has_distance_limits(),
+has_horizontal_rot_limits(), has_vertical_rot_limits(),
+has_horizontal_trans_limits() и has_vertical_trans_limits().
+
+Примечание: В режиме HOVER у камеры всегда есть лимиты по дистанции
+  и углу подъёма. В случае, если они не были заданы, лимиты
+  автоматически рассчитываются так, чтобы зафиксировать камеру в
+  текущем положении относительно опорной точки.
+
+Примечание: Присутствующие на камере лимиты могут влиять на её
+  позицию и ориентацию, выставляемые через API.
+
+
+Отсчет угловых координат
+------------------------
+
+   При работе с камерой через API (вращение, выставление ограничений)
+   отсчет угловых координат ведется следующим образом:
+
+   Для типов "TARGET/HOVER":
+
+Для типа "EYE":

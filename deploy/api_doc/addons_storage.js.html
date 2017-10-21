@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: addons/storage.js | Blend4Web API Reference</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: addons/storage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+/**
+ * Local storage add-on.
+ * @see http://www.w3.org/TR/webstorage/
+ * @name storage
+ * @namespace
+ * @exports exports as storage
+ */
+b4w.module["storage"] = function(exports, require) {
+
+var m_print = require("__print");
+
+var _prefix = "b4w";
+var _storage = null;
+
+/**
+ * Initialize the application storage.
+ * @method module:storage.init
+ * @param {string} prefix Storage prefix
+ */
+exports.init = init;
+function init(prefix) {
+    if (prefix)
+        if (prefix !== "b4w")
+            _prefix = prefix;
+        else
+            m_print.error("b4w prefix denied");
+    else
+        m_print.warn("Prefix should be a string. " +
+                "Last declared storage prefix will be used.");
+}
+
+function init_storage() {
+    try {
+        _storage = window.localStorage;
+        try {
+            _storage["tmp"] = null;
+            delete _storage["tmp"];
+        } catch (e) {
+            m_print.warn("localStorage quota is limited. Disabling localStorage");
+            _storage = null;
+        }
+    } catch (e) {
+        m_print.warn("Applying chrome localStorage bug workaround");
+        _storage = null;
+    }
+
+    if (!_storage) {
+        m_print.warn("localStorage is not available, initializing temporary storage");
+        _storage = {};
+    }
+}
+
+/**
+ * Save the value in the local storage.
+ * @param {string} key Key
+ * @param {string} value Value
+ * @param {?string} prefix Storage prefix.
+ */
+exports.set = function(key, value, prefix) {
+    var b4w_st = get_b4w_storage(prefix);
+    b4w_st[key] = String(value);
+    set_b4w_storage(b4w_st, prefix);
+}
+
+function get_b4w_storage(prefix) {
+    if (_storage[prefix? prefix: _prefix])
+        return JSON.parse(_storage[prefix? prefix: _prefix]);
+    else
+        return {};
+}
+
+function set_b4w_storage(b4w_storage, prefix) {
+    _storage[prefix? prefix: _prefix] = JSON.stringify(b4w_storage);
+}
+
+/**
+ * Perform local storage cleanup.
+ * @param {?string} prefix Storage prefix.
+ */
+exports.cleanup = function(prefix) {
+    delete _storage[prefix? prefix: _prefix];
+}
+
+/**
+ * Get the value from the local storage.
+ * @param {string} key Key
+ * @param {?string} prefix Storage prefix.
+ * @returns {string} Value
+ */
+exports.get = function(key, prefix) {
+    var b4w_st = get_b4w_storage(prefix);
+    if (b4w_st[key])
+        return b4w_st[key];
+    else
+        return "";
+}
+
+/**
+ * Print the local storage.
+ * @param {?string} prefix Storage prefix.
+ */
+exports.debug = function(prefix) {
+    m_print.log(get_b4w_storage(prefix? prefix: _prefix));
+}
+
+// NOTE: initialize with default prefix for compatibility reasons
+init_storage();
+
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-anchors.html">anchors</a></li><li><a href="module-animation.html">animation</a></li><li><a href="module-app.html">app</a></li><li><a href="module-armature.html">armature</a></li><li><a href="module-assets.html">assets</a></li><li><a href="module-camera.html">camera</a></li><li><a href="module-camera_anim.html">camera_anim</a></li><li><a href="module-config.html">config</a></li><li><a href="module-constraints.html">constraints</a></li><li><a href="module-container.html">container</a></li><li><a href="module-controls.html">controls</a></li><li><a href="module-data.html">data</a></li><li><a href="module-debug.html">debug</a></li><li><a href="module-fps.html">fps</a></li><li><a href="module-geometry.html">geometry</a></li><li><a href="module-gp_conf.html">gp_conf</a></li><li><a href="module-gyroscope.html">gyroscope</a></li><li><a href="module-hmd.html">hmd</a></li><li><a href="module-hmd_conf.html">hmd_conf</a></li><li><a href="module-hud.html">hud</a></li><li><a href="module-input.html">input</a></li><li><a href="module-lights.html">lights</a></li><li><a href="module-logic_nodes.html">logic_nodes</a></li><li><a href="module-main.html">main</a></li><li><a href="module-mat3.html">mat3</a></li><li><a href="module-mat4.html">mat4</a></li><li><a href="module-material.html">material</a></li><li><a href="module-math.html">math</a></li><li><a href="module-mixer.html">mixer</a></li><li><a href="module-mouse.html">mouse</a></li><li><a href="module-nla.html">nla</a></li><li><a href="module-npc_ai.html">npc_ai</a></li><li><a href="module-ns_compat.html">ns_compat</a></li><li><a href="module-objects.html">objects</a></li><li><a href="module-particles.html">particles</a></li><li><a href="module-physics.html">physics</a></li><li><a href="module-preloader.html">preloader</a></li><li><a href="module-quat.html">quat</a></li><li><a href="module-rgb.html">rgb</a></li><li><a href="module-rgba.html">rgba</a></li><li><a href="module-scenes.html">scenes</a></li><li><a href="module-screen.html">screen</a></li><li><a href="module-screenshooter.html">screenshooter</a></li><li><a href="module-sfx.html">sfx</a></li><li><a href="module-storage.html">storage</a></li><li><a href="module-textures.html">textures</a></li><li><a href="module-time.html">time</a></li><li><a href="module-transform.html">transform</a></li><li><a href="module-tsr.html">tsr</a></li><li><a href="module-util.html">util</a></li><li><a href="module-vec3.html">vec3</a></li><li><a href="module-vec4.html">vec4</a></li><li><a href="module-version.html">version</a></li></ul><h3>Namespaces</h3><ul><li><a href="b4w.html">b4w</a></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Blend4Web API Reference (generated by JSDoc 3.4.0 on Fri Oct 20 2017 18:46:30 GMT+0300 (MSK))
+    <a href="https://www.blend4web.com">www.blend4web.com</a>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

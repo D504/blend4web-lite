@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>引擎功能 &mdash; Blend4Web 17.10 用户手册</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="关于这些文档"
+              href="about.html"/>
+    <link rel="top" title="Blend4Web 17.10 用户手册" href="index.html"/>
+        <link rel="next" title="Blender的用户界面" href="interface.html"/>
+        <link rel="prev" title="概述" href="about.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Blend4Web. 用户手册
+        
+
+        
+        </a>
+
+        
+          
+          
+            <div class="version">
+              v17.10
+            </div>
+          
+        
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">概述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">引擎功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Blender的用户界面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">安装和更新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">工作流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_manager.html">项目管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewer.html">场景预览器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_player.html">网络播放器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="addon.html">插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene_settings.html">场景设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">物体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshes.html">网格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normal_editor.html">法线编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_library.html">材质库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_materials.html">节点材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logic_editor.html">逻辑编辑器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lighting.html">照明、 阴影和背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postprocessing_effects.html">后期处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vr_and_ar.html">VR and AR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="textures.html">纹理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles.html">粒子系统,流体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="particles_instancing.html">粒子系统.实例化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="animation.html">动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outdoor_rendering.html">室外效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">色彩管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">对应用程序开发人员</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers_advanced.html">对于引擎开发者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_short_manual.html">团队工作。使用 Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problems_and_solutions.html">存在的问题及解决方案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">发布说明</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Blend4Web. 用户手册</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div id="lang_cont">
+          <a href="#">RU</a>
+          <a href="#">EN</a>
+          <a href="#">ZH</a>
+        </div>
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>引擎功能</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="engine-features"></span><div class="section" id="index-0">
+<span id="id1"></span><h1>引擎功能<a class="headerlink" href="#index-0" title="永久链接至标题">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="_images/export.png" class="first last" src="_images/export.png" />
+</td>
+<td><p class="first"><strong>集成到BLENDER中</strong></p>
+<p>创建交互式应用程序从未如此简单 ！你可以在Blender中简单地创建一个 3D 场景，然后在 Blend4Web 的帮助下使用以下功能 ︰</p>
+<ul class="last simple">
+<li><p class="first">快速和方便的场景导出</p>
+</li>
+<li><p class="first">单击即可场景预览</p>
+</li>
+<li><p class="first">全面支持Blender的环境和材质设置</p>
+</li>
+<li><p class="first">用于创建和管理项目的工具</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>渲染</strong></p>
+<p>Blend4Web 提供丰富的功能，使您的作品看起来令人惊叹。</p>
+<p>一些功能包括 ︰</p>
+<ul class="last simple">
+<li><p class="first">任何复杂的 3D 场景</p>
+</li>
+<li><p class="first">级联的阴影贴图</p>
+</li>
+<li><p class="first">动态的树叶</p>
+</li>
+<li><p class="first">粒子系统</p>
+</li>
+<li><p class="first">细节层次</p>
+</li>
+<li><p class="first">后期处理效果</p>
+</li>
+<li><p class="first">支持VR</p>
+</li>
+</ul>
+</td>
+<td><a class="first last reference internal image-reference" href="_images/render.png"><img alt="_images/render.png" src="_images/render.png" style="width: 100%;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="first last reference internal image-reference" href="_images/materials.png"><img alt="_images/materials.png" src="_images/materials.png" style="width: 100%;" /></a>
+</td>
+<td><p class="first"><strong>材质</strong></p>
+<p>功能强大且易于使用的材质制作系统使可以让你创作需要的材质，从最简单的卡通类型到几乎照片真实的材质。</p>
+<p>一些功能 ︰</p>
+<ul class="last simple">
+<li><p class="first">节点材质</p>
+</li>
+<li><p class="first">视差偏移量贴图</p>
+</li>
+<li><p class="first">渲染到纹理</p>
+</li>
+<li><p class="first">视频纹理</p>
+</li>
+<li><p class="first">全面支持Blender的材质节点</p>
+</li>
+<li><p class="first">反射和折射</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>动画</strong></p>
+<p>Blend4web 支持几乎所有在Blender中存在的动画技术，包括：</p>
+<ul class="last simple">
+<li><p class="first">骨骼动画</p>
+</li>
+<li><p class="first">顶点动画</p>
+</li>
+<li><p class="first">物体动画</p>
+</li>
+<li><p class="first">风弯曲：</p>
+</li>
+<li><p class="first">材质动画</p>
+</li>
+<li><p class="first">动画烘焙</p>
+</li>
+<li><p class="first">使用API或者逻辑编辑器的流程控制</p>
+</li>
+</ul>
+</td>
+<td><img alt="_images/animation.png" class="first last" src="_images/animation.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="_images/physics.png" class="first last" src="_images/physics.png" />
+</td>
+<td><p class="first"><strong>物理</strong></p>
+<p>如果您正在创建一个物理模拟，或只是想要你的场景来表现现实，Blend4Web 的强大物理系统正为在您服务。</p>
+<p>功能包括：</p>
+<ul class="last simple">
+<li><p class="first">碰撞</p>
+</li>
+<li><p class="first">刚体物理</p>
+</li>
+<li><p class="first">铰链系统</p>
+</li>
+<li><p class="first">光线投射</p>
+</li>
+<li><p class="first">浮动物体</p>
+</li>
+<li><p class="first">轮式车辆模拟</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>声音</strong></p>
+<p>声音在将制作的场景和应用变得对用户操作上更有反馈和让它们更有活力的重要元素。</p>
+<p>这里是一些 Blend4Web 提供的你要控制作品会听起来怎么样的手段 ︰</p>
+<ul class="last simple">
+<li><p class="first">灵活的播放控制</p>
+</li>
+<li><p class="first">3D 定位</p>
+</li>
+<li><p class="first">多普勒效应</p>
+</li>
+<li><p class="first">动态压缩</p>
+</li>
+<li><p class="first">声音淡入淡出动画</p>
+</li>
+<li><p class="first">实时混音工具</p>
+</li>
+</ul>
+</td>
+<td><img alt="_images/audio.png" class="first last" src="_images/audio.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="_images/logic.png" class="first last" src="_images/logic.png" />
+</td>
+<td><p class="first"><strong>逻辑编辑器</strong></p>
+<p>使用此可视化编辑器，您可以创建逻辑节点树来控制你的场景的行为，而无需为添加交互性而编写一行代码 ！</p>
+<p>逻辑编辑器功能</p>
+<ul class="last simple">
+<li><p class="first">物体拾取</p>
+</li>
+<li><p class="first">动画控制</p>
+</li>
+<li><p class="first">环境变量</p>
+</li>
+<li><p class="first">开发服务器</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>脚本</strong></p>
+<p>Blend4Web 使用 JavaScript 方案来控制应用程序的每个方面。</p>
+<p>一些 Blend4Web JavaScript API 功能包括 ︰</p>
+<ul class="last simple">
+<li><p class="first">模块结构</p>
+</li>
+<li><p class="first">事件驱动模型</p>
+</li>
+<li><p class="first">GLSL 着色器</p>
+</li>
+<li><p class="first">用于商业用途引擎的代码缩减和混淆处理</p>
+</li>
+</ul>
+</td>
+<td><img alt="_images/code.png" class="first last" src="_images/code.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="interface.html" class="btn btn-neutral float-right" title="Blender的用户界面" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="about.html" class="btn btn-neutral" title="概述" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2014-2017, Triumph.
+      最后更新于 2017-10-20.
+
+    </p>
+  </div>
+
+  <a href="https://www.blend4web.com">www.blend4web.com</a>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function() {
+    if (window.document.domain != "www.blend4web.com")
+      return;
+
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter24512171 = new Ya.Metrika({
+                    id:24512171,
+                    clickmap:false,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  })();
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/24512171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v17.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+
+          var lang_cont = $("#lang_cont");
+          var links = lang_cont.children();
+
+          var link_ru = links[0];
+          var link_en = links[1];
+          var link_zh = links[2];
+
+          var loc = document.location.href;
+
+          var href_ru = loc;
+          var href_en = loc;
+          var href_zh = loc; 
+
+          if (loc.search("/ru/") != -1) {
+              href_en = loc.replace("/ru/", "/en/");
+              href_zh = loc.replace("/ru/", "/zh/");
+          } else if (loc.search("/en/") != -1) {
+              href_ru = loc.replace("/en/", "/ru/");
+              href_zh = loc.replace("/en/", "/zh/");
+          } else {
+              href_ru = loc.replace("/zh/", "/ru/");
+              href_en = loc.replace("/zh/", "/en/");
+          }
+
+          link_ru.href = href_ru;
+          link_en.href = href_en;
+          link_zh.href = href_zh;
+
+          lang_cont.css("display", "inline-block")
+      });
+  </script>
+   
+
+</body>
+</html>

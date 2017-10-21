@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Edit project source files</title>
+
+<link rel="shortcut icon" sizes="128x128" href="/index_assets/img/favicon_128.png">
+<link rel="shortcut icon" sizes="196x196" href="/index_assets/img/favicon_196.png">
+<link rel="shortcut icon" href="/index_assets/img/favicon.ico">
+<link rel="apple-touch-icon" sizes="128x128" href="/index_assets/img/favicon_128.png">
+<link rel="apple-touch-icon-precomposed" sizes="128x128" href="/index_assets/img/favicon_128.png">
+
+<link rel="stylesheet" type="text/css" href="/index_assets/css/codemirror/codemirror.css">
+<link rel="stylesheet" type="text/css" href="/index_assets/css/base.css">
+<link rel="stylesheet" type="text/css" href="/index_assets/css/buttons.css">
+<link rel="stylesheet" type="text/css" href="/index_assets/css/project_edit.css">
+
+<script type="text/javascript" src="/index_assets/js/codemirror/codemirror.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/javascript.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/multiplex.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/htmlembedded.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/htmlmixed.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/xml.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/css.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/sublime.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/loadmode.js"></script>
+<script type="text/javascript" src="/index_assets/js/codemirror/properties.js"></script>
+
+</head>
+
+<body>
+  <h1>Edit project source files</h1>
+  <div class="btns_cont row">
+    <div class="btn_wrapper">
+      <a href="/project/" class="btn active"><span>Back to Projects</span></a>
+      <a id="new_file" class="btn active"><span>New File</span></a>
+      <a href="/deploy/doc/en/project_manager.html" class="btn active"><span>Help</span></a>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr class="projects">
+        <th>Files</th>
+        <th>Editor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          $content
+        </td>
+        <td>
+          <div>
+            <textarea id="cm_editor"></textarea>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="btns_cont row">
+    <div class="btn_wrapper">
+      <a id="save_file" class="btn active"><span>Save</span></a>
+      <a id="save_file_as" class="btn active"><span>Save As...</span></a>
+    </div>
+  </div>
+  <div id="body_opacity"></div>
+  <div id="new_file_box">
+    <h2>Specify a file name</h2>
+    <input type="text" name="new_file_name" id="new_file_name" autofocus>
+    <dir id="file_name_error"></dir>
+    <div class="btns_cont row">
+      <div class="btn_wrapper">
+        <a id="close_new_file_box" class="btn active"><span>Cancel</span></a>
+        <a id="create_new_file" class="btn active"><span>Create</span></a>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/index_assets/js/project_edit.js" async defer></script>
+</body>
+
+</html>
