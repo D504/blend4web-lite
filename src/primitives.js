@@ -16,18 +16,25 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_geom_fact from "./geometry";
+import m_tbn_fact from "./tbn";
+import m_util_fact from "./util";
+
 /**
  * Generates submeshes with primitive geometry.
  * @name primitives
  * @namespace
  * @exports exports as primitives
  */
-b4w.module["__primitives"] = function(exports, require) {
+function Int_primitives(ns, exports) {
 
-var m_cfg   = require("__config");
-var m_geom  = require("__geometry");
-var m_tbn   = require("__tbn");
-var m_util  = require("__util");
+var m_cfg   = m_cfg_fact(ns);
+var m_geom  = m_geom_fact(ns);
+var m_tbn   = m_tbn_fact(ns);
+var m_util  = m_util_fact(ns);
 
 var cfg_def  = m_cfg.defaults;
 
@@ -674,5 +681,8 @@ exports.generate_index = function(num) {
     return submesh;
 }
 
-
 }
+
+var int_primitives_factory = register("__primitives", Int_primitives);
+
+export default int_primitives_factory;

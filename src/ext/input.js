@@ -16,6 +16,17 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_input_fact from "../input"; 
+import m_cam_fact from "../camera"; 
+import m_cfg_fact from "../config"; 
+import m_cont_fact from "../container"; 
+import m_obj_util_fact from "../obj_util"; 
+import m_print_fact from "../print"; 
+import m_scs_fact from "../scenes"; 
+import m_vec4_fact from "../libs/gl_matrix/vec4"; 
+
 /**
  * Low-level input device API.
  * For more generic cases use {@link module:controls|sensor-based API}.
@@ -39,16 +50,16 @@
  * @local GyroscopeAnglesCallback
  */
 
-b4w.module["input"] = function(exports, require) {
+function Input(ns, exports) {
 
-var m_input   = require("__input");
-var m_cam     = require("__camera");
-var m_cfg     = require("__config");
-var m_cont    = require("__container");
-var m_obj_util= require("__obj_util");
-var m_print   = require("__print");
-var m_scs     = require("__scenes");
-var m_vec4    = require("__vec4");
+var m_input   = m_input_fact(ns);
+var m_cam     = m_cam_fact(ns);
+var m_cfg     = m_cfg_fact(ns);
+var m_cont    = m_cont_fact(ns);
+var m_obj_util= m_obj_util_fact(ns);
+var m_print   = m_print_fact(ns);
+var m_scs     = m_scs_fact(ns);
+var m_vec4    = m_vec4_fact(ns);
 
 var _vec4_tmp = m_vec4.create();
 var _vec4_tmp2 = m_vec4.create();
@@ -1113,3 +1124,7 @@ exports.remove_click_listener = function(element, callback) {
 }
 
 }
+
+var input_factory = register("input", Input);
+
+export default input_factory;

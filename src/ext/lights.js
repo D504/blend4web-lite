@@ -16,25 +16,37 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_lights_fact from "../lights";
+import m_obj_fact from "../objects";
+import m_obj_util_fact from "../obj_util";
+import m_print_fact from "../print";
+import m_scenes_fact from "../scenes";
+import m_trans_fact from "../transform";
+import m_tsr_fact from "../tsr";
+import m_util_fact from "../util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+
 /**
  * API to control light sources.
  * @module lights
  * @local LightParams
  * @see https://www.blend4web.com/doc/en/lighting.html#lighting-with-light-sources
  */
-b4w.module["lights"] = function(exports, require) {
+function Lights(ns, exports) {
 
 // TODO: consider use of standard translation/rotation functions from transform module
 
-var m_lights   = require("__lights");
-var m_obj      = require("__objects");
-var m_obj_util = require("__obj_util");
-var m_print    = require("__print");
-var m_scenes   = require("__scenes");
-var m_trans    = require("__transform");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
+var m_lights   = m_lights_fact(ns);
+var m_obj      = m_obj_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_scenes   = m_scenes_fact(ns);
+var m_trans    = m_trans_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
 
 var _sun_pos        = new Float32Array(3);
 var _date           = {};
@@ -532,3 +544,7 @@ function calendar_to_julian(date) {
 }
 
 }
+
+var lights_factory = register("lights", Lights);
+
+export default lights_factory;

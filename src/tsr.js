@@ -16,18 +16,25 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * TSR-8 utility functions
  * @name tsr
  * @namespace
  * @exports exports as tsr
  */
-b4w.module["__tsr"] = function(exports, require) {
+function Int_TSR(ns, exports) {
 
-var m_mat4 = require("__mat4");
-var m_quat = require("__quat");
-var m_util = require("__util");
-var m_vec3 = require("__vec3");
+var m_mat4 = m_mat4_fact(ns);
+var m_quat = m_quat_fact(ns);
+var m_util = m_util_fact(ns);
+var m_vec3 = m_vec3_fact(ns);
 
 var ZUP_SIN = Math.sin(-Math.PI/4);
 var ZUP_COS = -ZUP_SIN;
@@ -756,3 +763,7 @@ exports.to_zup_model = function(tsr, dest) {
 }
 
 }
+
+var int_tsr_factory = register("__tsr", Int_TSR);
+
+export default int_tsr_factory;

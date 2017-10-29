@@ -16,6 +16,38 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_anchors_fact from "../anchors";
+import m_anim_fact from "../animation";
+import m_assets_fact from "../assets";
+import m_cfg_fact from "../config";
+import m_compat_fact from "../compat";
+import m_cont_fact from "../container";
+import m_ctl_fact from "../controls";
+import m_data_fact from "../data";
+import m_debug_fact from "../debug";
+import m_ext_fact from "../extensions";
+import m_geom_fact from "../geometry";
+import m_input_fact from "../input";
+import m_hud_fact from "../hud";
+import m_nla_fact from "../nla";
+import m_main_fact from "../main";
+import m_lnodes_fact from "../logic_nodes";
+import m_obj_fact from "../objects";
+import m_phy_fact from "../physics";
+import m_print_fact from "../print";
+import m_render_fact from "../renderer";
+import m_scenes_fact from "../scenes";
+import m_sfx_fact from "../sfx";
+import m_shaders_fact from "../shaders";
+import m_textures_fact from "../textures";
+import m_time_fact from "../time";
+import m_trans_fact from "../transform";
+import m_util_fact from "../util";
+import m_version_fact from "../version";
+import m_particles_fact from "../particles";
+
 /**
  * Main Blend4Web module.
  * Implements methods to initialize and change the global params of the engine.
@@ -24,7 +56,7 @@
  * @local RenderCallback
  * @local FPSCallback
  */
-b4w.module["main"] = function(exports, require) {
+function Main(ns, exports) {
 
 /**
  * Loop callback.
@@ -47,35 +79,35 @@ b4w.module["main"] = function(exports, require) {
  * @param {number} phy_fps_avg Averaged physics FPS.
  */
 
-var m_anchors   = require("__anchors");
-var m_anim      = require("__animation");
-var m_assets    = require("__assets");
-var m_cfg       = require("__config");
-var m_compat    = require("__compat");
-var m_cont      = require("__container");
-var m_ctl       = require("__controls");
-var m_data      = require("__data");
-var m_debug     = require("__debug");
-var m_ext       = require("__extensions");
-var m_geom      = require("__geometry");
-var m_input     = require("__input");
-var m_hud       = require("__hud");
-var m_nla       = require("__nla");
-var m_main      = require("__main");
-var m_lnodes    = require("__logic_nodes")
-var m_obj       = require("__objects");
-var m_phy       = require("__physics");
-var m_print     = require("__print");
-var m_render    = require("__renderer");
-var m_scenes    = require("__scenes");
-var m_sfx       = require("__sfx");
-var m_shaders   = require("__shaders");
-var m_textures  = require("__textures");
-var m_time      = require("__time");
-var m_trans     = require("__transform");
-var m_util      = require("__util");
-var m_version   = require("__version");
-var m_particles = require("__particles");
+var m_anchors   = m_anchors_fact(ns);
+var m_anim      = m_anim_fact(ns);
+var m_assets    = m_assets_fact(ns);
+var m_cfg       = m_cfg_fact(ns);
+var m_compat    = m_compat_fact(ns);
+var m_cont      = m_cont_fact(ns);
+var m_ctl       = m_ctl_fact(ns);
+var m_data      = m_data_fact(ns);
+var m_debug     = m_debug_fact(ns);
+var m_ext       = m_ext_fact(ns);
+var m_geom      = m_geom_fact(ns);
+var m_input     = m_input_fact(ns);
+var m_hud       = m_hud_fact(ns);
+var m_nla       = m_nla_fact(ns);
+var m_main      = m_main_fact(ns);
+var m_lnodes    = m_lnodes_fact(ns)
+var m_obj       = m_obj_fact(ns);
+var m_phy       = m_phy_fact(ns);
+var m_print     = m_print_fact(ns);
+var m_render    = m_render_fact(ns);
+var m_scenes    = m_scenes_fact(ns);
+var m_sfx       = m_sfx_fact(ns);
+var m_shaders   = m_shaders_fact(ns);
+var m_textures  = m_textures_fact(ns);
+var m_time      = m_time_fact(ns);
+var m_trans     = m_trans_fact(ns);
+var m_util      = m_util_fact(ns);
+var m_version   = m_version_fact(ns);
+var m_particles = m_particles_fact(ns);
 
 var cfg_ctx = m_cfg.context;
 var cfg_def = m_cfg.defaults;
@@ -591,3 +623,7 @@ exports.get_renderer_info = function() {
 }
 
 }
+
+var main_factory = register("main", Main);
+
+export default main_factory;

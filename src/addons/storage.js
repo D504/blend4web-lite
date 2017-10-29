@@ -16,6 +16,9 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_print_fact from "../print";
 /**
  * Local storage add-on.
  * @see http://www.w3.org/TR/webstorage/
@@ -23,9 +26,9 @@
  * @namespace
  * @exports exports as storage
  */
-b4w.module["storage"] = function(exports, require) {
+function Storage(ns, exports) {
 
-var m_print = require("__print");
+var m_print = m_print_fact(ns);
 
 var _prefix = "b4w";
 var _storage = null;
@@ -125,3 +128,7 @@ exports.debug = function(prefix) {
 init_storage();
 
 }
+
+var storage_factory = register("storage", Storage);
+
+export default storage_factory;

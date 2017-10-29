@@ -17,28 +17,45 @@
 
 "use strict";
 
+import register from "./util/register";
+
+import m_bounds_fact from "./boundings";
+import m_cont_fact from "./container";
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_math_fact from "./math";
+import m_obj_util_fact from "./obj_util";
+import m_print_fact from "./print";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_scenes_fact from "./scenes";
+import m_subs_fact from "./subscene";
+import m_trans_fact from "./transform";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_vec4_fact from "./libs/gl_matrix/vec4";
+
 /**
  * Camera internal API.
  * @name camera
  * @namespace
  * @exports exports as camera
  */
-b4w.module["__camera"] = function(exports, require) {
+function Int_camera(ns, exports) {
 
-var m_bounds   = require("__boundings");
-var m_cont     = require("__container");
-var m_mat4     = require("__mat4");
-var m_math     = require("__math");
-var m_obj_util = require("__obj_util");
-var m_print    = require("__print");
-var m_quat     = require("__quat");
-var m_scenes   = require("__scenes");
-var m_subs     = require("__subscene");
-var m_trans    = require("__transform");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
-var m_vec4     = require("__vec4");
+var m_bounds   = m_bounds_fact(ns);
+var m_cont     = m_cont_fact(ns);
+var m_mat4     = m_mat4_fact(ns);
+var m_math     = m_math_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_quat     = m_quat_fact(ns);
+var m_scenes   = m_scenes_fact(ns);
+var m_subs     = m_subs_fact(ns);
+var m_trans    = m_trans_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
+var m_vec4     = m_vec4_fact(ns);
 
 // constants
 var TYPE_STEREO_LEFT = 70;
@@ -2864,3 +2881,7 @@ exports.set_proj_mat = function(camobj, proj_mat) {
 }
 
 }
+
+var int_camera_factory = register("__camera", Int_camera);
+
+export default int_camera_factory;

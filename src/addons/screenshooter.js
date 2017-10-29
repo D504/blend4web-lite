@@ -16,14 +16,19 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_screen_fact from "../ext/screen";
+import m_print_fact from "../print";
+
 /**
  * Screen shooter add-on.
  * @module screenshooter
  */
-b4w.module["screenshooter"] = function(exports, require) {
+function Screenshooter(ns, exports) {
 
-var m_screen = require("screen");
-var m_print  = require("print");
+var m_screen = m_screen_fact(ns);
+var m_print  = m_print_fact(ns);
 
 /**
  * Take a screenshot and download as screenshot.png image.
@@ -43,3 +48,7 @@ exports.shot = function(format, quality) {
 }
 
 };
+
+var screenshooter_factory = register("screenshooter", Screenshooter);
+
+export default screenshooter_factory;

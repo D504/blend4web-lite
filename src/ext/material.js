@@ -16,6 +16,18 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_batch_fact from "../batch";
+import m_cfg_fact from "../config";
+import m_geom_fact from "../geometry";
+import m_obj_fact from "../objects";
+import m_obj_util_fact from "../obj_util";
+import m_print_fact from "../print";
+import m_shaders_fact from "../shaders";
+import m_util_fact from "../util";
+import m_scenes_fact from "../scenes";
+
 /**
  * Material API.
  * Contains methods to control parameters of materials.
@@ -24,17 +36,17 @@
  * @local MaterialExtParams
  * @local WaterMaterialParams
  */
-b4w.module["material"] = function(exports, require) {
+function Material(ns, exports) {
 
-var m_batch    = require("__batch");
-var m_cfg      = require("__config");
-var m_geom     = require("__geometry");
-var m_obj      = require("__objects");
-var m_obj_util = require("__obj_util");
-var m_print    = require("__print");
-var m_shaders  = require("__shaders");
-var m_util     = require("__util");
-var m_scenes   = require("__scenes");
+var m_batch    = m_batch_fact(ns);
+var m_cfg      = m_cfg_fact(ns);
+var m_geom     = m_geom_fact(ns);
+var m_obj      = m_obj_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_shaders  = m_shaders_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_scenes   = m_scenes_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 
@@ -1768,3 +1780,7 @@ exports.is_water_material = function(obj, mat_name) {
 }
 
 }
+
+var material_factory = register("material", Material);
+
+export default material_factory;

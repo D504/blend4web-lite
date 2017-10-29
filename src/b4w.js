@@ -136,7 +136,10 @@
 var b4w = ((typeof b4w === "object") ? b4w : (function(exports) {
 
 var _module = {};
+var _n_module = {};
+
 exports.module = _module;
+exports._n_module = _n_module;
 
 // require functions per namespace
 var _ns_requires = {};
@@ -186,19 +189,27 @@ exports.register = function(module_id, fun) {
  * @returns {Object3D} Module object
  */
 exports.require = require;
+window.require = require;
 
 function require(module_id, ns) {
-    var mod = _module[module_id];
-    if (!mod)
+    if (!_module[module_id] && !_n_module[module_id])
         throw new Error("Module \"" + module_id + "\" not found");
 
     ns = ns || "__b4w_default";
-    if (!_ns_requires[ns])
+    if (_n_module[module_id] !== undefined) {
+        return _n_module[module_id](ns);
+    } else if (!_ns_requires[ns]) {
         _ns_requires[ns] = (function(ns) {
             return function(module_id) {
-                var mod = _module[module_id];
-                if (!mod)
+                if (!_module[module_id] && !_n_module[module_id]) {
                     throw new Error("Module \"" + module_id + "\" not found");
+                }
+
+                if (_n_module[module_id] !== undefined) {
+                    return _n_module[module_id](ns);
+                }
+
+                var mod = _module[module_id];
 
                 if (!mod._compiled)
                     mod._compiled = {};
@@ -210,6 +221,7 @@ function require(module_id, ns) {
                 return mod._compiled[ns];
             }
         })(ns);
+    }
 
     return _ns_requires[ns](module_id);
 }
@@ -221,10 +233,8 @@ function require(module_id, ns) {
  * @returns {boolean} Check result
  */
 exports.module_check = function(module_id) {
-    if (_module[module_id])
-        return true;
-    else
-        return false;
+    return _module[module_id] !== undefined
+            || _n_module[module_id] !== undefined;
 }
 
 /**

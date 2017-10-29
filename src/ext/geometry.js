@@ -16,18 +16,26 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_batch_fact from "../batch";
+import m_geom_fact from "../geometry";
+import m_print_fact from "../print";
+import m_render_fact from "../renderer";
+import m_tbn_fact from "../tbn";
+
 /**
  * Low-level geometry API.
  * Enable the "Dynamic geometry" checkbox for the objects to allow geometry modification.
  * @module geometry
  */
-b4w.module["geometry"] = function(exports, require) {
+function Geometry(ns, exports) {
 
-var m_batch  = require("__batch");
-var m_geom   = require("__geometry");
-var m_print  = require("__print");
-var m_render = require("__renderer");
-var m_tbn    = require("__tbn");
+var m_batch  = m_batch_fact(ns);
+var m_geom   = m_geom_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_render = m_render_fact(ns);
+var m_tbn    = m_tbn_fact(ns);
 
 /**
  * Extract the vertex array from the object.
@@ -351,3 +359,7 @@ exports.draw_line = function(obj, positions, is_split) {
 }
 
 }
+
+var geometry_factory = register("geometry", Geometry);
+
+export default geometry_factory;

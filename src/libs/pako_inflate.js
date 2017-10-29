@@ -16,6 +16,8 @@
  */
 "use strict"
 
+import register from "../util/register";
+
 /**
  * Auto-generated module: Pako inflate (pako_inflate.js) library for
  * decompressing .gz files.
@@ -23,7 +25,7 @@
  * @namespace
  * @exports exports as pako_inflate
  */
-b4w.module["__pako_inflate"] = function(exports, require) {
+function Pako_inflate(ns, exports) {
 
 // NOTE: added to get rid of some gcc warnings
 var module, define, global, pako_require;
@@ -3322,3 +3324,7 @@ exports.ungzip  = inflate;
 exports.inflate = window.pako.inflate;
 
 }
+
+var pako_inflate_factory = register("pako_inflate", Pako_inflate);
+
+export default pako_inflate_factory;

@@ -16,6 +16,23 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_compat_fact from "./compat";
+import m_cfg_fact from "./config";
+import m_texcomp_fact from "./texcomp";
+import m_debug_fact from "./debug";
+import m_ext_fact from "./extensions";
+import m_print_fact from "./print";
+import m_time_fact from "./time";
+import m_util_fact from "./util";
+import m_ren_fact from "./renderer";
+import m_objs_fact from "./objects";
+import m_obj_util_fact from "./obj_util";
+import m_curve_fact from "./curve";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_scs_fact from "./scenes";
+
 /**
  * Textures internal API.
  * Don't forget to register GL context by setup_context() function.
@@ -23,22 +40,22 @@
  * @namespace
  * @exports exports as textures
  */
-b4w.module["__textures"] = function(exports, require) {
+function Int_textures(ns, exports) {
 
-var m_compat    = require("__compat");
-var m_cfg       = require("__config");
-var m_texcomp   = require("__texcomp");
-var m_debug     = require("__debug");
-var m_ext       = require("__extensions");
-var m_print     = require("__print");
-var m_time      = require("__time");
-var m_util      = require("__util");
-var m_ren       = require("__renderer");
-var m_objs      = require("__objects");
-var m_obj_util  = require("__obj_util");
-var m_curve     = require("__curve");
-var m_vec3      = require("__vec3");
-var m_scs       = require("__scenes");
+var m_compat    = m_compat_fact(ns);
+var m_cfg       = m_cfg_fact(ns);
+var m_texcomp   = m_texcomp_fact(ns);
+var m_debug     = m_debug_fact(ns);
+var m_ext       = m_ext_fact(ns);
+var m_print     = m_print_fact(ns);
+var m_time      = m_time_fact(ns);
+var m_util      = m_util_fact(ns);
+var m_ren       = m_ren_fact(ns);
+var m_objs      = m_objs_fact(ns);
+var m_obj_util  = m_obj_util_fact(ns);
+var m_curve     = m_curve_fact(ns);
+var m_vec3      = m_vec3_fact(ns);
+var m_scs       = m_scs_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 var cfg_lim = m_cfg.context_limits;
@@ -2070,3 +2087,7 @@ exports.set_cache_loaded_status = function(tex, is_loaded) {
 }
 
 }
+
+var int_textures_factory = register("__textures", Int_textures);
+
+export default int_textures_factory;

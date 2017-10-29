@@ -16,6 +16,13 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_obj_util_fact from "../obj_util";
+import m_scs_fact from "../scenes";
+import m_sfx_fact from "../sfx";
+import m_print_fact from "../print";
+
 /** 
  * Sound effects API.
  * Uses Web Audio API for sound effects and HTML5 audio for background music.
@@ -23,12 +30,12 @@
  * @module sfx
  * @cc_externs AudioContext webkitAudioContext MediaElementAudioSourceNode
  */
-b4w.module["sfx"] = function(exports, require) {
+function SFX(ns, exports) {
 
-var m_obj_util = require("__obj_util");
-var m_scs      = require("__scenes");
-var m_sfx      = require("__sfx");
-var m_print    = require("__print");
+var m_obj_util = m_obj_util_fact(ns);
+var m_scs      = m_scs_fact(ns);
+var m_sfx      = m_sfx_fact(ns);
+var m_print    = m_print_fact(ns);
 
 /**
  * Play sound through the speaker.
@@ -404,3 +411,6 @@ exports.get_duration = function(obj) {
 
 }
 
+var sfx_factory = register("sfx", SFX);
+
+export default sfx_factory;

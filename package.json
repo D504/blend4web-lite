@@ -1,0 +1,26 @@
+{
+  "name": "blend4web-lite",
+  "version": "1.0.0",
+  "description": "**************************************** Blend4Web: Award-Winning 3D Web Solution ****************************************",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rollup -c -w",
+    "build": "rollup -c && uglifyjs projects/modules/build.js -cm > projects/modules/build.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D504/blend4web-lite.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/D504/blend4web-lite/issues"
+  },
+  "homepage": "https://github.com/D504/blend4web-lite#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2"
+  }
+}

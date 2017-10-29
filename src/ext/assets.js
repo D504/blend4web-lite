@@ -16,6 +16,9 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_assets_fact from "../assets";
 /** 
  * Low-level resource loader. In order to load exported scenes, use the {@link module:data|data} module instead.
  * @module assets
@@ -25,9 +28,9 @@
  * @local ProgressCallback
  * @local PackCallback
  */
-b4w.module["assets"] = function(exports, require) {
+function Assets(ns, exports) {
 
-var m_assets = require("__assets");
+var m_assets = m_assets_fact(ns);
 
 /**
  * An object that defines how the asset resource should be loaded.
@@ -194,3 +197,6 @@ exports.enqueue = function(assets_pack, asset_cb, pack_cb, progress_cb) {
 
 }
 
+var assets_factory = register("assets", Assets);
+
+export default assets_factory;

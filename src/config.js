@@ -16,16 +16,21 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_print_fact from "./print";
+import m_util_fact from "./util";
+
 /**
  * Config internal API.
  * @name config
  * @namespace
  * @exports exports as config
  */
-b4w.module["__config"] = function(exports, require) {
+function Int_config(ns, exports) {
 
-var m_print = require("__print");
-var m_util  = require("__util");
+var m_print = m_print_fact(ns);
+var m_util  = m_util_fact(ns);
 
 // profiles
 exports.P_LOW    = 1;  // maximize performance
@@ -1047,6 +1052,7 @@ function js_src_dir() {
 }
 
 exports.get_assets_path = function(name) {
+    console.log(this)
     var cfg_ass = exports.assets;
 
     if (cfg_ass.path)
@@ -1068,3 +1074,7 @@ exports.get_assets_path = function(name) {
 }
 
 }
+
+var int_config_factory = register("__config", Int_config);
+
+export default int_config_factory;

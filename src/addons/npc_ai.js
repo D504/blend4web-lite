@@ -16,24 +16,37 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_anim_fact from "../ext/animation";
+import m_ctl_fact from "../ext/controls";
+import m_quat_fact from "../libs/gl_matrix/quat";
+import m_scs_fact from "../ext/scenes";
+import m_time_fact from "../ext/time";
+import m_trans_fact from "../ext/transform";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+import m_phy_fact from "../ext/physics";
+import m_print_fact from "../print";
+import m_util_fact from "../ext/util";
+
 /**
  * Non-player character add-on.
  * Provides animated moves for NPC with a specified behavior.
  * @module npc_ai
  * @local GraphActions
  */
-b4w.module["npc_ai"] = function(exports, require) {
+function NPC_AI(ns, exports) {
 
-var m_anim  = require("animation");
-var m_ctl   = require("controls");
-var m_quat  = require("quat");
-var m_scs   = require("scenes");
-var m_time  = require("time");
-var m_trans = require("transform");
-var m_vec3  = require("vec3");
-var m_phy   = require("physics");
-var m_print = require("print");
-var m_util  = require("util");
+var m_anim  = m_anim_fact(ns);
+var m_ctl   = m_ctl_fact(ns);
+var m_quat  = m_quat_fact(ns);
+var m_scs   = m_scs_fact(ns);
+var m_time  = m_time_fact(ns);
+var m_trans = m_trans_fact(ns);
+var m_vec3  = m_vec3_fact(ns);
+var m_phy   = m_phy_fact(ns);
+var m_print = m_print_fact(ns);
+var m_util  = m_util_fact(ns);
 
 var _ev_tracks = [];
 
@@ -865,3 +878,7 @@ function dest_anim_correction(ev_track, dest, l_to_p, new_dir) {
 }
 
 }
+
+var npc_ai_factory = register("npc_ai", NPC_AI);
+
+export default npc_ai_factory;

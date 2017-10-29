@@ -15,6 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 "use strict";
+
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_compat_fact from "./compat";
+import m_pako_fact from "./libs/pako_inflate";
+import m_print_fact from "./print";
+import m_sfg_fact from "./sfx";
+import m_util_fact from "./util";
+import m_version_fact from "./version";
+
 /**
  * Low-level resource loader.
  *
@@ -26,15 +37,15 @@
  * @namespace
  * @exports exports as assets
  */
-b4w.module["__assets"] = function(exports, require) {
+function Int_assets(ns, exports) {
 
-var m_cfg     = require("__config");
-var m_compat  = require("__compat");
-var m_pako    = require("__pako_inflate");
-var m_print   = require("__print");
-var m_sfg     = require("__sfx");
-var m_util    = require("__util");
-var m_version = require("__version");
+var m_cfg     = m_cfg_fact(ns);
+var m_compat  = m_compat_fact(ns);
+var m_pako    = m_pako_fact(ns);
+var m_print   = m_print_fact(ns);
+var m_sfg     = m_sfg_fact(ns);
+var m_util    = m_util_fact(ns);
+var m_version = m_version_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 var cfg_ldr = m_cfg.assets;
@@ -870,3 +881,7 @@ exports.clear_cache = function() {
 }
 
 }
+
+var int_assets_factory = register("__assets", Int_assets);
+
+export default int_assets_factory;

@@ -16,6 +16,14 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cfg_fact from "../config";
+import m_compat_fact from "../compat";
+import m_debug_fact from "../debug";
+import m_data_fact from "../data";
+import m_print_fact from "../print";
+
 /**
  * API for the engine's global configuration.
  *
@@ -215,13 +223,13 @@
  * @cc_externs reflection_quality assets_pvr_available audio lod_leap_smooth_threshold
  * @cc_externs lod_smooth_transitions glow_materials srgb_type physics_use_wasm assets_gzip_available
  */
-b4w.module["config"] = function(exports, require) {
+function Config(ns, exports) {
 
-var m_cfg    = require("__config");
-var m_compat = require("__compat");
-var m_debug  = require("__debug");
-var m_data   = require("__data");
-var m_print  = require("__print");
+var m_cfg    = m_cfg_fact(ns);
+var m_compat = m_compat_fact(ns);
+var m_debug  = m_debug_fact(ns);
+var m_data   = m_data_fact(ns);
+var m_print  = m_print_fact(ns);
 
 
 /**
@@ -323,3 +331,7 @@ exports.apply_quality = function(quality) {
 }
 
 }
+
+var config_factory = register("config", Config);
+
+export default config_factory;

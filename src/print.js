@@ -16,14 +16,16 @@
  */
 "use strict";
 
+import register from "./util/register";
+
 /**
  * Print API. Overrides some standart js console functions
  * @name print
  * @namespace
  * @exports exports as print
  */
-b4w.module["__print"] = function(exports, require) {
 
+function Print(ns, exports) {
 
 // no module requires
 
@@ -178,4 +180,7 @@ exports.clear_errors_warnings = function() {
 
 }
 
-b4w.module["print"] = b4w.module["__print"];
+var print_factory = register("print", Print);
+register("__print", Print);
+
+export default print_factory;

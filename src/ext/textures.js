@@ -16,20 +16,29 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_print_fact from "../print";
+import m_scenes_fact from "../scenes";
+import m_textures_fact from "../textures";
+import m_obj_util_fact from "../obj_util";
+import m_util_fact from "../util";
+import m_assets_fact from "../assets";
+
 /**
  * API methods to control textures.
  * @module textures
  * @local TexChangingFinishCallback
  * @see https://www.blend4web.com/doc/en/textures.html
  */
-b4w.module["textures"] = function(exports, require) {
+function Textures(ns, exports) {
 
-var m_print    = require("__print");
-var m_scenes   = require("__scenes");
-var m_textures = require("__textures");
-var m_obj_util = require("__obj_util");
-var m_util     = require("__util");
-var m_assets   = require("__assets");
+var m_print    = m_print_fact(ns);
+var m_scenes   = m_scenes_fact(ns);
+var m_textures = m_textures_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_assets   = m_assets_fact(ns);
 
 /**
  * Texture changing finish callback.
@@ -278,3 +287,7 @@ exports.get_texture_names = function(obj) {
 }
 
 }
+
+var textures_factory = register("textures", Textures);
+
+export default textures_factory;

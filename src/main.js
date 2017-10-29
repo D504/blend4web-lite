@@ -16,13 +16,17 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cont_fact from "./container";
+
 /**
  * Inner main Blend4Web module.
  * @module main
  */
-b4w.module["__main"] = function(exports, require) {
+function Int_main(ns, exports) {
 
-var m_cont = require("__container");
+var m_cont = m_cont_fact(ns);
 
 var _canvas_data_url_params = {
     callback: null,
@@ -84,3 +88,7 @@ exports.frame = function(timeline, delta) {
 }
 
 }
+
+var int_main_factory = register("__main", Int_main);
+
+export default int_main_factory;

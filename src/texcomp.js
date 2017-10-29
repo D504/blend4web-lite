@@ -16,6 +16,11 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_print_fact from "./print";
+import m_util_fact from "./util";
+
 /*
  * Copyright (c) 2012 Brandon Jones
  *
@@ -45,10 +50,10 @@
  * @namespace
  * @exports exports as texcomp
  */
-b4w.module["__texcomp"] = function(exports, require) {
+function Int_texcomp(ns, exports) {
 
-var m_print = require("__print");
-var m_util  = require("__util");
+var m_print = m_print_fact(ns);
+var m_util  = m_util_fact(ns);
    
 // All values and structures referenced from:
 // http://msdn.microsoft.com/en-us/library/bb943991.aspx/
@@ -557,3 +562,7 @@ function int32_to_fourcc(value) {
 }
 
 }
+
+var int_texcomp_factory = register("__texcomp", Int_texcomp);
+
+export default int_texcomp_factory;

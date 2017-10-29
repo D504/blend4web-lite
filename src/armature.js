@@ -16,18 +16,27 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_util_fact from "./util";
+import m_tsr_fact from "./tsr";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Armature utility functions
  * @name armature
  * @namespace
  * @exports exports as armature
  */
-b4w.module["__armature"] = function(exports, require) {
-var m_util = require("__util");
-var m_tsr  = require("__tsr");
-var m_quat = require("__quat");
-var m_mat4 = require("__mat4");
-var m_vec3 = require("__vec3");
+function Int_armature(ns, exports) {
+
+var m_util = m_util_fact(ns);
+var m_tsr  = m_tsr_fact(ns);
+var m_quat = m_quat_fact(ns);
+var m_mat4 = m_mat4_fact(ns);
+var m_vec3 = m_vec3_fact(ns);
 
 var _tsr_tmp = m_tsr.create();
 var _tsr_tmp2 = m_tsr.create();
@@ -319,3 +328,7 @@ exports.check_bone = function(armobj, bone_name) {
 }
 
 }
+
+var int_armature_factory = register("__armature", Int_armature);
+
+export default int_armature_factory;

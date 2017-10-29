@@ -16,14 +16,19 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cont_fact from "../container";
+import m_print_fact from "../print";
+
 /**
  * Provides access to the 3D canvas element and its container.
  * @module container
  */
-b4w.module["container"] = function(exports, require) {
+function Container(ns, exports) {
 
-var m_cont   = require("__container");
-var m_print  = require("__print");
+var m_cont   = m_cont_fact(ns);
+var m_print  = m_print_fact(ns);
 
 /**
  * Returns the 3D canvas element.
@@ -189,3 +194,7 @@ exports.resize_to_container = function(force) {
 }
 
 }
+
+var container_factory = register("container", Container);
+
+export default container_factory;

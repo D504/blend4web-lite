@@ -16,25 +16,39 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_cont_fact from "./container";
+import m_input_fact from "./input";
+import m_obj_fact from "./objects";
+import m_print_fact from "./print";
+import m_phy_fact from "./physics";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_time_fact from "./time";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Controls internal API.
  * @name controls
  * @namespace
  * @exports exports as controls
  */
-b4w.module["__controls"] = function(exports, require) {
+function Int_controls(ns, exports) {
 
-var m_cfg   = require("__config");
-var m_cont  = require("__container");
-var m_input = require("__input");
-var m_obj   = require("__objects");
-var m_print = require("__print");
-var m_phy   = require("__physics");
-var m_quat  = require("__quat");
-var m_time  = require("__time");
-var m_tsr   = require("__tsr");
-var m_util  = require("__util");
-var m_vec3  = require("__vec3");
+var m_cfg   = m_cfg_fact(ns);
+var m_cont  = m_cont_fact(ns);
+var m_input = m_input_fact(ns);
+var m_obj   = m_obj_fact(ns);
+var m_print = m_print_fact(ns);
+var m_phy   = m_phy_fact(ns);
+var m_quat  = m_quat_fact(ns);
+var m_time  = m_time_fact(ns);
+var m_tsr   = m_tsr_fact(ns);
+var m_util  = m_util_fact(ns);
+var m_vec3  = m_vec3_fact(ns);
 
 var cfg_ctl = m_cfg.controls;
 var cfg_dft = m_cfg.defaults;
@@ -2207,3 +2221,7 @@ exports.set_plock_smooth_factor = function(value) {
 }
 
 }
+
+var int_controls_factory = register("__controls", Int_controls);
+
+export default int_controls_factory;

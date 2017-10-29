@@ -16,13 +16,17 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_version_fact from "../version";
+
 /**
  * Version API. Allows to query various information about the current release.
  * @module version
  */
-b4w.module["version"] = function(exports, require) {
+function Version(ns, exports) {
 
-var m_version = require("__version");
+var m_version = m_version_fact(ns);
 
 /**
  * Get the version.
@@ -72,3 +76,7 @@ exports.date_str = m_version.date_str;
 exports.get_build_version = m_version.get_build_version;
 
 }
+
+var version_factory = register("version", Version);
+
+export default version_factory;

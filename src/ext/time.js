@@ -16,13 +16,16 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_time_fact from "../time";
 /**
  * Time API.
  * @module time
  */
-b4w.module["time"] = function(exports, require) {
+function Time(ns, exports) {
 
-var m_time = require("__time");
+var m_time = m_time_fact(ns);
 
 /**
  * Set a new timeout.
@@ -67,5 +70,8 @@ exports.animate = m_time.animate;
  */
 exports.clear_animation = m_time.clear_animation;
 
-
 }
+
+var time_factory = register("time", Time);
+
+export default time_factory;

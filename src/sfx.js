@@ -16,21 +16,31 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_print_fact from "./print";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_time_fact from "./time";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Sound effects internal API.
  * @name sfx
  * @namespace
  * @exports exports as sfx
  */
-b4w.module["__sfx"] = function(exports, require) {
+function Int_SFX(ns, exports) {
 
-var m_cfg   = require("__config");
-var m_print = require("__print");
-var m_quat  = require("__quat");
-var m_time  = require("__time");
-var m_tsr   = require("__tsr");
-var m_util  = require("__util");
-var m_vec3  = require("__vec3");
+var m_cfg   = m_cfg_fact(ns);
+var m_print = m_print_fact(ns);
+var m_quat  = m_quat_fact(ns);
+var m_time  = m_time_fact(ns);
+var m_tsr   = m_tsr_fact(ns);
+var m_util  = m_util_fact(ns);
+var m_vec3  = m_vec3_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 var cfg_sfx = m_cfg.sfx;
@@ -1702,3 +1712,6 @@ exports.reset = function() {
 
 }
 
+var int_sfx_factory = register("__sfx", Int_SFX);
+
+export default int_sfx_factory;

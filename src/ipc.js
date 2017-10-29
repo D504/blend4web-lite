@@ -14,7 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-//"use strict";
+// "use strict";
+
+import register from "./util/register";
+
+import m_util_fact from "./util"
+import m_cont_fact from "./container"
 
 /**
  * Physics worker Inter Process Communication API.
@@ -22,7 +27,11 @@
  * @namespace
  * @exports exports as ipc
  */
-b4w.module["__ipc"] = function(exports, require) {
+function Int_IPC(ns, exports) {
+
+var m_util = m_util_fact(ns);
+var m_cont = m_cont_fact(ns);
+
 /*
  * Use Visual Incrementing script to simplify assignment of such numbers in VIM
  * http://www.drchip.org/astronaut/vim/index.html#VISINCR
@@ -213,10 +222,11 @@ exports.create_worker = function(path, fallback) {
     }
 
     if (fallback) {
+        // TODO: check (ES6 MODULES)
         // require here because it's not availabe in workers
         // (e.g. due to obfuscation)
-        var m_util = require("__util");
-        var m_cont = require("__container");
+        // var m_util = require("__util");
+        // var m_cont = require("__container");
 
 
         var web_worker_fallback = {
@@ -649,3 +659,6 @@ exports.is_fallback = function(worker) {
 
 }
 
+var int_ipc_factory = register("__ipc", Int_IPC);
+
+export default int_ipc_factory;

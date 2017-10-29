@@ -16,6 +16,17 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_bounds_fact from "./boundings";
+import m_ext_fact from "./extensions";
+import m_print_fact from "./print";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_tbn_fact from "./tbn";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Geometry internal API.
  * Don't forget to register GL context by setup_context() function.
@@ -23,16 +34,16 @@
  * @namespace
  * @exports exports as geometry
  */
-b4w.module["__geometry"] = function(exports, require) {
+function Int_geometry(ns, exports) {
 
-var m_bounds = require("__boundings");
-var m_ext    = require("__extensions");
-var m_print  = require("__print");
-var m_quat   = require("__quat");
-var m_tbn    = require("__tbn");
-var m_tsr    = require("__tsr");
-var m_util   = require("__util");
-var m_vec3   = require("__vec3");
+var m_bounds = m_bounds_fact(ns);
+var m_ext    = m_ext_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_quat   = m_quat_fact(ns);
+var m_tbn    = m_tbn_fact(ns);
+var m_tsr    = m_tsr_fact(ns);
+var m_util   = m_util_fact(ns);
+var m_vec3   = m_vec3_fact(ns);
 
 var _tbn_tmp = m_tbn.create();
 var _tbn_tmp2 = m_tbn.create();
@@ -2794,3 +2805,7 @@ function array_float_to_vbo(attr_name, source, dest) {
 }
 
 }
+
+var int_geometry_factory = register("__geometry", Int_geometry);
+
+export default int_geometry_factory;

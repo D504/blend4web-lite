@@ -16,16 +16,21 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_print_fact from "./print";
+
 /**
  * Extensions internal API.
  * @name extensions
  * @namespace
  * @exports exports as extensions
  */
-b4w.module["__extensions"] = function(exports, require) {
+function Int_extensions(ns, exports) {
 
-var m_cfg   = require("__config");
-var m_print = require("__print");
+var m_cfg   = m_cfg_fact(ns);
+var m_print = m_print_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 
@@ -310,3 +315,7 @@ exports.reset = function() {
 }
 
 }
+
+var int_extensions_factory = register("__extensions", Int_extensions);
+
+export default int_extensions_factory;

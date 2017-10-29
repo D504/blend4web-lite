@@ -16,6 +16,22 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cam_fact from "../camera";
+import m_cont_fact from "../container";
+import m_math_fact from "../math";
+import m_obj_util_fact from "../obj_util";
+import m_phy_fact from "../physics";
+import m_print_fact from "../print";
+import m_scs_fact from "../scenes";
+import m_trans_fact from "../transform";
+import m_tsr_fact from "../tsr";
+import m_util_fact from "../util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+import m_vec4_fact from "../libs/gl_matrix/vec4";
+import m_quat_fact from "../libs/gl_matrix/quat";
+
 /**
  * API for controlling the camera within the bounds of the current camera model.
  * Use {@link module:transform|Transform API} for low-level actions.<br>
@@ -45,21 +61,21 @@
  * @local VelocityParams
  * @local FrustumPlanes
  */
-b4w.module["camera"] = function(exports, require) {
+function Camera(ns, exports) {
 
-var m_cam      = require("__camera");
-var m_cont     = require("__container");
-var m_math     = require("__math");
-var m_obj_util = require("__obj_util");
-var m_phy      = require("__physics");
-var m_print    = require("__print");
-var m_scs      = require("__scenes");
-var m_trans    = require("__transform");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
-var m_vec4     = require("__vec4");
-var m_quat     = require("__quat");
+var m_cam      = m_cam_fact(ns);
+var m_cont     = m_cont_fact(ns);
+var m_math     = m_math_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_phy      = m_phy_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_scs      = m_scs_fact(ns);
+var m_trans    = m_trans_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
+var m_vec4     = m_vec4_fact(ns);
+var m_quat     = m_quat_fact(ns);
 
 var _vec2_tmp = new Float32Array(2);
 var _vec3_tmp = new Float32Array(3);
@@ -2242,3 +2258,7 @@ exports.set_projection = function(camobj, matrix) {
 }
 
 }
+
+var camera_factory = register("camera", Camera);
+
+export default camera_factory;

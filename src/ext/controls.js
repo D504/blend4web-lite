@@ -16,6 +16,12 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_ctl_fact from "../controls";
+import m_phy_fact from "../physics";
+import m_print_fact from "../print";
+
 /**
  * Implements the event-driven model of Blend4Web.
  *
@@ -47,11 +53,11 @@
  * @local RayPayload
  * @local SensorCallback
  */
-b4w.module["controls"] = function(exports, require) {
+function Controls(ns, exports) {
 
-var m_ctl   = require("__controls");
-var m_phy   = require("__physics");
-var m_print = require("__print");
+var m_ctl   = m_ctl_fact(ns);
+var m_phy   = m_phy_fact(ns);
+var m_print = m_print_fact(ns);
 
 /**
  * Manifold's callback. It is executed when the manifold generates a pulse.
@@ -1130,3 +1136,7 @@ exports.reset = m_ctl.reset;
 exports.set_plock_smooth_factor = m_ctl.set_plock_smooth_factor;
 
 }
+
+var controls_factory = register("controls", Controls);
+
+export default controls_factory;

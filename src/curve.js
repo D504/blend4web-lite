@@ -16,6 +16,11 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Curve internal API.
  * Currently only NURBS (blender path curves) supported.
@@ -23,10 +28,10 @@
  * @namespace
  * @exports exports as curve
  */
-b4w.module["__curve"] = function(exports, require) {
+function Int_curve(ns, exports) {
 
-var m_util  = require("__util");
-var m_vec3  = require("__vec3");
+var m_util  = m_util_fact(ns);
+var m_vec3  = m_vec3_fact(ns);
 
 var SPLINE_POINTS = 1000;
 
@@ -667,3 +672,7 @@ exports.correct_bezpart = function(v1, v2, v3, v4) {
 }
 
 }
+
+var int_curve_factory = register("__curve", Int_curve);
+
+export default int_curve_factory;

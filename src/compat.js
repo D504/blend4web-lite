@@ -16,19 +16,27 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_debug_fact from "./debug";
+import m_ext_fact from "./extensions";
+import m_print_fact from "./print";
+import m_render_fact from "./renderer";
+
 /**
  * Compatibility internal API.
  * @name compat
  * @namespace
  * @exports exports as compat
  */
-b4w.module["__compat"] = function(exports, require) {
+function Int_compat(ns, exports) {
 
-var m_cfg   = require("__config");
-var m_debug = require("__debug");
-var m_ext   = require("__extensions");
-var m_print = require("__print");
-var m_render= require("__renderer");
+var m_cfg   = m_cfg_fact(ns);
+var m_debug = m_debug_fact(ns);
+var m_ext   = m_ext_fact(ns);
+var m_print = m_print_fact(ns);
+var m_render= m_render_fact(ns);
 
 var MIN_VARYINGS_REQUIRED = 10;
 var AMD_MESA_RENDER_NAMES = ["R600", "RV610", "RV630", "RV620", "RV635", "RV670",
@@ -463,3 +471,7 @@ function is_ie11() {
 }
 
 }
+
+var int_compat_factory = register("__compat", Int_compat);
+
+export default int_compat_factory;

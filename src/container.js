@@ -16,23 +16,36 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_anchors_fact from "./anchors";
+import m_cfg_fact from "./config";
+import m_data_fact from "./data";
+import m_hud_fact from "./hud";
+import m_print_fact from "./print";
+import m_scenes_fact from "./scenes";
+import m_subs_fact from "./subscene";
+import m_time_fact from "./time";
+import m_trans_fact from "./transform";
+import m_util_fact from "./util";
+
 /**
  * @name container
  * @namespace
  * @exports exports as container
  */
-b4w.module["__container"] = function(exports, require) {
+function Int_container(ns, exports) {
 
-var m_anchors = require("__anchors");
-var m_cfg     = require("__config");
-var m_data    = require("__data");
-var m_hud     = require("__hud");
-var m_print   = require("__print");
-var m_scenes  = require("__scenes");
-var m_subs    = require("__subscene");
-var m_time    = require("__time");
-var m_trans   = require("__transform");
-var m_util    = require("__util");
+var m_anchors = m_anchors_fact(ns);
+var m_cfg     = m_cfg_fact(ns);
+var m_data    = m_data_fact(ns);
+var m_hud     = m_hud_fact(ns);
+var m_print   = m_print_fact(ns);
+var m_scenes  = m_scenes_fact(ns);
+var m_subs    = m_subs_fact(ns);
+var m_time    = m_time_fact(ns);
+var m_trans   = m_trans_fact(ns);
+var m_util    = m_util_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 var cfg_lim = m_cfg.context_limits;
@@ -393,3 +406,7 @@ exports.reset = function() {
 }
 
 }
+
+var int_container_factory = register("__container", Int_container);
+
+export default int_container_factory;

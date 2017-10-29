@@ -16,15 +16,20 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_mat4_fact from "../libs/gl_matrix/mat4";
+import m_tsr_fact from "../tsr";
+
 /** 
  * {@link TSR} (translation, scale, rotation} utility routines.
  * @module tsr
  * @see https://www.blend4web.com/doc/en/objects.html#moving-via-tsr-vectors
  */
-b4w.module["tsr"] = function(exports, require) {
+function TSR(ns, exports) {
 
-var m_mat4  = require("__mat4");
-var m_tsr   = require("__tsr");
+var m_mat4  = m_mat4_fact(ns);
+var m_tsr   = m_tsr_fact(ns);
 
 /**
  * Create a new identity TSR vector.
@@ -267,3 +272,7 @@ exports.interpolate = function(tsr, tsr2, factor, dest) {
 }
 
 }
+
+var tsr_factory = register("tsr", TSR);
+
+export default tsr_factory;

@@ -16,31 +16,51 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_armat_fact from "./armature";
+import m_cfg_fact from "./config";
+import m_lights_fact from "./lights";
+import m_obj_util_fact from "./obj_util";
+import m_particles_fact from "./particles";
+import m_phy_fact from "./physics";
+import m_print_fact from "./print";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_reformer_fact from "./reformer";
+import m_scs_fact from "./scenes";
+import m_sfx_fact from "./sfx";
+import m_subs_fact from "./subscene";
+import m_time_fact from "./time";
+import m_trans_fact from "./transform";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Animation internal API.
  * @name animation
  * @namespace
  * @exports exports as animation
  */
-b4w.module["__animation"] = function(exports, require) {
+function Int_animation(ns, exports) {
 
-var m_armat     = require("__armature");
-var m_cfg       = require("__config");
-var m_lights    = require("__lights");
-var m_obj_util  = require("__obj_util");
-var m_particles = require("__particles");
-var m_phy       = require("__physics");
-var m_print     = require("__print");
-var m_quat      = require("__quat");
-var m_reformer  = require("__reformer");
-var m_scs       = require("__scenes");
-var m_sfx       = require("__sfx");
-var m_subs      = require("__subscene");
-var m_time      = require("__time");
-var m_trans     = require("__transform");
-var m_tsr       = require("__tsr");
-var m_util      = require("__util");
-var m_vec3      = require("__vec3");
+var m_armat     = m_armat_fact(ns);
+var m_cfg       = m_cfg_fact(ns);
+var m_lights    = m_lights_fact(ns);
+var m_obj_util  = m_obj_util_fact(ns);
+var m_particles = m_particles_fact(ns);
+var m_phy       = m_phy_fact(ns);
+var m_print     = m_print_fact(ns);
+var m_quat      = m_quat_fact(ns);
+var m_reformer  = m_reformer_fact(ns);
+var m_scs       = m_scs_fact(ns);
+var m_sfx       = m_sfx_fact(ns);
+var m_subs      = m_subs_fact(ns);
+var m_time      = m_time_fact(ns);
+var m_trans     = m_trans_fact(ns);
+var m_tsr       = m_tsr_fact(ns);
+var m_util      = m_util_fact(ns);
+var m_vec3      = m_vec3_fact(ns);
 
 var cfg_ani = m_cfg.animation;
 var cfg_lim = m_cfg.context_limits;
@@ -2980,3 +3000,7 @@ function slot_by_anim_type(obj, anim_name) {
 
 
 }
+
+var int_animation_factory = register("__animation", Int_animation);
+
+export default int_animation_factory;

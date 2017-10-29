@@ -16,22 +16,33 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_debug_fact from "./debug";
+import m_geom_fact from "./geometry";
+import m_obj_fact from "./objects";
+import m_render_fact from "./renderer";
+import m_subs_fact from "./subscene";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Prerender module, perform culling/lod stuff.
  * @name prerender
  * @namespace
  * @exports exports as scenes
  */
-b4w.module["__prerender"] = function(exports, require) {
+function Int_prerender(ns, exports) {
 
-var m_debug    = require("__debug");
-var m_geom     = require("__geometry");
-var m_obj      = require("__objects");
-var m_render   = require("__renderer");
-var m_subs     = require("__subscene");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
+var m_debug    = m_debug_fact(ns);
+var m_geom     = m_geom_fact(ns);
+var m_obj      = m_obj_fact(ns);
+var m_render   = m_render_fact(ns);
+var m_subs     = m_subs_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
 
 var USE_FRUSTUM_CULLING = true;
 
@@ -255,3 +266,7 @@ function update_particles_buffers(batch) {
 }
 
 }
+
+var int_prerender_factory = register("__prerender", Int_prerender);
+
+export default int_prerender_factory;

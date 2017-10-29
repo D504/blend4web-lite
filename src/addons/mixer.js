@@ -16,19 +16,27 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_ctl_fact from "../ext/controls";
+import m_scenes_fact from "../ext/scenes";
+import m_screen_fact from "../ext/screen";
+import m_sfx_fact from "../ext/sfx";
+import m_util_fact from "../ext/util";
+
 /**
  * Audio mixer add-on.
  * Implements volume faders, positional params, parametric equalizers per
  * channel and volume fader and compressor to the master section.
  * @module mixer
  */
-b4w.module["mixer"] = function(exports, require) {
+function Mixer(ns, exports) {
 
-var m_ctl    = require("controls");
-var m_scenes = require("scenes");
-var m_screen = require("screen");
-var m_sfx    = require("sfx");
-var m_util   = require("__util");
+var m_ctl    = m_ctl_fact(ns);
+var m_scenes = m_scenes_fact(ns);
+var m_screen = m_screen_fact(ns);
+var m_sfx    = m_sfx_fact(ns);
+var m_util   = m_util_fact(ns);
 
 var TIMER_SLOW_PERIOD = 0.15;
 var TIMER_FAST_PERIOD = 0.05;
@@ -402,6 +410,7 @@ function param_inc_dec(dir) {
         m_sfx.set_compressor_params(cparams);
         break;
     default:
+        // TODO: fix
         m_util.panic("Unknown strip param");
         break;
     }
@@ -552,5 +561,8 @@ function active_strip_range() {
     return [strip_low, strip_high];
 }
 
+};
 
-}
+var mixer_factory = register("mixer", Mixer);
+
+export default mixer_factory;

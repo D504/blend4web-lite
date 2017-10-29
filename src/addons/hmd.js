@@ -16,6 +16,18 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cam_fact from "../ext/camera";
+import m_ctl_fact from "../ext/controls";
+import m_input_fact from "../ext/input";
+import m_quat_fact from "../libs/gl_matrix/quat";
+import m_scenes_fact from "../ext/scenes";
+import m_screen_fact from "../ext/screen";
+import m_trans_fact from "../ext/transform";
+import m_util_fact from "../ext/util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+
 /**
  * Head Mounted Devices add-on.
  * Provides support for HMD/VR devices using {@link https://w3c.github.io/webvr/|WebVR API}.
@@ -23,17 +35,17 @@
  * @module hmd
  */
 
-b4w.module["hmd"] = function(exports, require) {
+function HMD(ns, exports) {
 
-var m_cam    = require("camera");
-var m_ctl    = require("controls");
-var m_input  = require("input");
-var m_quat   = require("quat");
-var m_scenes = require("scenes");
-var m_screen = require("screen");
-var m_trans  = require("transform");
-var m_util   = require("util");
-var m_vec3   = require("vec3");
+var m_cam    = m_cam_fact(ns);
+var m_ctl    = m_ctl_fact(ns);
+var m_input  = m_input_fact(ns);
+var m_quat   = m_quat_fact(ns);
+var m_scenes = m_scenes_fact(ns);
+var m_screen = m_screen_fact(ns);
+var m_trans  = m_trans_fact(ns);
+var m_util   = m_util_fact(ns);
+var m_vec3   = m_vec3_fact(ns);
 
 var _last_cam_quat = m_quat.create();
 var _yaw_cam_angle = 0;
@@ -387,3 +399,7 @@ exports.get_position = function(dest) {
 }
 
 };
+
+var hmd_factory = register("hmd", HMD);
+
+export default hmd_factory;

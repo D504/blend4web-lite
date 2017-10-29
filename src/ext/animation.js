@@ -16,6 +16,12 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_anim_fact from "../animation";
+import m_obj_util_fact from "../obj_util";
+import m_print_fact from "../print";
+
 /**
  * API methods for animation.
  * @see https://www.blend4web.com/doc/en/animation.html
@@ -25,12 +31,11 @@
  * @local AnimType
  * @local AnimSlot
  */
-b4w.module["animation"] = function(exports, require) {
+function Animation(ns, exports) {
 
-var m_anim  = require("__animation");
-var m_obj_util = require("__obj_util");
-var m_print = require("__print");
-
+var m_anim  = m_anim_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print = m_print_fact(ns);
 
 /**
  * Animation finish callback.
@@ -677,3 +682,7 @@ exports.mix_from_cur_pos = function(armobj, slot, time, callback) {
 }
 
 }
+
+var animation_factory = register("animation", Animation);
+
+export default animation_factory;

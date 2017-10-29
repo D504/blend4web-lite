@@ -16,25 +16,39 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_bounds_fact from "./boundings";
+import m_cam_fact from "./camera";
+import m_cons_fact from "./constraints";
+import m_lights_fact from "./lights";
+import m_obj_fact from "./objects";
+import m_obj_util_fact from "./obj_util";
+import m_scs_fact from "./scenes";
+import m_sfx_fact from "./sfx";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Object transformation API
  * @name transform
  * @namespace
  * @exports exports as transform
  */
-b4w.module["__transform"] = function(exports, require) {
+function Int_transform(ns, exports) {
 
-var m_bounds   = require("__boundings");
-var m_cam      = require("__camera");
-var m_cons     = require("__constraints");
-var m_lights   = require("__lights");
-var m_obj      = require("__objects");
-var m_obj_util = require("__obj_util");
-var m_scs      = require("__scenes");
-var m_sfx      = require("__sfx");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
+var m_bounds   = m_bounds_fact(ns);
+var m_cam      = m_cam_fact(ns);
+var m_cons     = m_cons_fact(ns);
+var m_lights   = m_lights_fact(ns);
+var m_obj      = m_obj_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_scs      = m_scs_fact(ns);
+var m_sfx      = m_sfx_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
 
 var _vec3_tmp  = new Float32Array(3);
 var _vec3_tmp2 = new Float32Array(3);
@@ -425,3 +439,7 @@ exports.obj_point_distance = function(obj, point) {
 }
 
 }
+
+var int_transform_factory = register("__transform", Int_transform);
+
+export default int_transform_factory;

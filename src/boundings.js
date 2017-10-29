@@ -16,19 +16,27 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_math_fact from "./math";
+import m_mat3_fact from "./libs/gl_matrix/mat3";
+
 /**
  * Bounding internal API.
  * @name boundings
  * @namespace
  * @exports exports as boundings
  */
-b4w.module["__boundings"] = function(exports, require) {
+function Int_boundings(ns, exports) {
 
-var m_tsr  = require("__tsr");
-var m_util = require("__util");
-var m_vec3 = require("__vec3");
-var m_math = require("__math");
-var m_mat3 = require("__mat3");
+var m_tsr  = m_tsr_fact(ns);
+var m_util = m_util_fact(ns);
+var m_vec3 = m_vec3_fact(ns);
+var m_math = m_math_fact(ns);
+var m_mat3 = m_mat3_fact(ns);
 
 var _bb_corners_cache = new Float32Array(3 * 8);
 var _vec3_tmp = new Float32Array(3);
@@ -1039,3 +1047,7 @@ function mec_by_3_points(bs, A, B, C) {
 }
 
 }
+
+var int_boundings_factory = register("__boundings", Int_boundings);
+
+export default int_boundings_factory;

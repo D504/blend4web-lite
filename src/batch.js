@@ -16,36 +16,61 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_bounds_fact from "./boundings";
+import m_cfg_fact from "./config";
+import m_print_fact from "./print";
+import m_extensions_fact from "./extensions";
+import m_graph_fact from "./graph";
+import m_mat3_fact from "./libs/gl_matrix/mat3";
+import m_nodemat_fact from "./nodemat";
+import m_obj_util_fact from "./obj_util";
+import m_particles_fact from "./particles";
+import m_primitives_fact from "./primitives";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_reformer_fact from "./reformer";
+import m_render_fact from "./renderer";
+import m_scenegraph_fact from "./scenegraph";
+import m_shaders_fact from "./shaders";
+import m_subs_fact from "./subscene";
+import m_textures_fact from "./textures";
+import m_tsr_fact from "./tsr";
+import m_geom_fact from "./geometry";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_vec4_fact from "./libs/gl_matrix/vec4";
+
 /**
  * Batch internal API.
  * @name batch
  * @namespace
  * @exports exports as batch
  */
-b4w.module["__batch"] = function(exports, require) {
+function Int_batch(ns, exports) {
 
-var m_bounds     = require("__boundings");
-var m_cfg        = require("__config");
-var m_print      = require("__print");
-var m_extensions = require("__extensions");
-var m_graph      = require("__graph");
-var m_mat3       = require("__mat3");
-var m_nodemat    = require("__nodemat");
-var m_obj_util   = require("__obj_util");
-var m_particles  = require("__particles");
-var m_primitives = require("__primitives");
-var m_quat       = require("__quat");
-var m_reformer   = require("__reformer");
-var m_render     = require("__renderer");
-var m_scenegraph = require("__scenegraph");
-var m_shaders    = require("__shaders");
-var m_subs       = require("__subscene");
-var m_textures   = require("__textures");
-var m_tsr        = require("__tsr");
-var m_geom       = require("__geometry");
-var m_util       = require("__util");
-var m_vec3       = require("__vec3");
-var m_vec4       = require("__vec4");
+var m_bounds     = m_bounds_fact(ns);
+var m_cfg        = m_cfg_fact(ns);
+var m_print      = m_print_fact(ns);
+var m_extensions = m_extensions_fact(ns);
+var m_graph      = m_graph_fact(ns);
+var m_mat3       = m_mat3_fact(ns);
+var m_nodemat    = m_nodemat_fact(ns);
+var m_obj_util   = m_obj_util_fact(ns);
+var m_particles  = m_particles_fact(ns);
+var m_primitives = m_primitives_fact(ns);
+var m_quat       = m_quat_fact(ns);
+var m_reformer   = m_reformer_fact(ns);
+var m_render     = m_render_fact(ns);
+var m_scenegraph = m_scenegraph_fact(ns);
+var m_shaders    = m_shaders_fact(ns);
+var m_subs       = m_subs_fact(ns);
+var m_textures   = m_textures_fact(ns);
+var m_tsr        = m_tsr_fact(ns);
+var m_geom       = m_geom_fact(ns);
+var m_util       = m_util_fact(ns);
+var m_vec3       = m_vec3_fact(ns);
+var m_vec4       = m_vec4_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 var cfg_lim = m_cfg.context_limits;
@@ -5451,3 +5476,7 @@ exports.cleanup = function() {
 }
 
 }
+
+var int_batch_factory = register("__batch", Int_batch);
+
+export default int_batch_factory;

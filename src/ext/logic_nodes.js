@@ -16,13 +16,16 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_logn_fact from "../logic_nodes";
 /**
  * API methods to control the {@link https://www.blend4web.com/doc/en/logic_editor.html|Logic Editor}.
  * @module logic_nodes
  */
-b4w.module["logic_nodes"] = function(exports, require) {
+function Logic_nodes(ns, exports) {
 
-var m_logn = require("__logic_nodes");
+var m_logn = m_logn_fact(ns);
 
 /**
  * Register custom callback, used in logic editor.
@@ -65,3 +68,7 @@ exports.run_entrypoint = function(scene_name, ep_name) {
 }
 
 }
+
+var logic_nodes_factory = register("logic_nodes", Logic_nodes);
+
+export default logic_nodes_factory;

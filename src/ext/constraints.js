@@ -16,22 +16,33 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cam_fact from "../camera";
+import m_cons_fact from "../constraints";
+import m_obj_util_fact from "../obj_util";
+import m_phy_fact from "../physics";
+import m_print_fact from "../print";
+import m_trans_fact from "../transform";
+import m_util_fact from "../util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+
 /**
  * Object constraints API. Please note that these constraints are not the same
  * as those assigned in Blender.
  * @module constraints
  * @local StiffViewportPositioning
  */
-b4w.module["constraints"] = function(exports, require) {
+function Constraints(ns, exports) {
 
-var m_cam      = require("__camera");
-var m_cons     = require("__constraints");
-var m_obj_util = require("__obj_util");
-var m_phy      = require("__physics");
-var m_print    = require("__print");
-var m_trans    = require("__transform");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
+var m_cam      = m_cam_fact(ns);
+var m_cons     = m_cons_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_phy      = m_phy_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_trans    = m_trans_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
 
 /**
  * An object that defines positioning for the stiff viewport constraint.
@@ -679,3 +690,7 @@ exports.remove = function(obj, restore_transform) {
 }
 
 }
+
+var constraints_factory = register("constraints", Constraints);
+
+export default constraints_factory;

@@ -16,6 +16,9 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_util_fact from "./util";
 /**
  * Generic graph routines.
  *
@@ -23,9 +26,9 @@
  * @namespace
  * @exports exports as graph
  */
-b4w.module["__graph"] = function(exports, require) {
+function Int_graph(ns, exports) {
 
-var m_util  = require("__util");
+var m_util  = m_util_fact(ns);
 
 var NULL_NODE    = -1;
 var NULL         = 0;
@@ -1409,3 +1412,7 @@ exports.debug_dot = function(graph, node_label_cb, edge_label_cb) {
 }
 
 }
+
+var int_graph_factory = register("__graph", Int_graph);
+
+export default int_graph_factory;

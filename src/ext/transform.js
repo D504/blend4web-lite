@@ -16,21 +16,32 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_bounds_fact from "../boundings";
+import m_obj_util_fact from "../obj_util";
+import m_phy_fact from "../physics";
+import m_print_fact from "../print";
+import m_quat_fact from "../libs/gl_matrix/quat";
+import m_trans_fact from "../transform";
+import m_tsr_fact from "../tsr";
+import m_util_fact from "../util";
+
 /**
  * Object transformations API.
  * With some exceptions specified below, make sure that the objects are dynamic.
  * @module transform
  */
-b4w.module["transform"] = function(exports, require) {
+function Transform(ns, exports) {
 
-var m_bounds   = require("__boundings");
-var m_obj_util = require("__obj_util");
-var m_phy      = require("__physics");
-var m_print    = require("__print");
-var m_quat     = require("__quat");
-var m_trans    = require("__transform");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
+var m_bounds   = m_bounds_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_phy      = m_phy_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_quat     = m_quat_fact(ns);
+var m_trans    = m_trans_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
 
 var _tsr_tmp = m_tsr.create();
 var _vec3_tmp = new Float32Array(3);
@@ -762,3 +773,7 @@ exports.get_matrix_rel = function(obj, dest) {
 }
 
 }
+
+var transform_factory = register("transform", Transform);
+
+export default transform_factory;

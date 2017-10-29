@@ -16,18 +16,27 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_compat_fact from "../compat";
+import m_print_fact from "../print";
+import m_quat_fact from "../libs/gl_matrix/quat";
+import m_tbn_fact from "../tbn";
+import m_util_fact from "../util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+
 /**
  * Contains various utility methods for math, searching etc.
  * @module util
  */
-b4w.module["util"] = function(exports, require) {
+function Util(ns, exports) {
 
-var m_compat   = require("__compat");
-var m_print    = require("__print");
-var m_quat     = require("__quat");
-var m_tbn      = require("__tbn");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
+var m_compat   = m_compat_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_quat     = m_quat_fact(ns);
+var m_tbn      = m_tbn_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
 
 /**
  * X-axis vector.
@@ -443,3 +452,7 @@ exports.gen_tbn_quats = m_tbn.get;
 exports.trunc = m_util.trunc;
 
 }
+
+var util_factory = register("util", Util);
+
+export default util_factory;

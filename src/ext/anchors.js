@@ -16,6 +16,10 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_anchors_fact from "../anchors";
+
 /**
  * Anchors are Empty objects assigned in Blender.
  * They are used to project 3D points or HTML elements to the 2D screen.
@@ -23,9 +27,9 @@
  * @module anchors
  * @local AnchorMoveCallback
  */
-b4w.module["anchors"] = function(exports, require) {
+function Anchors(ns, exports) {
 
-var m_anchors = require("__anchors");
+var m_anchors = m_anchors_fact(ns);
 
 /**
  * The callback for the movement of the anchor.
@@ -79,3 +83,7 @@ exports.update = function() {
 }
 
 }
+
+var anchors_factory = register("anchors", Anchors);
+
+export default anchors_factory;

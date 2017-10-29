@@ -16,6 +16,18 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_batch_fact from "./batch";
+import m_geom_fact from "./geometry";
+import m_tbn_fact from "./tbn";
+import m_tex_fact from "./textures";
+import m_time_fact from "./time";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Particles internal API.
  * External API implemented in animation.js module.
@@ -23,17 +35,17 @@
  * @namespace
  * @exports exports as particles
  */
-b4w.module["__particles"] = function(exports, require) {
+function Int_particles(ns, exports) {
 
-var m_cfg    = require("__config");
-var m_batch  = require("__batch");
-var m_geom   = require("__geometry");
-var m_tbn    = require("__tbn");
-var m_tex    = require("__textures");
-var m_time   = require("__time");
-var m_tsr    = require("__tsr");
-var m_util   = require("__util");
-var m_vec3   = require("__vec3");
+var m_cfg    = m_cfg_fact(ns);
+var m_batch  = m_batch_fact(ns);
+var m_geom   = m_geom_fact(ns);
+var m_tbn    = m_tbn_fact(ns);
+var m_tex    = m_tex_fact(ns);
+var m_time   = m_time_fact(ns);
+var m_tsr    = m_tsr_fact(ns);
+var m_util   = m_util_fact(ns);
+var m_vec3   = m_vec3_fact(ns);
 
 var STDGRAVITY = 9.81;
 var DELAYRANDFACTOR = 10;
@@ -928,3 +940,7 @@ exports.cleanup = function() {
 }
 
 }
+
+var int_particles_factory = register("__particles", Int_particles);
+
+export default int_particles_factory;

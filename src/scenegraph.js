@@ -16,6 +16,19 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_batch_fact from "./batch";
+import m_cam_fact from "./camera";
+import m_cfg_fact from "./config";
+import m_debug_fact from "./debug";
+import m_graph_fact from "./graph";
+import m_render_fact from "./renderer";
+import m_shaders_fact from "./shaders";
+import m_subs_fact from "./subscene";
+import m_tex_fact from "./textures";
+import m_util_fact from "./util";
+
 /**
  * Rendering graph routines.
  *
@@ -27,18 +40,18 @@
  * @namespace
  * @exports exports as scenegraph
  */
-b4w.module["__scenegraph"] = function(exports, require) {
+function Int_scenegraph(ns, exports) {
 
-var m_batch  = require("__batch");
-var m_cam    = require("__camera");
-var m_cfg    = require("__config");
-var m_debug  = require("__debug");
-var m_graph  = require("__graph");
-var m_render = require("__renderer");
-var m_shaders = require("__shaders");
-var m_subs   = require("__subscene");
-var m_tex    = require("__textures");
-var m_util   = require("__util");
+var m_batch  = m_batch_fact(ns);
+var m_cam    = m_cam_fact(ns);
+var m_cfg    = m_cfg_fact(ns);
+var m_debug  = m_debug_fact(ns);
+var m_graph  = m_graph_fact(ns);
+var m_render = m_render_fact(ns);
+var m_shaders = m_shaders_fact(ns);
+var m_subs   = m_subs_fact(ns);
+var m_tex    = m_tex_fact(ns);
+var m_util   = m_util_fact(ns);
 
 var cfg_dbg = m_cfg.debug_subs;
 var cfg_def = m_cfg.defaults;
@@ -3030,3 +3043,7 @@ function connect_render_targets_batch(graph, subs, batch, is_replacing) {
 }
 
 }
+
+var int_scenegraph_factory = register("__scenegraph", Int_scenegraph);
+
+export default int_scenegraph_factory;

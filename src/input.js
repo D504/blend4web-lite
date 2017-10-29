@@ -16,6 +16,19 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_compat_fact from "./compat";
+import m_cont_fact from "./container";
+import m_cfg_fact from "./config";
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_print_fact from "./print";
+import m_tsr_fact from "./tsr";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_vec4_fact from "./libs/gl_matrix/vec4";
+
 /**
  * Input devices internal API.
  *
@@ -23,18 +36,18 @@
  * @namespace
  * @exports exports as input
  */
-b4w.module["__input"] = function(exports, require) {
+function Int_input(ns, exports) {
 
-var m_compat = require("__compat");
-var m_cont  = require("__container");
-var m_cfg   = require("__config");
-var m_mat4  = require("__mat4");
-var m_print = require("__print");
-var m_tsr   = require("__tsr");
-var m_quat  = require("__quat");
-var m_util  = require("__util");
-var m_vec3  = require("__vec3");
-var m_vec4  = require("__vec4");
+var m_compat = m_compat_fact(ns);
+var m_cont  = m_cont_fact(ns);
+var m_cfg   = m_cfg_fact(ns);
+var m_mat4  = m_mat4_fact(ns);
+var m_print = m_print_fact(ns);
+var m_tsr   = m_tsr_fact(ns);
+var m_quat  = m_quat_fact(ns);
+var m_util  = m_util_fact(ns);
+var m_vec3  = m_vec3_fact(ns);
+var m_vec4  = m_vec4_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 var cfg_hmdp = m_cfg.hmd_params;
@@ -1670,3 +1683,7 @@ function check_fullscreen() {
 }
 
 }
+
+var int_input_factory = register("__input", Int_input);
+
+export default int_input_factory;

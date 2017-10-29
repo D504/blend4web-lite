@@ -19,36 +19,61 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_anim_fact from "./animation";
+import m_assets_fact from "./assets";
+import m_cam_fact from "./camera";
+import m_nla_fact from "./nla";
+import m_obj_fact from "./objects";
+import m_print_fact from "./print";
+import m_scs_fact from "./scenes";
+import m_cfg_fact from "./config";
+import m_ctl_fact from "./controls";
+import m_batch_fact from "./batch";
+import m_geom_fact from "./geometry";
+import m_mat3_fact from "./libs/gl_matrix/mat3";
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_phy_fact from "./physics";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_sfx_fact from "./sfx";
+import m_time_fact from "./time";
+import m_trans_fact from "./transform";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_obj_util_fact from "./obj_util";
+
 /**
  * Logic Nodes scheduler module.
  * @name logic_nodes
  * @namespace
  * @exports exports as logic_nodes
  */
-b4w.module["__logic_nodes"] = function(exports, require) {
+function Int_logic_nodes(ns, exports) {
 
-var m_anim      = require("__animation");
-var m_assets    = require("__assets");
-var m_cam       = require("__camera");
-var m_nla       = require("__nla");
-var m_obj       = require("__objects");
-var m_print     = require("__print");
-var m_scs       = require("__scenes");
-var m_cfg       = require("__config");
-var m_ctl       = require("__controls");
-var m_batch     = require("__batch");
-var m_geom      = require("__geometry");
-var m_mat3      = require("__mat3");
-var m_mat4      = require("__mat4");
-var m_phy       = require("__physics");
-var m_quat      = require("__quat");
-var m_sfx       = require("__sfx");
-var m_time      = require("__time");
-var m_trans     = require("__transform");
-var m_tsr       = require("__tsr");
-var m_util      = require("__util");
-var m_vec3      = require("__vec3");
-var m_obj_util  = require("__obj_util");
+var m_anim      = m_anim_fact(ns);
+var m_assets    = m_assets_fact(ns);
+var m_cam       = m_cam_fact(ns);
+var m_nla       = m_nla_fact(ns);
+var m_obj       = m_obj_fact(ns);
+var m_print     = m_print_fact(ns);
+var m_scs       = m_scs_fact(ns);
+var m_cfg       = m_cfg_fact(ns);
+var m_ctl       = m_ctl_fact(ns);
+var m_batch     = m_batch_fact(ns);
+var m_geom      = m_geom_fact(ns);
+var m_mat3      = m_mat3_fact(ns);
+var m_mat4      = m_mat4_fact(ns);
+var m_phy       = m_phy_fact(ns);
+var m_quat      = m_quat_fact(ns);
+var m_sfx       = m_sfx_fact(ns);
+var m_time      = m_time_fact(ns);
+var m_trans     = m_trans_fact(ns);
+var m_tsr       = m_tsr_fact(ns);
+var m_util      = m_util_fact(ns);
+var m_vec3      = m_vec3_fact(ns);
+var m_obj_util  = m_obj_util_fact(ns);
 
 var _vec4_tmp  = new Float32Array(4);
 var _vec3_tmp  = new Float32Array(3);
@@ -2594,3 +2619,7 @@ exports.cleanup = function() {
     _node_ident_counters = {};
 }
 }
+
+var int_logic_nodes_factory = register("__logic_nodes", Int_logic_nodes);
+
+export default int_logic_nodes_factory;

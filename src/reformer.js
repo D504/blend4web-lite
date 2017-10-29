@@ -16,6 +16,21 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_bounds_fact from "./boundings";
+import m_cfg_fact from "./config";
+import m_curve_fact from "./curve";
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_print_fact from "./print";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_tbn_fact from "./tbn";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_mat3_fact from "./libs/gl_matrix/mat3";
+import m_logn_fact from "./logic_nodes";
+import m_anim_fact from "./animation";
+
 /**
  * Data reformer internal API.
  * Functions for blender (bpy) data reforming, such as compatibility hacks,
@@ -24,20 +39,20 @@
  * @namespace
  * @exports exports as reformer
  */
-b4w.module["__reformer"] = function(exports, require) {
+function Int_reformer(ns, exports) {
 
-var m_bounds = require("__boundings");
-var m_cfg    = require("__config");
-var m_curve  = require("__curve");
-var m_mat4   = require("__mat4");
-var m_print  = require("__print");
-var m_quat   = require("__quat");
-var m_tbn    = require("__tbn");
-var m_util   = require("__util");
-var m_vec3   = require("__vec3");
-var m_mat3   = require("__mat3");
-var m_logn   = require("__logic_nodes");
-var m_anim   = require("__animation");
+var m_bounds = m_bounds_fact(ns);
+var m_cfg    = m_cfg_fact(ns);
+var m_curve  = m_curve_fact(ns);
+var m_mat4   = m_mat4_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_quat   = m_quat_fact(ns);
+var m_tbn    = m_tbn_fact(ns);
+var m_util   = m_util_fact(ns);
+var m_vec3   = m_vec3_fact(ns);
+var m_mat3   = m_mat3_fact(ns);
+var m_logn   = m_logn_fact(ns);
+var m_anim   = m_anim_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 
@@ -3252,3 +3267,7 @@ exports.assign_logic_nodes_object_params = function(bpy_objects, bpy_world, scen
 }
 
 }
+
+var int_reformer_factory = register("__reformer", Int_reformer);
+
+export default int_reformer_factory;

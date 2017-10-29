@@ -16,12 +16,19 @@
  */
 "use strict";
 
-b4w.module["__loader"] = function(exports, require) {
+import register from "./util/register";
 
-var m_graph  = require("__graph");
-var m_print  = require("__print");
-var m_util   = require("__util");
-var m_cfg    = require("__config");
+import m_graph_fact from "./graph";
+import m_print_fact from "./print";
+import m_util_fact from "./util";
+import m_cfg_fact from "./config";
+
+function Int_loader(ns, exports) {
+
+var m_graph  = m_graph_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_util   = m_util_fact(ns);
+var m_cfg    = m_cfg_fact(ns);
 
 var cfg_def  = m_cfg.defaults;
 
@@ -633,3 +640,7 @@ exports.cleanup = function() {
 }
 
 }
+
+var int_loader_factory = register("__loader", Int_loader);
+
+export default int_loader_factory;

@@ -16,6 +16,34 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_batch_fact from "../batch";
+import m_cfg_fact from "../config";
+import m_compat_fact from "../compat";
+import m_ctl_fact from "../controls";
+import m_cont_fact from "../container";
+import m_data_fact from "../data";
+import m_debug_fact from "../debug";
+import m_ext_fact from "../extensions";
+import m_geom_fact from "../geometry";
+import m_load_fact from "../loader";
+import m_obj_fact from "../objects";
+import m_obj_util_fact from "../obj_util";
+import m_phy_fact from "../physics";
+import m_print_fact from "../print";
+import m_render_fact from "../renderer";
+import m_scenes_fact from "../scenes";
+import m_scgraph_fact from "../scenegraph";
+import m_sfx_fact from "../sfx";
+import m_shaders_fact from "../shaders";
+import m_subs_fact from "../subscene";
+import m_textures_fact from "../textures";
+import m_trans_fact from "../transform";
+import m_tsr_fact from "../tsr";
+import m_util_fact from "../util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+
 /**
  * Engine debugging API.
  * @module debug
@@ -26,33 +54,33 @@
  * @local EqualsFunction
  * @local OKFunction
  */
-b4w.module["debug"] = function(exports, require) {
+function Debug(ns, exports) {
 
-var m_batch    = require("__batch");
-var m_cfg      = require("__config");
-var m_compat   = require("__compat");
-var m_ctl      = require("__controls");
-var m_cont     = require("__container");
-var m_data     = require("__data");
-var m_debug    = require("__debug");
-var m_ext      = require("__extensions");
-var m_geom     = require("__geometry");
-var m_load     = require("__loader");
-var m_obj      = require("__objects");
-var m_obj_util = require("__obj_util");
-var m_phy      = require("__physics");
-var m_print    = require("__print");
-var m_render   = require("__renderer");
-var m_scenes   = require("__scenes");
-var m_scgraph  = require("__scenegraph");
-var m_sfx      = require("__sfx");
-var m_shaders  = require("__shaders");
-var m_subs     = require("__subscene");
-var m_textures = require("__textures");
-var m_trans    = require("__transform");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
+var m_batch    = m_batch_fact(ns);
+var m_cfg      = m_cfg_fact(ns);
+var m_compat   = m_compat_fact(ns);
+var m_ctl      = m_ctl_fact(ns);
+var m_cont     = m_cont_fact(ns);
+var m_data     = m_data_fact(ns);
+var m_debug    = m_debug_fact(ns);
+var m_ext      = m_ext_fact(ns);
+var m_geom     = m_geom_fact(ns);
+var m_load     = m_load_fact(ns);
+var m_obj      = m_obj_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_phy      = m_phy_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_render   = m_render_fact(ns);
+var m_scenes   = m_scenes_fact(ns);
+var m_scgraph  = m_scgraph_fact(ns);
+var m_sfx      = m_sfx_fact(ns);
+var m_shaders  = m_shaders_fact(ns);
+var m_subs     = m_subs_fact(ns);
+var m_textures = m_textures_fact(ns);
+var m_trans    = m_trans_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
 
 var _tsr_tmp = m_tsr.create();
 var _vec2_tmp = new Float32Array(2);
@@ -1208,7 +1236,6 @@ exports.check_debug_result = function() {
  */
 exports.test = function(test_name, callback) {
 
-    var m_print = require("__print");
     var print_err_func = m_print.error;
     var print_err_once_func = m_print.error_once;
     var print_warn_func = m_print.warn;
@@ -1460,3 +1487,7 @@ function hide_normals() {
 }
 
 }
+
+var debug_factory = register("debug", Debug);
+
+export default debug_factory;

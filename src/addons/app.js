@@ -16,6 +16,24 @@
  */
 "use strict";
 
+import register from "../util/register";
+import m_cam_fact from "../ext/camera";
+import m_cfg_fact from "../ext/config";
+import m_cons_fact from "../ext/constraints";
+import m_cont_fact from "../ext/container";
+import m_ctl_fact from "../ext/controls";
+import m_data_fact from "../ext/data";
+import m_dbg_fact from "../ext/debug";
+import m_input_fact from "../ext/input";
+import m_main_fact from "../ext/main";
+import m_phy_fact from "../ext/physics";
+import m_print_fact from "../print";
+import m_screen_fact from "../ext/screen";
+import m_scs_fact from "../ext/scenes";
+import m_trans_fact from "../ext/transform";
+import m_util_fact from "../ext/util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+
 /**
  * Application add-on.
  * Provides generic routines for the engine's initialization, UI and I/O.
@@ -25,24 +43,24 @@
  * @local QueueObject
  */
 
-b4w.module["app"] = function(exports, require) {
+function App(ns, exports) {
 
-var m_cam   = require("camera");
-var m_cfg   = require("config");
-var m_cons  = require("constraints");
-var m_cont  = require("container");
-var m_ctl   = require("controls");
-var m_data  = require("data");
-var m_dbg   = require("debug");
-var m_input = require("input");
-var m_main  = require("main");
-var m_phy   = require("physics");
-var m_print = require("print");
-var m_screen = require("screen");
-var m_scs   = require("scenes");
-var m_trans = require("transform");
-var m_util  = require("util");
-var m_vec3  = require("vec3");
+var m_cam    = m_cam_fact(ns);
+var m_cfg    = m_cfg_fact(ns);
+var m_cons   = m_cons_fact(ns);
+var m_cont   = m_cont_fact(ns);
+var m_ctl    = m_ctl_fact(ns);
+var m_data   = m_data_fact(ns);
+var m_dbg    = m_dbg_fact(ns);
+var m_input  = m_input_fact(ns);
+var m_main   = m_main_fact(ns);
+var m_phy    = m_phy_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_screen = m_screen_fact(ns);
+var m_scs    = m_scs_fact(ns);
+var m_trans  = m_trans_fact(ns);
+var m_util   = m_util_fact(ns);
+var m_vec3   = m_vec3_fact(ns);
 
 // Constants used for the target camera
 var TARGET_KEY_ZOOM_POW1     = 1.0;
@@ -1702,3 +1720,7 @@ exports.get_camera_smooth_factor = function() {
 }
 
 }
+
+var app_factory = register("app", App);
+
+export default app_factory;

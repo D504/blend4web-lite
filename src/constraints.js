@@ -16,28 +16,38 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_phy_fact from "./physics";
+import m_armat_fact from "./armature";
+import m_cam_fact from "./camera";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Constraints internal API.
  * @name constraints
  * @namespace
  * @exports exports as constraints
  */
-b4w.module["__constraints"] = function(exports, require) {
+function Int_constraints(ns, exports) {
 
 // (4) Main Engine Entitles
-var m_phy   = require("__physics");
+var m_phy   = m_phy_fact(ns);
 
-var m_armat = require("__armature");
-var m_cam   = require("__camera");
+var m_armat = m_armat_fact(ns);
+var m_cam   = m_cam_fact(ns);
 
 // (6) Config-independent utilitary modules
-var m_tsr   = require("__tsr");
+var m_tsr   = m_tsr_fact(ns);
 
-var m_util  = require("__util");
+var m_util  = m_util_fact(ns);
 
 // (7) Independent libs
-var m_quat  = require("__quat");
-var m_vec3  = require("__vec3");
+var m_quat  = m_quat_fact(ns);
+var m_vec3  = m_vec3_fact(ns);
 
 
 var CONS_TYPE_STIFF_OBJ           = 1;
@@ -1083,3 +1093,7 @@ exports.check_self_applying = function(obj, target) {
 }
 
 }
+
+var int_constraints_factory = register("__constraints", Int_constraints);
+
+export default int_constraints_factory;

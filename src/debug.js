@@ -16,6 +16,21 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_batch_fact from "./batch";
+import m_compat_fact from "./compat";
+import m_cfg_fact from "./config";
+import m_ext_fact from "./extensions";
+import m_graph_fact from "./graph";
+import m_obj_fact from "./objects";
+import m_print_fact from "./print";
+import m_scenes_fact from "./scenes";
+import m_subs_fact from "./subscene";
+import m_tex_fact from "./textures";
+import m_time_fact from "./time";
+import m_util_fact from "./util";
+
 /**
  * Debug routines for internal usage.
  * Don't forget to register GL context by setup_context() function.
@@ -23,20 +38,20 @@
  * @namespace
  * @exports exports as debug
  */
-b4w.module["__debug"] = function(exports, require) {
+function Int_debug(ns, exports) {
 
-var m_batch  = require("__batch");
-var m_compat = require("__compat");
-var m_cfg    = require("__config");
-var m_ext    = require("__extensions");
-var m_graph  = require("__graph");
-var m_obj    = require("__objects");
-var m_print  = require("__print");
-var m_scenes = require("__scenes");
-var m_subs   = require("__subscene");
-var m_tex    = require("__textures");
-var m_time   = require("__time");
-var m_util   = require("__util");
+var m_batch  = m_batch_fact(ns);
+var m_compat = m_compat_fact(ns);
+var m_cfg    = m_cfg_fact(ns);
+var m_ext    = m_ext_fact(ns);
+var m_graph  = m_graph_fact(ns);
+var m_obj    = m_obj_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_scenes = m_scenes_fact(ns);
+var m_subs   = m_subs_fact(ns);
+var m_tex    = m_tex_fact(ns);
+var m_time   = m_time_fact(ns);
+var m_util   = m_util_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 
@@ -961,3 +976,7 @@ exports.reset = function() {
 }
 
 }
+
+var int_debug_factory = register("__debug", Int_debug);
+
+export default int_debug_factory;

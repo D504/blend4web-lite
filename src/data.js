@@ -16,51 +16,91 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_anchors_fact from "./anchors";
+import m_anim_fact from "./animation";
+import m_assets_fact from "./assets";
+import m_batch_fact from "./batch";
+import m_cfg_fact from "./config";
+import m_cons_fact from "./constraints";
+import m_ctl_fact from "./controls";
+import m_texcomp_fact from "./texcomp";
+import m_debug_fact from "./debug";
+import m_ext_fact from "./extensions";
+import m_input_fact from "./input";
+import m_loader_fact from "./loader";
+import m_mat_fact from "./material";
+import m_md5_fact from "./libs/md5";
+import m_nla_fact from "./nla";
+import m_lnodes_fact from "./logic_nodes";
+import m_particles_fact from "./particles";
+import m_nodemat_fact from "./nodemat";
+import m_obj_fact from "./objects";
+import m_obj_util_fact from "./obj_util";
+import m_phy_fact from "./physics";
+import m_print_fact from "./print";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_reformer_fact from "./reformer";
+import m_render_fact from "./renderer";
+import m_scenes_fact from "./scenes";
+import m_sfx_fact from "./sfx";
+import m_shaders_fact from "./shaders";
+import m_subs_fact from "./subscene";
+import m_tbn_fact from "./tbn";
+import m_tex_fact from "./textures";
+import m_time_fact from "./time";
+import m_trans_fact from "./transform";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_vec4_fact from "./libs/gl_matrix/vec4";
+
 /**
  * Data internal API.
  * @name data
  * @namespace
  * @exports exports as data
  */
-b4w.module["__data"] = function(exports, require) {
+function Int_data(ns, exports) {
 
-var m_anchors   = require("__anchors");
-var m_anim      = require("__animation");
-var m_assets    = require("__assets");
-var m_batch     = require("__batch");
-var m_cfg       = require("__config");
-var m_cons      = require("__constraints");
-var m_ctl       = require("__controls");
-var m_texcomp   = require("__texcomp");
-var m_debug     = require("__debug");
-var m_ext       = require("__extensions");
-var m_input     = require("__input");
-var m_loader    = require("__loader");
-var m_mat       = require("__material");
-var m_md5       = require("__md5");
-var m_nla       = require("__nla");
-var m_lnodes    = require("__logic_nodes");
-var m_particles = require("__particles");
-var m_nodemat   = require("__nodemat");
-var m_obj       = require("__objects");
-var m_obj_util  = require("__obj_util");
-var m_phy       = require("__physics");
-var m_print     = require("__print");
-var m_quat      = require("__quat");
-var m_reformer  = require("__reformer");
-var m_render    = require("__renderer");
-var m_scenes    = require("__scenes");
-var m_sfx       = require("__sfx");
-var m_shaders   = require("__shaders");
-var m_subs      = require("__subscene");
-var m_tbn       = require("__tbn");
-var m_tex       = require("__textures");
-var m_time      = require("__time");
-var m_trans     = require("__transform");
-var m_tsr       = require("__tsr");
-var m_util      = require("__util");
-var m_vec3      = require("__vec3");
-var m_vec4      = require("__vec4");
+var m_anchors   = m_anchors_fact(ns);
+var m_anim      = m_anim_fact(ns);
+var m_assets    = m_assets_fact(ns);
+var m_batch     = m_batch_fact(ns);
+var m_cfg       = m_cfg_fact(ns);
+var m_cons      = m_cons_fact(ns);
+var m_ctl       = m_ctl_fact(ns);
+var m_texcomp   = m_texcomp_fact(ns);
+var m_debug     = m_debug_fact(ns);
+var m_ext       = m_ext_fact(ns);
+var m_input     = m_input_fact(ns);
+var m_loader    = m_loader_fact(ns);
+var m_mat       = m_mat_fact(ns);
+var m_md5       = m_md5_fact(ns);
+var m_nla       = m_nla_fact(ns);
+var m_lnodes    = m_lnodes_fact(ns);
+var m_particles = m_particles_fact(ns);
+var m_nodemat   = m_nodemat_fact(ns);
+var m_obj       = m_obj_fact(ns);
+var m_obj_util  = m_obj_util_fact(ns);
+var m_phy       = m_phy_fact(ns);
+var m_print     = m_print_fact(ns);
+var m_quat      = m_quat_fact(ns);
+var m_reformer  = m_reformer_fact(ns);
+var m_render    = m_render_fact(ns);
+var m_scenes    = m_scenes_fact(ns);
+var m_sfx       = m_sfx_fact(ns);
+var m_shaders   = m_shaders_fact(ns);
+var m_subs      = m_subs_fact(ns);
+var m_tbn       = m_tbn_fact(ns);
+var m_tex       = m_tex_fact(ns);
+var m_time      = m_time_fact(ns);
+var m_trans     = m_trans_fact(ns);
+var m_tsr       = m_tsr_fact(ns);
+var m_util      = m_util_fact(ns);
+var m_vec3      = m_vec3_fact(ns);
+var m_vec4      = m_vec4_fact(ns);
 
 var cfg_anim = m_cfg.animation;
 var cfg_def  = m_cfg.defaults;
@@ -4131,3 +4171,7 @@ exports.unfetch = function() {
 }
 
 }
+
+var int_data_factory = register("__data", Int_data);
+
+export default int_data_factory;

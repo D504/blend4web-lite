@@ -16,15 +16,19 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_util_fact from "./util";
+
 /**
  * Material internal API.
  * @name material
  * @namespace
  * @exports exports as material
  */
-b4w.module["__material"] = function(exports, require) {
+function Int_material(ns, exports) {
 
-var m_util = require("__util");
+var m_util = m_util_fact(ns);
 
 exports.init_material = init_material;
 function init_material() {
@@ -517,3 +521,7 @@ exports.clone_material = function(mat) {
 }
 
 }
+
+var int_material_factory = register("__material", Int_material);
+
+export default int_material_factory;

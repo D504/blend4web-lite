@@ -16,29 +16,47 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_batch_fact from "./batch";
+import m_cam_fact from "./camera";
+import m_cfg_fact from "./config";
+import m_cont_fact from "./container";
+import m_input_fact from "./input";
+import m_obj_fact from "./objects";
+import m_obj_util_fact from "./obj_util";
+import m_print_fact from "./print";
+import m_render_fact from "./renderer";
+import m_scenes_fact from "./scenes";
+import m_subs_fact from "./subscene";
+import m_time_fact from "./time";
+import m_trans_fact from "./transform";
+import m_tsr_fact from "./tsr";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Anchors internal API.
  * @name anchors
  * @namespace
  * @exports exports as scenes
  */
-b4w.module["__anchors"] = function(exports, require) {
+function Int_anchors(ns, exports) {
 
-var m_batch  = require("__batch");
-var m_cam    = require("__camera");
-var m_cfg    = require("__config");
-var m_cont   = require("__container");
-var m_input  = require("__input");
-var m_obj    = require("__objects");
-var m_obj_util = require("__obj_util");
-var m_print  = require("__print");
-var m_render = require("__renderer");
-var m_scenes = require("__scenes");
-var m_subs   = require("__subscene");
-var m_time   = require("__time");
-var m_trans  = require("__transform");
-var m_tsr    = require("__tsr");
-var m_vec3   = require("__vec3");
+var m_batch  = m_batch_fact(ns);
+var m_cam    = m_cam_fact(ns);
+var m_cfg    = m_cfg_fact(ns);
+var m_cont   = m_cont_fact(ns);
+var m_input  = m_input_fact(ns);
+var m_obj    = m_obj_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_render = m_render_fact(ns);
+var m_scenes = m_scenes_fact(ns);
+var m_subs   = m_subs_fact(ns);
+var m_time   = m_time_fact(ns);
+var m_trans  = m_trans_fact(ns);
+var m_tsr    = m_tsr_fact(ns);
+var m_vec3   = m_vec3_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 
@@ -700,3 +718,7 @@ function is_anchor_lod_visible(obj_render, dist) {
 }
 
 }
+
+var int_anchors_factory = register("__anchors", Int_anchors);
+
+export default int_anchors_factory;

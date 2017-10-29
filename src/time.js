@@ -16,15 +16,18 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
 /**
  * Time internal API.
  * @name time
  * @namespace
  * @exports exports as time
  */
-b4w.module["__time"] = function(exports, require) {
+function Int_time(ns, exports) {
 
-var m_cfg   = require("__config");
+var m_cfg   = m_cfg_fact(ns);
 
 // engine's global timeline (time since initialization)
 var _timeline = 0;
@@ -185,3 +188,7 @@ exports.get_frame = function(timeline) {
 }
 
 }
+
+var int_time_factory = register("__time", Int_time);
+
+export default int_time_factory;

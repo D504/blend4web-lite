@@ -16,6 +16,15 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cam_fact from "../ext/camera";
+import m_ctl_fact from "../ext/controls";
+import m_scenes_fact from "../ext/scenes";
+import m_trans_fact from "../ext/transform";
+import m_util_fact from "../ext/util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+
 /**
  * Gyroscope actions add-on.
  * Provides support for gyroscope on mobile devices.
@@ -23,14 +32,14 @@
  * @module gyroscope
  */
 
-b4w.module["gyroscope"] = function(exports, require) {
+function Gyroscope(ns, exports) {
 
-var m_cam        = require("camera");
-var m_ctl        = require("controls");
-var m_scenes     = require("scenes");
-var m_trans      = require("transform");
-var m_util       = require("util");
-var m_vec3       = require("vec3");
+var m_cam        = m_cam_fact(ns);
+var m_ctl        = m_ctl_fact(ns);
+var m_scenes     = m_scenes_fact(ns);
+var m_trans      = m_trans_fact(ns);
+var m_util       = m_util_fact(ns);
+var m_vec3       = m_vec3_fact(ns);
 
 var _begin_angles = new Float32Array(3);
 var _curr_angles = new Float32Array(3);
@@ -137,3 +146,7 @@ exports.disable_camera_rotation = function() {
 }
 
 };
+
+var gyroscope_factory = register("gyroscope", Gyroscope);
+
+export default gyroscope_factory;

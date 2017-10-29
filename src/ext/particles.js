@@ -16,14 +16,19 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_particles_fact from "../particles";
+import m_print_fact from "../print";
+
 /**
  * {@link https://www.blend4web.com/doc/en/particles.html|Particle system} API. Please note that particle emission itself is controlled by the {@link module:animation} module.
  * @module particles
  */
-b4w.module["particles"] = function(exports, require) {
+function Particles(ns, exports) {
 
-var m_particles = require("__particles");
-var m_print     = require("__print");
+var m_particles = m_particles_fact(ns);
+var m_print     = m_print_fact(ns);
 
 /**
  * Set particle size.
@@ -94,3 +99,7 @@ exports.set_factor = function(obj, psys_name, factor) {
 }
 
 }
+
+var particles_factory = register("particles", Particles);
+
+export default particles_factory;

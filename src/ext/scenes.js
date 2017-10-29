@@ -16,6 +16,21 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_batch_fact from "../batch";
+import m_cam_fact from "../camera";
+import m_cont_fact from "../container";
+import m_data_fact from "../data";
+import m_graph_fact from "../graph";
+import m_obj_fact from "../objects";
+import m_obj_util_fact from "../obj_util";
+import m_print_fact from "../print";
+import m_scenes_fact from "../scenes";
+import m_scgraph_fact from "../scenegraph";
+import m_subs_fact from "../subscene";
+import m_util_fact from "../util";
+
 /**
  * Scene API.
  * Most of the routines presented here require an active scene to be set,
@@ -30,20 +45,20 @@
  * @local SkyParams
  * @local WindParams
  */
-b4w.module["scenes"] = function(exports, require) {
+function Scenes(ns, exports) {
 
-var m_batch    = require("__batch");
-var m_cam      = require("__camera");
-var m_cont     = require("__container");
-var m_data     = require("__data");
-var m_graph    = require("__graph");
-var m_obj      = require("__objects");
-var m_obj_util = require("__obj_util");
-var m_print    = require("__print");
-var m_scenes   = require("__scenes");
-var m_scgraph  = require("__scenegraph");
-var m_subs     = require("__subscene");
-var m_util     = require("__util");
+var m_batch    = m_batch_fact(ns);
+var m_cam      = m_cam_fact(ns);
+var m_cont     = m_cont_fact(ns);
+var m_data     = m_data_fact(ns);
+var m_graph    = m_graph_fact(ns);
+var m_obj      = m_obj_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_scenes   = m_scenes_fact(ns);
+var m_scgraph  = m_scgraph_fact(ns);
+var m_subs     = m_subs_fact(ns);
+var m_util     = m_util_fact(ns);
 
 /**
  * Color correction params.
@@ -1855,3 +1870,7 @@ exports.can_select_objects = function() {
 }
 
 }
+
+var scenes_factory = register("scenes", Scenes);
+
+export default scenes_factory;

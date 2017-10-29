@@ -16,13 +16,21 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_tsr_fact from "./tsr";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_vec4_fact from "./libs/gl_matrix/vec4";
+import m_util_fact from "./util";
+
 /**
  * TBN internal API.
  * @name tbn
  * @namespace
  * @exports exports as tbn
  */
-b4w.module["__tbn"] = function(exports, require) {
+function Int_TBN(ns, exports) {
 
 // offset > 2/65535 to prevent zeroes when converting to short
 var ZERO_TBN_EPSILON = 0.000031;
@@ -31,11 +39,11 @@ var INIT_ANGLE = 0.5;
 
 exports.TBN_NUM_COMP = TBN_NUM_COMP;
 
-var m_quat = require("__quat");
-var m_tsr  = require("__tsr");
-var m_vec3 = require("__vec3");
-var m_vec4 = require("__vec4");
-var m_util = require("__util");
+var m_quat = m_quat_fact(ns);
+var m_tsr  = m_tsr_fact(ns);
+var m_vec3 = m_vec3_fact(ns);
+var m_vec4 = m_vec4_fact(ns);
+var m_util = m_util_fact(ns);
 
 var _quat_tmp = m_quat.create();
 var _quat_tmp2 = m_quat.create();
@@ -313,3 +321,7 @@ exports.multiply_tbn_inv = function(tbn1, tbn2, dest) {
 }
 
 }
+
+var int_tbn_factory = register("__tbn", Int_TBN);
+
+export default int_tbn_factory;

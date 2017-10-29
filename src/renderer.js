@@ -16,6 +16,22 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_batch_fact from "./batch";
+import m_cam_fact from "./camera";
+import m_cfg_fact from "./config";
+import m_debug_fact from "./debug";
+import m_ext_fact from "./extensions";
+import m_geom_fact from "./geometry";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_subs_fact from "./subscene";
+import m_textures_fact from "./textures";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_ver_fact from "./version";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /**
  * Rendering internal API.
  * Performs most of GPU (WebGL) operations.
@@ -24,22 +40,21 @@
  * @namespace
  * @exports exports as renderer
  */
-b4w.module["__renderer"] = function(exports, require) {
+function Int_renderer(ns, exports) {
 
-var m_batch    = require("__batch");
-var m_cam      = require("__camera");
-var m_cfg      = require("__config");
-var m_debug    = require("__debug");
-var m_ext      = require("__extensions");
-var m_geom     = require("__geometry");
-var m_quat     = require("__quat");
-var m_subs     = require("__subscene");
-var m_textures = require("__textures");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
-var m_ver      = require("__version");
-
-var m_vec3     = require("__vec3");
+var m_batch    = m_batch_fact(ns);
+var m_cam      = m_cam_fact(ns);
+var m_cfg      = m_cfg_fact(ns);
+var m_debug    = m_debug_fact(ns);
+var m_ext      = m_ext_fact(ns);
+var m_geom     = m_geom_fact(ns);
+var m_quat     = m_quat_fact(ns);
+var m_subs     = m_subs_fact(ns);
+var m_textures = m_textures_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_ver      = m_ver_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
 
 var USE_BACKFACE_CULLING = true;
 
@@ -2210,3 +2225,7 @@ exports.reset = function() {
 }
 
 }
+
+var int_renderer_factory = register("__renderer", Int_renderer);
+
+export default int_renderer_factory;

@@ -16,20 +16,29 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_bounds_fact from "./boundings";
+import m_cfg_fact from "./config";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_vec4_fact from "./libs/gl_matrix/vec4";
+
 /**
  * Objects utility functions
  * @name obj_util
  * @namespace
  * @exports exports as obj_util
  */
-b4w.module["__obj_util"] = function(exports, require) {
+function Int_obj_util(ns, exports) {
 
-var m_bounds = require("__boundings");
-var m_cfg    = require("__config");
-var m_tsr    = require("__tsr");
-var m_util   = require("__util");
-var m_vec3   = require("__vec3");
-var m_vec4   = require("__vec4");
+var m_bounds = m_bounds_fact(ns);
+var m_cfg    = m_cfg_fact(ns);
+var m_tsr    = m_tsr_fact(ns);
+var m_util   = m_util_fact(ns);
+var m_vec3   = m_vec3_fact(ns);
+var m_vec4   = m_vec4_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 
@@ -1056,3 +1065,7 @@ exports.is_world = function(obj) {
 }
 
 }
+
+var int_obj_util_factory = register("__obj_util", Int_obj_util);
+
+export default int_obj_util_factory;

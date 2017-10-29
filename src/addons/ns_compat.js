@@ -16,6 +16,8 @@
  */
 "use strict";
 
+import register from "../util/register";
+
 if (!window["b4w"])
     throw "Failed to register module ns_compat, load b4w first";
 
@@ -30,5 +32,5 @@ for (var mod_id in b4w.module)
     b4w[mod_id] = b4w.require(mod_id);
 }
 
-b4w.require("ns_compat");
+// b4w.require("ns_compat");
 

@@ -16,7 +16,9 @@
  */
 "use strict";
 
-b4w.module["__version"] = function(exports, require) {
+import register from "./util/register";
+
+function Int_version(ns, exports) {
 
 var TYPE = "DEBUG";
 var DATE = null;
@@ -104,3 +106,7 @@ exports.get_build_version = function() {
 }
 
 }
+
+var int_version_factory = register("__version", Int_version);
+
+export default int_version_factory;

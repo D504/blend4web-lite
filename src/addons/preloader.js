@@ -16,14 +16,18 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cont_fact from "../ext/container";
+
 /**
  * Preloader add-on.
  * Provides API to create various types of standard preloaders.
  * @module preloader
  */
-b4w.module["preloader"] = function(exports, require) {
+function Preloader(ns, exports) {
 
-var m_cont = require("container");
+var m_cont = m_cont_fact(ns);
 
 var PL_CONT_BG_COLOR    = "#484848";
 var PL_BAR_BG_COLOR     = "#5276cf";
@@ -403,3 +407,7 @@ exports.update_preloader = function(percentage) {
 }
 
 }
+
+var preloader_factory = register("preloader", Preloader);
+
+export default preloader_factory;

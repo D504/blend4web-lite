@@ -16,23 +16,36 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cam_fact from "../camera";
+import m_cont_fact from "../container";
+import m_cfg_fact from "../config";
+import m_hud_fact from "../hud";
+import m_input_fact from "../input";
+import m_main_fact from "../main";
+import m_obj_util_fact from "../obj_util";
+import m_print_fact from "../print";
+import m_scs_fact from "../scenes";
+import m_vec4_fact from "../libs/gl_matrix/vec4";
+
 /**
  * Screen API
  * The API is used to manage content on the screen: fullscreen, HMD, HUD.
  * @module screen
  */
-b4w.module["screen"] = function(exports, require) {
+function Screen(ns, exports) {
 
-var m_cam   = require("__camera");
-var m_cont  = require("__container");
-var m_cfg   = require("__config");
-var m_hud   = require("__hud");
-var m_input = require("__input");
-var m_main  = require("__main");
-var m_obj_util = require("__obj_util");
-var m_print = require("__print");
-var m_scs   = require("__scenes");
-var m_vec4  = require("__vec4");
+var m_cam   = m_cam_fact(ns);
+var m_cont  = m_cont_fact(ns);
+var m_cfg   = m_cfg_fact(ns);
+var m_hud   = m_hud_fact(ns);
+var m_input = m_input_fact(ns);
+var m_main  = m_main_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print = m_print_fact(ns);
+var m_scs   = m_scs_fact(ns);
+var m_vec4  = m_vec4_fact(ns);
 
 var _vec4_tmp = m_vec4.create();
 var _vec4_tmp2 = m_vec4.create();
@@ -455,3 +468,7 @@ exports.shot = function(format, quality) {
 }
 
 }
+
+var screen_factory = register("screen", Screen);
+
+export default screen_factory;

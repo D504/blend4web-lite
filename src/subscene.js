@@ -16,6 +16,13 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cam_fact from "./camera";
+import m_cfg_fact from "./config";
+import m_util_fact from "./util";
+import m_bounds_fact from "./boundings";
+
 /**
  * Rendering graph routines.
  *
@@ -23,16 +30,16 @@
  * zero or more inputs and one or more outputs. All subscenes must be closed
  * to last SINK element. SINK element is a fictional subscene without any outputs.
  *
- * @name scenegraph
+ * @name subscene
  * @namespace
- * @exports exports as scenegraph
+ * @exports exports as subscene
  */
-b4w.module["__subscene"] = function(exports, require) {
+function Int_subscene(ns, exports) {
 
-var m_cam      = require("__camera");
-var m_cfg      = require("__config");
-var m_util     = require("__util");
-var m_bounds   = require("__boundings");
+var m_cam      = m_cam_fact(ns);
+var m_cfg      = m_cfg_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_bounds   = m_bounds_fact(ns);
 
 var cfg_out = m_cfg.outlining;
 
@@ -1505,3 +1512,7 @@ function sort_fun_draw_data(a, b) {
 }
 
 }
+
+var int_subscene_factory = register("__subscene", Int_subscene);
+
+export default int_subscene_factory;

@@ -16,15 +16,23 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_armat_fact from "../armature";
+import m_obj_util_fact from "../obj_util";
+import m_trans_fact from "../transform";
+import m_print_fact from "../print";
+
 /**
  * API methods to control armature objects.
  * @module armature
  */
-b4w.module["armature"] = function(exports, require) {
-var m_armat    = require("__armature");
-var m_obj_util = require("__obj_util");
-var m_trans    = require("__transform");
-var m_print    = require("__print");
+function Armature(ns, exports) {
+
+var m_armat    = m_armat_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_trans    = m_trans_fact(ns);
+var m_print    = m_print_fact(ns);
 
 /**
  * Get translation, scale and rotation quaternion of the armature's bone,
@@ -119,3 +127,7 @@ exports.set_bone_tsr_rel = function(armobj, bone_name, tsr) {
 }
 
 }
+
+var armature_factory = register("armature", Armature);
+
+export default armature_factory;

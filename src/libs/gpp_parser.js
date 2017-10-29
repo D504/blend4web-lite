@@ -16,10 +16,12 @@
  */
 "use strict"
 
+import register from "../util/register";
+
 /**
  * Auto-generated GLSL parser
  */
-b4w.module["__gpp_parser"] = function(exports, require) {
+function GPP_parser(ps, exports) {
 
 exports.parser = (function() {
   /*
@@ -8633,3 +8635,7 @@ exports.parser = (function() {
 })();
 
 }
+
+var gpp_parser_factory = register("__gpp_parser", GPP_parser);
+
+export default gpp_parser_factory;

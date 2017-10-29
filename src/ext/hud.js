@@ -16,16 +16,21 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_hud_fact from "../hud";
+import m_print_fact from "../print";
+
 /** 
  * Head-up display functions.
  * To work properly requires initialization of the separate canvas element.
  * @see module:main.init
  * @module hud
  */
-b4w.module["hud"] = function(exports, require) {
+function HUD(ns, exports) {
 
-var m_hud   = require("__hud");
-var m_print = require("__print");
+var m_hud   = m_hud_fact(ns);
+var m_print = m_print_fact(ns);
 
 /**
  * Draw the mixer strip.
@@ -59,3 +64,7 @@ exports.plot_array = function(header, slot, arr, arg_min, arg_max, val_min,
 };
 
 }
+
+var hud_factory = register("hud", HUD);
+
+export default hud_factory;

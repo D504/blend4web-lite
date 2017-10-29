@@ -16,17 +16,23 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+import m_util_fact from "../util";
+import m_math_fact from "../math";
+
 /**
  * Auxiliary math methods. For math methods operating on vectors, matrices or quaternions see the
  * corresponding modules.
  * @module math
  * @local Plane
  */
-b4w.module["math"] = function(exports, require) {
+function Math(ns, exports) {
 
-var m_vec3     = require("__vec3");
-var m_util     = require("__util");
-var m_math     = require("__math");
+var m_vec3     = m_vec3_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_math     = m_math_fact(ns);
 
 var _vec3_tmp = new Float32Array(3);
 
@@ -447,3 +453,7 @@ exports.ease_out_bounce = m_math.ease_out_bounce;
 exports.ease_in_out_bounce = m_math.ease_in_out_bounce;
 
 }
+
+var math_factory = register("math", Math);
+
+export default math_factory;

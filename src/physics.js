@@ -16,28 +16,45 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_debug_fact from "./debug";
+import m_ipc_fact from "./ipc";
+import m_obj_util_fact from "./obj_util";
+import m_print_fact from "./print";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_scs_fact from "./scenes";
+import m_subs_fact from "./subscene";
+import m_trans_fact from "./transform";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_version_fact from "./version";
+import m_navmesh_fact from "./navmesh";
+
 /**
  * Physics internal API.
  * @name physics
  * @namespace
  * @exports exports as physics
  */
-b4w.module["__physics"] = function(exports, require) {
+function Int_physics(ns, exports) {
 
-var m_cfg      = require("__config");
-var m_debug    = require("__debug");
-var m_ipc      = require("__ipc");
-var m_obj_util = require("__obj_util");
-var m_print    = require("__print");
-var m_quat     = require("__quat");
-var m_scs      = require("__scenes");
-var m_subs     = require("__subscene");
-var m_trans    = require("__transform");
-var m_tsr      = require("__tsr");
-var m_util     = require("__util");
-var m_vec3     = require("__vec3");
-var m_version  = require("__version");
-var m_navmesh = require("__navmesh");
+var m_cfg      = m_cfg_fact(ns);
+var m_debug    = m_debug_fact(ns);
+var m_ipc      = m_ipc_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_quat     = m_quat_fact(ns);
+var m_scs      = m_scs_fact(ns);
+var m_subs     = m_subs_fact(ns);
+var m_trans    = m_trans_fact(ns);
+var m_tsr      = m_tsr_fact(ns);
+var m_util     = m_util_fact(ns);
+var m_vec3     = m_vec3_fact(ns);
+var m_version  = m_version_fact(ns);
+var m_navmesh  = m_navmesh_fact(ns);
 
 var cfg_phy = m_cfg.physics;
 var cfg_def = m_cfg.defaults;
@@ -2276,3 +2293,7 @@ exports.has_dynamic_settings = function(obj) {
 }
 
 }
+
+var int_physics_factory = register("__physics", Int_physics);
+
+export default int_physics_factory;

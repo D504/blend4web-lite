@@ -16,6 +16,17 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cam_fact from "../ext/camera";
+import m_cont_fact from "../ext/container";
+import m_ctl_fact from "../ext/controls";
+import m_phy_fact from "../ext/physics";
+import m_print_fact from "../print";
+import m_scs_fact from "../ext/scenes";
+import m_util_fact from "../ext/util";
+import m_main_fact from "../ext/main";
+
 /**
  * Pointer lock and mouse actions add-on.
  * Provides support for mouse pointer lock and low-level movement.
@@ -28,16 +39,16 @@
  * @local PointerlockMouseMoveCallback
  * @local RotationCallback
  */
-b4w.module["mouse"] = function(exports, require) {
+function Mouse(ns, exports) {
 
-var m_cam   = require("camera");
-var m_cont  = require("container");
-var m_ctl   = require("controls");
-var m_phy   = require("physics");
-var m_print = require("print");
-var m_scs   = require("scenes");
-var m_util  = require("util");
-var m_main  = require("main");
+var m_cam   = m_cam_fact(ns);
+var m_cont  = m_cont_fact(ns);
+var m_ctl   = m_ctl_fact(ns);
+var m_phy   = m_phy_fact(ns);
+var m_print = m_print_fact(ns);
+var m_scs   = m_scs_fact(ns);
+var m_util  = m_util_fact(ns);
+var m_main  = m_main_fact(ns);
 
 var FPS_MOUSE_MULT = 0.0004;
 var DRAG_MOUSE_DELTA_MULT = 2;
@@ -490,3 +501,7 @@ exports.get_plock_smooth_factor = function() {
 }
 
 };
+
+var mouse_factory = register("mouse", Mouse);
+
+export default mouse_factory;

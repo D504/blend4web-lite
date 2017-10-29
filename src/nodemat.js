@@ -16,26 +16,41 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_cfg_fact from "./config";
+import m_debug_fact from "./debug";
+import m_graph_fact from "./graph";
+import m_mat3_fact from "./libs/gl_matrix/mat3";
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_obj_fact from "./objects";
+import m_print_fact from "./print";
+import m_shaders_fact from "./shaders";
+import m_scenes_fact from "./scenes";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_tex_fact from "./textures";
+
 /**
  * Node material internal routines.
  * @name nodemat
  * @namespace
  * @exports exports as nodemat
  */
-b4w.module["__nodemat"] = function(exports, require) {
+function Int_nodemat(ns, exports) {
 
-var m_cfg     = require("__config");
-var m_debug   = require("__debug");
-var m_graph   = require("__graph");
-var m_mat3    = require("__mat3");
-var m_mat4    = require("__mat4");
-var m_obj     = require("__objects")
-var m_print   = require("__print");
-var m_shaders = require("__shaders");
-var m_scenes  = require("__scenes");
-var m_util    = require("__util");
-var m_vec3    = require("__vec3");
-var m_tex     = require("__textures");
+var m_cfg     = m_cfg_fact(ns);
+var m_debug   = m_debug_fact(ns);
+var m_graph   = m_graph_fact(ns);
+var m_mat3    = m_mat3_fact(ns);
+var m_mat4    = m_mat4_fact(ns);
+var m_obj     = m_obj_fact(ns)
+var m_print   = m_print_fact(ns);
+var m_shaders = m_shaders_fact(ns);
+var m_scenes  = m_scenes_fact(ns);
+var m_util    = m_util_fact(ns);
+var m_vec3    = m_vec3_fact(ns);
+var m_tex     = m_tex_fact(ns);
 
 var _shader_ident_counters = {};
 var _composed_ngraph_proxies = {};
@@ -4833,3 +4848,7 @@ function check_curve_usage(bpy_node, ind, start, end) {
 }
 
 }
+
+var int_nodemat_factory = register("__nodemat", Int_nodemat);
+
+export default int_nodemat_factory;

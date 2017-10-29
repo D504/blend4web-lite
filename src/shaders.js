@@ -16,19 +16,27 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_assets_fact from "./assets";
+import m_cfg_fact from "./config";
+import m_debug_fact from "./debug";
+import m_print_fact from "./print";
+import m_util_fact from "./util";
+
 /**
  * Shaders internal API.
  * @name shaders
  * @namespace
  * @exports exports as shaders
  */
-b4w.module["__shaders"] = function(exports, require) {
+function Int_shaders(ns, exports) {
 
-var m_assets = require("__assets");
-var m_cfg    = require("__config");
-var m_debug  = require("__debug");
-var m_print  = require("__print");
-var m_util   = require("__util");
+var m_assets = m_assets_fact(ns);
+var m_cfg    = m_cfg_fact(ns);
+var m_debug  = m_debug_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_util   = m_util_fact(ns);
 
 var cfg_def = m_cfg.defaults;
 var cfg_lim = m_cfg.context_limits;
@@ -1828,3 +1836,7 @@ exports.reset = function() {
 }
 
 }
+
+var int_shaders_factory = register("__shaders", Int_shaders);
+
+export default int_shaders_factory;

@@ -16,6 +16,11 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_mat3_fact from "./libs/gl_matrix/mat3";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+
 /* ============================================================
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
  *
@@ -32,10 +37,10 @@
  * @namespace
  * @exports exports as math
  */
-b4w.module["__math"] = function(exports, require) {
+function Int_math(ns, exports) {
 
-var m_mat3 = require("__mat3");
-var m_vec3 = require("__vec3");
+var m_mat3 = m_mat3_fact(ns);
+var m_vec3 = m_vec3_fact(ns);
 
 var _vec3_tmp = new Float32Array(3);
 var _mat3_tmp = new Float32Array(9);
@@ -457,3 +462,7 @@ function ease_in_out_bounce(t, b, c, d) {
 }
 
 }
+
+var int_math_factory = register("__math", Int_math);
+
+export default int_math_factory;

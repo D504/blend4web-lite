@@ -16,23 +16,35 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_anim_fact from "./animation";
+import m_obj_fact from "./objects";
+import m_obj_util_fact from "./obj_util";
+import m_print_fact from "./print";
+import m_scs_fact from "./scenes";
+import m_sfx_fact from "./sfx";
+import m_tex_fact from "./textures";
+import m_time_fact from "./time";
+import m_util_fact from "./util";
+
 /**
  * NLA scheduler module.
  * @name nla
  * @namespace
  * @exports exports as nla
  */
-b4w.module["__nla"] = function(exports, require) {
+function Int_NLA(ns, exports) {
 
-var m_anim      = require("__animation");
-var m_obj       = require("__objects");
-var m_obj_util  = require("__obj_util");
-var m_print     = require("__print");
-var m_scs       = require("__scenes");
-var m_sfx       = require("__sfx");
-var m_tex       = require("__textures");
-var m_time      = require("__time");
-var m_util      = require("__util");
+var m_anim      = m_anim_fact(ns);
+var m_obj       = m_obj_fact(ns);
+var m_obj_util  = m_obj_util_fact(ns);
+var m_print     = m_print_fact(ns);
+var m_scs       = m_scs_fact(ns);
+var m_sfx       = m_sfx_fact(ns);
+var m_tex       = m_tex_fact(ns);
+var m_time      = m_time_fact(ns);
+var m_util      = m_util_fact(ns);
 
 var _nla_arr = [];
 var _start_time = -1;
@@ -369,7 +381,7 @@ function get_nodetree_nla_tracks_r(node_tree, container, name_list) {
         var nla_tracks = anim_data["nla_tracks"];
         if (nla_tracks)
             for (var i = 0; i < nla_tracks.length; i++) {
-                // TODO: need to check this. Writing to bpy object directly
+                // TODO: need to check exports. Writing to bpy object directly
                 nla_tracks[i].name_list = name_list;
                 container.push(nla_tracks[i]);
             }
@@ -1017,3 +1029,7 @@ exports.get_frame_end = function() {
 }
 
 }
+
+var int_nla_factory = register("__nla", Int_NLA);
+
+export default int_nla_factory;

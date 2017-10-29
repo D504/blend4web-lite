@@ -16,6 +16,18 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_cam_fact from "../ext/camera";
+import m_ctl_fact from "../ext/controls";
+import m_print_fact from "../print";
+import m_scs_fact from "../ext/scenes";
+import m_time_fact from "../ext/time";
+import m_trans_fact from "../ext/transform";
+import m_tsr_fact from "../ext/tsr";
+import m_util_fact from "../ext/util";
+import m_vec3_fact from "../libs/gl_matrix/vec3";
+
 /**
  * Camera animation add-on.
  * Implements procedural animation for the camera.
@@ -26,17 +38,18 @@
  * @local MoveCameraToPointCallback
  * @local RotateCameraCallback
  */
-b4w.module["camera_anim"] = function(exports, require) {
 
-var m_cam   = require("camera");
-var m_ctl   = require("controls");
-var m_print = require("print");
-var m_scs   = require("scenes");
-var m_time  = require("time");
-var m_trans = require("transform");
-var m_tsr   = require("tsr");
-var m_util  = require("util");
-var m_vec3  = require("vec3");
+function Camera_anim(ns, exports) {
+
+var m_cam   = m_cam_fact(ns);
+var m_ctl   = m_ctl_fact(ns);
+var m_print = m_print_fact(ns);
+var m_scs   = m_scs_fact(ns);
+var m_time  = m_time_fact(ns);
+var m_trans = m_trans_fact(ns);
+var m_tsr   = m_tsr_fact(ns);
+var m_util  = m_util_fact(ns);
+var m_vec3  = m_vec3_fact(ns);
 
 var ROTATION_OFFSET = 0.2;
 var ROTATION_LIMITS_EPS = 1E-6;
@@ -593,3 +606,7 @@ exports.is_rotating = function() {
 }
 
 }
+
+var camera_anim_factory = register("camera_anim", Camera_anim);
+
+export default camera_anim_factory;

@@ -16,44 +16,77 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_batch_fact from "./batch";
+import m_bounds_fact from "./boundings";
+import m_cam_fact from "./camera";
+import m_cfg_fact from "./config";
+import m_cont_fact from "./container";
+import m_debug_fact from "./debug";
+import m_graph_fact from "./graph";
+import m_hud_fact from "./hud";
+import m_input_fact from "./input";
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_nodemat_fact from "./nodemat";
+import m_obj_fact from "./objects";
+import m_textures_fact from "./textures";
+import m_obj_util_fact from "./obj_util";
+import m_phy_fact from "./physics";
+import m_prerender_fact from "./prerender";
+import m_primitives_fact from "./primitives";
+import m_print_fact from "./print";
+import m_quat_fact from "./libs/gl_matrix/quat";
+import m_render_fact from "./renderer";
+import m_scgraph_fact from "./scenegraph";
+import m_sfx_fact from "./sfx";
+import m_shaders_fact from "./shaders";
+import m_subs_fact from "./subscene";
+import m_tex_fact from "./textures";
+import m_tsr_fact from "./tsr";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_vec4_fact from "./libs/gl_matrix/vec4";
+import m_version_fact from "./version";
+
 /**
  * Scene internal API.
  * @name scenes
  * @namespace
  * @exports exports as scenes
  */
-b4w.module["__scenes"] = function(exports, require) {
+function Int_scenes(ns, exports) {
 
-var m_batch      = require("__batch");
-var m_bounds     = require("__boundings");
-var m_cam        = require("__camera");
-var m_cfg        = require("__config");
-var m_cont       = require("__container");
-var m_debug      = require("__debug");
-var m_graph      = require("__graph");
-var m_hud        = require("__hud");
-var m_input      = require("__input");
-var m_mat4       = require("__mat4");
-var m_nodemat    = require("__nodemat");
-var m_obj        = require("__objects");
-var m_textures   = require("__textures");
-var m_obj_util   = require("__obj_util");
-var m_phy        = require("__physics");
-var m_prerender  = require("__prerender");
-var m_primitives = require("__primitives");
-var m_print      = require("__print");
-var m_quat       = require("__quat");
-var m_render     = require("__renderer");
-var m_scgraph    = require("__scenegraph");
-var m_sfx        = require("__sfx");
-var m_shaders    = require("__shaders");
-var m_subs       = require("__subscene");
-var m_tex        = require("__textures");
-var m_tsr        = require("__tsr");
-var m_util       = require("__util");
-var m_vec3       = require("__vec3");
-var m_vec4       = require("__vec4");
-var m_version    = require("__version");
+var m_batch      = m_batch_fact(ns);
+var m_bounds     = m_bounds_fact(ns);
+var m_cam        = m_cam_fact(ns);
+var m_cfg        = m_cfg_fact(ns);
+var m_cont       = m_cont_fact(ns);
+var m_debug      = m_debug_fact(ns);
+var m_graph      = m_graph_fact(ns);
+var m_hud        = m_hud_fact(ns);
+var m_input      = m_input_fact(ns);
+var m_mat4       = m_mat4_fact(ns);
+var m_nodemat    = m_nodemat_fact(ns);
+var m_obj        = m_obj_fact(ns);
+var m_textures   = m_textures_fact(ns);
+var m_obj_util   = m_obj_util_fact(ns);
+var m_phy        = m_phy_fact(ns);
+var m_prerender  = m_prerender_fact(ns);
+var m_primitives = m_primitives_fact(ns);
+var m_print      = m_print_fact(ns);
+var m_quat       = m_quat_fact(ns);
+var m_render     = m_render_fact(ns);
+var m_scgraph    = m_scgraph_fact(ns);
+var m_sfx        = m_sfx_fact(ns);
+var m_shaders    = m_shaders_fact(ns);
+var m_subs       = m_subs_fact(ns);
+var m_tex        = m_tex_fact(ns);
+var m_tsr        = m_tsr_fact(ns);
+var m_util       = m_util_fact(ns);
+var m_vec3       = m_vec3_fact(ns);
+var m_vec4       = m_vec4_fact(ns);
+var m_version    = m_version_fact(ns);
 
 var cfg_dbg = m_cfg.debug_subs;
 var cfg_def = m_cfg.defaults;
@@ -4709,3 +4742,7 @@ exports.recalculate_draw_data = function(batch) {
 }
 
 }
+
+var int_scenes_factory = register("__scenes", Int_scenes);
+
+export default int_scenes_factory;

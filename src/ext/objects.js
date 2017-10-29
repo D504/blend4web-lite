@@ -16,6 +16,16 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_geom_fact from "../geometry";
+import m_obj_fact from "../objects";
+import m_batch_fact from "../batch";
+import m_obj_util_fact from "../obj_util";
+import m_print_fact from "../print";
+import m_scenes_fact from "../scenes";
+import m_util_fact from "../util";
+
 /**
  * Objects API.
  * <p>Additional topics in the User Manual: {@link
@@ -30,15 +40,15 @@
  * @local ObjectMetaTags
  * @local WindBendingParams
  */
-b4w.module["objects"] = function(exports, require) {
+function Objects(ns, exports) {
 
-var m_geom     = require("__geometry");
-var m_obj      = require("__objects");
-var m_batch    = require("__batch");
-var m_obj_util = require("__obj_util");
-var m_print    = require("__print");
-var m_scenes   = require("__scenes");
-var m_util     = require("__util");
+var m_geom     = m_geom_fact(ns);
+var m_obj      = m_obj_fact(ns);
+var m_batch    = m_batch_fact(ns);
+var m_obj_util = m_obj_util_fact(ns);
+var m_print    = m_print_fact(ns);
+var m_scenes   = m_scenes_fact(ns);
+var m_util     = m_util_fact(ns);
 
 /**
  * @typedef {Object} ObjectMetaTags
@@ -509,3 +519,7 @@ exports.show_all_by_data_id = function(data_id) {
 }
 
 }
+
+var objects_factory = register("objects", Objects);
+
+export default objects_factory;

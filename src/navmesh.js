@@ -15,20 +15,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 "use strict";
+
+import register from "./util/register";
+
+import m_geom_fact from "./geometry";
+import m_math_fact from "./math";
+import m_mat4_fact from "./libs/gl_matrix/mat4";
+import m_util_fact from "./util";
+import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_vec4_fact from "./libs/gl_matrix/vec4";
+
 /**
  * Navigation mesh internal API.
  * @name navmesh
  * @namespace
  * @exports exports as navmesh
  */
-b4w.module["__navmesh"] = function(exports, require) {
+function Int_navmesh(ns, exports) {
 
-var m_geom  = require("__geometry");
-var m_math  = require("__math");
-var m_mat4  = require("__mat4");
-var m_util  = require("__util");
-var m_vec3  = require("__vec3");
-var m_vec4  = require("__vec4");
+var m_geom  = m_geom_fact(ns);
+var m_math  = m_math_fact(ns);
+var m_mat4  = m_mat4_fact(ns);
+var m_util  = m_util_fact(ns);
+var m_vec3  = m_vec3_fact(ns);
+var m_vec4  = m_vec4_fact(ns);
 
 // TODO: reduce count of tmp variables
 var _vec3_tmp = m_vec3.create();
@@ -893,3 +903,7 @@ function find_path(navmesh, start_pos, target_pos, options) {
 }
 
 }
+
+var int_navmesh_factory = register("__navmesh", Int_navmesh);
+
+export default int_navmesh_factory;

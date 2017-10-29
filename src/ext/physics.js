@@ -16,6 +16,13 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_phy_fact from "../physics";
+import m_print_fact from "../print";
+import m_util_fact from "../util";
+import m_nmesh_fact from "../navmesh";
+
 /**
  * Physics module. Provides API to uranium.js physics engine. 
  * @see https://www.blend4web.com/doc/en/physics.html
@@ -28,7 +35,7 @@
  * @local NavmeshDistanceCallback
  * @local NavmeshPathOptions
  */
-b4w.module["physics"] = function(exports, require) {
+function Physics(ns, exports) {
 
 /**
  * Navmesh distance callback. Used to determine start and end polygon of navmesh
@@ -40,10 +47,10 @@ b4w.module["physics"] = function(exports, require) {
  * @param {number} current_max_distance Current maximum distance
  */
 
-var m_phy   = require("__physics");
-var m_print = require("__print");
-var m_util  = require("__util");
-var m_nmesh = require("__navmesh");
+var m_phy   = m_phy_fact(ns);
+var m_print = m_print_fact(ns);
+var m_util  = m_util_fact(ns);
+var m_nmesh = m_nmesh_fact(ns);
 
 /**
  * Collision result callback.
@@ -1115,3 +1122,6 @@ exports.navmesh_find_path = function (navmesh_obj, start_pos, dest_pos, options)
 }
 }
 
+var physics_factory = register("physics", Physics);
+
+export default physics_factory;

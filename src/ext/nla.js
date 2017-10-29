@@ -16,17 +16,24 @@
  */
 "use strict";
 
+import register from "../util/register";
+
+import m_nla_fact from "../nla";
+import m_time_fact from "../time";
+import m_print_fact from "../print";
+import m_util_fact from "../util";
+
 /**
  * API methods to control {@link https://www.blend4web.com/doc/en/animation.html#non-linear-animation|non linear animation}.
  * @module nla
  * @local NlaFinishCallback
  */
-b4w.module["nla"] = function(exports, require) {
+function NLA(ns, exports) {
 
-var m_nla    = require("__nla");
-var m_time   = require("__time");
-var m_print  = require("__print");
-var m_util   = require("__util");
+var m_nla    = m_nla_fact(ns);
+var m_time   = m_time_fact(ns);
+var m_print  = m_print_fact(ns);
+var m_util   = m_util_fact(ns);
 
 /**
  * Callback executed after the NLA animation has finished.
@@ -182,3 +189,7 @@ exports.clear_callback = function() {
     m_nla.clear_callback();
 }
 }
+
+var nla_factory = register("nla", NLA);
+
+export default nla_factory;

@@ -20,7 +20,9 @@
 
 "use strict";
 
-b4w.module["__md5"] = function(exports, require) {
+import register from "../util/register";
+
+function MD5(ns, exports) {
 
 function md5cycle(x, k) {
     var a = x[0], b = x[1], c = x[2], d = x[3];
@@ -200,5 +202,8 @@ exports.hexdigest = function(msg) {
     return hex(md51(msg));
 }
 
-
 }
+
+var md5_factory = register("md5", MD5);
+
+export default md5_factory;

@@ -16,16 +16,21 @@
  */
 "use strict";
 
+import register from "./util/register";
+
+import m_graph_fact from "./graph";
+import m_subs_fact from "./subscene";
+
 /**
  * Head-up display control module.
  * @name hud
  * @namespace
  * @exports exports as hud
  */
-b4w.module["__hud"] = function(exports, require) {
+function Int_HUD(ns, exports) {
 
-var m_graph = require("__graph");
-var m_subs  = require("__subscene");
+var m_graph = m_graph_fact(ns);
+var m_subs  = m_subs_fact(ns);
 
 var START_POINT_X = 30;
 var START_POINT_Y = 80;
@@ -567,3 +572,7 @@ function draw_param_bar(ctx, vertical, box, param, is_active) {
 }
 
 }
+
+var int_hud_factory = register("__hud", Int_HUD);
+
+export default int_hud_factory;
