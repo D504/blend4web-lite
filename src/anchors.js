@@ -16,23 +16,23 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_batch_fact from "./batch";
-import m_cam_fact from "./camera";
-import m_cfg_fact from "./config";
-import m_cont_fact from "./container";
-import m_input_fact from "./input";
-import m_obj_fact from "./objects";
-import m_obj_util_fact from "./obj_util";
-import m_print_fact from "./print";
-import m_render_fact from "./renderer";
-import m_scenes_fact from "./scenes";
-import m_subs_fact from "./subscene";
-import m_time_fact from "./time";
-import m_trans_fact from "./transform";
-import m_tsr_fact from "./tsr";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_batch_fact from "./batch.js";
+import m_cam_fact from "./camera.js";
+import m_cfg_fact from "./config.js";
+import m_cont_fact from "./container.js";
+import m_input_fact from "./input.js";
+import m_obj_fact from "./objects.js";
+import m_obj_util_fact from "./obj_util.js";
+import m_print_fact from "./print.js";
+import m_render_fact from "./renderer.js";
+import m_scenes_fact from "./scenes.js";
+import m_subs_fact from "./subscene.js";
+import m_time_fact from "./time.js";
+import m_trans_fact from "./transform.js";
+import m_tsr_fact from "./tsr.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Anchors internal API.

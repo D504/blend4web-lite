@@ -16,14 +16,14 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_compat_fact from "../compat";
-import m_print_fact from "../print";
-import m_quat_fact from "../libs/gl_matrix/quat";
-import m_tbn_fact from "../tbn";
-import m_util_fact from "../util";
-import m_vec3_fact from "../libs/gl_matrix/vec3";
+import m_compat_fact from "../compat.js";
+import m_print_fact from "../print.js";
+import m_quat_fact from "../libs/gl_matrix/quat.js";
+import m_tbn_fact from "../tbn.js";
+import m_util_fact from "../util.js";
+import m_vec3_fact from "../libs/gl_matrix/vec3.js";
 
 /**
  * Contains various utility methods for math, searching etc.

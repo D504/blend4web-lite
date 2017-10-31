@@ -16,17 +16,17 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_mat3_fact from "./libs/gl_matrix/mat3";
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_math_fact from "./math";
-import m_print_fact from "./print";
-import m_tbn_fact from "./tbn";
-import m_tsr_fact from "./tsr";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_vec4_fact from "./libs/gl_matrix/vec4";
+import m_mat3_fact from "./libs/gl_matrix/mat3.js";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_math_fact from "./math.js";
+import m_print_fact from "./print.js";
+import m_tbn_fact from "./tbn.js";
+import m_tsr_fact from "./tsr.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_vec4_fact from "./libs/gl_matrix/vec4.js";
 
 /**
  * Utility functions.

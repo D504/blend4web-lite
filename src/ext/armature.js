@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_armat_fact from "../armature";
-import m_obj_util_fact from "../obj_util";
-import m_trans_fact from "../transform";
-import m_print_fact from "../print";
+import m_armat_fact from "../armature.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_trans_fact from "../transform.js";
+import m_print_fact from "../print.js";
 
 /**
  * API methods to control armature objects.

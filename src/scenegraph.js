@@ -16,18 +16,18 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_batch_fact from "./batch";
-import m_cam_fact from "./camera";
-import m_cfg_fact from "./config";
-import m_debug_fact from "./debug";
-import m_graph_fact from "./graph";
-import m_render_fact from "./renderer";
-import m_shaders_fact from "./shaders";
-import m_subs_fact from "./subscene";
-import m_tex_fact from "./textures";
-import m_util_fact from "./util";
+import m_batch_fact from "./batch.js";
+import m_cam_fact from "./camera.js";
+import m_cfg_fact from "./config.js";
+import m_debug_fact from "./debug.js";
+import m_graph_fact from "./graph.js";
+import m_render_fact from "./renderer.js";
+import m_shaders_fact from "./shaders.js";
+import m_subs_fact from "./subscene.js";
+import m_tex_fact from "./textures.js";
+import m_util_fact from "./util.js";
 
 /**
  * Rendering graph routines.

@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cfg_fact from "./config";
-import m_geom_fact from "./geometry";
-import m_tbn_fact from "./tbn";
-import m_util_fact from "./util";
+import m_cfg_fact from "./config.js";
+import m_geom_fact from "./geometry.js";
+import m_tbn_fact from "./tbn.js";
+import m_util_fact from "./util.js";
 
 /**
  * Generates submeshes with primitive geometry.

@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_obj_util_fact from "../obj_util";
-import m_scs_fact from "../scenes";
-import m_sfx_fact from "../sfx";
-import m_print_fact from "../print";
+import m_obj_util_fact from "../obj_util.js";
+import m_scs_fact from "../scenes.js";
+import m_sfx_fact from "../sfx.js";
+import m_print_fact from "../print.js";
 
 /** 
  * Sound effects API.

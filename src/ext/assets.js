@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_assets_fact from "../assets";
+import m_assets_fact from "../assets.js";
 /** 
  * Low-level resource loader. In order to load exported scenes, use the {@link module:data|data} module instead.
  * @module assets

@@ -16,18 +16,18 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_anchors_fact from "./anchors";
-import m_cfg_fact from "./config";
-import m_data_fact from "./data";
-import m_hud_fact from "./hud";
-import m_print_fact from "./print";
-import m_scenes_fact from "./scenes";
-import m_subs_fact from "./subscene";
-import m_time_fact from "./time";
-import m_trans_fact from "./transform";
-import m_util_fact from "./util";
+import m_anchors_fact from "./anchors.js";
+import m_cfg_fact from "./config.js";
+import m_data_fact from "./data.js";
+import m_hud_fact from "./hud.js";
+import m_print_fact from "./print.js";
+import m_scenes_fact from "./scenes.js";
+import m_subs_fact from "./subscene.js";
+import m_time_fact from "./time.js";
+import m_trans_fact from "./transform.js";
+import m_util_fact from "./util.js";
 
 /**
  * @name container

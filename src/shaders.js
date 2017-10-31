@@ -16,13 +16,13 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_assets_fact from "./assets";
-import m_cfg_fact from "./config";
-import m_debug_fact from "./debug";
-import m_print_fact from "./print";
-import m_util_fact from "./util";
+import m_assets_fact from "./assets.js";
+import m_cfg_fact from "./config.js";
+import m_debug_fact from "./debug.js";
+import m_print_fact from "./print.js";
+import m_util_fact from "./util.js";
 
 /**
  * Shaders internal API.

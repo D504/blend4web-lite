@@ -16,20 +16,20 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cfg_fact from "./config";
-import m_debug_fact from "./debug";
-import m_graph_fact from "./graph";
-import m_mat3_fact from "./libs/gl_matrix/mat3";
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_obj_fact from "./objects";
-import m_print_fact from "./print";
-import m_shaders_fact from "./shaders";
-import m_scenes_fact from "./scenes";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_tex_fact from "./textures";
+import m_cfg_fact from "./config.js";
+import m_debug_fact from "./debug.js";
+import m_graph_fact from "./graph.js";
+import m_mat3_fact from "./libs/gl_matrix/mat3.js";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_obj_fact from "./objects.js";
+import m_print_fact from "./print.js";
+import m_shaders_fact from "./shaders.js";
+import m_scenes_fact from "./scenes.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_tex_fact from "./textures.js";
 
 /**
  * Node material internal routines.

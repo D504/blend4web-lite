@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cfg_fact from "./config";
+import m_cfg_fact from "./config.js";
 /**
  * Time internal API.
  * @name time

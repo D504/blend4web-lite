@@ -16,17 +16,17 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cam_fact from "../ext/camera";
-import m_ctl_fact from "../ext/controls";
-import m_print_fact from "../print";
-import m_scs_fact from "../ext/scenes";
-import m_time_fact from "../ext/time";
-import m_trans_fact from "../ext/transform";
-import m_tsr_fact from "../ext/tsr";
-import m_util_fact from "../ext/util";
-import m_vec3_fact from "../libs/gl_matrix/vec3";
+import m_cam_fact from "../ext/camera.js";
+import m_ctl_fact from "../ext/controls.js";
+import m_print_fact from "../print.js";
+import m_scs_fact from "../ext/scenes.js";
+import m_time_fact from "../ext/time.js";
+import m_trans_fact from "../ext/transform.js";
+import m_tsr_fact from "../ext/tsr.js";
+import m_util_fact from "../ext/util.js";
+import m_vec3_fact from "../libs/gl_matrix/vec3.js";
 
 /**
  * Camera animation add-on.

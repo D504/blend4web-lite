@@ -16,10 +16,10 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_graph_fact from "./graph";
-import m_subs_fact from "./subscene";
+import m_graph_fact from "./graph.js";
+import m_subs_fact from "./subscene.js";
 
 /**
  * Head-up display control module.

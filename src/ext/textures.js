@@ -16,14 +16,14 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_print_fact from "../print";
-import m_scenes_fact from "../scenes";
-import m_textures_fact from "../textures";
-import m_obj_util_fact from "../obj_util";
-import m_util_fact from "../util";
-import m_assets_fact from "../assets";
+import m_print_fact from "../print.js";
+import m_scenes_fact from "../scenes.js";
+import m_textures_fact from "../textures.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_util_fact from "../util.js";
+import m_assets_fact from "../assets.js";
 
 /**
  * API methods to control textures.

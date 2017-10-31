@@ -16,16 +16,16 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_debug_fact from "./debug";
-import m_geom_fact from "./geometry";
-import m_obj_fact from "./objects";
-import m_render_fact from "./renderer";
-import m_subs_fact from "./subscene";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_debug_fact from "./debug.js";
+import m_geom_fact from "./geometry.js";
+import m_obj_fact from "./objects.js";
+import m_render_fact from "./renderer.js";
+import m_subs_fact from "./subscene.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Prerender module, perform culling/lod stuff.

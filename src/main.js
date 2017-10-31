@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cont_fact from "./container";
+import m_cont_fact from "./container.js";
 
 /**
  * Inner main Blend4Web module.

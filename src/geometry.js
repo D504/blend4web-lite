@@ -16,16 +16,16 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_bounds_fact from "./boundings";
-import m_ext_fact from "./extensions";
-import m_print_fact from "./print";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_tbn_fact from "./tbn";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_bounds_fact from "./boundings.js";
+import m_ext_fact from "./extensions.js";
+import m_print_fact from "./print.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_tbn_fact from "./tbn.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Geometry internal API.
@@ -2081,7 +2081,7 @@ function extract_triangles_position(submesh, dest) {
 
     var positions = submesh.va_frames[0]["a_position"];
 
-    return ext_triangles(positions, submesh, dest);;
+    return ext_triangles(positions, submesh, dest);
 }
 
 function extract_triangles_tbn(submesh, dest) {

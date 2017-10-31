@@ -16,19 +16,19 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_bounds_fact from "./boundings";
-import m_cam_fact from "./camera";
-import m_cons_fact from "./constraints";
-import m_lights_fact from "./lights";
-import m_obj_fact from "./objects";
-import m_obj_util_fact from "./obj_util";
-import m_scs_fact from "./scenes";
-import m_sfx_fact from "./sfx";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_bounds_fact from "./boundings.js";
+import m_cam_fact from "./camera.js";
+import m_cons_fact from "./constraints.js";
+import m_lights_fact from "./lights.js";
+import m_obj_fact from "./objects.js";
+import m_obj_util_fact from "./obj_util.js";
+import m_scs_fact from "./scenes.js";
+import m_sfx_fact from "./sfx.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Object transformation API

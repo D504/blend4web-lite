@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * TSR-8 utility functions

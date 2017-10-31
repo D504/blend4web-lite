@@ -16,30 +16,30 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_bounds_fact from "./boundings";
-import m_cfg_fact from "./config";
-import m_print_fact from "./print";
-import m_extensions_fact from "./extensions";
-import m_graph_fact from "./graph";
-import m_mat3_fact from "./libs/gl_matrix/mat3";
-import m_nodemat_fact from "./nodemat";
-import m_obj_util_fact from "./obj_util";
-import m_particles_fact from "./particles";
-import m_primitives_fact from "./primitives";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_reformer_fact from "./reformer";
-import m_render_fact from "./renderer";
-import m_scenegraph_fact from "./scenegraph";
-import m_shaders_fact from "./shaders";
-import m_subs_fact from "./subscene";
-import m_textures_fact from "./textures";
-import m_tsr_fact from "./tsr";
-import m_geom_fact from "./geometry";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_vec4_fact from "./libs/gl_matrix/vec4";
+import m_bounds_fact from "./boundings.js";
+import m_cfg_fact from "./config.js";
+import m_print_fact from "./print.js";
+import m_extensions_fact from "./extensions.js";
+import m_graph_fact from "./graph.js";
+import m_mat3_fact from "./libs/gl_matrix/mat3.js";
+import m_nodemat_fact from "./nodemat.js";
+import m_obj_util_fact from "./obj_util.js";
+import m_particles_fact from "./particles.js";
+import m_primitives_fact from "./primitives.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_reformer_fact from "./reformer.js";
+import m_render_fact from "./renderer.js";
+import m_scenegraph_fact from "./scenegraph.js";
+import m_shaders_fact from "./shaders.js";
+import m_subs_fact from "./subscene.js";
+import m_textures_fact from "./textures.js";
+import m_tsr_fact from "./tsr.js";
+import m_geom_fact from "./geometry.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_vec4_fact from "./libs/gl_matrix/vec4.js";
 
 /**
  * Batch internal API.

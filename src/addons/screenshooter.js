@@ -16,10 +16,10 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_screen_fact from "../ext/screen";
-import m_print_fact from "../print";
+import m_screen_fact from "../ext/screen.js";
+import m_print_fact from "../print.js";
 
 /**
  * Screen shooter add-on.

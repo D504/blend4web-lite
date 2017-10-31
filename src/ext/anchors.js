@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_anchors_fact from "../anchors";
+import m_anchors_fact from "../anchors.js";
 
 /**
  * Anchors are Empty objects assigned in Blender.

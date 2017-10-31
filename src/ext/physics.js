@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_phy_fact from "../physics";
-import m_print_fact from "../print";
-import m_util_fact from "../util";
-import m_nmesh_fact from "../navmesh";
+import m_phy_fact from "../physics.js";
+import m_print_fact from "../print.js";
+import m_util_fact from "../util.js";
+import m_nmesh_fact from "../navmesh.js";
 
 /**
  * Physics module. Provides API to uranium.js physics engine. 

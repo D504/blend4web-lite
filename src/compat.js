@@ -16,13 +16,13 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cfg_fact from "./config";
-import m_debug_fact from "./debug";
-import m_ext_fact from "./extensions";
-import m_print_fact from "./print";
-import m_render_fact from "./renderer";
+import m_cfg_fact from "./config.js";
+import m_debug_fact from "./debug.js";
+import m_ext_fact from "./extensions.js";
+import m_print_fact from "./print.js";
+import m_render_fact from "./renderer.js";
 
 /**
  * Compatibility internal API.

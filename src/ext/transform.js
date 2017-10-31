@@ -16,16 +16,16 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_bounds_fact from "../boundings";
-import m_obj_util_fact from "../obj_util";
-import m_phy_fact from "../physics";
-import m_print_fact from "../print";
-import m_quat_fact from "../libs/gl_matrix/quat";
-import m_trans_fact from "../transform";
-import m_tsr_fact from "../tsr";
-import m_util_fact from "../util";
+import m_bounds_fact from "../boundings.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_phy_fact from "../physics.js";
+import m_print_fact from "../print.js";
+import m_quat_fact from "../libs/gl_matrix/quat.js";
+import m_trans_fact from "../transform.js";
+import m_tsr_fact from "../tsr.js";
+import m_util_fact from "../util.js";
 
 /**
  * Object transformations API.

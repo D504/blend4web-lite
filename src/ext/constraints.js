@@ -16,16 +16,16 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cam_fact from "../camera";
-import m_cons_fact from "../constraints";
-import m_obj_util_fact from "../obj_util";
-import m_phy_fact from "../physics";
-import m_print_fact from "../print";
-import m_trans_fact from "../transform";
-import m_util_fact from "../util";
-import m_vec3_fact from "../libs/gl_matrix/vec3";
+import m_cam_fact from "../camera.js";
+import m_cons_fact from "../constraints.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_phy_fact from "../physics.js";
+import m_print_fact from "../print.js";
+import m_trans_fact from "../transform.js";
+import m_util_fact from "../util.js";
+import m_vec3_fact from "../libs/gl_matrix/vec3.js";
 
 /**
  * Object constraints API. Please note that these constraints are not the same

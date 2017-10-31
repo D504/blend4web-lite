@@ -16,14 +16,14 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_geom_fact from "./geometry";
-import m_math_fact from "./math";
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_vec4_fact from "./libs/gl_matrix/vec4";
+import m_geom_fact from "./geometry.js";
+import m_math_fact from "./math.js";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_vec4_fact from "./libs/gl_matrix/vec4.js";
 
 /**
  * Navigation mesh internal API.

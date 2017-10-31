@@ -16,11 +16,11 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Lights internal API module.

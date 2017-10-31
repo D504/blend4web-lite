@@ -16,17 +16,17 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cfg_fact from "./config";
-import m_batch_fact from "./batch";
-import m_geom_fact from "./geometry";
-import m_tbn_fact from "./tbn";
-import m_tex_fact from "./textures";
-import m_time_fact from "./time";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_cfg_fact from "./config.js";
+import m_batch_fact from "./batch.js";
+import m_geom_fact from "./geometry.js";
+import m_tbn_fact from "./tbn.js";
+import m_tex_fact from "./textures.js";
+import m_time_fact from "./time.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Particles internal API.

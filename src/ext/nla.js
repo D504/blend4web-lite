@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_nla_fact from "../nla";
-import m_time_fact from "../time";
-import m_print_fact from "../print";
-import m_util_fact from "../util";
+import m_nla_fact from "../nla.js";
+import m_time_fact from "../time.js";
+import m_print_fact from "../print.js";
+import m_util_fact from "../util.js";
 
 /**
  * API methods to control {@link https://www.blend4web.com/doc/en/animation.html#non-linear-animation|non linear animation}.

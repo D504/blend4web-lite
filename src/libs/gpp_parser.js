@@ -16,7 +16,7 @@
  */
 "use strict"
 
-import register from "../util/register";
+import register from "../util/register.js";
 
 /**
  * Auto-generated GLSL parser

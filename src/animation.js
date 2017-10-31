@@ -16,25 +16,25 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_armat_fact from "./armature";
-import m_cfg_fact from "./config";
-import m_lights_fact from "./lights";
-import m_obj_util_fact from "./obj_util";
-import m_particles_fact from "./particles";
-import m_phy_fact from "./physics";
-import m_print_fact from "./print";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_reformer_fact from "./reformer";
-import m_scs_fact from "./scenes";
-import m_sfx_fact from "./sfx";
-import m_subs_fact from "./subscene";
-import m_time_fact from "./time";
-import m_trans_fact from "./transform";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_armat_fact from "./armature.js";
+import m_cfg_fact from "./config.js";
+import m_lights_fact from "./lights.js";
+import m_obj_util_fact from "./obj_util.js";
+import m_particles_fact from "./particles.js";
+import m_phy_fact from "./physics.js";
+import m_print_fact from "./print.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_reformer_fact from "./reformer.js";
+import m_scs_fact from "./scenes.js";
+import m_sfx_fact from "./sfx.js";
+import m_subs_fact from "./subscene.js";
+import m_time_fact from "./time.js";
+import m_trans_fact from "./transform.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Animation internal API.

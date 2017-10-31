@@ -16,10 +16,10 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_mat3_fact from "./libs/gl_matrix/mat3";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_mat3_fact from "./libs/gl_matrix/mat3.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /* ============================================================
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/

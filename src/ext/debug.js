@@ -16,33 +16,33 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_batch_fact from "../batch";
-import m_cfg_fact from "../config";
-import m_compat_fact from "../compat";
-import m_ctl_fact from "../controls";
-import m_cont_fact from "../container";
-import m_data_fact from "../data";
-import m_debug_fact from "../debug";
-import m_ext_fact from "../extensions";
-import m_geom_fact from "../geometry";
-import m_load_fact from "../loader";
-import m_obj_fact from "../objects";
-import m_obj_util_fact from "../obj_util";
-import m_phy_fact from "../physics";
-import m_print_fact from "../print";
-import m_render_fact from "../renderer";
-import m_scenes_fact from "../scenes";
-import m_scgraph_fact from "../scenegraph";
-import m_sfx_fact from "../sfx";
-import m_shaders_fact from "../shaders";
-import m_subs_fact from "../subscene";
-import m_textures_fact from "../textures";
-import m_trans_fact from "../transform";
-import m_tsr_fact from "../tsr";
-import m_util_fact from "../util";
-import m_vec3_fact from "../libs/gl_matrix/vec3";
+import m_batch_fact from "../batch.js";
+import m_cfg_fact from "../config.js";
+import m_compat_fact from "../compat.js";
+import m_ctl_fact from "../controls.js";
+import m_cont_fact from "../container.js";
+import m_data_fact from "../data.js";
+import m_debug_fact from "../debug.js";
+import m_ext_fact from "../extensions.js";
+import m_geom_fact from "../geometry.js";
+import m_load_fact from "../loader.js";
+import m_obj_fact from "../objects.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_phy_fact from "../physics.js";
+import m_print_fact from "../print.js";
+import m_render_fact from "../renderer.js";
+import m_scenes_fact from "../scenes.js";
+import m_scgraph_fact from "../scenegraph.js";
+import m_sfx_fact from "../sfx.js";
+import m_shaders_fact from "../shaders.js";
+import m_subs_fact from "../subscene.js";
+import m_textures_fact from "../textures.js";
+import m_trans_fact from "../transform.js";
+import m_tsr_fact from "../tsr.js";
+import m_util_fact from "../util.js";
+import m_vec3_fact from "../libs/gl_matrix/vec3.js";
 
 /**
  * Engine debugging API.

@@ -16,15 +16,15 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_phy_fact from "./physics";
-import m_armat_fact from "./armature";
-import m_cam_fact from "./camera";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_phy_fact from "./physics.js";
+import m_armat_fact from "./armature.js";
+import m_cam_fact from "./camera.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Constraints internal API.

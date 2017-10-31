@@ -17,22 +17,22 @@
 
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_bounds_fact from "./boundings";
-import m_cont_fact from "./container";
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_math_fact from "./math";
-import m_obj_util_fact from "./obj_util";
-import m_print_fact from "./print";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_scenes_fact from "./scenes";
-import m_subs_fact from "./subscene";
-import m_trans_fact from "./transform";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_vec4_fact from "./libs/gl_matrix/vec4";
+import m_bounds_fact from "./boundings.js";
+import m_cont_fact from "./container.js";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_math_fact from "./math.js";
+import m_obj_util_fact from "./obj_util.js";
+import m_print_fact from "./print.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_scenes_fact from "./scenes.js";
+import m_subs_fact from "./subscene.js";
+import m_trans_fact from "./transform.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_vec4_fact from "./libs/gl_matrix/vec4.js";
 
 /**
  * Camera internal API.

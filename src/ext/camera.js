@@ -16,21 +16,21 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cam_fact from "../camera";
-import m_cont_fact from "../container";
-import m_math_fact from "../math";
-import m_obj_util_fact from "../obj_util";
-import m_phy_fact from "../physics";
-import m_print_fact from "../print";
-import m_scs_fact from "../scenes";
-import m_trans_fact from "../transform";
-import m_tsr_fact from "../tsr";
-import m_util_fact from "../util";
-import m_vec3_fact from "../libs/gl_matrix/vec3";
-import m_vec4_fact from "../libs/gl_matrix/vec4";
-import m_quat_fact from "../libs/gl_matrix/quat";
+import m_cam_fact from "../camera.js";
+import m_cont_fact from "../container.js";
+import m_math_fact from "../math.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_phy_fact from "../physics.js";
+import m_print_fact from "../print.js";
+import m_scs_fact from "../scenes.js";
+import m_trans_fact from "../transform.js";
+import m_tsr_fact from "../tsr.js";
+import m_util_fact from "../util.js";
+import m_vec3_fact from "../libs/gl_matrix/vec3.js";
+import m_vec4_fact from "../libs/gl_matrix/vec4.js";
+import m_quat_fact from "../libs/gl_matrix/quat.js";
 
 /**
  * API for controlling the camera within the bounds of the current camera model.

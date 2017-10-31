@@ -16,13 +16,13 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_ctl_fact from "../ext/controls";
-import m_scenes_fact from "../ext/scenes";
-import m_screen_fact from "../ext/screen";
-import m_sfx_fact from "../ext/sfx";
-import m_util_fact from "../ext/util";
+import m_ctl_fact from "../ext/controls.js";
+import m_scenes_fact from "../ext/scenes.js";
+import m_screen_fact from "../ext/screen.js";
+import m_sfx_fact from "../ext/sfx.js";
+import m_util_fact from "../ext/util.js";
 
 /**
  * Audio mixer add-on.

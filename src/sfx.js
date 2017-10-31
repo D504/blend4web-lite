@@ -16,15 +16,15 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cfg_fact from "./config";
-import m_print_fact from "./print";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_time_fact from "./time";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_cfg_fact from "./config.js";
+import m_print_fact from "./print.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_time_fact from "./time.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Sound effects internal API.

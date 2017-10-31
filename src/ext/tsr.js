@@ -16,10 +16,10 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_mat4_fact from "../libs/gl_matrix/mat4";
-import m_tsr_fact from "../tsr";
+import m_mat4_fact from "../libs/gl_matrix/mat4.js";
+import m_tsr_fact from "../tsr.js";
 
 /** 
  * {@link TSR} (translation, scale, rotation} utility routines.

@@ -16,10 +16,10 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_particles_fact from "../particles";
-import m_print_fact from "../print";
+import m_particles_fact from "../particles.js";
+import m_print_fact from "../print.js";
 
 /**
  * {@link https://www.blend4web.com/doc/en/particles.html|Particle system} API. Please note that particle emission itself is controlled by the {@link module:animation} module.

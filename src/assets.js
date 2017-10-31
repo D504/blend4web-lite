@@ -16,15 +16,15 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cfg_fact from "./config";
-import m_compat_fact from "./compat";
-import m_pako_fact from "./libs/pako_inflate";
-import m_print_fact from "./print";
-import m_sfg_fact from "./sfx";
-import m_util_fact from "./util";
-import m_version_fact from "./version";
+import m_cfg_fact from "./config.js";
+import m_compat_fact from "./compat.js";
+import m_pako_fact from "./libs/pako_inflate.js";
+import m_print_fact from "./print.js";
+import m_sfg_fact from "./sfx.js";
+import m_util_fact from "./util.js";
+import m_version_fact from "./version.js";
 
 /**
  * Low-level resource loader.

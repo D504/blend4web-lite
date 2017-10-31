@@ -20,7 +20,7 @@
 
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
 function MD5(ns, exports) {
 

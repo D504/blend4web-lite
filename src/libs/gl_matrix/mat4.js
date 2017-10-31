@@ -1,6 +1,6 @@
 "use strict"
 
-import register from "../../util/register";
+import register from "../../util/register.js";
 
 /**
  * @module 4x4 Matrix

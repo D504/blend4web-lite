@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_time_fact from "../time";
+import m_time_fact from "../time.js";
 /**
  * Time API.
  * @module time

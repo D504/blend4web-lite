@@ -16,13 +16,13 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_batch_fact from "../batch";
-import m_geom_fact from "../geometry";
-import m_print_fact from "../print";
-import m_render_fact from "../renderer";
-import m_tbn_fact from "../tbn";
+import m_batch_fact from "../batch.js";
+import m_geom_fact from "../geometry.js";
+import m_print_fact from "../print.js";
+import m_render_fact from "../renderer.js";
+import m_tbn_fact from "../tbn.js";
 
 /**
  * Low-level geometry API.

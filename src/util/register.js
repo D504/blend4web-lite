@@ -2,7 +2,6 @@ var _factories = {};
 var _b4w_modules = {};
 
 export default function(module_name, module_context, export_functions) {
-  console.log(module_name)
   if (_factories[module_name] !== undefined) {
     return _factories[module_name];
   } else {

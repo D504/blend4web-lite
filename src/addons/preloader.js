@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cont_fact from "../ext/container";
+import m_cont_fact from "../ext/container.js";
 
 /**
  * Preloader add-on.

@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_version_fact from "../version";
+import m_version_fact from "../version.js";
 
 /**
  * Version API. Allows to query various information about the current release.

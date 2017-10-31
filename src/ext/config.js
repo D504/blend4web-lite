@@ -16,13 +16,13 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cfg_fact from "../config";
-import m_compat_fact from "../compat";
-import m_debug_fact from "../debug";
-import m_data_fact from "../data";
-import m_print_fact from "../print";
+import m_cfg_fact from "../config.js";
+import m_compat_fact from "../compat.js";
+import m_debug_fact from "../debug.js";
+import m_data_fact from "../data.js";
+import m_print_fact from "../print.js";
 
 /**
  * API for the engine's global configuration.

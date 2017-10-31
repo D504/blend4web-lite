@@ -16,37 +16,37 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_anchors_fact from "../anchors";
-import m_anim_fact from "../animation";
-import m_assets_fact from "../assets";
-import m_cfg_fact from "../config";
-import m_compat_fact from "../compat";
-import m_cont_fact from "../container";
-import m_ctl_fact from "../controls";
-import m_data_fact from "../data";
-import m_debug_fact from "../debug";
-import m_ext_fact from "../extensions";
-import m_geom_fact from "../geometry";
-import m_input_fact from "../input";
-import m_hud_fact from "../hud";
-import m_nla_fact from "../nla";
-import m_main_fact from "../main";
-import m_lnodes_fact from "../logic_nodes";
-import m_obj_fact from "../objects";
-import m_phy_fact from "../physics";
-import m_print_fact from "../print";
-import m_render_fact from "../renderer";
-import m_scenes_fact from "../scenes";
-import m_sfx_fact from "../sfx";
-import m_shaders_fact from "../shaders";
-import m_textures_fact from "../textures";
-import m_time_fact from "../time";
-import m_trans_fact from "../transform";
-import m_util_fact from "../util";
-import m_version_fact from "../version";
-import m_particles_fact from "../particles";
+import m_anchors_fact from "../anchors.js";
+import m_anim_fact from "../animation.js";
+import m_assets_fact from "../assets.js";
+import m_cfg_fact from "../config.js";
+import m_compat_fact from "../compat.js";
+import m_cont_fact from "../container.js";
+import m_ctl_fact from "../controls.js";
+import m_data_fact from "../data.js";
+import m_debug_fact from "../debug.js";
+import m_ext_fact from "../extensions.js";
+import m_geom_fact from "../geometry.js";
+import m_input_fact from "../input.js";
+import m_hud_fact from "../hud.js";
+import m_nla_fact from "../nla.js";
+import m_main_fact from "../main.js";
+import m_lnodes_fact from "../logic_nodes.js";
+import m_obj_fact from "../objects.js";
+import m_phy_fact from "../physics.js";
+import m_print_fact from "../print.js";
+import m_render_fact from "../renderer.js";
+import m_scenes_fact from "../scenes.js";
+import m_sfx_fact from "../sfx.js";
+import m_shaders_fact from "../shaders.js";
+import m_textures_fact from "../textures.js";
+import m_time_fact from "../time.js";
+import m_trans_fact from "../transform.js";
+import m_util_fact from "../util.js";
+import m_version_fact from "../version.js";
+import m_particles_fact from "../particles.js";
 
 /**
  * Main Blend4Web module.

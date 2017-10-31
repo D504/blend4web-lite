@@ -16,20 +16,20 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_batch_fact from "./batch";
-import m_compat_fact from "./compat";
-import m_cfg_fact from "./config";
-import m_ext_fact from "./extensions";
-import m_graph_fact from "./graph";
-import m_obj_fact from "./objects";
-import m_print_fact from "./print";
-import m_scenes_fact from "./scenes";
-import m_subs_fact from "./subscene";
-import m_tex_fact from "./textures";
-import m_time_fact from "./time";
-import m_util_fact from "./util";
+import m_batch_fact from "./batch.js";
+import m_compat_fact from "./compat.js";
+import m_cfg_fact from "./config.js";
+import m_ext_fact from "./extensions.js";
+import m_graph_fact from "./graph.js";
+import m_obj_fact from "./objects.js";
+import m_print_fact from "./print.js";
+import m_scenes_fact from "./scenes.js";
+import m_subs_fact from "./subscene.js";
+import m_tex_fact from "./textures.js";
+import m_time_fact from "./time.js";
+import m_util_fact from "./util.js";
 
 /**
  * Debug routines for internal usage.

@@ -16,10 +16,10 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_print_fact from "./print";
-import m_util_fact from "./util";
+import m_print_fact from "./print.js";
+import m_util_fact from "./util.js";
 
 /**
  * Config internal API.

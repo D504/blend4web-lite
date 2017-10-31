@@ -16,11 +16,11 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_anim_fact from "../animation";
-import m_obj_util_fact from "../obj_util";
-import m_print_fact from "../print";
+import m_anim_fact from "../animation.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_print_fact from "../print.js";
 
 /**
  * API methods for animation.

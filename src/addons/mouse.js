@@ -16,16 +16,16 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cam_fact from "../ext/camera";
-import m_cont_fact from "../ext/container";
-import m_ctl_fact from "../ext/controls";
-import m_phy_fact from "../ext/physics";
-import m_print_fact from "../print";
-import m_scs_fact from "../ext/scenes";
-import m_util_fact from "../ext/util";
-import m_main_fact from "../ext/main";
+import m_cam_fact from "../ext/camera.js";
+import m_cont_fact from "../ext/container.js";
+import m_ctl_fact from "../ext/controls.js";
+import m_phy_fact from "../ext/physics.js";
+import m_print_fact from "../print.js";
+import m_scs_fact from "../ext/scenes.js";
+import m_util_fact from "../ext/util.js";
+import m_main_fact from "../ext/main.js";
 
 /**
  * Pointer lock and mouse actions add-on.

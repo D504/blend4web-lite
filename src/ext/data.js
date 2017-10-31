@@ -16,10 +16,10 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_data_fact from "../data";
-import m_loader_fact from "../loader";
+import m_data_fact from "../data.js";
+import m_loader_fact from "../loader.js";
 
 /**
  * Data API. Used to load/unload exported JSON data files.

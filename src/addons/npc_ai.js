@@ -16,18 +16,18 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_anim_fact from "../ext/animation";
-import m_ctl_fact from "../ext/controls";
-import m_quat_fact from "../libs/gl_matrix/quat";
-import m_scs_fact from "../ext/scenes";
-import m_time_fact from "../ext/time";
-import m_trans_fact from "../ext/transform";
-import m_vec3_fact from "../libs/gl_matrix/vec3";
-import m_phy_fact from "../ext/physics";
-import m_print_fact from "../print";
-import m_util_fact from "../ext/util";
+import m_anim_fact from "../ext/animation.js";
+import m_ctl_fact from "../ext/controls.js";
+import m_quat_fact from "../libs/gl_matrix/quat.js";
+import m_scs_fact from "../ext/scenes.js";
+import m_time_fact from "../ext/time.js";
+import m_trans_fact from "../ext/transform.js";
+import m_vec3_fact from "../libs/gl_matrix/vec3.js";
+import m_phy_fact from "../ext/physics.js";
+import m_print_fact from "../print.js";
+import m_util_fact from "../ext/util.js";
 
 /**
  * Non-player character add-on.

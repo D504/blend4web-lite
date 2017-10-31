@@ -19,30 +19,30 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_anim_fact from "./animation";
-import m_assets_fact from "./assets";
-import m_cam_fact from "./camera";
-import m_nla_fact from "./nla";
-import m_obj_fact from "./objects";
-import m_print_fact from "./print";
-import m_scs_fact from "./scenes";
-import m_cfg_fact from "./config";
-import m_ctl_fact from "./controls";
-import m_batch_fact from "./batch";
-import m_geom_fact from "./geometry";
-import m_mat3_fact from "./libs/gl_matrix/mat3";
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_phy_fact from "./physics";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_sfx_fact from "./sfx";
-import m_time_fact from "./time";
-import m_trans_fact from "./transform";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_obj_util_fact from "./obj_util";
+import m_anim_fact from "./animation.js";
+import m_assets_fact from "./assets.js";
+import m_cam_fact from "./camera.js";
+import m_nla_fact from "./nla.js";
+import m_obj_fact from "./objects.js";
+import m_print_fact from "./print.js";
+import m_scs_fact from "./scenes.js";
+import m_cfg_fact from "./config.js";
+import m_ctl_fact from "./controls.js";
+import m_batch_fact from "./batch.js";
+import m_geom_fact from "./geometry.js";
+import m_mat3_fact from "./libs/gl_matrix/mat3.js";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_phy_fact from "./physics.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_sfx_fact from "./sfx.js";
+import m_time_fact from "./time.js";
+import m_trans_fact from "./transform.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_obj_util_fact from "./obj_util.js";
 
 /**
  * Logic Nodes scheduler module.

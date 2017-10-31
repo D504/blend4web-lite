@@ -16,20 +16,20 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_bounds_fact from "./boundings";
-import m_cfg_fact from "./config";
-import m_curve_fact from "./curve";
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_print_fact from "./print";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_tbn_fact from "./tbn";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_mat3_fact from "./libs/gl_matrix/mat3";
-import m_logn_fact from "./logic_nodes";
-import m_anim_fact from "./animation";
+import m_bounds_fact from "./boundings.js";
+import m_cfg_fact from "./config.js";
+import m_curve_fact from "./curve.js";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_print_fact from "./print.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_tbn_fact from "./tbn.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_mat3_fact from "./libs/gl_matrix/mat3.js";
+import m_logn_fact from "./logic_nodes.js";
+import m_anim_fact from "./animation.js";
 
 /**
  * Data reformer internal API.

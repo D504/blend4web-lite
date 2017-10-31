@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_print_fact from "../print";
+import m_print_fact from "../print.js";
 /**
  * Local storage add-on.
  * @see http://www.w3.org/TR/webstorage/

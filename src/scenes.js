@@ -16,38 +16,38 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_batch_fact from "./batch";
-import m_bounds_fact from "./boundings";
-import m_cam_fact from "./camera";
-import m_cfg_fact from "./config";
-import m_cont_fact from "./container";
-import m_debug_fact from "./debug";
-import m_graph_fact from "./graph";
-import m_hud_fact from "./hud";
-import m_input_fact from "./input";
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_nodemat_fact from "./nodemat";
-import m_obj_fact from "./objects";
-import m_textures_fact from "./textures";
-import m_obj_util_fact from "./obj_util";
-import m_phy_fact from "./physics";
-import m_prerender_fact from "./prerender";
-import m_primitives_fact from "./primitives";
-import m_print_fact from "./print";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_render_fact from "./renderer";
-import m_scgraph_fact from "./scenegraph";
-import m_sfx_fact from "./sfx";
-import m_shaders_fact from "./shaders";
-import m_subs_fact from "./subscene";
-import m_tex_fact from "./textures";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_vec4_fact from "./libs/gl_matrix/vec4";
-import m_version_fact from "./version";
+import m_batch_fact from "./batch.js";
+import m_bounds_fact from "./boundings.js";
+import m_cam_fact from "./camera.js";
+import m_cfg_fact from "./config.js";
+import m_cont_fact from "./container.js";
+import m_debug_fact from "./debug.js";
+import m_graph_fact from "./graph.js";
+import m_hud_fact from "./hud.js";
+import m_input_fact from "./input.js";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_nodemat_fact from "./nodemat.js";
+import m_obj_fact from "./objects.js";
+import m_textures_fact from "./textures.js";
+import m_obj_util_fact from "./obj_util.js";
+import m_phy_fact from "./physics.js";
+import m_prerender_fact from "./prerender.js";
+import m_primitives_fact from "./primitives.js";
+import m_print_fact from "./print.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_render_fact from "./renderer.js";
+import m_scgraph_fact from "./scenegraph.js";
+import m_sfx_fact from "./sfx.js";
+import m_shaders_fact from "./shaders.js";
+import m_subs_fact from "./subscene.js";
+import m_tex_fact from "./textures.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_vec4_fact from "./libs/gl_matrix/vec4.js";
+import m_version_fact from "./version.js";
 
 /**
  * Scene internal API.
@@ -2823,7 +2823,7 @@ function update_subs_light_params(lamp, sc_data, subs) {
     _vec4_tmp[1] = intens[1];
     _vec4_tmp[2] = intens[2];
     // NOTE: encoding light_factor for specular
-    _vec4_tmp[3] = light.use_specular && !lamp_render.hide ? 1.0 : 0.0;;
+    _vec4_tmp[3] = light.use_specular && !lamp_render.hide ? 1.0 : 0.0;
     subs.light_color_intensities.set(_vec4_tmp, ind * 4);
 
     subs.need_perm_uniforms_update = true;

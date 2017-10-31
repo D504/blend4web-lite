@@ -16,10 +16,10 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cont_fact from "../container";
-import m_print_fact from "../print";
+import m_cont_fact from "../container.js";
+import m_print_fact from "../print.js";
 
 /**
  * Provides access to the 3D canvas element and its container.

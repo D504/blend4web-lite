@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_graph_fact from "./graph";
-import m_print_fact from "./print";
-import m_util_fact from "./util";
-import m_cfg_fact from "./config";
+import m_graph_fact from "./graph.js";
+import m_print_fact from "./print.js";
+import m_util_fact from "./util.js";
+import m_cfg_fact from "./config.js";
 
 function Int_loader(ns, exports) {
 

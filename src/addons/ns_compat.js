@@ -16,7 +16,7 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
 if (!window["b4w"])
     throw "Failed to register module ns_compat, load b4w first";

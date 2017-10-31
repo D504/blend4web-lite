@@ -1,10 +1,10 @@
 "use strict"
 
-import register from "../../util/register";
+import register from "../../util/register.js";
 
-import vec3_fact from "./vec3";
-import vec4_fact from "./vec4";
-import mat3_fact from "./mat3";
+import vec3_fact from "./vec3.js";
+import vec4_fact from "./vec4.js";
+import mat3_fact from "./mat3.js";
 
 /**
  * @module Quaternion

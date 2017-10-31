@@ -16,17 +16,17 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cam_fact from "../ext/camera";
-import m_ctl_fact from "../ext/controls";
-import m_input_fact from "../ext/input";
-import m_quat_fact from "../libs/gl_matrix/quat";
-import m_scenes_fact from "../ext/scenes";
-import m_screen_fact from "../ext/screen";
-import m_trans_fact from "../ext/transform";
-import m_util_fact from "../ext/util";
-import m_vec3_fact from "../libs/gl_matrix/vec3";
+import m_cam_fact from "../ext/camera.js";
+import m_ctl_fact from "../ext/controls.js";
+import m_input_fact from "../ext/input.js";
+import m_quat_fact from "../libs/gl_matrix/quat.js";
+import m_scenes_fact from "../ext/scenes.js";
+import m_screen_fact from "../ext/screen.js";
+import m_trans_fact from "../ext/transform.js";
+import m_util_fact from "../ext/util.js";
+import m_vec3_fact from "../libs/gl_matrix/vec3.js";
 
 /**
  * Head Mounted Devices add-on.

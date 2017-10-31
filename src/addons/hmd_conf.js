@@ -16,14 +16,14 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cont_fact from "../ext/container";
-import m_ctl_fact from "../ext/controls";
-import m_input_fact from "../ext/input";
-import m_print_fact from "../print";
-import m_storage_fact from "./storage";
-import m_util_fact from "../ext/util";
+import m_cont_fact from "../ext/container.js";
+import m_ctl_fact from "../ext/controls.js";
+import m_input_fact from "../ext/input.js";
+import m_print_fact from "../print.js";
+import m_storage_fact from "./storage.js";
+import m_util_fact from "../ext/util.js";
 
 /**
  * HMD configurator add-on.

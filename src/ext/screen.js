@@ -16,18 +16,18 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cam_fact from "../camera";
-import m_cont_fact from "../container";
-import m_cfg_fact from "../config";
-import m_hud_fact from "../hud";
-import m_input_fact from "../input";
-import m_main_fact from "../main";
-import m_obj_util_fact from "../obj_util";
-import m_print_fact from "../print";
-import m_scs_fact from "../scenes";
-import m_vec4_fact from "../libs/gl_matrix/vec4";
+import m_cam_fact from "../camera.js";
+import m_cont_fact from "../container.js";
+import m_cfg_fact from "../config.js";
+import m_hud_fact from "../hud.js";
+import m_input_fact from "../input.js";
+import m_main_fact from "../main.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_print_fact from "../print.js";
+import m_scs_fact from "../scenes.js";
+import m_vec4_fact from "../libs/gl_matrix/vec4.js";
 
 /**
  * Screen API

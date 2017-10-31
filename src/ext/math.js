@@ -16,11 +16,11 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_vec3_fact from "../libs/gl_matrix/vec3";
-import m_util_fact from "../util";
-import m_math_fact from "../math";
+import m_vec3_fact from "../libs/gl_matrix/vec3.js";
+import m_util_fact from "../util.js";
+import m_math_fact from "../math.js";
 
 /**
  * Auxiliary math methods. For math methods operating on vectors, matrices or quaternions see the

@@ -16,22 +16,22 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_compat_fact from "./compat";
-import m_cfg_fact from "./config";
-import m_texcomp_fact from "./texcomp";
-import m_debug_fact from "./debug";
-import m_ext_fact from "./extensions";
-import m_print_fact from "./print";
-import m_time_fact from "./time";
-import m_util_fact from "./util";
-import m_ren_fact from "./renderer";
-import m_objs_fact from "./objects";
-import m_obj_util_fact from "./obj_util";
-import m_curve_fact from "./curve";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_scs_fact from "./scenes";
+import m_compat_fact from "./compat.js";
+import m_cfg_fact from "./config.js";
+import m_texcomp_fact from "./texcomp.js";
+import m_debug_fact from "./debug.js";
+import m_ext_fact from "./extensions.js";
+import m_print_fact from "./print.js";
+import m_time_fact from "./time.js";
+import m_util_fact from "./util.js";
+import m_ren_fact from "./renderer.js";
+import m_objs_fact from "./objects.js";
+import m_obj_util_fact from "./obj_util.js";
+import m_curve_fact from "./curve.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_scs_fact from "./scenes.js";
 
 /**
  * Textures internal API.

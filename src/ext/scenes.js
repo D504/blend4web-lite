@@ -16,20 +16,20 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_batch_fact from "../batch";
-import m_cam_fact from "../camera";
-import m_cont_fact from "../container";
-import m_data_fact from "../data";
-import m_graph_fact from "../graph";
-import m_obj_fact from "../objects";
-import m_obj_util_fact from "../obj_util";
-import m_print_fact from "../print";
-import m_scenes_fact from "../scenes";
-import m_scgraph_fact from "../scenegraph";
-import m_subs_fact from "../subscene";
-import m_util_fact from "../util";
+import m_batch_fact from "../batch.js";
+import m_cam_fact from "../camera.js";
+import m_cont_fact from "../container.js";
+import m_data_fact from "../data.js";
+import m_graph_fact from "../graph.js";
+import m_obj_fact from "../objects.js";
+import m_obj_util_fact from "../obj_util.js";
+import m_print_fact from "../print.js";
+import m_scenes_fact from "../scenes.js";
+import m_scgraph_fact from "../scenegraph.js";
+import m_subs_fact from "../subscene.js";
+import m_util_fact from "../util.js";
 
 /**
  * Scene API.

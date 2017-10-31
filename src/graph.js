@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_util_fact from "./util";
+import m_util_fact from "./util.js";
 /**
  * Generic graph routines.
  *

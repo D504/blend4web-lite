@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_cont_fact from "../ext/container";
-import m_ctrl_fact from "../ext/controls";
-import m_input_fact from "../ext/input";
-import m_storage_fact from "./storage";
+import m_cont_fact from "../ext/container.js";
+import m_ctrl_fact from "../ext/controls.js";
+import m_input_fact from "../ext/input.js";
+import m_storage_fact from "./storage.js";
 
 /**
  * Gamepads configurator add-on.

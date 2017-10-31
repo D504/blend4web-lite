@@ -16,12 +16,12 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cam_fact from "./camera";
-import m_cfg_fact from "./config";
-import m_util_fact from "./util";
-import m_bounds_fact from "./boundings";
+import m_cam_fact from "./camera.js";
+import m_cfg_fact from "./config.js";
+import m_util_fact from "./util.js";
+import m_bounds_fact from "./boundings.js";
 
 /**
  * Rendering graph routines.

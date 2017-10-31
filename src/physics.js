@@ -16,22 +16,22 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_cfg_fact from "./config";
-import m_debug_fact from "./debug";
-import m_ipc_fact from "./ipc";
-import m_obj_util_fact from "./obj_util";
-import m_print_fact from "./print";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_scs_fact from "./scenes";
-import m_subs_fact from "./subscene";
-import m_trans_fact from "./transform";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_version_fact from "./version";
-import m_navmesh_fact from "./navmesh";
+import m_cfg_fact from "./config.js";
+import m_debug_fact from "./debug.js";
+import m_ipc_fact from "./ipc.js";
+import m_obj_util_fact from "./obj_util.js";
+import m_print_fact from "./print.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_scs_fact from "./scenes.js";
+import m_subs_fact from "./subscene.js";
+import m_trans_fact from "./transform.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_version_fact from "./version.js";
+import m_navmesh_fact from "./navmesh.js";
 
 /**
  * Physics internal API.

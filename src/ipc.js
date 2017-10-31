@@ -16,10 +16,10 @@
  */
 // "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_util_fact from "./util"
-import m_cont_fact from "./container"
+import m_util_fact from "./util.js";
+import m_cont_fact from "./container.js";
 
 /**
  * Physics worker Inter Process Communication API.

@@ -16,21 +16,21 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_batch_fact from "./batch";
-import m_cam_fact from "./camera";
-import m_cfg_fact from "./config";
-import m_debug_fact from "./debug";
-import m_ext_fact from "./extensions";
-import m_geom_fact from "./geometry";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_subs_fact from "./subscene";
-import m_textures_fact from "./textures";
-import m_tsr_fact from "./tsr";
-import m_util_fact from "./util";
-import m_ver_fact from "./version";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
+import m_batch_fact from "./batch.js";
+import m_cam_fact from "./camera.js";
+import m_cfg_fact from "./config.js";
+import m_debug_fact from "./debug.js";
+import m_ext_fact from "./extensions.js";
+import m_geom_fact from "./geometry.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_subs_fact from "./subscene.js";
+import m_textures_fact from "./textures.js";
+import m_tsr_fact from "./tsr.js";
+import m_util_fact from "./util.js";
+import m_ver_fact from "./version.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
 
 /**
  * Rendering internal API.

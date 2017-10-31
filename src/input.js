@@ -16,18 +16,18 @@
  */
 "use strict";
 
-import register from "./util/register";
+import register from "./util/register.js";
 
-import m_compat_fact from "./compat";
-import m_cont_fact from "./container";
-import m_cfg_fact from "./config";
-import m_mat4_fact from "./libs/gl_matrix/mat4";
-import m_print_fact from "./print";
-import m_tsr_fact from "./tsr";
-import m_quat_fact from "./libs/gl_matrix/quat";
-import m_util_fact from "./util";
-import m_vec3_fact from "./libs/gl_matrix/vec3";
-import m_vec4_fact from "./libs/gl_matrix/vec4";
+import m_compat_fact from "./compat.js";
+import m_cont_fact from "./container.js";
+import m_cfg_fact from "./config.js";
+import m_mat4_fact from "./libs/gl_matrix/mat4.js";
+import m_print_fact from "./print.js";
+import m_tsr_fact from "./tsr.js";
+import m_quat_fact from "./libs/gl_matrix/quat.js";
+import m_util_fact from "./util.js";
+import m_vec3_fact from "./libs/gl_matrix/vec3.js";
+import m_vec4_fact from "./libs/gl_matrix/vec4.js";
 
 /**
  * Input devices internal API.

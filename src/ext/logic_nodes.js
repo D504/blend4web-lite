@@ -16,9 +16,9 @@
  */
 "use strict";
 
-import register from "../util/register";
+import register from "../util/register.js";
 
-import m_logn_fact from "../logic_nodes";
+import m_logn_fact from "../logic_nodes.js";
 /**
  * API methods to control the {@link https://www.blend4web.com/doc/en/logic_editor.html|Logic Editor}.
  * @module logic_nodes
